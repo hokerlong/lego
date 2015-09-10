@@ -1,1 +1,3 @@
-#30 * * * * uptime #Runs at 30 minutes past the hour
+#crontab is overriding by /home/ec2-user/git/lego/sysadm/crontab every 10 mins.
+0 */10 * * * crontab /home/ec2-user/git/lego/sysadm/crontab >/dev/null 2>&1
+0 */15 * * * /home/ec2-user/git/lego/sysadm/git_publish.sh >/dev/null 2>&1

@@ -6,4 +6,4 @@ WWWDIR=$HOMEDIR/htdoc
 cd $GITDIR;
 git pull;
 
-rsync -r --delete --exclude="conn.php" $GITDIR/htdoc/ $WWWDIR;
+rsync -r --delete --exclude-from=$GITDIR/sysadm/rsync_htdoc_no_del $GITDIR/htdoc/ $WWWDIR;
