@@ -4,6 +4,43 @@ ini_set('memory_limit', '256M');
 
 mb_internal_encoding('utf-8');
 
+function getArray($node)
+{ 
+	$array = false; 
+
+	//echo var_dump($node);
+	if ($node->hasAttributes())
+	{ 
+		foreach ($node->attributes as $attr)
+		{ 
+			$array[$attr->nodeName] = $attr->nodeValue; 
+		} 
+	} 
+
+	if ($node->hasChildNodes())
+	{ 
+		if ($node->childNodes->length == 1)
+		{ 
+			$array[$node->firstChild->nodeName] = $node->firstChild->nodeValue; 
+		}
+		else
+		{ 
+			foreach ($node->childNodes as $childNode)
+			{
+				if ($childNode->nodeName == "br")
+				{
+					$array["#text"] = $node->nodeValue;
+				}
+				if ($childNode->nodeType != XML_TEXT_NODE)
+				{ 
+					$array[$childNode->nodeName][] = getArray($childNode); 
+				} 
+			} 
+		} 
+	} 
+	return $array; 
+} 
+
 function curl_htmldom($url)
 {
 	$ch = curl_init(); 
@@ -32,6 +69,101 @@ function curl_htmldom($url)
 	{
 		return false;
 	}
+}
+
+function crawl_brickset($LegoID)
+{
+	$ret = new stdClass();
+
+	$ret->{'URL'} = 'brickset.com/sets/'.$LegoID.'-1';
+	$htmldom = curl_htmldom($ret->{'URL'});
+
+	if ($htmldom)
+	{
+		$titleDom = $htmldom->find('section[class=main]/header/h1', 0);
+		if (isset($titleDom))
+		{
+			$ret->{'ETitle'} = trim(str_replace($LegoID."-1: ", "", $titleDom->plaintext));
+		}
+
+		$dom = new DOMDocument();
+		$dom->loadHTML($htmldom->find('section[class=featurebox]/div[class=text]', 0)->innertext);
+		$nodes = $dom->getElementsByTagName('dl');
+		foreach ($nodes as $node)
+		{
+			$dl = getArray($node);
+		}
+		$dt = $dl["dt"];
+		$dd = $dl["dd"];
+		for ($i = 0; $i <= count($dt); $i++)
+		{
+			if ($dt[$i]["#text"] == "Theme")
+			{
+				$ret->{'Theme'} = trim($dd[$i]["a"]);
+			}
+			elseif ($dt[$i]["#text"] == "Subtheme")
+			{
+				$ret->{'Subtheme'} = trim($dd[$i]["a"]);
+			}
+			elseif ($dt[$i]["#text"] == "Year released")
+			{
+				$ret->{'Year'} = trim($dd[$i]["a"]);
+			}
+			elseif ($dt[$i]["#text"] == "Pieces")
+			{
+				$ret->{'Pieces'} = trim($dd[$i]["a"]);
+			}
+			elseif ($dt[$i]["#text"] == "Age range")
+			{
+				$ret->{'Age'} = str_replace(" ", "", trim($dd[$i]["#text"]));
+			}
+			elseif ($dt[$i]["#text"] == "Minifigs")
+			{
+				$ret->{'Minifigs'} = trim($dd[$i]["a"]);
+			}
+			elseif ($dt[$i]["#text"] == "RRP")
+			{
+				if (preg_match("/US.(\d+\.\d+)/", trim($dd[$i]["#text"]), $m))
+				{
+					$ret->{'USPrice'} = (float)$m[1];
+				}
+			}
+			elseif ($dt[$i]["#text"] == "Barcodes")
+			{
+				$barcodes = trim($dd[$i]["#text"]);
+				//echo var_dump($dd[$i]);
+				if (preg_match('/UPC: (\d{12})/', $barcodes,  $matches))
+				{
+					$ret->{'UPC'} = (int)$matches[1];
+				}
+				else
+				{
+					$ret->{'UPC'} = null;
+				}
+				if (preg_match('/EAN: (\d{13})/', $barcodes,  $matches))
+				{
+					$ret->{'EAN'} = (int)$matches[1];
+				}
+				else
+				{
+					$ret->{'EAN'} = null;
+				}
+			}
+			elseif ($dt[$i]["#text"] == "LEGO item numbers")
+			{
+				$legosnstr = trim($dd[$i]["#text"]);
+				if (preg_match('/NA: (\d{7})/', $legosnstr,  $m))
+				{
+					$ret->{'USItemSN'} = (int)$m[1];
+				}
+				if (preg_match('/EU: (\d{7})/', $legosnstr,  $m))
+				{
+					$ret->{'EUItemSN'} = (int)$m[1];
+				}
+			}											
+		}
+	}
+	return json_encode($ret);
 }
 
 
