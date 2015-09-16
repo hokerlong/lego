@@ -3,7 +3,7 @@ HOMEDIR=/home/ec2-user
 GITDIR=$HOMEDIR/git/lego
 SCANDIR=$GITDIR/lego_scan;
 
-/usr/bin/php $GITDIR/htdoc/legoshop_scan.php > $SCANDIR/snapshot.csv;
+/usr/bin/php $HOMEDIR/htdoc/legoshop_scan.php > $SCANDIR/snapshot.csv;
 
 TIME=$(date +%Y%m%d%H%M);
 
