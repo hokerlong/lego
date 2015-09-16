@@ -163,7 +163,7 @@ function crawl_brickset($LegoID)
 			}											
 		}
 	}
-	return json_encode($ret);
+	return $ret;
 }
 
 
@@ -191,13 +191,33 @@ function crawl_lego()
 		foreach ($items as $item)
 		{
 			$LegoID = $item->find('/h4/span[class="item-code"]', 0)->plaintext;
-			if (isset($LegoID))
+			if (isset($LegoID) && $LegoID <> "")
 			{
 				$retItem = new stdClass();
 				$retItem->{'LegoID'} = $LegoID;
 				$retItem->{'Title'} = $item->find('/h4/a[title]', 0)->plaintext;
 				//$retItem->{'URL'} = $item->find('/h4/a[title]', 0)->href;
-				$retItem->{'Availability'} = $item->find('/ul/li[class^="availability"]/em', 0)->plaintext;
+				$strAvailability = trim($item->find('/ul/li[class^="availability"]/em', 0)->plaintext);
+				if ($strAvailability == "Retired product")
+				{
+					$retItem->{'Availability'} = "Retired";
+				}
+				elseif ($strAvailability == "Available Now")
+				{
+					$retItem->{'Availability'} = "Available";
+				}
+				elseif (($strAvailability == "Sold Out") || (preg_match("/Out of stock/ui", $strAvailability)) || (preg_match("/Call to check/ui", $strAvailability)))
+				{
+					$retItem->{'Availability'} = "Sold Out";
+				}
+				elseif (preg_match("/Coming Soon/ui", $strAvailability))
+				{
+					$retItem->{'Availability'} = "Coming Soon";
+				}
+				else
+				{
+					$retItem->{'Availability'} = "Unknown";
+				}
 				$retItem->{'Price'} = trim(str_replace("$", "", $item->find('/ul[class^="test-navigation-show-price-"]/li/em', 0)->plaintext));
 				$saleprice = $item->find('/ul[class^="test-navigation-show-price-"]/li/em', 1)->plaintext;
 				if (isset($saleprice))
@@ -210,7 +230,7 @@ function crawl_lego()
 		}	
 	}
 
-	return json_encode($ret);
+	return $ret;
 }
 
 function crawl_walmart()
@@ -256,7 +276,7 @@ function crawl_walmart()
 			array_push($ret->{'Items'}, $retItem);
 		}
 	}
-	return json_encode($ret);
+	return $ret;
 
 }
 
