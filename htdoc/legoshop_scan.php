@@ -1,6 +1,7 @@
 <?php
 require_once("crawlers.php");
 require_once("db_handler.php");
+require_once("twitter_handler.php");
 
 function pull_DBSet($fields, $condition)
 {
@@ -104,9 +105,18 @@ foreach ($sortedItems as $item)
 		if ($dbitem->{'Availability'} <> $item->{'Availability'})
 		{
 			$arrfields['Availability'] = $item->{'Availability'};
-			if ($item->{'Availability'} == 'Retired')
+
+			if ($item->{'Availability'} == 'Available')
 			{
-				// send of retirement notification
+				send_Message(NOTIFICATION_RECIPIENT, $item->{'LegoID'}."-".$item->{'Title'}.": Availability changed from '".$dbitem->{'Availability'}."' to '".$item->{'Availability'}."'");
+			}
+			elseif ($item->{'Availability'} == 'Out of Stock')
+			{
+				send_Message(NOTIFICATION_RECIPIENT, $item->{'LegoID'}."-".$item->{'Title'}.": Availability changed from '".$dbitem->{'Availability'}."' to '".$item->{'Availability'}."'");
+			}
+			elseif ($item->{'Availability'} == 'Retired')
+			{
+				send_Message(NOTIFICATION_RECIPIENT, $item->{'LegoID'}."-".$item->{'Title'}.": Availability changed from '".$dbitem->{'Availability'}."' to '".$item->{'Availability'}."'");
 			}
 		}
 		if (count($arrfields))
