@@ -1,4 +1,4 @@
 
-Warning: require_once(conn.php): failed to open stream: No such file or directory in /home/ec2-user/git/lego/htdoc/db_handler.php on line 2
+Warning: require_once(./crawlers.php): failed to open stream: No such file or directory in /var/www/html/legoshop_scan.php on line 2
 
-Fatal error: require_once(): Failed opening required 'conn.php' (include_path='.:/usr/share/pear:/usr/share/php') in /home/ec2-user/git/lego/htdoc/db_handler.php on line 2
+Fatal error: require_once(): Failed opening required './crawlers.php' (include_path='.:/usr/share/pear:/usr/share/php') in /var/www/html/legoshop_scan.php on line 2
