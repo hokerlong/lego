@@ -3,58 +3,6 @@ require_once("crawlers.php");
 require_once("db_handler.php");
 require_once("twitter_handler.php");
 
-function pull_DBSet($fields, $condition)
-{
-	array_push($fields, "LegoID");
-
-	$LegoDB = array();
-
-	$ret = db_query("DB_Set", $fields, $condition);
-	if (!$ret->{'Status'})
-	{
-		foreach ($ret->{'Results'} as $item)
-		{
-			$id = intval($item->{'LegoID'});
-			$LegoDB[$id] = $item;
-		}
-		//ksort($LegoDB);
-		return $LegoDB;
-	}
-	else
-	{
-		//echo $ret->{'Message'};
-		return false;
-	}
-}
-
-function insert_NewID($field)
-{
-	$ret = db_insert("DB_Set", $field, null, false);
-	if (!$ret->{'Status'})
-	{
-		return $ret->{'InsertID'};
-	}
-	else
-	{
-		//echo $ret->{'Message'};
-		return false;
-	}
-}
-
-function update_Item($identifier, $field)
-{
-	$ret = db_update("DB_Set", $field, $identifier);
-	if (!$ret->{'Status'})
-	{
-		return true;
-	}
-	else
-	{
-		echo $ret->{'Message'};
-		return false;
-	}
-}
-
 $LegoDB = pull_DBSet(array("ETitle", "USPrice", "Availability"), null);
 
 $LegoInfo = crawl_lego();
@@ -90,7 +38,7 @@ foreach ($sortedItems as $item)
 	echo $item->{'LegoID'}.",\"".$item->{'Availability'}."\",".$price.",".$salePrice.",\"".$item->{'Title'}."\"\n";
 
 	//update DB_Set
-	if(isset($LegoDB[$item->{'LegoID'}]))
+	if (isset($LegoDB[$item->{'LegoID'}]))
 	{
 		$dbitem = $LegoDB[$item->{'LegoID'}];
 		$arrfields = array();
@@ -106,27 +54,18 @@ foreach ($sortedItems as $item)
 		{
 			$arrfields['Availability'] = $item->{'Availability'};
 
-			if ($item->{'Availability'} == 'Available')
-			{
-				send_Message(NOTIFICATION_RECIPIENT, $item->{'LegoID'}."-".$item->{'Title'}.": Availability changed from '".$dbitem->{'Availability'}."' to '".$item->{'Availability'}."'");
-			}
-			elseif ($item->{'Availability'} == 'Out of Stock')
-			{
-				send_Message(NOTIFICATION_RECIPIENT, $item->{'LegoID'}."-".$item->{'Title'}.": Availability changed from '".$dbitem->{'Availability'}."' to '".$item->{'Availability'}."'");
-			}
-			elseif ($item->{'Availability'} == 'Retired')
-			{
-				send_Message(NOTIFICATION_RECIPIENT, $item->{'LegoID'}."-".$item->{'Title'}.": Availability changed from '".$dbitem->{'Availability'}."' to '".$item->{'Availability'}."'");
-			}
+			send_Message(NOTIFICATION_RECIPIENT, $item->{'LegoID'}." - ".$item->{'Title'}.": Availability changed from '".$dbitem->{'Availability'}."' to '".$item->{'Availability'}."'");
 		}
 		if (count($arrfields))
 		{
-			update_Item(array("LegoID" => $item->{'LegoID'}), $arrfields);
+			update_DBSet(array("LegoID" => $item->{'LegoID'}), $arrfields);
 		}
 	}
 	else
 	{
-		insert_NewID(array("LegoID" => $item->{'LegoID'}, "ETitle" => $item->{'Title'}, "USPrice" => $item->{'Price'}));
+		send_Message(NOTIFICATION_RECIPIENT, "New item listed on shop.lego.com: ".$item->{'LegoID'}." - ".$item->{'Title'});
+
+		insert_DBSet(array("LegoID" => $item->{'LegoID'}, "ETitle" => $item->{'Title'}, "USPrice" => $item->{'Price'}));
 	}
 }
 ?>
