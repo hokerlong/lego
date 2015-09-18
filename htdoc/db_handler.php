@@ -22,8 +22,9 @@ function db_query($table, $fields, $condition)
 	{
 		$condition = " WHERE ".$condition;
 	}
-	$query = "SELECT ".$mysqli->real_escape_string($fieldstr)." FROM ".$mysqli->real_escape_string($table).$mysqli->real_escape_string($condition).";";
+	$query = "SELECT ".$mysqli->real_escape_string($fieldstr)." FROM ".$mysqli->real_escape_string($table).$condition.";";
 	$ret->{'Query'} = $query;
+	//var_dump($query);
 	$result = $mysqli->query($query);
 
 	$results = array();
@@ -152,4 +153,57 @@ function db_update($table, $fields, $condition)
 	$mysqli->close();
 	return $ret;
 }
+
+function pull_DBSet($fields, $condition)
+{
+	array_push($fields, "LegoID");
+
+	$LegoDB = array();
+
+	$ret = db_query("DB_Set", $fields, $condition);
+	if (!$ret->{'Status'})
+	{
+		foreach ($ret->{'Results'} as $item)
+		{
+			$id = intval($item->{'LegoID'});
+			$LegoDB[$id] = $item;
+		}
+		//ksort($LegoDB);
+		return $LegoDB;
+	}
+	else
+	{
+		//echo $ret->{'Message'};
+		return false;
+	}
+}
+
+function insert_DBSet($field)
+{
+	$ret = db_insert("DB_Set", $field, null, false);
+	if (!$ret->{'Status'})
+	{
+		return $ret->{'InsertID'};
+	}
+	else
+	{
+		//echo $ret->{'Message'};
+		return false;
+	}
+}
+
+function update_DBSet($identifier, $field)
+{
+	$ret = db_update("DB_Set", $field, $identifier);
+	if (!$ret->{'Status'})
+	{
+		return true;
+	}
+	else
+	{
+		echo $ret->{'Message'};
+		return false;
+	}
+}
+
 ?>
