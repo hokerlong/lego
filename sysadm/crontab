@@ -2,3 +2,4 @@
 */10 * * * *  crontab /home/ec2-user/git/lego/sysadm/crontab >/dev/null 2>&1
 */10 * * * *  /home/ec2-user/git/lego/sysadm/git_publish.sh >/dev/null 2>&1
 0 * * * *     /home/ec2-user/git/lego/sysadm/legoshop_scan.sh >/dev/null 2>&1
+15/45 * * * *	/usr/bin/php /home/ec2-user/htdoc/brickset_updater.php >> /home/ec2-user/logs/brickset_updater.log 2>&1
