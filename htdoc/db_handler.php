@@ -206,4 +206,172 @@ function update_DBSet($identifier, $field)
 	}
 }
 
+function search_legoid($info)
+{
+	$ret = new stdClass();
+	$starttime = microtime(true);
+
+	if (!empty($info['Barcode']))
+	{
+		$barcode = $info['Barcode'];
+		$ret->{'QueryBarcode'} = $barcode;
+
+		if (preg_match("/^673419\d{6}$/", $barcode))
+		{
+			$type = "UPC";
+		}
+		elseif (preg_match("/^5\d{12}$/", $barcode))
+		{
+			$type = "EAN";
+		}
+		elseif (preg_match("/^0673419\d{6}$/", $barcode))
+		{
+			$type = "UPC";
+			$barcode = substr($barcode, 1);
+		}
+		elseif (preg_match("/^\d{7}$/", $barcode))
+		{
+			$type = "ItemSN";
+		}
+
+		if (isset($type))
+		{
+			if ($type == "ItemSN")
+			{
+				$dbquery = db_query("DB_Set", array("LegoID", "ETitle"), "USItemSN = '".$barcode."' OR EUItemSN = '".$barcode."' LIMIT 1");
+				if (!$dbquery->{'Status'})
+				{
+					if (count($dbquery->{'Results'}) == 1)
+					{
+						$ret->{'MatchID'} = $dbquery->{'Results'}[0]->{'LegoID'};
+						$ret->{'MatchTitle'} = $dbquery->{'Results'}[0]->{'ETitle'};
+						$ret->{'MatchType'} = $type;
+					}
+				}
+			}
+			else
+			{
+				$dbquery = db_query("DB_Set", array("LegoID", "ETitle"), $type." = '".$barcode."' LIMIT 1");
+				if (!$dbquery->{'Status'})
+				{
+					if (count($dbquery->{'Results'}) == 1)
+					{
+						$ret->{'MatchID'} = $dbquery->{'Results'}[0]->{'LegoID'};
+						$ret->{'MatchTitle'} = $dbquery->{'Results'}[0]->{'ETitle'};
+						$ret->{'MatchType'} = $type;
+					}
+				}				
+			}
+		}
+		else
+		{
+			$dbquery = db_query("DB_Set", array("LegoID", "ETitle"), "EAN = '".$barcode."' OR UPC = '".$barcode."' OR USItemSN = '".$barcode."' OR EUItemSN = '".$barcode."' OR 3rdCode = '".$barcode."' LIMIT 1");
+			if (!$dbquery->{'Status'})
+			{
+				if (count($dbquery->{'Results'}) == 1)
+				{
+					$ret->{'MatchID'} = $dbquery->{'Results'}[0]->{'LegoID'};
+					$ret->{'MatchTitle'} = $dbquery->{'Results'}[0]->{'ETitle'};
+					$ret->{'MatchType'} = $type;
+				}
+			}		
+		}
+		//var_dump($type, $barcode);
+	}
+	elseif (!empty($info['Title']))
+	{
+		$title = $info['Title'];
+
+		$title = trim(preg_replace("/(\s*)lego(\s*)/ui", "", $title));
+		$title = trim(preg_replace("/(\s*)build(ing)*(\s*)(set)*/ui", "", $title));
+
+		/*
+		$dbquery = db_query("DB_Theme", array("ThemeID", "ETheme"), null);
+		if (!$dbquery->{'Status'})
+		{
+			foreach ($dbquery->{'Results'} as $theme)
+			{
+				$title = trim(preg_replace("/(\s*)".$theme->{'ETheme'}."(\s*)/ui", "", $title));
+			}
+		}
+		*/
+		$ret->{'QueryTitle'} = $title;
+
+		$searchterms = array();
+		array_push($searchterms, $title);
+
+		$terms = explode(" ", $title);
+
+		$n = count($terms);
+		for ($k = $n - 1; $k >= 1; $k--)
+		{
+			
+			for ($i = 0; $i <= $n - $k; $i++)
+			{
+				$searchterm = "";
+				for ($j = $i; $j < $i + $k; $j ++)
+				{
+					$searchterm .= $terms[$j]." ";
+				}
+				$searchterm = trim($searchterm);
+				array_push($searchterms, $searchterm);
+
+			}
+		}
+
+		$IDWeights = array();
+		$IDTitle = array();
+		foreach($searchterms as $term)
+		{
+			$dbquery = db_query("DB_Set", array("LegoID", "ETitle"), "ETitle LIKE '%".$term."%'");
+			if (!$dbquery->{'Status'})
+			{
+				$count = count($dbquery->{'Results'});
+				if ($count)
+				{
+					foreach ($dbquery->{'Results'} as $item)
+					{
+						$IDTitle[$item->{'LegoID'}] = $item->{'ETitle'};
+						if (isset($IDWeights[$item->{'LegoID'}]))
+						{
+							$IDWeights[$item->{'LegoID'}] += floatval(1/$count);
+						}
+						else
+						{
+							$IDWeights[$item->{'LegoID'}] = floatval(1/$count);
+						}
+						
+					}
+				}
+			}
+		}
+
+		arsort($IDWeights);
+		$r = each($IDWeights);
+
+		$ret->{'IDWeights'} = $IDWeights;
+		if ($r['value'] > 2)
+		{
+			$ret->{'MatchID'} = $r['key'];
+			$ret->{'MatchWeight'} = $r['value'];
+			$ret->{'MatchTitle'} = $IDTitle[$r['key']];
+			$ret->{'SearchTerms'} = $searchterms;
+
+		}
+		else
+		{
+			$ret->{'MatchID'} = null;
+		}
+	}
+	else
+	{
+		$ret->{'MatchID'} = null;
+	}
+	$endtime = microtime(true);
+	$duration = $endtime - $starttime;
+	$ret->{'SearchDuration'} = sprintf("%.3f", $duration);
+
+	return $ret;
+}
+
 ?>
