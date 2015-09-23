@@ -24,9 +24,12 @@ function db_query($table, $fields, $condition)
 	}
 	$query = "SELECT ".$mysqli->real_escape_string($fieldstr)." FROM ".$mysqli->real_escape_string($table).$condition.";";
 	$ret->{'Query'} = $query;
-	//var_dump($query);
 	$result = $mysqli->query($query);
 
+	if (!isset($result))
+	{
+		var_dump($query);
+	}
 	$results = array();
 	while ($row = $result->fetch_array(MYSQLI_ASSOC))
 	{
@@ -281,21 +284,13 @@ function search_legoid($info)
 	elseif (!empty($info['Title']))
 	{
 		$title = $info['Title'];
-
-		$title = trim(preg_replace("/(\s*)lego(\s*)/ui", "", $title));
-		$title = trim(preg_replace("/(\s*)build(ing)*(\s*)(set)*/ui", "", $title));
-
-		/*
-		$dbquery = db_query("DB_Theme", array("ThemeID", "ETheme"), null);
-		if (!$dbquery->{'Status'})
-		{
-			foreach ($dbquery->{'Results'} as $theme)
-			{
-				$title = trim(preg_replace("/(\s*)".$theme->{'ETheme'}."(\s*)/ui", "", $title));
-			}
-		}
-		*/
 		$ret->{'QueryTitle'} = $title;
+		$title = trim(preg_replace("/[®|™]/ui", "", $title));
+		$title = trim(preg_replace("/(\s*)lego(\s*)/ui", "", $title));
+		$title = trim(preg_replace("/(\s*)(play)|(build)(ing)*(\s*)(set)*/ui", "", $title));
+		$title = trim(preg_replace("/[\'|’](s*)/ui", "", $title));
+
+		$ret->{'NormalizedTitle'} = $title;
 
 		$searchterms = array();
 		array_push($searchterms, $title);
@@ -347,21 +342,55 @@ function search_legoid($info)
 		}
 
 		arsort($IDWeights);
-		$r = each($IDWeights);
 
-		$ret->{'IDWeights'} = $IDWeights;
-		if ($r['value'] > 2)
-		{
-			$ret->{'MatchID'} = $r['key'];
-			$ret->{'MatchWeight'} = $r['value'];
-			$ret->{'MatchTitle'} = $IDTitle[$r['key']];
-			$ret->{'SearchTerms'} = $searchterms;
+		//var_dump($searchterms);
 
-		}
-		else
+		if(!empty($IDWeights))
 		{
-			$ret->{'MatchID'} = null;
+			$ret->{'IDWeights'} = $IDWeights;
+
+			$r = each($IDWeights);
+			$topValue = $r['value'];
+
+			if ($r['value'] > 2)
+			{
+				$ret->{'MatchID'} = $r['key'];
+				$ret->{'MatchWeight'} = $r['value'];
+				$ret->{'MatchTitle'} = $IDTitle[$r['key']];
+				$ret->{'SearchTerms'} = $searchterms;
+
+			}
+			else
+			{
+
+				$i = 0;
+				do
+				{
+					$possTitle = preg_replace('/[\'|’|®|™|\.]/u', "", $IDTitle[$r['key']]);
+					$matchTitle = preg_replace('/[\'|’|®|™|\.]/u', "", $ret->{'QueryTitle'});
+					var_dump($IDTitle[$r['key']], $possTitle, $matchTitle);
+					if (preg_match('/'.$possTitle.'/i', $matchTitle))
+					{
+						$ret->{'MatchID'} = $r['key'];
+						$ret->{'MatchWeight'} = $r['value'];
+						$ret->{'MatchTitle'} = $IDTitle[$r['key']];
+						$ret->{'SearchTerms'} = $searchterms;
+						break;
+					}
+
+					$ret->{'MatchID'} = null;
+					$ret->{'MatchTitles'} = $IDTitle;
+					$ret->{'MatchWeight'} = $r['value'];
+					$ret->{'SearchTerms'} = $searchterms;
+					$r = each($IDWeights);
+					$i++;
+				}
+				while ($r['value'] >= $topValue && $i < 10);
+
+			}
+		
 		}
+
 	}
 	else
 	{

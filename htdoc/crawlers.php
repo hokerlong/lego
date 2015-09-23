@@ -71,11 +71,16 @@ function curl_htmldom($url)
 	}
 }
 
-function crawl_brickset($LegoID)
+function crawl_brickset($LegoID, $BK_SetID)
 {
+	if (!isset($BK_SetID) || $BK_SetID == '')
+	{
+		$BK_SetID = "-1";
+	}
+	
 	$ret = new stdClass();
 
-	$ret->{'URL'} = 'brickset.com/sets/'.$LegoID.'-1';
+	$ret->{'URL'} = 'brickset.com/sets/'.$LegoID.$BK_SetID;
 	$htmldom = curl_htmldom($ret->{'URL'});
 
 	if ($htmldom)
@@ -83,84 +88,90 @@ function crawl_brickset($LegoID)
 		$titleDom = $htmldom->find('section[class=main]/header/h1', 0);
 		if (isset($titleDom))
 		{
-			$ret->{'ETitle'} = trim(str_replace($LegoID."-1: ", "", $titleDom->plaintext));
+			$ret->{'ETitle'} = trim(str_replace($LegoID.$BK_SetID.": ", "", $titleDom->plaintext));
 		}
-
-		$dom = new DOMDocument();
-		$dom->loadHTML($htmldom->find('section[class=featurebox]/div[class=text]', 0)->innertext);
-		$nodes = $dom->getElementsByTagName('dl');
-		foreach ($nodes as $node)
+		if ($ret->{'ETitle'} <> $LegoID.$BK_SetID)
 		{
-			$dl = getArray($node);
+			$dom = new DOMDocument();
+			$dom->loadHTML($htmldom->find('section[class=featurebox]/div[class=text]', 0)->innertext);
+			$nodes = $dom->getElementsByTagName('dl');
+			foreach ($nodes as $node)
+			{
+				$dl = getArray($node);
+			}
+			$dt = $dl["dt"];
+			$dd = $dl["dd"];
+			for ($i = 0; $i <= count($dt); $i++)
+			{
+				if ($dt[$i]["#text"] == "Theme")
+				{
+					$ret->{'Theme'} = trim($dd[$i]["a"]);
+				}
+				elseif ($dt[$i]["#text"] == "Subtheme")
+				{
+					$ret->{'Subtheme'} = trim($dd[$i]["a"]);
+				}
+				elseif ($dt[$i]["#text"] == "Year released")
+				{
+					$ret->{'Year'} = trim($dd[$i]["a"]);
+				}
+				elseif ($dt[$i]["#text"] == "Pieces")
+				{
+					$ret->{'Pieces'} = trim($dd[$i]["a"]);
+				}
+				elseif ($dt[$i]["#text"] == "Age range")
+				{
+					$ret->{'Age'} = str_replace(" ", "", trim($dd[$i]["#text"]));
+				}
+				elseif ($dt[$i]["#text"] == "Minifigs")
+				{
+					$ret->{'Minifigs'} = trim($dd[$i]["a"]);
+				}
+				elseif ($dt[$i]["#text"] == "RRP")
+				{
+					if (preg_match("/US.(\d+\.\d+)/", trim($dd[$i]["#text"]), $m))
+					{
+						$ret->{'USPrice'} = (float)$m[1];
+					}
+				}
+				elseif ($dt[$i]["#text"] == "Barcodes")
+				{
+					$barcodes = trim($dd[$i]["#text"]);
+					//echo var_dump($dd[$i]);
+					if (preg_match('/UPC: (\d{12})/', $barcodes,  $matches))
+					{
+						$ret->{'UPC'} = (int)$matches[1];
+					}
+					else
+					{
+						$ret->{'UPC'} = null;
+					}
+					if (preg_match('/EAN: (\d{13})/', $barcodes,  $matches))
+					{
+						$ret->{'EAN'} = (int)$matches[1];
+					}
+					else
+					{
+						$ret->{'EAN'} = null;
+					}
+				}
+				elseif ($dt[$i]["#text"] == "LEGO item numbers")
+				{
+					$legosnstr = trim($dd[$i]["#text"]);
+					if (preg_match('/NA: (\d{7})/', $legosnstr,  $m))
+					{
+						$ret->{'USItemSN'} = (int)$m[1];
+					}
+					if (preg_match('/EU: (\d{7})/', $legosnstr,  $m))
+					{
+						$ret->{'EUItemSN'} = (int)$m[1];
+					}
+				}											
+			}
 		}
-		$dt = $dl["dt"];
-		$dd = $dl["dd"];
-		for ($i = 0; $i <= count($dt); $i++)
+		else
 		{
-			if ($dt[$i]["#text"] == "Theme")
-			{
-				$ret->{'Theme'} = trim($dd[$i]["a"]);
-			}
-			elseif ($dt[$i]["#text"] == "Subtheme")
-			{
-				$ret->{'Subtheme'} = trim($dd[$i]["a"]);
-			}
-			elseif ($dt[$i]["#text"] == "Year released")
-			{
-				$ret->{'Year'} = trim($dd[$i]["a"]);
-			}
-			elseif ($dt[$i]["#text"] == "Pieces")
-			{
-				$ret->{'Pieces'} = trim($dd[$i]["a"]);
-			}
-			elseif ($dt[$i]["#text"] == "Age range")
-			{
-				$ret->{'Age'} = str_replace(" ", "", trim($dd[$i]["#text"]));
-			}
-			elseif ($dt[$i]["#text"] == "Minifigs")
-			{
-				$ret->{'Minifigs'} = trim($dd[$i]["a"]);
-			}
-			elseif ($dt[$i]["#text"] == "RRP")
-			{
-				if (preg_match("/US.(\d+\.\d+)/", trim($dd[$i]["#text"]), $m))
-				{
-					$ret->{'USPrice'} = (float)$m[1];
-				}
-			}
-			elseif ($dt[$i]["#text"] == "Barcodes")
-			{
-				$barcodes = trim($dd[$i]["#text"]);
-				//echo var_dump($dd[$i]);
-				if (preg_match('/UPC: (\d{12})/', $barcodes,  $matches))
-				{
-					$ret->{'UPC'} = (int)$matches[1];
-				}
-				else
-				{
-					$ret->{'UPC'} = null;
-				}
-				if (preg_match('/EAN: (\d{13})/', $barcodes,  $matches))
-				{
-					$ret->{'EAN'} = (int)$matches[1];
-				}
-				else
-				{
-					$ret->{'EAN'} = null;
-				}
-			}
-			elseif ($dt[$i]["#text"] == "LEGO item numbers")
-			{
-				$legosnstr = trim($dd[$i]["#text"]);
-				if (preg_match('/NA: (\d{7})/', $legosnstr,  $m))
-				{
-					$ret->{'USItemSN'} = (int)$m[1];
-				}
-				if (preg_match('/EU: (\d{7})/', $legosnstr,  $m))
-				{
-					$ret->{'EUItemSN'} = (int)$m[1];
-				}
-			}											
+			return false;
 		}
 	}
 	return $ret;
@@ -206,9 +217,13 @@ function crawl_lego()
 				{
 					$retItem->{'Availability'} = "Available";
 				}
-				elseif (($strAvailability == "Sold Out") || (preg_match("/Out of stock/ui", $strAvailability)) || (preg_match("/Call to check/ui", $strAvailability)))
+				elseif ($strAvailability == "Sold Out")
 				{
 					$retItem->{'Availability'} = "Sold Out";
+				}
+				elseif ((preg_match("/Out of stock/ui", $strAvailability)) || (preg_match("/Call to check/ui", $strAvailability)))
+				{
+					$retItem->{'Availability'} = "Out of Stock";
 				}
 				elseif (preg_match("/Coming Soon/ui", $strAvailability))
 				{
@@ -267,7 +282,7 @@ function crawl_walmart()
 
 			//$retItem->{'URL'} = "http://www.walmart.com/ip/".$retItem->{'WalmartID'};
 
-			$retItem->{'Title'} = trim(str_replace("LEGO ", "", str_replace(":", " ", $item->find('/a[class="js-product-title"]/h3[class="tile-heading"]', 0)->plaintext)));
+			$retItem->{'Title'} = trim(str_replace("&#39;", "'", str_replace(":", " ", html_entity_decode($item->find('/a[class="js-product-title"]/h3[class="tile-heading"]', 0)->plaintext, ENT_NOQUOTES, 'UTF-8'))));
 
 			preg_match_all("/\d{4,5}/u", html_entity_decode($retItem->{'Title'}, ENT_NOQUOTES, 'UTF-8'), $matches);
 			$retItem->{'LegoID'} = array_pop(array_pop($matches));
