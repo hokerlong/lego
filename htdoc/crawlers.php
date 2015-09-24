@@ -277,7 +277,27 @@ function crawl_walmart()
 		foreach ($items as $item)
 		{
 			$retItem = new stdClass();
-			$retItem->{'Price'} = trim(str_replace("$", "", $item->find('/div[class="tile-price"]/div[class="item-price-container"]/span[class="price price-display"]', 0)->plaintext));
+
+			if ($item->find('/div[class="tile-price"]/div[class="item-price-container"]/span[class$="price price-display"]', 0))
+			{
+				$retItem->{'Price'} = trim(str_replace("$", "", $item->find('/div[class="tile-price"]/div[class="item-price-container"]/span[class="price price-display"]', 0)->plaintext));
+
+				if ($item->find('/div[class="tile-price"]/div[class="item-price-container"]/div[class="js-stock-message pick-up-only"]', 0))
+				{
+					$retItem->{'Availability'} = "Pickup Only";
+				}
+				else
+				{
+					$retItem->{'Availability'} = "Available";
+				}
+			}
+			else
+			{
+
+				$retItem->{'Price'} = trim(str_replace("$", "", $item->find('/div[class="tile-price"]/div[class="item-price-container"]/span[class$="price price-display price-not-available"]', 0)->plaintext));
+				$retItem->{'Availability'} = "Out of Stock";
+			}
+
 			$retItem->{'WalmartID'} = $item->getAttribute("data-item-id");
 
 			//$retItem->{'URL'} = "http://www.walmart.com/ip/".$retItem->{'WalmartID'};
@@ -287,8 +307,11 @@ function crawl_walmart()
 			preg_match_all("/\d{4,5}/u", html_entity_decode($retItem->{'Title'}, ENT_NOQUOTES, 'UTF-8'), $matches);
 			$retItem->{'LegoID'} = array_pop(array_pop($matches));
 
-			$ret->{'ItemCount'}++;
-			array_push($ret->{'Items'}, $retItem);
+			if (!in_array($retItem, $ret->{'Items'}))
+			{
+				$ret->{'ItemCount'}++;
+				array_push($ret->{'Items'}, $retItem);
+			}
 		}
 	}
 	return $ret;

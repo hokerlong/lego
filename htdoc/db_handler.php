@@ -26,7 +26,7 @@ function db_query($table, $fields, $condition)
 	$ret->{'Query'} = $query;
 	$result = $mysqli->query($query);
 
-	if (!isset($result))
+	if ($mysqli->connect_errno)
 	{
 		var_dump($query);
 	}
@@ -36,6 +36,10 @@ function db_query($table, $fields, $condition)
 		$item = new stdClass();
 		foreach ($fields as $field)
 		{
+			if (preg_match("/\w+\s+AS\s+(\w+)/i", $field, $match))
+			{
+				$field = $match[1];
+			}
 			$item->{"$field"} = $row["$field"];
 		}
 		array_push($results, $item);
@@ -368,7 +372,7 @@ function search_legoid($info)
 				{
 					$possTitle = preg_replace('/[\'|’|®|™|\.]/u', "", $IDTitle[$r['key']]);
 					$matchTitle = preg_replace('/[\'|’|®|™|\.]/u', "", $ret->{'QueryTitle'});
-					var_dump($IDTitle[$r['key']], $possTitle, $matchTitle);
+					//var_dump($IDTitle[$r['key']], $possTitle, $matchTitle);
 					if (preg_match('/'.$possTitle.'/i', $matchTitle))
 					{
 						$ret->{'MatchID'} = $r['key'];
