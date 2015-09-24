@@ -254,7 +254,7 @@ function crawl_walmart()
 	$perpage = 40; // max per page = 40
 	$ret = new stdClass();
 	$ret->{'Provider'} = "www.walmart.com";
-	$ret->{'URL'} = "http://www.walmart.com/browse/toys/building-sets-blocks/4171_4186?cat_id=4171_4186&facet=brand:LEGO";
+	$ret->{'URL'} = "http://www.walmart.com/browse/toys/building-sets-blocks/4171_4186?cat_id=4171_4186&facet=brand:LEGO||Cretailer:Walmart.com";
 	$ret->{'ItemCount'} = 0;
 	$ret->{'Items'} = array();
 	for ($i = 1; $i <= $page; $i++)
