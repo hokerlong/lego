@@ -24,7 +24,7 @@ if ($ret->{'ItemCount'})
 
 echo "[Info][".date('Y-m-d H:i:s')."] ".count($WalmartItems)." items crawled from page ".$ret->{'URL'}."\n";
 
-if (count($WalmartItems) < count($WalmartIDs) * 0.8)
+if (count($WalmartItems) < count($WalmartIDs) * 0.6)
 {
 	send_Message(NOTIFICATION_RECIPIENT, "Only ".count($WalmartItems)." items crawled from walmart.com, out of ".count($WalmartIDs)." items in DB.");
 }
@@ -69,8 +69,8 @@ foreach ($WalmartItems as $item)
 					$strupdate .= $prop."[".$info->{$prop}."=>".$value."], ";
 				}
 				$strupdate = trim($strupdate, ", ");
-				echo "[Info][".date('Y-m-d H:i:s')."] Walmart_Item ".$info->{'LegoID'}." - ".$info->{'Title'}." updated: ".$strupdate." @ http://www.walmart.com/ip/$walmartID\n";
-				send_Message(NOTIFICATION_RECIPIENT, "Walmart_Item ".$info->{'LegoID'}." - ".$info->{'Title'}." updated: ".$strupdate." @ http://www.walmart.com/ip/$walmartID");
+				//echo "[Info][".date('Y-m-d H:i:s')."] Walmart_Item ".$info->{'LegoID'}." - ".$info->{'Title'}." updated: ".$strupdate." @ http://www.walmart.com/ip/$walmartID\n";
+				//send_Message(NOTIFICATION_RECIPIENT, "Walmart_Item ".$info->{'LegoID'}." - ".$info->{'Title'}." updated: ".$strupdate." @ http://www.walmart.com/ip/$walmartID");
 			}
 		}
 		else
@@ -78,12 +78,11 @@ foreach ($WalmartItems as $item)
 			array_push($arrNoupdate, $walmartID);
 		}
 
-		/*
-		if ($rate > 100 || $rate < 50)
+		if ($rate < 76 && ($item->{"Availability"} == "Pickup Only" || $item->{"Availability"} == "Available") && !empty(($info->{'LegoID'})))
 		{
-			echo "[Warning][".date('Y-m-d H:i:s')."] $walmartID [".$item->{'Title'}."] seems not mapping to ".$info->{'LegoID'}." [".$info->{'Title'}."].\n";
+			//var_dump("walmart.com", $walmartID, $price, $info->{'LegoID'});
+			publish_SaleMessage("walmart.com", $walmartID, $price, $info->{'LegoID'});
 		}
-		*/
 	}
 	elseif (!empty($item->{'LegoID'}))
 	{

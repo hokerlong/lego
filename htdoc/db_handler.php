@@ -26,10 +26,11 @@ function db_query($table, $fields, $condition)
 	$ret->{'Query'} = $query;
 	$result = $mysqli->query($query);
 
-	if ($mysqli->connect_errno)
+	if ($mysqli->connect_errno && isset($result))
 	{
 		var_dump($query);
 	}
+	//var_dump($query);
 	$results = array();
 	while ($row = $result->fetch_array(MYSQLI_ASSOC))
 	{
