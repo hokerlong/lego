@@ -178,6 +178,60 @@ function crawl_brickset($LegoID, $BK_SetID)
 }
 
 
+
+function crawl_amazon()
+{
+	$page = 1;
+	$perpage = 24; 
+	$maxpage = 20; //can't pull more than 20 pages at one time.
+	$ret = new stdClass();
+	$ret->{'Provider'} = "amazon.com";
+	$ret->{'URL'} = "http://www.amazon.com/s/rh=n%3A165793011%2Cp_4%3ALEGO%2Cp_6%3AATVPDKIKX0DER&ie=UTF8";
+	$ret->{'ItemCount'} = 0;
+	$ret->{'Items'} = array();
+	for ($i = 1; $i <= $page; $i++)
+	{
+		$htmldom = curl_htmldom($ret->{'URL'}."&page=$i");
+
+		$totalstr = trim(preg_replace("/\s+/u", " ", $htmldom->find('//*[@id="s-result-count"]', 0)->plaintext));
+		if (preg_match("/(\d+)-(\d+) of (\d+) results for/u", $totalstr, $matches))
+		{
+			$page = min($maxpage,intval(ceil($matches[3]/$perpage)));			
+		}
+
+		$items = $htmldom->find('/li[id^="result_"]');
+
+		foreach ($items as $item)
+		{
+			$retItem = new stdClass();
+			$retItem->{'ASIN'} = $item->getAttribute("data-asin");
+			$retItem->{'Title'} = trim($item->find('/div/div/div/a/h2',0)->plaintext);
+
+
+			preg_match_all("/\d{4,8}/u", html_entity_decode($retItem->{'Title'}, ENT_NOQUOTES, 'UTF-8'), $matches);
+			if (isset($matches))
+			{
+				$legoID = intval(array_pop(array_pop($matches)));
+				if ($legoID > intval(date('Y')))
+				{
+					$retItem->{'LegoID'} = $legoID;
+				}
+			}
+			else
+			{
+				$retItem->{'LegoID'} = null;
+			}
+			$retItem->{'Availability'} = "Available";
+			$retItem->{'Price'} = trim(str_replace("$", "", $item->find('span[class="a-size-base a-color-price s-price a-text-bold"]',0)->plaintext));
+
+			$ret->{'ItemCount'}++;
+			array_push($ret->{'Items'}, $retItem);
+		}
+
+	}
+	return $ret;
+}
+
 function crawl_lego()
 {
 	$page = 1;
@@ -304,8 +358,19 @@ function crawl_walmart()
 
 			$retItem->{'Title'} = trim(str_replace("&#39;", "'", str_replace(":", " ", html_entity_decode($item->find('/a[class="js-product-title"]/h3[class="tile-heading"]', 0)->plaintext, ENT_NOQUOTES, 'UTF-8'))));
 
-			preg_match_all("/\d{4,5}/u", html_entity_decode($retItem->{'Title'}, ENT_NOQUOTES, 'UTF-8'), $matches);
-			$retItem->{'LegoID'} = array_pop(array_pop($matches));
+			preg_match_all("/\d{4,8}/u", html_entity_decode($retItem->{'Title'}, ENT_NOQUOTES, 'UTF-8'), $matches);
+			if (isset($matches))
+			{
+				$legoID = intval(array_pop(array_pop($matches)));
+				if ($legoID > intval(date('Y')))
+				{
+					$retItem->{'LegoID'} = $legoID;
+				}
+			}
+			else
+			{
+				$retItem->{'LegoID'} = null;
+			}
 
 			if (!in_array($retItem, $ret->{'Items'}))
 			{

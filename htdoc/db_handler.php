@@ -349,7 +349,7 @@ function search_legoid($info)
 		arsort($IDWeights);
 
 		//var_dump($searchterms);
-
+		$ret->{'MatchID'} = null;
 		if(!empty($IDWeights))
 		{
 			$ret->{'IDWeights'} = $IDWeights;
