@@ -74,7 +74,7 @@ function publish_SaleMessage($provider, $itemID, $salePrice, $legoID)
 {
 	//$theme, $title, $msrp, $url;
 
-	$ret = db_query("Twitter_Tweet", array("TweetID", "Price"), "Provider='".$provider."' AND LastPublishTime > '".date('Y-m-d H:i:s', strtotime('-1 hour'))."'");
+	$ret = db_query("Twitter_Tweet", array("TweetID", "Price"), "Provider='".$provider."' AND LastPublishTime > '".date('Y-m-d H:i:s', strtotime('-50 mins'))."'");
 
 	if (!$ret->{'Status'} && $ret->{'Count'} >=5)
 	{
