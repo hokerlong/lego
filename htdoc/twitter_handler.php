@@ -101,7 +101,7 @@ function publish_SaleMessage($provider, $itemID, $salePrice, $legoID)
 			{
 				$rate = null;
 			}
-			$message = "[".$legoID."] ".$theme." - ".$title." is on sale for $".$salePrice." (".$rate."% off from reg.$".$msrp.") at ".$url;
+			$message = "[".$legoID."] ".$theme." - ".$title." is on sale for $".$salePrice." (".$rate."% off from reg.$".$msrp.") ".$url;
 
 			$ret = db_query("Twitter_Tweet", array("TweetID", "Price"), "Provider='".$provider."' AND ItemID='".$itemID."' AND LastPublishTime > '".date('Y-m-d H:i:s', strtotime('-7 days'))."'");
 
@@ -113,7 +113,7 @@ function publish_SaleMessage($provider, $itemID, $salePrice, $legoID)
 
 				if ($rate - $lastRate > 2)
 				{
-					reply_tweet($tweet->{'TweetID'}, "[".$legoID."] ".$theme." - ".$title." was reduced even further to $".$salePrice." (".$rate."% off from reg.$".$msrp.") at ".$url);
+					reply_tweet($tweet->{'TweetID'}, "[".$legoID."] ".$theme." - ".$title." was reduced even further to $".$salePrice." (".$rate."% off from reg.$".$msrp.") ".$url);
 					send_Message(NOTIFICATION_RECIPIENT, $message);
 				}
 			}
