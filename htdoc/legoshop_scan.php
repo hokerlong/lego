@@ -3,7 +3,7 @@ require_once("crawlers.php");
 require_once("db_handler.php");
 require_once("twitter_handler.php");
 
-$LegoDB = pull_DBSet(array("ETitle", "USPrice", "Availability"), null);
+$LegoDB = pull_DBSet(array("ETitle", "USPrice", "Availability", "Badge"), null);
 
 $LegoInfo = crawl_lego();
 
@@ -54,7 +54,14 @@ foreach ($sortedItems as $item)
 		{
 			$arrfields['Availability'] = $item->{'Availability'};
 
-			send_Message(NOTIFICATION_RECIPIENT, $item->{'LegoID'}." - ".$item->{'Title'}.": Availability changed from '".$dbitem->{'Availability'}."' to '".$item->{'Availability'}."'");
+			if (!empty($dbitem->{'Badge'}))
+			{
+				send_Message(NOTIFICATION_RECIPIENT, $item->{'LegoID'}." - ".$item->{'Title'}." (".$dbitem->{'Badge'}."): Availability changed from '".$dbitem->{'Availability'}."' to '".$item->{'Availability'}."' ".$item->{'URL'});
+			}
+		}
+		if ($dbitem->{'Badge'} <> $item->{'Badge'})
+		{
+			$arrfields['Badge'] = $item->{'Badge'};
 		}
 		if (count($arrfields))
 		{
@@ -63,9 +70,9 @@ foreach ($sortedItems as $item)
 	}
 	else
 	{
-		send_Message(NOTIFICATION_RECIPIENT, "New item listed on shop.lego.com: ".$item->{'LegoID'}." - ".$item->{'Title'});
+		send_Message(NOTIFICATION_RECIPIENT, "New item listed on Official Lego Shop: ".$item->{'LegoID'}." - ".$item->{'Title'}." at $".$item->{'Price'}." ".$item->{'URL'});
 
-		insert_DBSet(array("LegoID" => $item->{'LegoID'}, "ETitle" => $item->{'Title'}, "USPrice" => $item->{'Price'}));
+		insert_DBSet(array("LegoID" => $item->{'LegoID'}, "ETitle" => $item->{'Title'}, "USPrice" => $item->{'Price'}, "Badge" => $item->{'Badge'}));
 	}
 }
 ?>

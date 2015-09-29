@@ -254,6 +254,7 @@ function search_legoid($info)
 						$ret->{'MatchID'} = $dbquery->{'Results'}[0]->{'LegoID'};
 						$ret->{'MatchTitle'} = $dbquery->{'Results'}[0]->{'ETitle'};
 						$ret->{'MatchType'} = $type;
+						$ret->{'MatchValue'} = $barcode;
 					}
 				}
 			}
@@ -267,6 +268,7 @@ function search_legoid($info)
 						$ret->{'MatchID'} = $dbquery->{'Results'}[0]->{'LegoID'};
 						$ret->{'MatchTitle'} = $dbquery->{'Results'}[0]->{'ETitle'};
 						$ret->{'MatchType'} = $type;
+						$ret->{'MatchValue'} = $barcode;
 					}
 				}				
 			}
@@ -281,6 +283,7 @@ function search_legoid($info)
 					$ret->{'MatchID'} = $dbquery->{'Results'}[0]->{'LegoID'};
 					$ret->{'MatchTitle'} = $dbquery->{'Results'}[0]->{'ETitle'};
 					$ret->{'MatchType'} = $type;
+					$ret->{'MatchValue'} = $barcode;
 				}
 			}		
 		}

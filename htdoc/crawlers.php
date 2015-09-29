@@ -261,7 +261,8 @@ function crawl_lego()
 				$retItem = new stdClass();
 				$retItem->{'LegoID'} = $LegoID;
 				$retItem->{'Title'} = $item->find('/h4/a[title]', 0)->plaintext;
-				//$retItem->{'URL'} = $item->find('/h4/a[title]', 0)->href;
+				$retItem->{'Badge'} = $item->find('/ul[@id="product-badges"]/li', 0)->plaintext;
+				$retItem->{'URL'} = $item->find('/h4/a[title]', 0)->href;
 				$strAvailability = trim($item->find('/ul/li[class^="availability"]/em', 0)->plaintext);
 				if ($strAvailability == "Retired product")
 				{

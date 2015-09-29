@@ -78,7 +78,7 @@ foreach ($WalmartItems as $item)
 			array_push($arrNoupdate, $walmartID);
 		}
 
-		if ($rate < 76 && ($item->{"Availability"} == "Pickup Only" || $item->{"Availability"} == "Available") && !empty(($info->{'LegoID'})))
+		if (!empty($rate) && $rate < 76 && ($item->{"Availability"} == "Pickup Only" || $item->{"Availability"} == "Available") && !empty(($info->{'LegoID'})))
 		{
 			//var_dump("walmart.com", $walmartID, $price, $info->{'LegoID'});
 			publish_SaleMessage("walmart.com", $walmartID, $price, $info->{'LegoID'});

@@ -156,7 +156,7 @@ else
 <form action='' method='post'>
 <input type="text" id="LegoID" name="LegoID" size="6" value="<?php if (isset($legoid)) {echo $legoid;} else {echo $defaultid;} ?>"/><input type="submit" value="找"><br />
 <div id="bk_loading"></div><div id="bl_loading"></div><div id="amzn_loading"></div><div id="amzncn_loading"></div>
-<?
+<?php
 	if (isset($legoid))
 	{
 		$mysqli = new mysqli($mysql_server_name, $mysql_username, $mysql_password, $mysql_database);
