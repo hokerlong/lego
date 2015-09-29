@@ -128,6 +128,7 @@ function publish_SaleMessage($provider, $itemID, $salePrice, $legoID)
 				//var_dump($message);
 			}
 		}
+		return true;
 	}
 
 }
