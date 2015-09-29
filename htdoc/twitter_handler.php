@@ -56,53 +56,77 @@ function list_follower()
 	//$content = $connection->get("followers/list", array("screen_name" => "LEGO_Group"));
 }
 
+function gen_url($provider, $itemID)
+{
+	$url = "";
+	if ($provider == "walmart.com")
+	{
+		$url = "www.walmart.com/ip/".$itemID;
+	}
+	elseif ($provider == "amazon.com")
+	{
+		$url = "www.amazon.com/gp/product/".$itemID."?ie=UTF8&tag=legostor-20";
+	}
+	return $url;
+}
 
 function publish_SaleMessage($provider, $itemID, $salePrice, $legoID)
 {
 	//$theme, $title, $msrp, $url;
 
-	$ret = db_query("DB_Set INNER JOIN DB_Theme ON DB_Set.ThemeID = DB_Theme.ThemeID", array("LegoID", "ETitle AS Title", "ETheme AS Theme", "USPrice AS MSRP"), "LegoID=".$legoID);
-	//var_dump($ret);
-	if (!$ret->{'Status'} && $ret->{'Results'})
+	$ret = db_query("Twitter_Tweet", array("TweetID", "Price"), "Provider='".$provider."' AND LastPublishTime > '".date('Y-m-d H:i:s', strtotime('-1 hour'))."'");
+
+	if (!$ret->{'Status'} && $ret->{'Count'} >=5)
 	{
-		$title = $ret->{'Results'}[0]->{"Title"};
-		$theme = $ret->{'Results'}[0]->{"Theme"};
-		$msrp = $ret->{'Results'}[0]->{"MSRP"};
-		$url = $provider."/ip/".$itemID;
+		//published more than 5 items in previous hour.
+		return false;
+	}
+	else
+	{
 
-		if ($msrp && $salePrice)
-		{
-			$rate = 100 - round($salePrice / $msrp * 100);
-		}
-		else
-		{
-			$rate = null;
-		}
-		$message = "[".$legoID."] ".$theme." - ".$title." is on sale for $".$salePrice." (".$rate."% off from reg.$".$msrp.") at ".$url;
-
-		$ret = db_query("Twitter_Tweet", array("TweetID", "Price"), "Provider='".$provider."' AND ItemID='".$itemID."' AND LastPublishTime > '".date('Y-m-d H:i:s', strtotime('-7 days'))."'");
-
+		$ret = db_query("DB_Set INNER JOIN DB_Theme ON DB_Set.ThemeID = DB_Theme.ThemeID", array("LegoID", "ETitle AS Title", "ETheme AS Theme", "USPrice AS MSRP"), "LegoID=".$legoID);
+		//var_dump($ret);
 		if (!$ret->{'Status'} && $ret->{'Results'})
 		{
-			$tweetID = $ret->{'Results'}[0]->{"TweetID"};
-			$lastPrice = $ret->{'Results'}[0]->{"Price"};
-			$lastRate = 100 - round($lastPrice / $msrp * 100);
+			$title = $ret->{'Results'}[0]->{"Title"};
+			$theme = $ret->{'Results'}[0]->{"Theme"};
+			$msrp = $ret->{'Results'}[0]->{"MSRP"};
+			$url = gen_url($provider,$itemID);
 
-			if ($rate - $lastRate > 2)
+			if ($msrp && $salePrice)
 			{
-				reply_tweet($tweet->{'TweetID'}, "[".$legoID."] ".$theme." - ".$title." was reduced even further to $".$salePrice." (".$rate."% off from reg.$".$msrp.") at ".$url);
-				send_Message(NOTIFICATION_RECIPIENT, $message);
+				$rate = 100 - round($salePrice / $msrp * 100);
 			}
-		}
-		else
-		{
-			$tweetID = new_tweet($message);
-			if($tweetID)
+			else
 			{
-				$ret = db_insert("Twitter_Tweet", array('TweetID' => $tweetID, 'Provider' => $provider, 'ItemID' => $itemID, 'LegoID' => $legoID, 'Price' => $salePrice, 'LastPublishTime' => date('Y-m-d H:i:s')), null, true);
-				send_Message(NOTIFICATION_RECIPIENT, $message);
+				$rate = null;
 			}
-			//var_dump($message);
+			$message = "[".$legoID."] ".$theme." - ".$title." is on sale for $".$salePrice." (".$rate."% off from reg.$".$msrp.") at ".$url;
+
+			$ret = db_query("Twitter_Tweet", array("TweetID", "Price"), "Provider='".$provider."' AND ItemID='".$itemID."' AND LastPublishTime > '".date('Y-m-d H:i:s', strtotime('-7 days'))."'");
+
+			if (!$ret->{'Status'} && $ret->{'Results'})
+			{
+				$tweetID = $ret->{'Results'}[0]->{"TweetID"};
+				$lastPrice = $ret->{'Results'}[0]->{"Price"};
+				$lastRate = 100 - round($lastPrice / $msrp * 100);
+
+				if ($rate - $lastRate > 2)
+				{
+					reply_tweet($tweet->{'TweetID'}, "[".$legoID."] ".$theme." - ".$title." was reduced even further to $".$salePrice." (".$rate."% off from reg.$".$msrp.") at ".$url);
+					send_Message(NOTIFICATION_RECIPIENT, $message);
+				}
+			}
+			else
+			{
+				$tweetID = new_tweet($message);
+				if($tweetID)
+				{
+					$ret = db_insert("Twitter_Tweet", array('TweetID' => $tweetID, 'Provider' => $provider, 'ItemID' => $itemID, 'LegoID' => $legoID, 'Price' => $salePrice, 'LastPublishTime' => date('Y-m-d H:i:s')), null, true);
+					send_Message(NOTIFICATION_RECIPIENT, $message);
+				}
+				//var_dump($message);
+			}
 		}
 	}
 

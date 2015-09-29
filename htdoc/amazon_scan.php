@@ -64,7 +64,7 @@ foreach ($AmazonItems as $item)
 					$strupdate .= $prop."[".$info->{$prop}."=>".$value."], ";
 				}
 				$strupdate = trim($strupdate, ", ");
-				echo "[Info][".date('Y-m-d H:i:s')."] Amazon_Item ".$info->{'LegoID'}." - ".$info->{'Title'}." updated: ".$strupdate." @ www.amazon.com/gp/product/$ASIN\n";
+				//echo "[Info][".date('Y-m-d H:i:s')."] Amazon_Item ".$info->{'LegoID'}." - ".$info->{'Title'}." updated: ".$strupdate." @ www.amazon.com/gp/product/$ASIN\n";
 				//send_Message(NOTIFICATION_RECIPIENT, "Amazon_Item ".$info->{'LegoID'}." - ".$info->{'Title'}." updated: ".$strupdate." @ www.amazon.com/gp/product/$ASIN");
 			}
 		}
@@ -73,10 +73,16 @@ foreach ($AmazonItems as $item)
 			array_push($arrNoupdate, $ASIN);
 		}
 
-		if ($rate < 76 && ($item->{"Availability"} == "Pickup Only" || $item->{"Availability"} == "Available") && !empty(($info->{'LegoID'})))
+		if (!empty($rate) && $rate < 76 && ($item->{"Availability"} == "Pickup Only" || $item->{"Availability"} == "Available") && !empty(($info->{'LegoID'})))
 		{
-			echo "[Info][".date('Y-m-d H:i:s')."] ".$info->{'LegoID'}." on sale for $".$price." (reg. $".$info->{'MSRP'}.") on www.amazon.com/gp/product/".$ASIN."\n";
-			//publish_SaleMessage("amazon.com", $ASIN, $price, $info->{'LegoID'});
+			if (publish_SaleMessage("amazon.com", $ASIN, $price, $info->{'LegoID'}))
+			{
+				echo "[Info][".date('Y-m-d H:i:s')."] ".$info->{'LegoID'}." on sale for $".$price." (".$rate."% off from reg. $".$info->{'MSRP'}.") on www.amazon.com/gp/product/".$ASIN."\n";
+			}
+			else
+			{
+				echo "Twitter publish failed due to rate limitation.\n";
+			}
 		}
 	}
 	elseif (!empty($item->{'LegoID'}))
@@ -85,7 +91,7 @@ foreach ($AmazonItems as $item)
 		db_insert("Amazon_Item", array("LegoID" => $legoID, "ASIN" => $ASIN), null, true);
 
 		echo "[Info][".date('Y-m-d H:i:s')."] New item added by matching legoid on www.amazon.com/gp/product/".$ASIN." ".$legoID." - ".$item->{'Title'}."\n";
-		//send_Message(NOTIFICATION_RECIPIENT, "New Amazon_Item ".$legoID." - ".$item->{'Title'}." listed on www.amazon.com/gp/product/".$ASIN);
+		send_Message(NOTIFICATION_RECIPIENT, "New Amazon_Item ".$legoID." - ".$item->{'Title'}." listed on www.amazon.com/gp/product/".$ASIN);
 
 	}
 	else
@@ -103,7 +109,7 @@ foreach ($AmazonItems as $item)
 		}
 
 		echo "[Info][".date('Y-m-d H:i:s')."] New item added by matching title on www.amazon.com/gp/product/".$ASIN." ".$legoID." - ".$item->{'Title'}."\n";
-		//send_Message(NOTIFICATION_RECIPIENT, "New Amazon_Item ".$legoID." - ".$item->{'Title'}." listed on www.amazon.com/gp/product/".$ASIN);
+		send_Message(NOTIFICATION_RECIPIENT, "New Amazon_Item ".$legoID." - ".$item->{'Title'}." listed on www.amazon.com/gp/product/".$ASIN);
 	}
 }
 
