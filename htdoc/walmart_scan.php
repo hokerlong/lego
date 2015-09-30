@@ -104,6 +104,7 @@ foreach ($WalmartItems as $item)
 		}
 		else
 		{
+			$legoID = null;
 			db_insert("Walmart_Item", array("LegoID" => "", "WalmartID" => $walmartID), null, true);
 		}
 

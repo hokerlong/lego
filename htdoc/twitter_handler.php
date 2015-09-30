@@ -67,6 +67,10 @@ function gen_url($provider, $itemID)
 	{
 		$url = "www.amazon.com/gp/product/".$itemID."?ie=UTF8&tag=legostor-20";
 	}
+	elseif ($provider == "toysrus.com")
+	{
+		$url = "www.toysrus.com/product/index.jsp?productId=".$itemID;
+	}
 	return $url;
 }
 

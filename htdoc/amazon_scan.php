@@ -105,6 +105,7 @@ foreach ($AmazonItems as $item)
 		}
 		else
 		{
+			$legoID = null;
 			db_insert("Amazon_Item", array("LegoID" => "", "ASIN" => $ASIN), null, true);
 		}
 

@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('America/Los_Angeles');
+
 require_once("simple_html_dom.php");
 ini_set('memory_limit', '256M');
 
@@ -177,6 +179,106 @@ function crawl_brickset($LegoID, $BK_SetID)
 	return $ret;
 }
 
+function crawl_toysrus()
+{
+	$page = 1;
+	$perpage = 200; 
+	$ret = new stdClass();
+	$ret->{'Provider'} = "toysrus.com";
+	$ret->{'URL'} = "http://www.toysrus.com/family/index.jsp?categoryId=31820206&view=all";
+	$ret->{'ItemCount'} = 0;
+	$ret->{'Items'} = array();
+	for ($i = 1; $i <= $page; $i++)
+	{
+		$htmldom = curl_htmldom($ret->{'URL'}."&page=$i");
+
+
+		$totalstr = trim(preg_replace("/\s+/u", " ", html_entity_decode($htmldom->find('//div[@id="contentright"]/div[class="showingText"]', 0)->plaintext, ENT_NOQUOTES, 'UTF-8')));
+		if (preg_match("/Showing (\d+) - (\d+) of (\d+) results/u", $totalstr, $matches))
+		{
+			$page = intval(ceil($matches[3]/$perpage));
+		}
+
+		$items = $htmldom->find('//div[@id="familyProducts"]/div[class^="clearfix prodloop_row_cont"]/div[class^="prodloop_float"]/div[class="prodloop_cont"]');
+
+		foreach ($items as $item)
+		{
+			$retItem = new stdClass();
+			$retItem->{'ToysrusID'} = $item->find('/div[class="varHeightTop"]/div[class="prodloop-thumbnail"]/div[class="expressShopButtonGlobal button"]',0)->getAttribute('data-productid');
+
+			$retItem->{'Title'} = trim(html_entity_decode($item->find('/div[class="varHeightTop"]/a[class="prodtitle"]',0)->plaintext, ENT_NOQUOTES, 'UTF-8'));
+
+			preg_match_all("/\d{4,8}/u", $retItem->{'Title'}, $matches);
+			if (isset($matches))
+			{
+				$legoID = intval(array_pop(array_pop($matches)));
+				if ($legoID > intval(date('Y')))
+				{
+					$retItem->{'LegoID'} = $legoID;
+				}
+				else
+				{
+					$retItem->{'LegoID'} = null;
+				}
+			}
+			else
+			{
+				$retItem->{'LegoID'} = null;
+			}
+
+			if ($item->find('/div[class="varHeightTop"]/div[class="prodPrice familyPrices"]/span[class="adjusted ourPrice2"]',0))
+			{
+				$retItem->{'Price'} = trim(str_replace("$", "", html_entity_decode($item->find('/div[class="varHeightTop"]/div[class="prodPrice familyPrices"]/span[class="adjusted ourPrice2"]',0)->plaintext, ENT_NOQUOTES, 'UTF-8')));
+			}
+			else
+			{
+				$retItem->{'Price'} = trim(str_replace("$", "", html_entity_decode($item->find('/div[class="varHeightTop"]/div[class="prodPrice familyPrices"]/span[class="ourPrice2"]',0)->plaintext, ENT_NOQUOTES, 'UTF-8')));
+
+			}
+
+			$ul = $item->find('ul[@id="eligibility"]/li');
+
+			$shipping = 1;
+			$pickup = 1;
+
+			foreach ($ul as $li)
+			{
+				if (preg_match("/unavail/", $li->getAttribute("class")))
+				{
+					switch (trim($li->plaintext))
+					{
+						case "Ship-To-Home":
+							$shipping = 0;
+							break;
+						case "Free Store Pickup":
+							$pickup = 0;
+							break;
+					}
+				}
+			}
+
+			if ($shipping + $pickup == 2)
+			{
+				$retItem->{'Availability'} = "Available";
+			}
+			elseif ($shipping)
+			{
+				$retItem->{'Availability'} = "Shipping Only";
+			}
+			elseif ($pickup)
+			{
+				$retItem->{'Availability'} = "Pickup Only";
+			}
+			else
+			{
+				$retItem->{'Availability'} = "Sold Out";
+			}
+			$ret->{'ItemCount'}++;
+			array_push($ret->{'Items'}, $retItem);
+		}
+	}
+	return $ret;
+}
 
 
 function crawl_amazon()
@@ -193,7 +295,7 @@ function crawl_amazon()
 	{
 		$htmldom = curl_htmldom($ret->{'URL'}."&page=$i");
 
-		$totalstr = trim(preg_replace("/\s+/u", " ", $htmldom->find('//*[@id="s-result-count"]', 0)->plaintext));
+		$totalstr = trim(preg_replace("/\s+/u", " ", html_entity_decode($htmldom->find('//*[@id="s-result-count"]', 0)->plaintext, ENT_NOQUOTES, 'UTF-8')));
 		if (preg_match("/(\d+)-(\d+) of (\d+) results for/u", $totalstr, $matches))
 		{
 			$page = min($maxpage,intval(ceil($matches[3]/$perpage)));			
@@ -205,10 +307,10 @@ function crawl_amazon()
 		{
 			$retItem = new stdClass();
 			$retItem->{'ASIN'} = $item->getAttribute("data-asin");
-			$retItem->{'Title'} = trim($item->find('/div/div/div/a/h2',0)->plaintext);
+			$retItem->{'Title'} = trim(html_entity_decode($item->find('/div/div/div/a/h2',0)->plaintext, ENT_NOQUOTES, 'UTF-8'));
 
 
-			preg_match_all("/\d{4,8}/u", html_entity_decode($retItem->{'Title'}, ENT_NOQUOTES, 'UTF-8'), $matches);
+			preg_match_all("/\d{4,8}/u", $retItem->{'Title'}, $matches);
 			if (isset($matches))
 			{
 				$legoID = intval(array_pop(array_pop($matches)));
@@ -260,10 +362,10 @@ function crawl_lego()
 			{
 				$retItem = new stdClass();
 				$retItem->{'LegoID'} = $LegoID;
-				$retItem->{'Title'} = $item->find('/h4/a[title]', 0)->plaintext;
-				$retItem->{'Badge'} = $item->find('/ul[@id="product-badges"]/li', 0)->plaintext;
+				$retItem->{'Title'} = html_entity_decode($item->find('/h4/a[title]', 0)->plaintext, ENT_NOQUOTES, 'UTF-8');
+				$retItem->{'Badge'} = html_entity_decode($item->find('/ul[@id="product-badges"]/li', 0)->plaintext, ENT_NOQUOTES, 'UTF-8');
 				$retItem->{'URL'} = $item->find('/h4/a[title]', 0)->href;
-				$strAvailability = trim($item->find('/ul/li[class^="availability"]/em', 0)->plaintext);
+				$strAvailability = trim(html_entity_decode($item->find('/ul/li[class^="availability"]/em', 0)->plaintext, ENT_NOQUOTES, 'UTF-8'));
 				if ($strAvailability == "Retired product")
 				{
 					$retItem->{'Availability'} = "Retired";
@@ -359,7 +461,7 @@ function crawl_walmart()
 
 			$retItem->{'Title'} = trim(str_replace("&#39;", "'", str_replace(":", " ", html_entity_decode($item->find('/a[class="js-product-title"]/h3[class="tile-heading"]', 0)->plaintext, ENT_NOQUOTES, 'UTF-8'))));
 
-			preg_match_all("/\d{4,8}/u", html_entity_decode($retItem->{'Title'}, ENT_NOQUOTES, 'UTF-8'), $matches);
+			preg_match_all("/\d{4,8}/u", $retItem->{'Title'}, $matches);
 			if (isset($matches))
 			{
 				$legoID = intval(array_pop(array_pop($matches)));
