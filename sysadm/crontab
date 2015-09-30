@@ -2,7 +2,8 @@
 */10 * * * *  crontab /home/ec2-user/git/lego/sysadm/crontab >/dev/null 2>&1
 */10 * * * *  /home/ec2-user/git/lego/sysadm/git_publish.sh >/dev/null 2>&1
 0 * * * *     /home/ec2-user/git/lego/sysadm/legoshop_scan.sh >/dev/null 2>&1
-15,45 * * * *	/usr/bin/php /home/ec2-user/htdoc/brickset_updater.php >> /home/ec2-user/logs/brickset_updater.log 2>&1
-10,40 * * * *	/usr/bin/php /home/ec2-user/htdoc/walmart_scan.php >> /home/ec2-user/logs/walmart_scan.log 2>&1
-30 15-23 * * *	/usr/bin/php /home/ec2-user/htdoc/amazon_scan.php >> /home/ec2-user/logs/amazon_scan.log 2>&1
+10,40 * * * *	/usr/bin/php /home/ec2-user/htdoc/brickset_updater.php >> /home/ec2-user/logs/brickset_updater.log 2>&1
+15 * * * *	/usr/bin/php /home/ec2-user/htdoc/walmart_scan.php >> /home/ec2-user/logs/walmart_scan.log 2>&1
+30 * * * *	/usr/bin/php /home/ec2-user/htdoc/amazon_scan.php >> /home/ec2-user/logs/amazon_scan.log 2>&1
+45 * * * *	/usr/bin/php /home/ec2-user/htdoc/toysrus_scan.php >> /home/ec2-user/logs/toysrus_scan.log 2>&1
 5,20,35,50 0-5,15-23 * * *	/usr/bin/php /home/ec2-user/htdoc/add_friend.php >> /home/ec2-user/logs/add_friend.log 2>&1
