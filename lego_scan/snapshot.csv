@@ -500,7 +500,7 @@
 10515,"Retired",0,0,"Ariel's Undersea Castle"
 10516,"Retired",0,0,"Ariel's Magical Boat Ride"
 10517,"Retired",0,0,"My First Garden"
-10518,"Available",19.99,0,"My First Construction Site"
+10518,"Out of Stock",19.99,0,"My First Construction Site"
 10519,"Retired",0,0,"Garbage Truck"
 10520,"Retired",0,0,"Big Front Loader"
 10521,"Available",6.99,0,"Baby Calf"
@@ -1386,7 +1386,7 @@
 75913,"Available",99.99,0,"F14 T & Scuderia Ferrari Truck"
 75915,"Available",19.99,0,"Pteranodon Capture"
 75916,"Out of Stock",29.99,0,"Dilophosaurus Ambush"
-75917,"Available",49.99,0,"Raptor Rampage"
+75917,"Out of Stock",49.99,0,"Raptor Rampage"
 75918,"Out of Stock",69.99,0,"T. rex Tracker"
 75919,"Out of Stock",129.99,0,"Indominus rex™ Breakout"
 75920,"Out of Stock",39.99,0,"Raptor Escape"
@@ -1829,15 +1829,6 @@
 5004807,"Out of Stock",49.99,0,"LEGO® Jurassic World™ Wii U Video Game"
 5004808,"Sold Out",49.99,0,"LEGO® Jurassic World™ XBOX 360 Video Game"
 5004809,"Sold Out",109.96,0,"LEGO® Friends Pop Star Collection"
-array(1) {
-  [0]=>
-  object(stdClass)#3145 (2) {
-    ["message"]=>
-    string(128) "Application cannot perform write actions. Contact Twitter Platform Operations through https://support.twitter.com/forms/platform"
-    ["code"]=>
-    int(261)
-  }
-}
 5004810,"Available",134.97,0,"LEGO® Scooby-Doo Collection"
 5004815,"Available",52.98,0,"LEGO® Marvel Super Heroes Collection"
 5004816,"Available",149.98,0,"LEGO® DC Comics™ Super Heroes Collection"
