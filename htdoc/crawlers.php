@@ -288,7 +288,7 @@ function crawl_amazon()
 	$maxpage = 20; //can't pull more than 20 pages at one time.
 	$ret = new stdClass();
 	$ret->{'Provider'} = "amazon.com";
-	$ret->{'URL'} = "http://www.amazon.com/s/rh=n%3A165793011%2Cp_4%3ALEGO%2Cp_6%3AATVPDKIKX0DER&ie=UTF8";
+	$ret->{'URL'} = "http://www.amazon.com/s?ie=UTF8&rh=n%3A165793011%2Cp_4%3ALEGO%2Cp_6%3AATVPDKIKX0DER";
 	$ret->{'ItemCount'} = 0;
 	$ret->{'Items'} = array();
 	for ($i = 1; $i <= $page; $i++)
