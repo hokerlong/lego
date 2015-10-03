@@ -77,7 +77,7 @@ if (!$ret->{'Status'})
 		$jsonitem->{'legoid'} = $item->{'LegoID'};
 		$jsonitem->{'theme'} = $item->{'Theme'};
 		$jsonitem->{'title'} = $item->{'Title'};
-		$jsonitem->{'msrp'} = $item->{'MSRP'};
+		$jsonitem->{'msrp'} = floatval($item->{'MSRP'});
 		$jsonitem->{'min_rate'} = $minrate;
 		$jsonitem->{'toysrus_rate'} = $toysrus_rate;
 		$jsonitem->{'toysrus_price'} = $Toysrus["$legoID"]->{'Price'};

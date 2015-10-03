@@ -32,14 +32,14 @@
   <div ng-controller="listController">
     <table class="items">
       <tr>
-        <th><a href="" ng-click="reverse=!reverse;order('legoid', reverse)">LegoID</a></th>
+        <th><a href="" ng-click="reverse=!reverse;order('legoid', !reverse)">LegoID</a></th>
         <th>Theme</th>
         <th>Title</th>
-        <th><a href="" ng-click="reverse=!reverse;order('msrp', reverse)">MSRP</a></th>
-        <th><a href="" ng-click="reverse=!reverse;order('min_rate',reverse)">MinRate</a></th>
-        <th><a href="" ng-click="reverse=!reverse;order('toysrus_rate',reverse)">Toysrus</a></th>
-        <th><a href="" ng-click="reverse=!reverse;order('walmart_rate',reverse)">Walmart</a></th>
-        <th><a href="" ng-click="reverse=!reverse;order('amazon_rate',reverse)">Amazon</a></th>
+        <th><a href="" ng-click="reverse=!reverse;order('msrp', !reverse)">MSRP</a></th>
+        <th><a href="" ng-click="reverse=!reverse;order('min_rate', !reverse)">MinRate</a></th>
+        <th><a href="" ng-click="reverse=!reverse;order('toysrus_rate', !reverse)">Toysrus</a></th>
+        <th><a href="" ng-click="reverse=!reverse;order('walmart_rate', !reverse)">Walmart</a></th>
+        <th><a href="" ng-click="reverse=!reverse;order('amazon_rate', !reverse)">Amazon</a></th>
 
       </tr>
       <tr ng-repeat="item in items">
