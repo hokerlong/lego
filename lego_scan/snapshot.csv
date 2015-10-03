@@ -1356,15 +1356,6 @@
 75093,"Available",79.99,0,"Death Star™ Final Duel"
 75094,"Available",99.99,0,"Imperial Shuttle Tydirium™"
 75095,"Out of Stock",199.99,0,"TIE Fighter™"
-array(1) {
-  [0]=>
-  object(stdClass)#3149 (2) {
-    ["message"]=>
-    string(128) "Application cannot perform write actions. Contact Twitter Platform Operations through https://support.twitter.com/forms/platform"
-    ["code"]=>
-    int(261)
-  }
-}
 75096,"Available",89.99,0,"Sith Infiltrator™"
 75097,"Available",39.99,0,"LEGO® Star Wars™ Advent Calendar"
 75099,"Available",19.99,0,"Rey's Speeder™"
