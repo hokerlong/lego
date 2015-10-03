@@ -37,7 +37,7 @@ if (!$ret->{'Status'})
 	}
 }
 
-$json = array();
+$jsonitems = array();
 $ret = db_query("Available_LegoID INNER JOIN DB_Set ON Available_LegoID.LegoID = DB_Set.LegoID INNER JOIN DB_Theme ON DB_Set.ThemeID = DB_Theme.ThemeID", array("Available_LegoID.LegoID AS LegoID", "ETheme AS Theme", "ETitle AS Title", "USPrice AS MSRP"), "USPrice > 0");
 if (!$ret->{'Status'})
 {
@@ -92,9 +92,11 @@ if (!$ret->{'Status'})
 		$jsonitem->{'amazon_rate'} = $amazon_rate;
 		$jsonitem->{'amazon_price'} = $Amazon["$legoID"]->{'Price'};
 		$jsonitem->{'amazon_availability'} = $Amazon["$legoID"]->{'Availability'};
-		array_push($json, $jsonitem);
+		array_push($jsonitems, $jsonitem);
 	}
 }
+$json = new stdClass();
+$json->{'items'} = $jsonitems;
 echo json_encode($json);
 
 ?>
