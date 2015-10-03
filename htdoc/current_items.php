@@ -47,36 +47,32 @@ if (!$ret->{'Status'})
 		$jsonitem = new stdClass();
 		$legoID = $item->{'LegoID'};
 		$minrate = 100;
-		$toysrus_str = 	"N/A";
-		$walmart_str = 	"N/A";
-		$amazon_str = 	"N/A";
+		$toysrus_rate = null;
+		$walmart_rate = null;
+		$amazon_rate = null;
 		if (isset($Toysrus["$legoID"]))
 		{
 			if ($Toysrus["$legoID"]->{'Price'} > 0)
 			{
-				$toysrus_rate = round($Toysrus["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2);
+				$toysrus_rate = floatval(round($Toysrus["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
 				$minrate = $toysrus_rate;
-				$toysrus_str = 	"$".$Toysrus["$legoID"]->{'Price'}."(".$toysrus_rate."%) - ".$Toysrus["$legoID"]->{'Availability'};
 			}
 		}
 		if (isset($Walmart["$legoID"]))
 		{
 			if ($Walmart["$legoID"]->{'Price'} > 0)
 			{
-				$walmart_rate = round($Walmart["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2);
+				$walmart_rate = floatval(round($Walmart["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
 				$minrate = min($minrate, $walmart_rate);
-				$walmart_str = 	"$".$Walmart["$legoID"]->{'Price'}."(".$walmart_rate."%) - ".$Walmart["$legoID"]->{'Availability'};
 			}
 		}
 		if (isset($Amazon["$legoID"]))
 		{
 			if ($Amazon["$legoID"]->{'Price'} > 0)
 			{
-				$amazon_rate = round($Amazon["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2);
+				$amazon_rate = floatval(round($Amazon["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
 				$minrate = min($minrate, $amazon_rate);
-				$amazon_str = 	"$".$Amazon["$legoID"]->{'Price'}."(".$amazon_rate."%) - ".$Amazon["$legoID"]->{'Availability'};
 			}
-
 		}
 		$jsonitem->{'legoid'} = $item->{'LegoID'};
 		$jsonitem->{'theme'} = $item->{'Theme'};
