@@ -22,6 +22,7 @@ if ($ret->{'ItemCount'})
 	$ToysrusItems = $ret->{'Items'};
 }
 
+echo "[Info][".date('Y-m-d H:i:s')."] ".count($ToysrusItems)." items crawled from page ".$ret->{'URL'}."\n";
 
 $arrNoupdate = array();
 foreach ($ToysrusItems as $item)
@@ -64,8 +65,8 @@ foreach ($ToysrusItems as $item)
 					$strupdate .= $prop."[".$info->{$prop}."=>".$value."], ";
 				}
 				$strupdate = trim($strupdate, ", ");
-				echo "[Info][".date('Y-m-d H:i:s')."] Toysrus_Item ".$info->{'LegoID'}." - ".$info->{'Title'}." updated: ".$strupdate." @ www.toysrus.com/product/index.jsp?productId=$ToysrusID\n";
-				//send_Message(NOTIFICATION_RECIPIENT, "Toysrus_Item ".$info->{'LegoID'}." - ".$info->{'Title'}." updated: ".$strupdate." @ www.toysrus.com/product/index.jsp?productId=$ToysrusID");
+				//echo "[Info][".date('Y-m-d H:i:s')."] Toysrus_Item ".$info->{'LegoID'}." - ".$info->{'Title'}." updated: ".$strupdate." www.toysrus.com/product/index.jsp?productId=$ToysrusID\n";
+				//send_Message(NOTIFICATION_RECIPIENT, "Toysrus_Item ".$info->{'LegoID'}." - ".$info->{'Title'}." updated: ".$strupdate." www.toysrus.com/product/index.jsp?productId=$ToysrusID");
 			}
 		}
 		else
@@ -75,13 +76,14 @@ foreach ($ToysrusItems as $item)
 
 		if (!empty($rate) && $rate < 76 && $item->{"Availability"} <> "Sold Out" && !empty(($info->{'LegoID'})))
 		{
-			if (publish_SaleMessage("toysrus.com", $ToysrusID, $price, $info->{'LegoID'}))
+			$ret = publish_SaleMessage("toysrus.com", $ToysrusID, $price, $info->{'LegoID'});
+			if (!$ret->{'Status'})
 			{
-				echo "[Info][".date('Y-m-d H:i:s')."] ".$info->{'LegoID'}." on sale for $".$price." (".$rate."% off from reg. $".$info->{'MSRP'}.") on www.toysrus.com/product/index.jsp?productId=".$ToysrusID."\n";
+				echo "[Info][".date('Y-m-d H:i:s')."] ".$info->{'LegoID'}." on sale for $".$price." (".$rate."% off from reg. $".$info->{'MSRP'}.") www.toysrus.com/product/index.jsp?productId=".$ToysrusID."\n";
 			}
 			else
 			{
-				echo "Twitter publish failed due to rate limitation.\n";
+				echo "[Warning][".date('Y-m-d H:i:s')."] Failed to publish tweet due to ".$ret->{'Message'}.": ".$info->{'LegoID'}." on sale for $".$price." (".$rate."% off from reg. $".$info->{'MSRP'}.")\n";
 			}
 		}
 	}
@@ -90,8 +92,8 @@ foreach ($ToysrusItems as $item)
 		$legoID = $item->{'LegoID'};
 		db_insert("Toysrus_Item", array("LegoID" => $legoID, "ToysrusID" => $ToysrusID), null, true);
 
-		echo "[Info][".date('Y-m-d H:i:s')."] New item added by matching legoid on www.toysrus.com/product/index.jsp?productId=".$ToysrusID." ".$legoID." - ".$item->{'Title'}."\n";
-		//send_Message(NOTIFICATION_RECIPIENT, "New Toysrus_Item ".$legoID." - ".$item->{'Title'}." listed on www.toysrus.com/product/index.jsp?productId=".$ToysrusID);
+		echo "[Info][".date('Y-m-d H:i:s')."] New item added by legoid: ".$legoID." - ".$item->{'Title'}." www.toysrus.com/product/index.jsp?productId=".$ToysrusID."\n";
+		send_Message(NOTIFICATION_RECIPIENT, "New Toysrus_Item ".$legoID." - ".$item->{'Title'}." listed on www.toysrus.com/product/index.jsp?productId=".$ToysrusID);
 
 	}
 	else
@@ -109,15 +111,15 @@ foreach ($ToysrusItems as $item)
 			db_insert("Toysrus_Item", array("LegoID" => "", "ToysrusID" => $ToysrusID), null, true);
 		}
 
-		echo "[Info][".date('Y-m-d H:i:s')."] New item added by matching title on www.toysrus.com/product/index.jsp?productId=".$ToysrusID." ".$legoID." - ".$item->{'Title'}."\n";
-		//send_Message(NOTIFICATION_RECIPIENT, "New Toysrus_Item ".$legoID." - ".$item->{'Title'}." listed on www.toysrus.com/product/index.jsp?productId=".$ToysrusID);
+		echo "[Info][".date('Y-m-d H:i:s')."] New item added by title: ".$legoID." - ".$item->{'Title'}." www.toysrus.com/product/index.jsp?productId=".$ToysrusID."\n";
+		send_Message(NOTIFICATION_RECIPIENT, "New Toysrus_Item ".$legoID." - ".$item->{'Title'}." listed on www.toysrus.com/product/index.jsp?productId=".$ToysrusID);
 	}
 }
 
 if (!empty($arrNoupdate))
 {
 	$ret = db_update("Toysrus_Item", array("LastUpdateTime" => date('Y-m-d H:i:s')), "ToysrusID IN (".implode(",", $arrNoupdate).")");
-	//var_dump($ret);
+	echo "[Info][".date('Y-m-d H:i:s')."] No update for ".count($arrNoupdate)." items\n";
 }
 
 ?>

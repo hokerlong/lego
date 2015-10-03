@@ -105,6 +105,58 @@ function db_insert($table, $fields, $condition, $update_while_duplicate)
 	return $ret;
 }
 
+function db_delete($table, $condition)
+{
+	$ret = new stdClass();
+
+	$mysqli = new mysqli(MYSQL_SERVER_NAME, MYSQL_USERNAME, MYSQL_PASSWORD,  MYSQL_DATABASE);
+	if ($mysqli->connect_errno)
+	{
+		$ret->{'Status'} = 1;
+		$ret->{'Message'} = "Database Connect failed: ".$mysqli->connect_error;
+		return json_encode($ret);
+	}
+
+	$mysqli->query("SET NAMES UTF8;");
+	$mysqli->query("SET time_zone = '-07:00';");
+
+	$conditionstr = "";
+	if (is_array($condition))
+	{
+		$conditionstr .= "WHERE ";
+		foreach ($condition as $key => $value)
+		{
+			$conditionstr .= $mysqli->real_escape_string($key)."='".$mysqli->real_escape_string($value)."' AND ";
+		}
+		$conditionstr = trim($conditionstr, "AND ");
+	}
+	elseif ($condition <> "" && $condition <> null)
+	{
+		$conditionstr = "WHERE ".$mysqli->real_escape_string($condition);
+	}
+
+	$query = "DELETE FROM ".$mysqli->real_escape_string($table)." ".$conditionstr.";";
+
+	$ret->{'Query'} = $query;
+	var_dump($ret->{'Query'});
+	if ($mysqli->query($query))
+	{
+		$ret->{'Status'} = 0;
+	}
+	else
+	{
+		$ret->{'Status'} = 1;
+		$ret->{'Message'} = $mysqli->error;
+	}
+	
+	//var_dump($ret);
+
+	$mysqli->close();
+	return $ret;
+
+
+}
+
 function db_update($table, $fields, $condition)
 {
 	$ret = new stdClass();

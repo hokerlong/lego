@@ -80,8 +80,15 @@ foreach ($WalmartItems as $item)
 
 		if (!empty($rate) && $rate < 76 && ($item->{"Availability"} == "Pickup Only" || $item->{"Availability"} == "Available") && !empty(($info->{'LegoID'})))
 		{
-			//var_dump("walmart.com", $walmartID, $price, $info->{'LegoID'});
-			publish_SaleMessage("walmart.com", $walmartID, $price, $info->{'LegoID'});
+			$ret = publish_SaleMessage("walmart.com", $walmartID, $price, $info->{'LegoID'});
+			if (!$ret->{'Status'})
+			{
+				echo "[Info][".date('Y-m-d H:i:s')."] ".$info->{'LegoID'}." on sale for $".$price." (".$rate."% off from reg. $".$info->{'MSRP'}.") www.walmart.com/ip/".$walmartID."\n";
+			}
+			else
+			{
+				echo "[Warning][".date('Y-m-d H:i:s')."] Failed to publish tweet due to ".$ret->{'Message'}.": ".$info->{'LegoID'}." on sale for $".$price." (".$rate."% off from reg. $".$info->{'MSRP'}.")\n";
+			}
 		}
 	}
 	elseif (!empty($item->{'LegoID'}))
@@ -89,7 +96,7 @@ foreach ($WalmartItems as $item)
 		$legoID = $item->{'LegoID'};
 		db_insert("Walmart_Item", array("LegoID" => $legoID, "WalmartID" => $walmartID), null, true);
 
-		echo "[Info][".date('Y-m-d H:i:s')."] New item added by matching legoid on www.walmart.com/ip/".$walmartID." ".$legoID." - ".$item->{'Title'}."\n";
+		echo "[Info][".date('Y-m-d H:i:s')."] New item added by legoid: ".$legoID." - ".$item->{'Title'}." www.walmart.com/ip/".$walmartID." \n";
 		send_Message(NOTIFICATION_RECIPIENT, "New Walmart_Item ".$legoID." - ".$item->{'Title'}." listed on www.walmart.com/ip/".$walmartID);
 
 	}
@@ -108,7 +115,7 @@ foreach ($WalmartItems as $item)
 			db_insert("Walmart_Item", array("LegoID" => "", "WalmartID" => $walmartID), null, true);
 		}
 
-		echo "[Info][".date('Y-m-d H:i:s')."] New item added by matching title on www.walmart.com/ip/".$walmartID." ".$legoID." - ".$item->{'Title'}."\n";
+		echo "[Info][".date('Y-m-d H:i:s')."] New item added by title: ".$legoID." - ".$item->{'Title'}." www.walmart.com/ip/".$walmartID." \n";
 		send_Message(NOTIFICATION_RECIPIENT, "New Walmart_Item ".$legoID." - ".$item->{'Title'}." listed on www.walmart.com/ip/".$walmartID);
 	}
 }
@@ -116,7 +123,7 @@ foreach ($WalmartItems as $item)
 if (!empty($arrNoupdate))
 {
 	$ret = db_update("Walmart_Item", array("LastUpdateTime" => date('Y-m-d H:i:s')), "WalmartID IN (".implode(",", $arrNoupdate).")");
-	//var_dump($ret);
+	echo "[Info][".date('Y-m-d H:i:s')."] No update for ".count($arrNoupdate)." items\n";
 }
 
 ?>

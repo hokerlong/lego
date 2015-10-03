@@ -76,6 +76,7 @@ function gen_url($provider, $itemID)
 
 function publish_SaleMessage($provider, $itemID, $salePrice, $legoID)
 {
+	$retItem = new stdClass();
 	$ret = db_query("DB_Set INNER JOIN DB_Theme ON DB_Set.ThemeID = DB_Theme.ThemeID", array("LegoID", "ETitle AS Title", "ETheme AS Theme", "USPrice AS MSRP"), "LegoID=".$legoID);
 	//var_dump($ret);
 	if (!$ret->{'Status'} && $ret->{'Results'})
@@ -107,8 +108,16 @@ function publish_SaleMessage($provider, $itemID, $salePrice, $legoID)
 			{
 				reply_tweet($tweet->{'TweetID'}, "[".$legoID."] ".$theme." - ".$title." was reduced even further to $".$salePrice." (".$rate."% off from reg.$".$msrp.") ".$url);
 				send_Message(NOTIFICATION_RECIPIENT, $message);
-				return true;
-
+				
+				$retItem->{'Status'} = 0;
+				$retItem->{'Message'} = "tweet replied";
+				return $retItem;
+			}
+			else
+			{
+				$retItem->{'Status'} = 1;
+				$retItem->{'Message'} = "already post";
+				return $retItem;
 			}
 		}
 		else
@@ -117,8 +126,9 @@ function publish_SaleMessage($provider, $itemID, $salePrice, $legoID)
 
 			if (!$ret->{'Status'} && $ret->{'Count'} >=5)
 			{
-				//published more than 5 items in previous hour.
-				return false;
+				$retItem->{'Status'} = 1;
+				$retItem->{'Message'} = "rate limitation";
+				return $retItem;
 			}
 			else
 			{
@@ -127,12 +137,16 @@ function publish_SaleMessage($provider, $itemID, $salePrice, $legoID)
 				{
 					$ret = db_insert("Twitter_Tweet", array('TweetID' => $tweetID, 'Provider' => $provider, 'ItemID' => $itemID, 'LegoID' => $legoID, 'Price' => $salePrice, 'LastPublishTime' => date('Y-m-d H:i:s')), null, true);
 					send_Message(NOTIFICATION_RECIPIENT, $message);
-					return true;
+					$retItem->{'Status'} = 0;
+					$retItem->{'Message'} = "new tweet published";
+					return $retItem;
 				}
 			}
 		}
 	}
-	return false;
+	$retItem->{'Status'} = 1;
+	$retItem->{'Message'} = "no DB_Set info";
+	return $retItem;
 }
 
 ?>

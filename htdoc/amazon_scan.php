@@ -22,6 +22,7 @@ if ($ret->{'ItemCount'})
 	$AmazonItems = $ret->{'Items'};
 }
 
+echo "[Info][".date('Y-m-d H:i:s')."] ".count($AmazonItems)." items crawled from page ".$ret->{'URL'}."\n";
 
 $arrNoupdate = array();
 foreach ($AmazonItems as $item)
@@ -75,13 +76,14 @@ foreach ($AmazonItems as $item)
 
 		if (!empty($rate) && $rate < 76 && ($item->{"Availability"} == "Pickup Only" || $item->{"Availability"} == "Available") && !empty(($info->{'LegoID'})))
 		{
-			if (publish_SaleMessage("amazon.com", $ASIN, $price, $info->{'LegoID'}))
+			$ret = publish_SaleMessage("amazon.com", $ASIN, $price, $info->{'LegoID'});
+			if (!$ret->{'Status'})
 			{
 				echo "[Info][".date('Y-m-d H:i:s')."] ".$info->{'LegoID'}." on sale for $".$price." (".$rate."% off from reg. $".$info->{'MSRP'}.") on www.amazon.com/gp/product/".$ASIN."\n";
 			}
 			else
 			{
-				echo "Twitter publish failed due to rate limitation.\n";
+				echo "[Warning][".date('Y-m-d H:i:s')."] Failed to publish tweet due to ".$ret->{'Message'}.": ".$info->{'LegoID'}." on sale for $".$price." (".$rate."% off from reg. $".$info->{'MSRP'}.")\n";
 			}
 		}
 	}
@@ -90,7 +92,7 @@ foreach ($AmazonItems as $item)
 		$legoID = $item->{'LegoID'};
 		db_insert("Amazon_Item", array("LegoID" => $legoID, "ASIN" => $ASIN), null, true);
 
-		echo "[Info][".date('Y-m-d H:i:s')."] New item added by matching legoid on www.amazon.com/gp/product/".$ASIN." ".$legoID." - ".$item->{'Title'}."\n";
+		echo "[Info][".date('Y-m-d H:i:s')."] New item added by legoid: ".$legoID." - ".$item->{'Title'}." www.amazon.com/gp/product/".$ASIN."\n";
 		send_Message(NOTIFICATION_RECIPIENT, "New Amazon_Item ".$legoID." - ".$item->{'Title'}." listed on www.amazon.com/gp/product/".$ASIN);
 
 	}
@@ -109,7 +111,7 @@ foreach ($AmazonItems as $item)
 			db_insert("Amazon_Item", array("LegoID" => "", "ASIN" => $ASIN), null, true);
 		}
 
-		echo "[Info][".date('Y-m-d H:i:s')."] New item added by matching title on www.amazon.com/gp/product/".$ASIN." ".$legoID." - ".$item->{'Title'}."\n";
+		echo "[Info][".date('Y-m-d H:i:s')."] New item added by title: ".$legoID." - ".$item->{'Title'}." www.amazon.com/gp/product/".$ASIN."\n";
 		send_Message(NOTIFICATION_RECIPIENT, "New Amazon_Item ".$legoID." - ".$item->{'Title'}." listed on www.amazon.com/gp/product/".$ASIN);
 	}
 }
@@ -117,7 +119,7 @@ foreach ($AmazonItems as $item)
 if (!empty($arrNoupdate))
 {
 	$ret = db_update("Amazon_Item", array("LastUpdateTime" => date('Y-m-d H:i:s')), "ASIN IN (".implode(",", $arrNoupdate).")");
-	//var_dump($ret);
+	echo "[Info][".date('Y-m-d H:i:s')."] No update for ".count($arrNoupdate)." items\n";
 }
 
 ?>
