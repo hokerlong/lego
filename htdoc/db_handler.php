@@ -463,4 +463,21 @@ function search_legoid($info)
 	return $ret;
 }
 
+function gen_url($provider, $itemID)
+{
+	$url = "";
+	if ($provider == "walmart.com")
+	{
+		$url = "www.walmart.com/ip/".$itemID;
+	}
+	elseif ($provider == "amazon.com")
+	{
+		$url = "www.amazon.com/gp/product/".$itemID."?ie=UTF8&tag=legostor-20";
+	}
+	elseif ($provider == "toysrus.com")
+	{
+		$url = "www.toysrus.com/product/index.jsp?productId=".$itemID;
+	}
+	return $url;
+}
 ?>

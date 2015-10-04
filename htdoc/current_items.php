@@ -1,4 +1,17 @@
 <?php
+date_default_timezone_set('America/Los_Angeles');
+
+$filename = "/tmp/current_items.cache";
+
+if (file_exists($filename) && !isset($_GET["refresh"]))
+{
+	if (filemtime($filename) > strtotime('-5 min'))
+	{
+		echo file_get_contents($filename);
+		exit;
+	}
+}
+
 require_once("db_handler.php");
 
 $Toysrus = array();
@@ -38,7 +51,7 @@ if (!$ret->{'Status'})
 }
 
 $jsonitems = array();
-$ret = db_query("Available_LegoID INNER JOIN DB_Set ON Available_LegoID.LegoID = DB_Set.LegoID INNER JOIN DB_Theme ON DB_Set.ThemeID = DB_Theme.ThemeID", array("Available_LegoID.LegoID AS LegoID", "ETheme AS Theme", "ETitle AS Title", "USPrice AS MSRP"), "USPrice > 0");
+$ret = db_query("Available_LegoID INNER JOIN DB_Set ON Available_LegoID.LegoID = DB_Set.LegoID INNER JOIN DB_Theme ON DB_Set.ThemeID = DB_Theme.ThemeID", array("Available_LegoID.LegoID AS LegoID", "ETheme AS Theme", "ETitle AS Title", "USPrice AS MSRP", "Badge"), "USPrice > 0");
 if (!$ret->{'Status'})
 {
 
@@ -77,22 +90,27 @@ if (!$ret->{'Status'})
 		$jsonitem->{'legoid'} = $item->{'LegoID'};
 		$jsonitem->{'theme'} = $item->{'Theme'};
 		$jsonitem->{'title'} = $item->{'Title'};
+		$jsonitem->{'badge'} = $item->{'Badge'};
 		$jsonitem->{'msrp'} = floatval($item->{'MSRP'});
 		$jsonitem->{'min_rate'} = $minrate;
 		$jsonitem->{'toysrus_rate'} = $toysrus_rate;
 		$jsonitem->{'toysrus_price'} = $Toysrus["$legoID"]->{'Price'};
 		$jsonitem->{'toysrus_availability'} = $Toysrus["$legoID"]->{'Availability'};
+		$jsonitem->{'toysrus_url'} = gen_url("toysrus.com", $Toysrus["$legoID"]->{'ItemID'});
 		$jsonitem->{'walmart_rate'} = $walmart_rate;
 		$jsonitem->{'walmart_price'} = $Walmart["$legoID"]->{'Price'};
 		$jsonitem->{'walmart_availability'} = $Walmart["$legoID"]->{'Availability'};
+		$jsonitem->{'walmart_url'} = gen_url("walmart.com", $Walmart["$legoID"]->{'ItemID'});
 		$jsonitem->{'amazon_rate'} = $amazon_rate;
 		$jsonitem->{'amazon_price'} = $Amazon["$legoID"]->{'Price'};
 		$jsonitem->{'amazon_availability'} = $Amazon["$legoID"]->{'Availability'};
+		$jsonitem->{'amazon_url'} = gen_url("amazon.com", $Amazon["$legoID"]->{'ItemID'});
 		array_push($jsonitems, $jsonitem);
 	}
 }
 $json = new stdClass();
 $json->{'items'} = $jsonitems;
+file_put_contents($filename, json_encode($json));
 echo json_encode($json);
 
 ?>
