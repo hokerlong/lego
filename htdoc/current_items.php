@@ -7,6 +7,7 @@ if (file_exists($filename) && !isset($_GET["refresh"]))
 {
 	if (filemtime($filename) > strtotime('-5 min'))
 	{
+		ob_start('ob_gzhandler');
 		echo file_get_contents($filename);
 		exit;
 	}
@@ -58,15 +59,28 @@ if (!$ret->{'Status'})
 	{
 		$jsonitem = new stdClass();
 		$legoID = $item->{'LegoID'};
+
+		$jsonitem->{'legoid'} = intval($item->{'LegoID'});
+		$jsonitem->{'theme'} = $item->{'Theme'};
+		$jsonitem->{'title'} = $item->{'Title'};
+		if (!empty($item->{'Badge'}))
+		{
+			$jsonitem->{'badge'} = $item->{'Badge'};
+		}
+		$jsonitem->{'msrp'} = floatval($item->{'MSRP'});
+
 		$minrate = 100;
-		$toysrus_rate = null;
-		$walmart_rate = null;
-		$amazon_rate = null;
+		$jsonitem->{'toysrus_rate'} = null;
+		$jsonitem->{'walmart_rate'} = null;
+		$jsonitem->{'amazon_rate'} = null;
 		if (isset($Toysrus["$legoID"]))
 		{
 			if ($Toysrus["$legoID"]->{'Price'} > 0)
 			{
-				$toysrus_rate = floatval(round($Toysrus["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
+				$jsonitem->{'toysrus_rate'} = floatval(round($Toysrus["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
+				$jsonitem->{'toysrus_url'} = gen_url("toysrus.com", $Toysrus["$legoID"]->{'ItemID'});
+				$jsonitem->{'toysrus_price'} = $Toysrus["$legoID"]->{'Price'};
+				$jsonitem->{'toysrus_availability'} = $Toysrus["$legoID"]->{'Availability'};
 				$minrate = $toysrus_rate;
 			}
 		}
@@ -74,7 +88,10 @@ if (!$ret->{'Status'})
 		{
 			if ($Walmart["$legoID"]->{'Price'} > 0)
 			{
-				$walmart_rate = floatval(round($Walmart["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
+				$jsonitem->{'walmart_rate'} = floatval(round($Walmart["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
+				$jsonitem->{'walmart_url'} = gen_url("walmart.com", $Walmart["$legoID"]->{'ItemID'});
+				$jsonitem->{'walmart_price'} = $Walmart["$legoID"]->{'Price'};
+				$jsonitem->{'walmart_availability'} = $Walmart["$legoID"]->{'Availability'};
 				$minrate = min($minrate, $walmart_rate);
 			}
 		}
@@ -82,34 +99,22 @@ if (!$ret->{'Status'})
 		{
 			if ($Amazon["$legoID"]->{'Price'} > 0)
 			{
-				$amazon_rate = floatval(round($Amazon["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
+				$jsonitem->{'amazon_rate'} = floatval(round($Amazon["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
+				$jsonitem->{'amazon_url'} = gen_url("amazon.com", $Amazon["$legoID"]->{'ItemID'});
+				$jsonitem->{'amazon_price'} = $Amazon["$legoID"]->{'Price'};
+				$jsonitem->{'amazon_availability'} = $Amazon["$legoID"]->{'Availability'};
 				$minrate = min($minrate, $amazon_rate);
 			}
 		}
-		$jsonitem->{'legoid'} = intval($item->{'LegoID'});
-		$jsonitem->{'theme'} = $item->{'Theme'};
-		$jsonitem->{'title'} = $item->{'Title'};
-		$jsonitem->{'badge'} = $item->{'Badge'};
-		$jsonitem->{'msrp'} = floatval($item->{'MSRP'});
 		$jsonitem->{'min_rate'} = $minrate;
-		$jsonitem->{'toysrus_rate'} = $toysrus_rate;
-		$jsonitem->{'toysrus_price'} = $Toysrus["$legoID"]->{'Price'};
-		$jsonitem->{'toysrus_availability'} = $Toysrus["$legoID"]->{'Availability'};
-		$jsonitem->{'toysrus_url'} = gen_url("toysrus.com", $Toysrus["$legoID"]->{'ItemID'});
-		$jsonitem->{'walmart_rate'} = $walmart_rate;
-		$jsonitem->{'walmart_price'} = $Walmart["$legoID"]->{'Price'};
-		$jsonitem->{'walmart_availability'} = $Walmart["$legoID"]->{'Availability'};
-		$jsonitem->{'walmart_url'} = gen_url("walmart.com", $Walmart["$legoID"]->{'ItemID'});
-		$jsonitem->{'amazon_rate'} = $amazon_rate;
-		$jsonitem->{'amazon_price'} = $Amazon["$legoID"]->{'Price'};
-		$jsonitem->{'amazon_availability'} = $Amazon["$legoID"]->{'Availability'};
-		$jsonitem->{'amazon_url'} = gen_url("amazon.com", $Amazon["$legoID"]->{'ItemID'});
+
 		array_push($jsonitems, $jsonitem);
 	}
 }
 $json = new stdClass();
 $json->{'items'} = $jsonitems;
 file_put_contents($filename, json_encode($json));
+ob_start('ob_gzhandler');
 echo json_encode($json);
 
 ?>
