@@ -31,7 +31,7 @@
 
 <body ng-app="barginList">
   <div><p><input type="text" ng-model="text_filter"></p></div>
-  <div ng-controller="listController" class="div_items">
+  <div ng-controller="listController" class="div_items" ng-show="items">
     <table class="items">
       <tr>
         <th><a href="" ng-click="reverse=!reverse;order('legoid', !reverse)">LegoID</a></th>
@@ -42,7 +42,6 @@
         <th><a href="" ng-click="reverse=!reverse;order('toysrus_rate', !reverse)">Toysrus</a></th>
         <th><a href="" ng-click="reverse=!reverse;order('walmart_rate', !reverse)">Walmart</a></th>
         <th><a href="" ng-click="reverse=!reverse;order('amazon_rate', !reverse)">Amazon</a></th>
-
       </tr>
       <tr ng-repeat="item in items | filter:text_filter">
         <td>{{item.legoid}}</td>
