@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/table_items.css">
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js"></script>
   <script>
   (function(angular) {
@@ -29,8 +30,8 @@
 </head>
 
 <body ng-app="barginList">
-  <div ng-controller="listController">
-    <div><input type="text" ng-model="text_filter"></div>
+  <div><p><input type="text" ng-model="text_filter"></p></div>
+  <div ng-controller="listController" class="div_items">
     <table class="items">
       <tr>
         <th><a href="" ng-click="reverse=!reverse;order('legoid', !reverse)">LegoID</a></th>
