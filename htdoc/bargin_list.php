@@ -30,10 +30,10 @@
 
 <body ng-app="barginList">
   <div ng-controller="listController">
+    <div><input type="text" ng-model="text_filter"></div>
     <table class="items">
       <tr>
         <th><a href="" ng-click="reverse=!reverse;order('legoid', !reverse)">LegoID</a></th>
-        <th>Theme</th>
         <th>Title</th>
         <th><a href="" ng-click="reverse=!reverse;order('msrp', !reverse)">MSRP</a></th>
         <th><a href="" ng-click="reverse=!reverse;order('min_rate', !reverse)">MinRate</a></th>
@@ -42,15 +42,14 @@
         <th><a href="" ng-click="reverse=!reverse;order('amazon_rate', !reverse)">Amazon</a></th>
 
       </tr>
-      <tr ng-repeat="item in items">
+      <tr ng-repeat="item in items | filter:text_filter">
         <td>{{item.legoid}}</td>
-        <td>{{item.theme}}</td>
-        <td>{{item.title}}</td>
+        <td>{{item.theme}} - {{item.title}}</td>
         <td>{{item.msrp}}</td>
         <td>{{item.min_rate}}%</td>
-        <td>${{item.toysrus_price}} ({{item.toysrus_rate}}%)</td>
-        <td>${{item.walmart_price}} ({{item.walmart_rate}}%)</td>
-        <td>${{item.amazon_price}} ({{item.amazon_rate}}%)</td>
+        <td><span ng-if="item.toysrus_rate != null">${{item.toysrus_price}} ({{item.toysrus_rate}}%)</span><span ng-if="item.toysrus_rate == null">N/A</span></td>
+        <td><span ng-if="item.walmart_rate != null">${{item.walmart_price}} ({{item.walmart_rate}}%)</span><span ng-if="item.walmart_rate == null">N/A</span></td>
+        <td><span ng-if="item.amazon_rate != null">${{item.amazon_price}} ({{item.amazon_rate}}%)</span><span ng-if="item.amazon_rate == null">N/A</span></td>
       </tr>
     </table>
   </div>
