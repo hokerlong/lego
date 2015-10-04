@@ -19,7 +19,7 @@
         $scope.order = function(predicate, reverse) {
           $scope.items = $filter('orderBy')($scope.items, predicate, reverse);
         };
-        $scope.order('legoid', false);
+        $scope.order('legoid', true);
       });
   })(window.angular);
 

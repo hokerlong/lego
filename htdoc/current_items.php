@@ -51,10 +51,9 @@ if (!$ret->{'Status'})
 }
 
 $jsonitems = array();
-$ret = db_query("Available_LegoID INNER JOIN DB_Set ON Available_LegoID.LegoID = DB_Set.LegoID INNER JOIN DB_Theme ON DB_Set.ThemeID = DB_Theme.ThemeID", array("Available_LegoID.LegoID AS LegoID", "ETheme AS Theme", "ETitle AS Title", "USPrice AS MSRP", "Badge"), "USPrice > 0");
+$ret = db_query("Available_LegoID INNER JOIN DB_Set ON Available_LegoID.LegoID = DB_Set.LegoID INNER JOIN DB_Theme ON DB_Set.ThemeID = DB_Theme.ThemeID", array("Available_LegoID.LegoID AS LegoID", "ETheme AS Theme", "ETitle AS Title", "USPrice AS MSRP", "Badge"), "USPrice > 0 ORDER BY Available_LegoID.LegoID*1");
 if (!$ret->{'Status'})
 {
-
 	foreach ($ret->{'Results'} as $item)
 	{
 		$jsonitem = new stdClass();
@@ -87,7 +86,7 @@ if (!$ret->{'Status'})
 				$minrate = min($minrate, $amazon_rate);
 			}
 		}
-		$jsonitem->{'legoid'} = $item->{'LegoID'};
+		$jsonitem->{'legoid'} = intval($item->{'LegoID'});
 		$jsonitem->{'theme'} = $item->{'Theme'};
 		$jsonitem->{'title'} = $item->{'Title'};
 		$jsonitem->{'badge'} = $item->{'Badge'};
