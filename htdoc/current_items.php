@@ -81,7 +81,7 @@ if (!$ret->{'Status'})
 				$jsonitem->{'toysrus_url'} = gen_url("toysrus.com", $Toysrus["$legoID"]->{'ItemID'});
 				$jsonitem->{'toysrus_price'} = $Toysrus["$legoID"]->{'Price'};
 				$jsonitem->{'toysrus_availability'} = $Toysrus["$legoID"]->{'Availability'};
-				$minrate = $toysrus_rate;
+				$minrate = $jsonitem->{'toysrus_rate'};
 			}
 		}
 		if (isset($Walmart["$legoID"]))
@@ -92,7 +92,7 @@ if (!$ret->{'Status'})
 				$jsonitem->{'walmart_url'} = gen_url("walmart.com", $Walmart["$legoID"]->{'ItemID'});
 				$jsonitem->{'walmart_price'} = $Walmart["$legoID"]->{'Price'};
 				$jsonitem->{'walmart_availability'} = $Walmart["$legoID"]->{'Availability'};
-				$minrate = min($minrate, $walmart_rate);
+				$minrate = min($minrate, $jsonitem->{'walmart_rate'});
 			}
 		}
 		if (isset($Amazon["$legoID"]))
@@ -103,7 +103,7 @@ if (!$ret->{'Status'})
 				$jsonitem->{'amazon_url'} = gen_url("amazon.com", $Amazon["$legoID"]->{'ItemID'});
 				$jsonitem->{'amazon_price'} = $Amazon["$legoID"]->{'Price'};
 				$jsonitem->{'amazon_availability'} = $Amazon["$legoID"]->{'Availability'};
-				$minrate = min($minrate, $amazon_rate);
+				$minrate = min($minrate, $jsonitem->{'amazon_rate'});
 			}
 		}
 		$jsonitem->{'min_rate'} = $minrate;
