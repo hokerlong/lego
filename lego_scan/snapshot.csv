@@ -474,10 +474,28 @@
 10240,"Out of Stock",199.99,0,"Red Five X-wing Starfighter™"
 10241,"Sold Out",149.99,0,"Maersk Line Triple-E"
 10242,"Available",99.99,0,"MINI Cooper"
-10243,"Available",159.99,0,"Parisian Restaurant"
+10243,"Out of Stock",159.99,0,"Parisian Restaurant"
+array(1) {
+  [0]=>
+  object(stdClass)#3145 (2) {
+    ["message"]=>
+    string(128) "Application cannot perform write actions. Contact Twitter Platform Operations through https://support.twitter.com/forms/platform"
+    ["code"]=>
+    int(261)
+  }
+}
 10244,"Available",149.99,0,"Fairground Mixer"
 10245,"Available",69.99,0,"Santa's Workshop"
-10246,"Available",159.99,0,"Detective’s Office"
+10246,"Out of Stock",159.99,0,"Detective’s Office"
+array(1) {
+  [0]=>
+  object(stdClass)#3144 (2) {
+    ["message"]=>
+    string(128) "Application cannot perform write actions. Contact Twitter Platform Operations through https://support.twitter.com/forms/platform"
+    ["code"]=>
+    int(261)
+  }
+}
 10247,"Out of Stock",199.99,0,"Ferris Wheel"
 10248,"Available",99.99,0,"Ferrari F40"
 10249,"Available",79.99,0,"Winter Toy Shop"
@@ -1372,15 +1390,6 @@
 75110,"Available",19.99,0,"Luke Skywalker™"
 75111,"Out of Stock",29.99,0,"Darth Vader™"
 75112,"Out of Stock",34.99,0,"General Grievous™"
-array(1) {
-  [0]=>
-  object(stdClass)#3147 (2) {
-    ["message"]=>
-    string(128) "Application cannot perform write actions. Contact Twitter Platform Operations through https://support.twitter.com/forms/platform"
-    ["code"]=>
-    int(261)
-  }
-}
 75899,"Available",14.99,0,"LaFerrari"
 75900,"Available",14.99,0,"Mummy Museum Mystery"
 75901,"Available",19.99,0,"Mystery Plane Adventures"
@@ -1393,7 +1402,7 @@ array(1) {
 75911,"Available",29.99,0,"McLaren Mercedes Pit Stop"
 75912,"Available",49.99,0,"Porsche 911 GT Finish Line"
 75913,"Available",99.99,0,"F14 T & Scuderia Ferrari Truck"
-75915,"Available",19.99,0,"Pteranodon Capture"
+75915,"Out of Stock",19.99,0,"Pteranodon Capture"
 75916,"Out of Stock",29.99,0,"Dilophosaurus Ambush"
 75917,"Out of Stock",49.99,0,"Raptor Rampage"
 75918,"Out of Stock",69.99,0,"T. rex Tracker"
