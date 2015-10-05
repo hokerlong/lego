@@ -443,15 +443,6 @@
 9846,"Available",39.99,0,"Ultrasonic Sensor"
 9847,"Retired",0,0,"Bluetooth® Dongle"
 10188,"Out of Stock",399.99,0,"Death Star™"
-array(1) {
-  [0]=>
-  object(stdClass)#3149 (2) {
-    ["message"]=>
-    string(128) "Application cannot perform write actions. Contact Twitter Platform Operations through https://support.twitter.com/forms/platform"
-    ["code"]=>
-    int(261)
-  }
-}
 10189,"Retired",0,0,"Taj Mahal"
 10193,"Retired",0,0,"Medieval Market Village"
 10197,"Retired",0,0,"Fire Brigade"
@@ -480,7 +471,16 @@ array(1) {
 10235,"Retired",0,0,"Winter Village Market"
 10236,"Out of Stock",249.99,0,"Ewok™ Village"
 10237,"Sold Out",199.99,0,"The Tower of Orthanc™"
-10240,"Sold Out",199.99,0,"Red Five X-wing Starfighter™"
+10240,"Out of Stock",199.99,0,"Red Five X-wing Starfighter™"
+array(1) {
+  [0]=>
+  object(stdClass)#3149 (2) {
+    ["message"]=>
+    string(128) "Application cannot perform write actions. Contact Twitter Platform Operations through https://support.twitter.com/forms/platform"
+    ["code"]=>
+    int(261)
+  }
+}
 10241,"Sold Out",149.99,0,"Maersk Line Triple-E"
 10242,"Available",99.99,0,"MINI Cooper"
 10243,"Available",159.99,0,"Parisian Restaurant"
