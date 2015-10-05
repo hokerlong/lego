@@ -472,15 +472,6 @@
 10236,"Out of Stock",249.99,0,"Ewok™ Village"
 10237,"Sold Out",199.99,0,"The Tower of Orthanc™"
 10240,"Sold Out",199.99,0,"Red Five X-wing Starfighter™"
-array(1) {
-  [0]=>
-  object(stdClass)#3147 (2) {
-    ["message"]=>
-    string(128) "Application cannot perform write actions. Contact Twitter Platform Operations through https://support.twitter.com/forms/platform"
-    ["code"]=>
-    int(261)
-  }
-}
 10241,"Sold Out",149.99,0,"Maersk Line Triple-E"
 10242,"Available",99.99,0,"MINI Cooper"
 10243,"Available",159.99,0,"Parisian Restaurant"
@@ -488,15 +479,6 @@ array(1) {
 10245,"Available",69.99,0,"Santa's Workshop"
 10246,"Available",159.99,0,"Detective’s Office"
 10247,"Out of Stock",199.99,0,"Ferris Wheel"
-array(1) {
-  [0]=>
-  object(stdClass)#3146 (2) {
-    ["message"]=>
-    string(128) "Application cannot perform write actions. Contact Twitter Platform Operations through https://support.twitter.com/forms/platform"
-    ["code"]=>
-    int(261)
-  }
-}
 10248,"Available",99.99,0,"Ferrari F40"
 10249,"Available",79.99,0,"Winter Toy Shop"
 10285,"Retired",0,0,"Compass Sensor"
