@@ -112,6 +112,7 @@ if (!$ret->{'Status'})
 	}
 }
 $json = new stdClass();
+$json->{'pubtime'} = time();
 $json->{'items'} = $jsonitems;
 file_put_contents($filename, json_encode($json));
 ob_start('ob_gzhandler');
