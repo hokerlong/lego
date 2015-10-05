@@ -1829,15 +1829,6 @@
 5004807,"Out of Stock",49.99,0,"LEGO® Jurassic World™ Wii U Video Game"
 5004808,"Sold Out",49.99,0,"LEGO® Jurassic World™ XBOX 360 Video Game"
 5004809,"Out of Stock",109.96,0,"LEGO® Friends Pop Star Collection"
-array(1) {
-  [0]=>
-  object(stdClass)#3149 (2) {
-    ["message"]=>
-    string(128) "Application cannot perform write actions. Contact Twitter Platform Operations through https://support.twitter.com/forms/platform"
-    ["code"]=>
-    int(261)
-  }
-}
 5004810,"Available",134.97,0,"LEGO® Scooby-Doo Collection"
 5004815,"Available",52.98,0,"LEGO® Marvel Super Heroes Collection"
 5004816,"Available",149.98,0,"LEGO® DC Comics™ Super Heroes Collection"
