@@ -442,7 +442,16 @@
 9845,"Available",34.99,0,"Sound Sensor"
 9846,"Available",39.99,0,"Ultrasonic Sensor"
 9847,"Retired",0,0,"Bluetooth® Dongle"
-10188,"Sold Out",399.99,0,"Death Star™"
+10188,"Out of Stock",399.99,0,"Death Star™"
+array(1) {
+  [0]=>
+  object(stdClass)#3149 (2) {
+    ["message"]=>
+    string(128) "Application cannot perform write actions. Contact Twitter Platform Operations through https://support.twitter.com/forms/platform"
+    ["code"]=>
+    int(261)
+  }
+}
 10189,"Retired",0,0,"Taj Mahal"
 10193,"Retired",0,0,"Medieval Market Village"
 10197,"Retired",0,0,"Fire Brigade"
@@ -591,7 +600,7 @@
 10672,"Available",29.99,0,"Batman™: Defend the Batcave"
 10673,"Available",29.99,0,"Race Car Rally"
 10674,"Available",29.99,0,"Pony Farm"
-10675,"Available",29.99,0,"Police – The Big Escape"
+10675,"Out of Stock",29.99,0,"Police – The Big Escape"
 10676,"Available",49.99,0,"Knights' Castle"
 10677,"Available",9.99,0,"Beach Trip"
 10679,"Available",9.99,0,"Pirate Treasure Hunt"
