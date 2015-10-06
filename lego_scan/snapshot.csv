@@ -1252,25 +1252,7 @@
 71008,"Retired",0,0,"LEGO® Minifigures, Series 13"
 71009,"Available",3.99,0,"LEGO® Minifigures, The Simpsons™ Series 2"
 71010,"Available",3.99,0,"LEGO® Minifigures, Series 14: Monsters"
-array(1) {
-  [0]=>
-  object(stdClass)#3149 (2) {
-    ["message"]=>
-    string(128) "Application cannot perform write actions. Contact Twitter Platform Operations through https://support.twitter.com/forms/platform"
-    ["code"]=>
-    int(261)
-  }
-}
 71016,"Out of Stock",199.99,0,"The Kwik-E-Mart"
-array(1) {
-  [0]=>
-  object(stdClass)#3148 (2) {
-    ["message"]=>
-    string(128) "Application cannot perform write actions. Contact Twitter Platform Operations through https://support.twitter.com/forms/platform"
-    ["code"]=>
-    int(261)
-  }
-}
 71170,"Available",99.99,0,"LEGO® DIMENSIONS™ PLAYSTATION® 3 Starter Pack"
 71171,"Available",99.99,0,"LEGO® DIMENSIONS™ PLAYSTATION® 4 Starter Pack"
 71172,"Available",99.99,0,"LEGO® DIMENSIONS™ Xbox One Starter Pack"
