@@ -71,7 +71,7 @@ foreach ($sortedItems as $item)
 	else
 	{
 		send_Message(NOTIFICATION_RECIPIENT, "New item listed on Official Lego Shop: ".$item->{'LegoID'}." - ".$item->{'Title'}." at $".$item->{'Price'}." ".$item->{'URL'});
-
+		new_tweet("New item listed on Official Lego Shop: ".$item->{'LegoID'}." - ".$item->{'Title'}." at $".$item->{'Price'}." ".$item->{'URL'});
 		insert_DBSet(array("LegoID" => $item->{'LegoID'}, "ETitle" => $item->{'Title'}, "USPrice" => $item->{'Price'}, "Badge" => $item->{'Badge'}));
 	}
 }

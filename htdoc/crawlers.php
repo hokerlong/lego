@@ -378,9 +378,17 @@ function crawl_lego()
 				{
 					$retItem->{'Availability'} = "Sold Out";
 				}
-				elseif ((preg_match("/Out of stock/ui", $strAvailability)) || (preg_match("/Call to check/ui", $strAvailability)))
+				elseif ((preg_match("/Temporarily out of stock/ui", $strAvailability)) || (preg_match("/Call to check/ui", $strAvailability)))
 				{
 					$retItem->{'Availability'} = "Out of Stock";
+				}
+				elseif ((preg_match("/Out of stock, expected ship date (.*)/ui", $strAvailability, $match)))
+				{
+					$retItem->{'Availability'} = $match[1]; //|will ship in (.*))
+				}
+				elseif ((preg_match("/Out of stock, will ship in (.*)/ui", $strAvailability, $match)))
+				{
+					$retItem->{'Availability'} = date('M d Y', strtotime("+".$match[1]));
 				}
 				elseif (preg_match("/Coming Soon/ui", $strAvailability))
 				{
