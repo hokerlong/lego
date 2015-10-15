@@ -1,11 +1,33 @@
 <?php
 require_once("db_handler.php");
 require_once("twitter_handler.php");
-require_once("LanguageDetect/LanguageDetect.php");
+require_once("languageDetect.php");
+
+// Prepare the MSFT Langurage Detector
+try {
+	//OAuth Url.
+	$authUrl = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13/";
+	//Application Scope Url
+	$scopeUrl = "http://api.microsofttranslator.com";
+	//Application grant type
+	$grantType = "client_credentials";
+
+	//Create the AccessTokenAuthentication object.
+	$authObj      = new AccessTokenAuthentication();
+    //Get the Access token.
+    $accessToken  = $authObj->getTokens($grantType, $scopeUrl, $clientID, $clientSecret, $authUrl);
+    //Create the authorization Header string.
+    $authHeader = "Authorization: Bearer ". $accessToken;
+    
+    //Create the Translator Object.
+    $translatorObj = new HTTPTranslator();
+}
+catch (Exception $e)
+{
+    echo "Exception: " . $e->getMessage() . PHP_EOL;
+}
 
 $userlist = array("LEGO", "artifexcreation");
-$l = new Text_LanguageDetect;
-$l->setNameMode(2);
 
 $videos = array();
 $pubtime = strtotime("Now");
@@ -36,18 +58,29 @@ foreach ($userlist as $user)
 		//$item->{'url'} = (string)$media->group->content->attributes()['url'];
 		//$item->{'thumbnail'} = (string)$media->group->thumbnail->attributes()['url'];
 
-		$item->{'title'} = (string)$media->group->title;
-		$item->{'description'} = (string)$media->group->description;
+		if ($item->{'user'} == "LEGO")
+		{
+			$item->{'title'} = (string)$media->group->title;
+			$item->{'description'} = (string)$media->group->description;
 
-		$language = $l->detectSimple($item->{'title'}." ".$item->{'description'});
-		if ($language == "en")
+			$detectMethodUrl = "http://api.microsofttranslator.com/V2/Http.svc/Detect?text=".urlencode($item->{'title'}." ".$item->{'description'});
+			$strResponse = $translatorObj->curlRequest($detectMethodUrl, $authHeader);
+			$xmlObj = simplexml_load_string($strResponse);
+			foreach((array)$xmlObj[0] as $val)
+			{
+				$language = $val;
+			}
+			if ($language == "en")
+			{
+				array_push($videos, $item);
+			}			
+		}
+		else
 		{
 			array_push($videos, $item);
 		}
-
 	}
 }
-unset($l);
 
 $YoutubeIDs = array();
 
