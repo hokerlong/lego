@@ -7,4 +7,4 @@
 30 9,15,21 * * *	/usr/bin/php /home/ec2-user/htdoc/amazon_scan.php >> /home/ec2-user/logs/amazon_scan.log 2>&1
 45 * * * *	/usr/bin/php /home/ec2-user/htdoc/toysrus_scan.php >> /home/ec2-user/logs/toysrus_scan.log 2>&1
 #5,20,35,50 0-5,15-23 * * *	/usr/bin/php /home/ec2-user/htdoc/add_friend.php >> /home/ec2-user/logs/add_friend.log 2>&1
-#*/10 * * * *	/usr/bin/php /home/ec2-user/htdoc/youtube_update.php >> /home/ec2-user/logs/youtube_update.log 2>&1
+*/10 * * * *	/usr/bin/php /home/ec2-user/htdoc/youtube_update.php >> /home/ec2-user/logs/youtube_update.log 2>&1

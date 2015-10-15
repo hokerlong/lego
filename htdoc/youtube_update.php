@@ -24,7 +24,10 @@ foreach ($userlist as $user)
 		$media = $entry->children('media', true);
 
 		$item->{'user'} = $user;
-		$item->{'pubtime'} = strtotime($entry->published);
+
+		$date = new DateTime($entry->published, new DateTimeZone("UTC"));
+
+		$item->{'pubtime'} = $date->format('U');
 		if ($item->{'pubtime'} < $pubtime)
 		{
 			$pubtime = $item->{'pubtime'};
@@ -72,11 +75,12 @@ foreach ($videos as $video)
 {
 	if (isset($YoutubeIDs[$video->{'id'}]))
 	{
-		$dbitem = $YoutubeIDs[$item->{'id'}];
+		$dbitem = $YoutubeIDs[$video->{'id'}];
 
 		// if dbitem->{'Tweet'} = 0, not publish yet, try to publish. dbitem->{'Tweet'} = 1, has been published.
-		if (!$dbitem->{'Tweet'} && $push_quota)
+		if (intval($dbitem->{'Tweet'}) <> 1 && $push_quota > 0)
 		{
+			//echo "In DB item publishing: ".$video->{'id'}." [".$video->{'title'}."]\n";
 			if (video_publish($video, true))
 			{
 				$push_quota--;
@@ -85,6 +89,8 @@ foreach ($videos as $video)
 	}
 	elseif ($push_quota)
 	{
+		//echo "New item publishing: ".$video->{'id'}." [".$video->{'title'}."]\n";
+
 		if (video_publish($video, true))
 		{
 			$push_quota--;
@@ -92,6 +98,7 @@ foreach ($videos as $video)
 	}
 	else
 	{
+		//echo "New item update to db: ".$video->{'id'}." [".$video->{'title'}."]\n";
 		video_publish($video, false);
 	}
 
@@ -106,18 +113,24 @@ function video_publish($video, $publish)
 		$tweetID = new_tweet($message);
 		if ($tweetID)
 		{
-			db_insert("Youtube_Update", array("YoutubeID" => $video->{'id'}, "Title" => $video->{'title'}, "Pubtime" => date('Y-m-d H:i:s', $video->{'pubtime'}), "Tweet" => 1, "TweetID" => $tweetID, "Tweettime" => date('Y-m-d H:i:s')), null, true);
+			echo "DB Insert(pub) ".$video->{'id'}."=1\n";
+			$ret = db_insert("Youtube_Update", array("YoutubeID" => $video->{'id'}, "Title" => $video->{'title'}, "Pubtime" => date('Y-m-d H:i:s', $video->{'pubtime'}), "Tweet" => 1, "TweetID" => $tweetID, "Tweettime" => date('Y-m-d H:i:s')), null, true);
+			//var_dump($ret);
 			return true;
 		}
 		else
 		{
-			db_insert("Youtube_Update", array("YoutubeID" => $video->{'id'}, "Title" => $video->{'title'}, "Pubtime" => date('Y-m-d H:i:s', $video->{'pubtime'}), "Tweet" => 0), null, true);
+			//echo "DB Insert(pubfailed) ".$video->{'id'}."=0\n";
+			//$ret = db_insert("Youtube_Update", array("YoutubeID" => $video->{'id'}, "Title" => $video->{'title'}, "Pubtime" => date('Y-m-d H:i:s', $video->{'pubtime'})), null, true);
+			//var_dump($ret);
 			return false;
 		}	
 	}
 	else
 	{
-		db_insert("Youtube_Update", array("YoutubeID" => $video->{'id'}, "Title" => $video->{'title'}, "Pubtime" => date('Y-m-d H:i:s', $video->{'pubtime'}), "Tweet" => 0), null, true);
+		echo "DB Insert(else) ".$video->{'id'}."=0\n";
+		$ret = db_insert("Youtube_Update", array("YoutubeID" => $video->{'id'}, "Title" => $video->{'title'}, "Pubtime" => date('Y-m-d H:i:s', $video->{'pubtime'}), "Tweet" => 0), null, true);
+		//var_dump($ret);
 		return true;
 	}	
 }
