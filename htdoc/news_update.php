@@ -206,7 +206,7 @@ function get_rss_news($provider, $url)
 			case 'BrickSet';
 				if (preg_match('/src=\'([^\"]*)\'/', $desc, $match))
 				{
-					$news->{'PicPath'} = trim($match[1]);
+					$news->{'PicPath'} = str_replace(" ", "", trim($match[1]));
 				}
 
 				$date = new DateTime($item->pubDate, new DateTimeZone("UTC"));
