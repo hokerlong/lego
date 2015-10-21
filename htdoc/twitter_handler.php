@@ -5,6 +5,18 @@ require_once("twitteroauth/autoload.php");
 
 use TwitterOAuth\TwitterOAuth;
 
+
+function push_to_pool()
+{
+
+}
+
+function publish_from_pool()
+{
+
+}
+
+
 function send_Message($recipient, $text)
 {
 	$connection = new TwitterOAuth(TWITTER_KEY, TWITTER_SECRET, TWITTER_TOKEN, TWITTER_TOKEN_SECRET);
@@ -21,10 +33,48 @@ function send_Message($recipient, $text)
 
 }
 
+function upload_pic($pic)
+{
+	$connection = new TwitterOAuth(TWITTER_KEY, TWITTER_SECRET, TWITTER_TOKEN, TWITTER_TOKEN_SECRET);
+	$response = $connection->upload("media/upload", array("media" => $pic));
+	if (isset($response->errors))
+	{
+		var_dump($response->errors);
+		return false;
+	}
+	else
+	{
+		return $response->media_id;
+	}
+}
+
 function new_tweet($message)
 {
 	$connection = new TwitterOAuth(TWITTER_KEY, TWITTER_SECRET, TWITTER_TOKEN, TWITTER_TOKEN_SECRET);
 	$response = $connection->post("statuses/update", array("status" => $message));
+	if (isset($response->errors))
+	{
+		var_dump($response->errors);
+		return false;
+	}
+	else
+	{
+		return $response->id;
+	}
+}
+
+function tweet_with_pic($message, $media_id)
+{
+	$connection = new TwitterOAuth(TWITTER_KEY, TWITTER_SECRET, TWITTER_TOKEN, TWITTER_TOKEN_SECRET);
+	if (empty($media_id))
+	{
+		$response = $connection->post("statuses/update", array("status" => $message));
+	}
+	else
+	{
+		$response = $connection->post("statuses/update", array("status" => $message, "media_ids" => $media_id));
+	}
+	
 	if (isset($response->errors))
 	{
 		var_dump($response->errors);
@@ -115,10 +165,12 @@ function publish_SaleMessage($provider, $itemID, $salePrice, $legoID)
 			else
 			{
 				$tweetID = new_tweet($message);
+				var_dump($tweetID);
 				if($tweetID)
 				{
 					$ret = db_insert("Twitter_Tweet", array('TweetID' => $tweetID, 'Provider' => $provider, 'ItemID' => $itemID, 'LegoID' => $legoID, 'Price' => $salePrice, 'LastPublishTime' => date('Y-m-d H:i:s')), null, true);
-					send_Message(NOTIFICATION_RECIPIENT, $message);
+					var_dump($ret);
+					//send_Message(NOTIFICATION_RECIPIENT, $message);
 					$retItem->{'Status'} = 0;
 					$retItem->{'Message'} = "new tweet published";
 					return $retItem;

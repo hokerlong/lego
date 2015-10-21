@@ -26,7 +26,7 @@ function db_query($table, $fields, $condition)
 	$ret->{'Query'} = $query;
 	$result = $mysqli->query($query);
 
-	if ($mysqli->connect_errno && isset($result))
+	if ($mysqli->error && isset($result))
 	{
 		var_dump($query);
 	}
