@@ -2,6 +2,7 @@
 require_once("db_handler.php");
 require_once("twitter_handler.php");
 require_once("simple_html_dom.php");
+require_once("languageDetect.php");
 
 foreach (define_source() as $source)
 {
@@ -11,7 +12,7 @@ foreach (define_source() as $source)
 			$newsResult = get_rss_news($source->{'Provider'}, $source->{'Url'});
 			break;
 		case 'Video-Youtube':
-			$newsResult = get_youtube_update($provider, $url);
+			$newsResult = get_youtube_update($source->{'Provider'}, $source->{'Url'});
 			break;		
 		case 'Event-Update':
 			$newsResult = get_event_update($source->{'Provider'}, $source->{'Url'});
@@ -150,6 +151,27 @@ function define_source()
 
 	array_push($newsSources, $source);
 
+	$source = new stdClass();
+	$source->{'Provider'} = "LEGO";
+	$source->{'Url'} = "https://www.youtube.com/feeds/videos.xml?user=".$source->{'Provider'};
+	$source->{'Type'} = "Video-Youtube";
+
+	array_push($newsSources, $source);
+
+	$source = new stdClass();
+	$source->{'Provider'} = "artifexcreation";
+	$source->{'Url'} = "https://www.youtube.com/feeds/videos.xml?user=".$source->{'Provider'};
+	$source->{'Type'} = "Video-Youtube";
+
+	array_push($newsSources, $source);
+
+	$source = new stdClass();
+	$source->{'Provider'} = "brickbuilder23";
+	$source->{'Url'} = "https://www.youtube.com/feeds/videos.xml?user=".$source->{'Provider'};
+	$source->{'Type'} = "Video-Youtube";
+
+	array_push($newsSources, $source);
+
 	return $newsSources;
 }
 
@@ -242,7 +264,96 @@ function get_rss_news($provider, $url)
 
 function get_youtube_update($provider, $url)
 {
+	if ($provider == "LEGO")
+	{
+		// Prepare the MSFT Langurage Detector
+		try
+		{
+			//OAuth Url.
+			$authUrl = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13/";
+			//Application Scope Url
+			$scopeUrl = "http://api.microsofttranslator.com";
+			//Application grant type
+			$grantType = "client_credentials";
 
+			//Create the AccessTokenAuthentication object.
+			$authObj      = new AccessTokenAuthentication();
+		    //Get the Access token.
+		    $accessToken  = $authObj->getTokens($grantType, $scopeUrl, MS_TRANSLATOR_CLIENTID, MS_TRANSLATOR_CLIENTSECRET, $authUrl);
+		    //Create the authorization Header string.
+		    $authHeader = "Authorization: Bearer ". $accessToken;
+		    
+		    //Create the Translator Object.
+		    $translatorObj = new HTTPTranslator();
+		}
+		catch (Exception $e)
+		{
+		    echo "Exception: " . $e->getMessage() . PHP_EOL;
+		}	
+	}
+
+	$ret = new stdClass();
+	$ret->{'PubDate'} = time();
+	$ret->{'Provider'} = $provider;
+	$ret->{'Url'} = $url;
+	$ret->{'Type'} = "Video-Youtube";
+
+	$arrNews = array();
+	
+	$xmlDom = new DOMDocument();
+	$xmlDom->load($url);
+
+	$xml = simplexml_import_dom($xmlDom);
+
+	foreach ($xml->entry as $entry)
+	{
+		$media = $entry->children('media', true);
+
+		$item = new stdClass();
+		$item->{'Provider'} = $ret->{'Provider'};
+		$item->{'Type'} = $ret->{'Type'};
+		$item->{'Hash'} = (string)$entry->children('yt', true)->videoId;
+		$item->{'Title'} = (string)$media->group->title;
+		$item->{'Link'} = "https://youtu.be/".$item->{'Hash'};
+
+		$date = new DateTime($entry->published, new DateTimeZone("UTC"));
+		$item->{'PubDate'} = $date->format('U');
+		if ($item->{'PubDate'} < $ret->{'PubDate'})
+		{
+			$ret->{'PubDate'} = $item->{'PubDate'};
+		}
+		//$item->{'updated'} = strtotime($entry->updated);
+		//$item->{'url'} = (string)$media->group->content->attributes()['url'];
+		//$item->{'thumbnail'} = (string)$media->group->thumbnail->attributes()['url'];
+		$item->{'PicPath'} = null;
+		$item->{'Publish'} = true;
+		$item->{'Review'} = false;
+
+		if ($provider == "LEGO")
+		{			
+			$desc = (string)$media->group->description;
+			$detectMethodUrl = "http://api.microsofttranslator.com/V2/Http.svc/Detect?text=".urlencode($item->{'Title'}." ".$desc);
+			$strResponse = $translatorObj->curlRequest($detectMethodUrl, $authHeader);
+			$xmlObj = simplexml_load_string($strResponse);
+			foreach((array)$xmlObj[0] as $val)
+			{
+				$language = $val;
+			}
+			if ($language <> "en")
+			{
+				$item->{'Publish'} = false;
+			}
+			$arrNews[$item->{'Hash'}] = $item;
+
+		}
+		else
+		{
+			$arrNews[$item->{'Hash'}] = $item;
+		}
+	}
+	$ret->{'News'} = $arrNews;
+
+	return $ret;
 }
 
 function get_event_update($provider, $url)
