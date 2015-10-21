@@ -54,7 +54,7 @@ foreach ($sortedItems as $item)
 		{
 			$arrfields['Availability'] = $item->{'Availability'};
 
-			if (!empty($dbitem->{'Badge'}))
+			if (!empty($dbitem->{'Badge'}) && $dbitem->{'Badge'} <> "New")
 			{
 				send_Message(NOTIFICATION_RECIPIENT, $item->{'LegoID'}." - ".$item->{'Title'}." (".$dbitem->{'Badge'}."): Availability changed from '".$dbitem->{'Availability'}."' to '".$item->{'Availability'}."' ".$item->{'URL'});
 			}
