@@ -37,12 +37,13 @@
 <body ng-app="Review">
 	<div>
 		<form ng-submit="submit()" ng-controller="ReviewController">
-		<label>Hash/Link:</label>
-		<input type="text" ng-model="hash" size="30" ng-init="hash='<?php echo $_GET['id']?>'; submit()" placeholder="Enter article hash or link here">
-		<button ng-model="btn_approve" ng-disabled="btn_disable" ng-click="approve()">Approve</button><button ng-model="btn_reject" ng-disabled="btn_disable" ng-click="reject()">Reject</button>
+		<h2>Hash:
+		&nbsp;<input type="text" ng-model="hash" size="30" ng-init="hash='<?php echo $_GET['id']?>'; submit()" placeholder="Enter article hash or link here">
+		&nbsp;<button ng-model="btn_approve" ng-disabled="btn_disable" ng-click="approve()">Approve</button>
+		&nbsp;<button ng-model="btn_reject" ng-disabled="btn_disable" ng-click="reject()">Reject</button></h2>
 		<hr>
-		<h3>({{news.Type}}) {{news.Provider}} - {{news.Title}}</h3>
-		<h4><img src="{{news.PicPath}}"/></h4>
+		<h2>[{{news.Status}}] ({{news.Type}}) {{news.Provider}} - {{news.Title}}</h2>
+		<img src="{{news.PicPath}}"/>
 		<hr>
 		<a href="{{news.Link}}">{{news.Link}}</a>
 	</div>

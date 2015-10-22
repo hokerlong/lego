@@ -11,7 +11,7 @@ switch ($_GET['action']) {
 		db_update("Twitter_News", array("Status" => "R"), array("Hash" => $_GET['hash']));
 		break;	
 	default:
-		$ret = db_query("Twitter_News", array("Provider", "Type", "Title", "Link", "PicPath", "PubDate"), array("Hash" => $_GET['hash']));
+		$ret = db_query("Twitter_News", array("Provider", "Type", "Title", "Link", "PicPath", "Status"), array("Hash" => $_GET['hash']));
 		if (!$ret->{'Status'})
 		{
 			if (!empty($ret->{'Results'}[0]))
