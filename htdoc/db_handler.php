@@ -18,11 +18,22 @@ function db_query($table, $fields, $condition)
 	$mysqli->query("SET time_zone = '-07:00';");
 
 	$fieldstr = implode(",", $fields);
-	if ($condition <> "" && $condition <> null)
+
+
+	if (is_array($condition))
 	{
-		$condition = " WHERE ".$condition;
+		$conditionstr .= "WHERE ";
+		foreach ($condition as $key => $value)
+		{
+			$conditionstr .= $mysqli->real_escape_string($key)."='".$mysqli->real_escape_string($value)."' AND ";
+		}
+		$conditionstr = trim($conditionstr, "AND ");
 	}
-	$query = "SELECT ".$mysqli->real_escape_string($fieldstr)." FROM ".$mysqli->real_escape_string($table).$condition.";";
+	elseif ($condition <> "" && $condition <> null)
+	{
+		$conditionstr = "WHERE ".$condition;
+	}
+	$query = "SELECT ".$mysqli->real_escape_string($fieldstr)." FROM ".$mysqli->real_escape_string($table)." ".$conditionstr.";";
 	$ret->{'Query'} = $query;
 	$result = $mysqli->query($query);
 
