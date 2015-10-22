@@ -54,6 +54,7 @@ if (!$ret->{'Status'})
 		}
 		else
 		{
+			$ret = db_update("Twitter_Pool", array("TweetID" => 0, "PubTime" => date('Y-m-d H:i:s')), array("PoolID" => $item->{'PoolID'}));
 			echo "[".date('Y-m-d H:i:s')."] Failed to publish to twitter API: ^^\n";
 		}
 	}
