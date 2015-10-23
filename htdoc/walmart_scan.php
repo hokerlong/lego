@@ -81,6 +81,7 @@ foreach ($WalmartItems as $item)
 		if (!empty($rate) && $rate < 76 && ($item->{"Availability"} == "Pickup Only" || $item->{"Availability"} == "Available") && !empty(($info->{'LegoID'})))
 		{
 			$ret = publish_SaleMessage("walmart.com", $walmartID, $price, $info->{'LegoID'});
+			var_dump($ret->{'Message'});
 			if (!$ret->{'Status'})
 			{
 				echo "[Info][".date('Y-m-d H:i:s')."] ".$info->{'LegoID'}." on sale for $".$price." (".$rate."% off from reg. $".$info->{'MSRP'}.") www.walmart.com/ip/".$walmartID."\n";
