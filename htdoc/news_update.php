@@ -131,6 +131,13 @@ function define_source()
 	$newsSources = array();
 
 	$source = new stdClass();
+	$source->{'Provider'} = "TheBrothersBrick";
+	$source->{'Url'} = "http://feeds.feedburner.com/TheBrothersBrick";
+	$source->{'Type'} = "News-RSS";
+
+	array_push($newsSources, $source);
+
+	$source = new stdClass();
 	$source->{'Provider'} = "ToysNBricks";
 	$source->{'Url'} = "http://toysnbricks.com/feed/";
 	$source->{'Type'} = "News-RSS";
@@ -195,25 +202,41 @@ function get_rss_news($provider, $url)
 		$news->{'Provider'} = $ret->{'Provider'};
 		$news->{'Type'} = $ret->{'Type'};
 		$news->{'Title'} = trim((string)$item->title);
-		$news->{'Link'} = (string)$item->link;
-		$news->{'Hash'} = substr(md5($news->{'Title'}), -12);
-		$desc = (string)$item->description;
+		
+		$news->{'Link'} = (string)$item->children('feedburner', true)->origLink;
+		if (empty($news->{'Link'}))
+		{
+			$news->{'Link'} = (string)$item->link;
+		}
+		
+		$news->{'Hash'} = substr(md5($news->{'Link'}), -12);
+
+		$desc = (string)$item->children('content', true)->encoded;
+		if (empty($desc))
+		{
+			$desc = (string)$item->description;
+		}
+
+		if (preg_match('/src=[\"|\']([^\"|^\']*)[\"|\']/', $desc, $match))
+		{
+			$news->{'PicPath'} = trim($match[1]);
+		}
+		else
+		{
+			$news->{'PicPath'} = null;
+		}
+		//var_dump($news->{'PicPath'} );
+
+		$date = new DateTime($item->pubDate, new DateTimeZone("UTC"));
+		$news->{'PubDate'} = $date->format('U');
+		if ($news->{'PubDate'} < $ret->{'PubDate'})
+		{
+			$ret->{'PubDate'} = $news->{'PubDate'};
+		}
 
 		switch ($ret->{'Provider'})
 		{
 			case 'ToysNBricks':
-				if (preg_match('/img src=\"([^\"]*)\"/', $desc, $match))
-				{
-					$news->{'PicPath'} = trim($match[1]);
-				}
-
-				$date = new DateTime((string)$item->pubDate, new DateTimeZone("UTC"));
-				$news->{'PubDate'} = $date->format('U');
-				if ($news->{'PubDate'} < $ret->{'PubDate'})
-				{
-					$ret->{'PubDate'} = $news->{'PubDate'};
-				}
-
 				if (preg_match("/Amazon America currently has/", $desc))
 				{
 					$news->{'Publish'} = false;
@@ -225,18 +248,7 @@ function get_rss_news($provider, $url)
 					$news->{'Review'} = false;
 				}
 				break;
-			case 'BrickSet';
-				if (preg_match('/src=\'([^\"]*)\'/', $desc, $match))
-				{
-					$news->{'PicPath'} = str_replace(" ", "", trim($match[1]));
-				}
-
-				$date = new DateTime($item->pubDate, new DateTimeZone("UTC"));
-				$news->{'PubDate'} = $date->format('U');
-				if ($news->{'PubDate'} < $ret->{'PubDate'})
-				{
-					$ret->{'PubDate'} = $news->{'PubDate'};
-				}
+			case 'BrickSet':
 				if (preg_match('/Review:/', $news->{'Title'}))
 				{
 					$news->{'Publish'} = true;
@@ -248,8 +260,11 @@ function get_rss_news($provider, $url)
 					$news->{'Review'} = true;
 				}
 				break;
+			case 'TheBrothersBrick':
+				$news->{'Publish'} = true;
+				$news->{'Review'} = false;
+				break;
 			default:
-				$news->{'PicPath'} = null;
 				$news->{'Publish'} = false;
 				$news->{'Review'} = false;
 				break;
