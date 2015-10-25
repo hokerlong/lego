@@ -98,8 +98,32 @@ function add_news_tweet_pool($news)
 			$strType = "event";
 			break;
 	}
-	$arrfields["Message"] = "New ".$strType." '".$news->{"Title"}."' updated by ".$news->{"Provider"}.": ".$news->{"Link"};
 	$arrfields["PicPath"] = $news->{"PicPath"};
+	$mesg = "New ".$strType." '".$news->{"Title"}."' updated by ".$news->{"Provider"}.": ";
+	//$arrfields["Message"] = "New ".$strType." '".$news->{"Title"}."' updated by ".$news->{"Provider"}.": ".$news->{"Link"};
+
+	if (!empty($news->{"PicPath"}))
+	{
+		$maxlen = 140 - 23 - 22;
+	}
+	else
+	{
+		$maxlen = 140 - 22;
+	}
+
+	if (strlen($mesg) > $maxlen)
+	{
+		$mesg = "'".$news->{"Title"}."' updated by ".$news->{"Provider"}.": ";
+		if strlen($mesg) > $maxlen)
+		{
+			$mesg = "'".$news->{"Title"}."' by ".$news->{"Provider"}.": ";
+		}
+		if strlen($mesg) > $maxlen)
+		{
+			$mesg = "'".$news->{"Title"}."': ";
+		}
+	}
+	$arrfields["Message"] = $mesg.$news->{"Link"};
 	$ret = db_insert("Twitter_Pool", $arrfields, null, false);
 	if (!$ret->{'Status'})
 	{
