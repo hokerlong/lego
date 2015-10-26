@@ -114,11 +114,11 @@ function add_news_tweet_pool($news)
 	if (strlen($mesg) > $maxlen)
 	{
 		$mesg = "'".$news->{"Title"}."' updated by ".$news->{"Provider"}.": ";
-		if strlen($mesg) > $maxlen)
+		if (strlen($mesg) > $maxlen)
 		{
 			$mesg = "'".$news->{"Title"}."' by ".$news->{"Provider"}.": ";
 		}
-		if strlen($mesg) > $maxlen)
+		if (strlen($mesg) > $maxlen)
 		{
 			$mesg = "'".$news->{"Title"}."': ";
 		}
