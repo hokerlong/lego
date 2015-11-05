@@ -53,7 +53,7 @@ foreach (define_source() as $source)
 				{
 					$arrfields[$prop] = $news->{$prop};
 				}
-				$arrfields["PubDate"] = date('Y-m-d H:i:s', $news->{'PubDate'});
+				$arrfields["PubDate"] = gmdate('Y-m-d H:i:s', $news->{'PubDate'});
 				$ret = db_insert("Twitter_News", $arrfields, null, true);
 
 				if ($news->{'Publish'} == true && $news->{'Review'} == false)

@@ -41,7 +41,7 @@ if (!$ret->{'Status'})
 		$tweetID = tweet_with_pic($item->{'Message'}, $mediaID);
 		if ($tweetID)
 		{
-			$ret = db_update("Twitter_Pool", array("TweetID" => $tweetID, "PubTime" => date('Y-m-d H:i:s')), array("PoolID" => $item->{'PoolID'}));
+			$ret = db_update("Twitter_Pool", array("TweetID" => $tweetID, "PubTime" => gmdate('Y-m-d H:i:s')), array("PoolID" => $item->{'PoolID'}));
 			if (!$ret->{'Status'})
 			{
 				echo "[".date('Y-m-d H:i:s')."] Published tweet successfully [".$tweetID.":".$mediaID."]: ".$item->{'Message'}."\n";
@@ -54,7 +54,7 @@ if (!$ret->{'Status'})
 		}
 		else
 		{
-			$ret = db_update("Twitter_Pool", array("TweetID" => 0, "PubTime" => date('Y-m-d H:i:s')), array("PoolID" => $item->{'PoolID'}));
+			$ret = db_update("Twitter_Pool", array("TweetID" => 0, "PubTime" => gmdate('Y-m-d H:i:s')), array("PoolID" => $item->{'PoolID'}));
 			echo "[".date('Y-m-d H:i:s')."] Failed to publish to twitter API: ^^\n".var_dump($item);
 		}
 	}

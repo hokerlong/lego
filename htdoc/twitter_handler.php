@@ -128,7 +128,7 @@ function publish_SaleMessage($provider, $itemID, $salePrice, $legoID)
 		}
 		$message = "[".$legoID."] ".$theme." - ".$title." is on sale for $".$salePrice." (".$rate."% off from reg.$".$msrp.") ".$url;
 
-		$ret = db_query("Twitter_Tweet", array("TweetID", "Price"), "Provider='".$provider."' AND ItemID='".$itemID."' AND LastPublishTime > '".date('Y-m-d H:i:s', strtotime('-7 days'))."'");
+		$ret = db_query("Twitter_Tweet", array("TweetID", "Price"), "Provider='".$provider."' AND ItemID='".$itemID."' AND LastPublishTime > '".gmdate('Y-m-d H:i:s', strtotime('-7 days'))."'");
 
 		if (!$ret->{'Status'} && $ret->{'Results'})
 		{
@@ -154,7 +154,7 @@ function publish_SaleMessage($provider, $itemID, $salePrice, $legoID)
 		}
 		else
 		{
-			$ret = db_query("Twitter_Tweet", array("TweetID", "Price"), "Provider='".$provider."' AND LastPublishTime > '".date('Y-m-d H:i:s', strtotime('-50 mins'))."'");
+			$ret = db_query("Twitter_Tweet", array("TweetID", "Price"), "Provider='".$provider."' AND LastPublishTime > '".gmdate('Y-m-d H:i:s', strtotime('-50 mins'))."'");
 
 			if (!$ret->{'Status'} && $ret->{'Count'} >=5)
 			{
@@ -168,7 +168,7 @@ function publish_SaleMessage($provider, $itemID, $salePrice, $legoID)
 				var_dump($tweetID);
 				if($tweetID)
 				{
-					$ret = db_insert("Twitter_Tweet", array('TweetID' => $tweetID, 'Provider' => $provider, 'ItemID' => $itemID, 'LegoID' => $legoID, 'Price' => $salePrice, 'LastPublishTime' => date('Y-m-d H:i:s')), null, true);
+					$ret = db_insert("Twitter_Tweet", array('TweetID' => $tweetID, 'Provider' => $provider, 'ItemID' => $itemID, 'LegoID' => $legoID, 'Price' => $salePrice, 'LastPublishTime' => gmdate('Y-m-d H:i:s')), null, true);
 					var_dump($ret);
 					//send_Message(NOTIFICATION_RECIPIENT, $message);
 					$retItem->{'Status'} = 0;

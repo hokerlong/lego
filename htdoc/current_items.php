@@ -16,7 +16,7 @@ if (file_exists($filename) && !isset($_GET["refresh"]))
 require_once("db_handler.php");
 
 $Toysrus = array();
-$ret = db_query("Toysrus_Item", array("LegoID", "Price", "Availability", "LastUpdateTime", "ToysrusID AS ItemID"), "LegoID <> '' AND LastUpdateTime > '".date('Y-m-d H:i:s', strtotime('-2 days'))."'");
+$ret = db_query("Toysrus_Item", array("LegoID", "Price", "Availability", "LastUpdateTime", "ToysrusID AS ItemID"), "LegoID <> '' AND LastUpdateTime > '".gmdate('Y-m-d H:i:s', strtotime('-2 days'))."'");
 if (!$ret->{'Status'})
 {
 	foreach ($ret->{'Results'} as $item)
@@ -28,7 +28,7 @@ if (!$ret->{'Status'})
 }
 
 $Walmart = array();
-$ret = db_query("Walmart_Item", array("LegoID", "Price", "Availability", "LastUpdateTime", "WalmartID AS ItemID"), "LegoID <> '' AND LastUpdateTime > '".date('Y-m-d H:i:s', strtotime('-2 days'))."'");
+$ret = db_query("Walmart_Item", array("LegoID", "Price", "Availability", "LastUpdateTime", "WalmartID AS ItemID"), "LegoID <> '' AND LastUpdateTime > '".gmdate('Y-m-d H:i:s', strtotime('-2 days'))."'");
 if (!$ret->{'Status'})
 {
 	foreach ($ret->{'Results'} as $item)
@@ -40,7 +40,7 @@ if (!$ret->{'Status'})
 }
 
 $Amazon = array();
-$ret = db_query("Amazon_Item", array("LegoID", "Price", "Availability", "LastUpdateTime", "ASIN AS ItemID"), "LegoID <> '' AND LastUpdateTime > '".date('Y-m-d H:i:s', strtotime('-2 days'))."'");
+$ret = db_query("Amazon_Item", array("LegoID", "Price", "Availability", "LastUpdateTime", "ASIN AS ItemID"), "LegoID <> '' AND LastUpdateTime > '".gmdate('Y-m-d H:i:s', strtotime('-2 days'))."'");
 if (!$ret->{'Status'})
 {
 	foreach ($ret->{'Results'} as $item)

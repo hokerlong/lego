@@ -57,7 +57,7 @@ foreach ($WalmartItems as $item)
 		}
 		if (!empty($arrfields))
 		{
-			$arrfields['LastUpdateTime'] = date('Y-m-d H:i:s');
+			$arrfields['LastUpdateTime'] = gmdate('Y-m-d H:i:s');
 
 			$ret = db_update("Walmart_Item", $arrfields, array("WalmartID" => $walmartID));
 			if (!$ret->{'Status'})
@@ -123,7 +123,7 @@ foreach ($WalmartItems as $item)
 
 if (!empty($arrNoupdate))
 {
-	$ret = db_update("Walmart_Item", array("LastUpdateTime" => date('Y-m-d H:i:s')), "WalmartID IN (".implode(",", $arrNoupdate).")");
+	$ret = db_update("Walmart_Item", array("LastUpdateTime" => gmdate('Y-m-d H:i:s')), "WalmartID IN (".implode(",", $arrNoupdate).")");
 	echo "[Info][".date('Y-m-d H:i:s')."] No update for ".count($arrNoupdate)." items\n";
 }
 

@@ -53,7 +53,7 @@ foreach ($ToysrusItems as $item)
 		}
 		if (!empty($arrfields))
 		{
-			$arrfields['LastUpdateTime'] = date('Y-m-d H:i:s');
+			$arrfields['LastUpdateTime'] = gmdate('Y-m-d H:i:s');
 
 			$ret = db_update("Toysrus_Item", $arrfields, array("ToysrusID" => $ToysrusID));
 			if (!$ret->{'Status'})
@@ -118,7 +118,7 @@ foreach ($ToysrusItems as $item)
 
 if (!empty($arrNoupdate))
 {
-	$ret = db_update("Toysrus_Item", array("LastUpdateTime" => date('Y-m-d H:i:s')), "ToysrusID IN (".implode(",", $arrNoupdate).")");
+	$ret = db_update("Toysrus_Item", array("LastUpdateTime" => gmdate('Y-m-d H:i:s')), "ToysrusID IN (".implode(",", $arrNoupdate).")");
 	echo "[Info][".date('Y-m-d H:i:s')."] No update for ".count($arrNoupdate)." items\n";
 }
 

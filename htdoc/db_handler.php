@@ -15,7 +15,7 @@ function db_query($table, $fields, $condition)
 	}
 
 	$mysqli->query("SET NAMES UTF8;");
-	$mysqli->query("SET time_zone = '-07:00';");
+	$mysqli->query("SET time_zone = '00:00';");
 
 	$fieldstr = implode(",", $fields);
 
@@ -78,7 +78,7 @@ function db_insert($table, $fields, $condition, $update_while_duplicate)
 	}
 
 	$mysqli->query("SET NAMES UTF8;");
-	$mysqli->query("SET time_zone = '-07:00';");
+	$mysqli->query("SET time_zone = '00:00';");
 
 	if ($condition <> "" && $condition <> null)
 	{
@@ -129,7 +129,7 @@ function db_delete($table, $condition)
 	}
 
 	$mysqli->query("SET NAMES UTF8;");
-	$mysqli->query("SET time_zone = '-07:00';");
+	$mysqli->query("SET time_zone = '00:00';");
 
 	$conditionstr = "";
 	if (is_array($condition))
@@ -181,7 +181,7 @@ function db_update($table, $fields, $condition)
 	}
 
 	$mysqli->query("SET NAMES UTF8;");
-	$mysqli->query("SET time_zone = '-07:00';");
+	$mysqli->query("SET time_zone = '00:00';");
 
 	$conditionstr = "";
 	if (is_array($condition))
