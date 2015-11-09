@@ -754,4 +754,49 @@ function get_event_update($provider, $url)
 	return $ret;
 }
 
+function crawl_price($provider)
+{
+	switch ($provider)
+	{
+		case 'Amazon':
+			return crawl_amazon();
+			break;
+		case 'Walmart':
+			return crawl_walmart();
+			break;
+		case 'Toysrus':
+			return crawl_toysrus();
+			break;
+		case 'LegoShop':
+			return crawl_lego();
+			break;
+		default:
+			# code...
+			break;
+	}
+}
+
+function get_url_by_itemID($provider, $itemID)
+{
+	switch ($provider)
+	{
+		case 'Amazon':
+			$url = "http://www.amazon.com/gp/product/".$itemID."/ref=as_li_tl?ie=UTF8&tag=".AMAZON_TAG;
+			break;
+		case 'Walmart':
+			$url = "http://www.walmart.com/ip/".$itemID;
+			break;
+		case 'Toysrus':
+			$url = "http://www.toysrus.com/product/index.jsp?productId=".$itemID;
+			break;
+		case 'LegoShop':
+			$url = "";
+			break;
+		default:
+			$url = "";
+			break;
+	}
+	return $url;
+}
+
 ?>

@@ -49,9 +49,9 @@
         <td>{{item.theme}} - {{item.title}}</td>
         <td>{{item.msrp}}</td>
         <td>{{item.min_rate}}%</td>
-        <td><span ng-if="item.toysrus_rate != null"><span ng-if="item.toysrus_rate <= item.min_rate" color="red"><a href="http://{{item.toysrus_url}}">${{item.toysrus_price}} ({{item.toysrus_rate}}%)</a></span><span ng-if="item.toysrus_rate != item.min_rate"><a href="http://{{item.toysrus_url}}">${{item.toysrus_price}} ({{item.toysrus_rate}}%)</a></span></span><span ng-if="item.toysrus_rate == null">N/A</span></td>
-        <td><span ng-if="item.walmart_rate != null"><a href="http://{{item.walmart_url}}">${{item.walmart_price}} ({{item.walmart_rate}}%)</a></span><span ng-if="item.walmart_rate == null">N/A</span></td>
-        <td><span ng-if="item.amazon_rate != null"><a href="http://{{item.amazon_url}}">${{item.amazon_price}} ({{item.amazon_rate}}%)</a></span><span ng-if="item.amazon_rate == null">N/A</span></td>
+        <td><span ng-if="item.toysrus_rate != null"><span ng-if="item.toysrus_rate <= item.min_rate" color="red"><a href="{{item.toysrus_url}}">${{item.toysrus_price}} ({{item.toysrus_rate}}%)</a></span><span ng-if="item.toysrus_rate != item.min_rate"><a href="{{item.toysrus_url}}">${{item.toysrus_price}} ({{item.toysrus_rate}}%)</a></span></span><span ng-if="item.toysrus_rate == null">N/A</span></td>
+        <td><span ng-if="item.walmart_rate != null"><a href="{{item.walmart_url}}">${{item.walmart_price}} ({{item.walmart_rate}}%)</a></span><span ng-if="item.walmart_rate == null">N/A</span></td>
+        <td><span ng-if="item.amazon_rate != null"><a href="{{item.amazon_url}}">${{item.amazon_price}} ({{item.amazon_rate}}%)</a></span><span ng-if="item.amazon_rate == null">N/A</span></td>
       </tr>
     </table>
   </div>

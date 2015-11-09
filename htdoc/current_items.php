@@ -13,6 +13,7 @@ if (file_exists($filename) && !isset($_GET["refresh"]))
 	}
 }
 
+require_once("crawlers.php");
 require_once("db_handler.php");
 
 $Toysrus = array();
@@ -78,7 +79,7 @@ if (!$ret->{'Status'})
 			if ($Toysrus["$legoID"]->{'Price'} > 0)
 			{
 				$jsonitem->{'toysrus_rate'} = floatval(round($Toysrus["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
-				$jsonitem->{'toysrus_url'} = gen_url("toysrus.com", $Toysrus["$legoID"]->{'ItemID'});
+				$jsonitem->{'toysrus_url'} = get_url_by_itemID("Toysrus", $Toysrus["$legoID"]->{'ItemID'});
 				$jsonitem->{'toysrus_price'} = $Toysrus["$legoID"]->{'Price'};
 				$jsonitem->{'toysrus_availability'} = $Toysrus["$legoID"]->{'Availability'};
 				$minrate = $jsonitem->{'toysrus_rate'};
@@ -89,7 +90,7 @@ if (!$ret->{'Status'})
 			if ($Walmart["$legoID"]->{'Price'} > 0)
 			{
 				$jsonitem->{'walmart_rate'} = floatval(round($Walmart["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
-				$jsonitem->{'walmart_url'} = gen_url("walmart.com", $Walmart["$legoID"]->{'ItemID'});
+				$jsonitem->{'walmart_url'} = get_url_by_itemID("Walmart", $Walmart["$legoID"]->{'ItemID'});
 				$jsonitem->{'walmart_price'} = $Walmart["$legoID"]->{'Price'};
 				$jsonitem->{'walmart_availability'} = $Walmart["$legoID"]->{'Availability'};
 				$minrate = min($minrate, $jsonitem->{'walmart_rate'});
@@ -100,7 +101,7 @@ if (!$ret->{'Status'})
 			if ($Amazon["$legoID"]->{'Price'} > 0)
 			{
 				$jsonitem->{'amazon_rate'} = floatval(round($Amazon["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
-				$jsonitem->{'amazon_url'} = gen_url("amazon.com", $Amazon["$legoID"]->{'ItemID'});
+				$jsonitem->{'amazon_url'} = get_url_by_itemID("Amazon", $Amazon["$legoID"]->{'ItemID'});
 				$jsonitem->{'amazon_price'} = $Amazon["$legoID"]->{'Price'};
 				$jsonitem->{'amazon_availability'} = $Amazon["$legoID"]->{'Availability'};
 				$minrate = min($minrate, $jsonitem->{'amazon_rate'});
