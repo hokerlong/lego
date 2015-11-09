@@ -37,17 +37,17 @@ function price_scan($provider)
 	echo "[Info][".date('Y-m-d H:i:s')."] ".count($crawlItems)." items crawled from page ".$ret->{'URL'}."\n";
 
 	$arrNoupdate = array();
-	foreach ($crawlItems as $item)
+	foreach ($crawlItems as $crawlitem)
 	{
-		$itemID = $item->{$idName};
+		$itemID = $crawlitem->{$idName};
 		if (isset($dbItems["$itemID"]))
 		{
-			$info = $dbItems["$itemID"];
-			$msrp = $info->{'MSRP'};
-			$price = $info->{'Price'};
+			$dbitem = $dbItems["$itemID"];
+			$msrp = $dbitem->{'MSRP'};
+			$price = $crawlitem->{'Price'};
 			if ($msrp && $price)
 			{
-				$rate = round($price / $msrp * 100, 2);
+				$rate = 100 - round($price / $msrp * 100);
 			}
 			else
 			{
@@ -58,9 +58,9 @@ function price_scan($provider)
 			$arrProp = array("Price", "Availability");
 			foreach ($arrProp as $prop)
 			{
-				if (!empty($item->{"$prop"}) && $item->{"$prop"} <> $info->{"$prop"})
+				if (!empty($crawlitem->{"$prop"}) && $crawlitem->{"$prop"} <> $dbitem->{"$prop"})
 				{
-					$arrfields[$prop] = $item->{$prop};
+					$arrfields[$prop] = $crawlitem->{$prop};
 
 				}
 			}
@@ -75,28 +75,47 @@ function price_scan($provider)
 					$strupdate = "";
 					foreach ($arrfields as $prop => $value)
 					{
-						$strupdate .= $prop."[".$info->{$prop}."=>".$value."], ";
+						$strupdate .= $prop."[".$dbitem->{$prop}."=>".$value."], ";
 					}
 					$strupdate = trim($strupdate, ", ");
-					echo "[Info][".date('Y-m-d H:i:s')."] ".$tlbName." ".$info->{'LegoID'}." - ".$info->{'Title'}." updated: ".$strupdate." ".get_url_by_itemID($provider, $itemID)."\n";
-					//send_Message(NOTIFICATION_RECIPIENT, "Toysrus_Item ".$info->{'LegoID'}." - ".$info->{'Title'}." updated: ".$strupdate." www.toysrus.com/product/index.jsp?productId=$ToysrusID");
+					echo "[Info][".date('Y-m-d H:i:s')."] ".$tlbName." ".$dbitem->{'LegoID'}." - ".$dbitem->{'Title'}." updated: ".$strupdate." ".get_url_by_itemID($provider, $itemID)."\n";
+					//send_Message(NOTIFICATION_RECIPIENT, "Toysrus_Item ".$dbitem->{'LegoID'}." - ".$dbitem->{'Title'}." updated: ".$strupdate." www.toysrus.com/product/index.jsp?productId=$ToysrusID");
 				}
 
-				if (!empty($rate) && $rate < 76 && $item->{"Availability"} <> "Sold Out" && !empty(($info->{'LegoID'})))
+				if (!empty($rate) && $rate > 25 && $crawlitem->{"Availability"} <> "Sold Out" && !empty(($dbitem->{'LegoID'})))
 				{
-					echo "[Info][".date('Y-m-d H:i:s')."] ".$info->{'LegoID'}." on sale for $".$price." (".$rate."% off from reg. $".$info->{'MSRP'}.") ".get_url_by_itemID($provider, $itemID)."\n";
+					$ret = db_query("Twitter_Pool", array("TweetID", "Price"), "Provider='".$provider."' AND ItemID='".$itemID."' AND AddTime > '".gmdate('Y-m-d H:i:s', strtotime('-7 days'))."'");
 
-					/*
-					$ret = publish_SaleMessage($provider, $itemID, $price, $info->{'LegoID'});
-					if (!$ret->{'Status'})
+					if (!$ret->{'Status'} && $ret->{'Results'})
 					{
-						echo "[Info][".date('Y-m-d H:i:s')."] ".$info->{'LegoID'}." on sale for $".$price." (".$rate."% off from reg. $".$info->{'MSRP'}.") ".get_url_by_itemID($provider, $itemID)."\n";
+						$tweetID = $ret->{'Results'}[0]->{"TweetID"};
+						$lastPrice = $ret->{'Results'}[0]->{"Price"};
+						$lastRate = 100 - round($lastPrice / $msrp * 100);
+
+						if ($rate - $lastRate > 2)
+						{
+							$message = "[".$dbitem->{'LegoID'}."] ".$dbitem->{'Theme'}." - ".$$dbitem->{'Title'}." was reduced even further to $".$price." (".$rate."% off from reg.$".$msrp.") ";
+							//retweet.
+							add_deal_tweet_pool($provider, $message, $itemID, $dbitem->{'LegoID'}, $price);
+							//send_Message(NOTIFICATION_RECIPIENT, $message);
+							
+							
+						}
+						else
+						{
+							$message = "[".$dbitem->{'LegoID'}."] is on sale for $".$price." (".$rate."% off from reg.$".$msrp.") has been posted by ".$tweetID;
+						}
 					}
 					else
 					{
-						echo "[Warning][".date('Y-m-d H:i:s')."] Failed to publish tweet due to ".$ret->{'Message'}.": ".$info->{'LegoID'}." on sale for $".$price." (".$rate."% off from reg. $".$info->{'MSRP'}.")\n";
+						$message = "[".$dbitem->{'LegoID'}."] ".$dbitem->{'Theme'}." - ".$dbitem->{'Title'}." is on sale for $".$price." (".$rate."% off from reg.$".$msrp.") ";
+
+						//new tweet.
+						add_deal_tweet_pool($provider, $message, $itemID, $dbitem->{'LegoID'}, $price);
+
 					}
-					*/
+					//echo "[Info][".date('Y-m-d H:i:s')."] ".$message."\n";
+
 				}
 			}
 			else
@@ -104,18 +123,18 @@ function price_scan($provider)
 				array_push($arrNoupdate, $itemID);
 			}
 		}
-		elseif (!empty($item->{'LegoID'}))
+		elseif (!empty($crawlitem->{'LegoID'}))
 		{
-			$legoID = $item->{'LegoID'};
+			$legoID = $crawlitem->{'LegoID'};
 			db_insert($tlbName, array("LegoID" => $legoID, $idName => $itemID), null, true);
 
-			echo "[Info][".date('Y-m-d H:i:s')."] New item added by legoid: ".$legoID." - ".$item->{'Title'}." ".get_url_by_itemID($provider, $itemID)."\n";
-			//send_Message(NOTIFICATION_RECIPIENT, "New Toysrus_Item ".$legoID." - ".$item->{'Title'}." listed on www.toysrus.com/product/index.jsp?productId=".$ToysrusID);
+			echo "[Info][".date('Y-m-d H:i:s')."] New item added by legoid: ".$legoID." - ".$crawlitem->{'Title'}." ".get_url_by_itemID($provider, $itemID)."\n";
+			//send_Message(NOTIFICATION_RECIPIENT, "New Toysrus_Item ".$legoID." - ".$crawlitem->{'Title'}." listed on www.toysrus.com/product/index.jsp?productId=".$ToysrusID);
 		}
 		else
 		{
 			// try to match the legoid by title.
-			$ret = search_legoid(array("Title" => $item->{'Title'}));
+			$ret = search_legoid(array("Title" => $crawlitem->{'Title'}));
 			if (isset($ret->{'MatchID'}))
 			{
 				$legoID = $ret->{'MatchID'};
@@ -127,8 +146,8 @@ function price_scan($provider)
 				db_insert($tlbName, array("LegoID" => "", $idName => $itemID), null, true);
 			}
 
-			echo "[Info][".date('Y-m-d H:i:s')."] New item added by title: ".$legoID." - ".$item->{'Title'}." ".get_url_by_itemID($provider, $itemID)."\n";
-			//send_Message(NOTIFICATION_RECIPIENT, "New ".$tlbName." ".$legoID." - ".$item->{'Title'}." listed on ".get_url_by_itemID($provider, $itemID);
+			echo "[Info][".date('Y-m-d H:i:s')."] New item added by title: ".$legoID." - ".$crawlitem->{'Title'}." ".get_url_by_itemID($provider, $itemID)."\n";
+			//send_Message(NOTIFICATION_RECIPIENT, "New ".$tlbName." ".$legoID." - ".$crawlitem->{'Title'}." listed on ".get_url_by_itemID($provider, $itemID);
 		}
 	}
 
@@ -168,6 +187,7 @@ function get_url_by_itemID($provider, $itemID)
 	{
 		case 'Amazon':
 			$url = "http://www.amazon.com/gp/product/".$itemID;
+			break;
 		case 'Walmart':
 			$url = "http://www.walmart.com/ip/".$itemID;
 			break;
@@ -183,5 +203,49 @@ function get_url_by_itemID($provider, $itemID)
 	}
 	return $url;
 }
+
+function add_deal_tweet_pool($provider, $message, $itemID, $legoID, $price)
+{
+	$arrfields = array();
+	$arrfields["Provider"] = $provider;
+	$arrfields["Type"] = "Deals";
+	$arrfields["ContentID"] = md5($provider.$message);
+	//$arrfields["PicPath"] = $news->{"PicPath"};
+	$arrfields["ItemID"] = $itemID;
+	$arrfields["LegoID"] = $legoID;
+	$arrfields["Price"] = $price;
+
+	if (!empty($arrfields["PicPath"]))
+	{
+		$maxlen = 140 - 23 - 22;
+	}
+	else
+	{
+		$maxlen = 140 - 22;
+	}
+
+	if (strlen($message) > $maxlen)
+	{
+		echo "[Error][".date('Y-m-d H:i:s')."] Message is too long: ".$message."\n";
+		return false;
+	}
+	else
+	{
+		$arrfields["Message"] = $message.get_url_by_itemID($provider, $itemID);
+		$ret = db_insert("Twitter_Pool", $arrfields, null, false);
+		if (!$ret->{'Status'})
+		{
+			echo "[Info][".date('Y-m-d H:i:s')."] Publishing to Twitter_Pool: [".$arrfields["ContentID"]."] ".$arrfields["Message"]."\n";
+			return true;
+		}
+		else
+		{
+			echo "[Error][".date('Y-m-d H:i:s')."] Publishing failed: ";
+			var_dump($ret);
+			return false;
+		}
+	}
+}
+
 
 ?>

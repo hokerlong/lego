@@ -1,7 +1,7 @@
 <?php
+require_once("crawlers.php");
 require_once("db_handler.php");
 require_once("twitter_handler.php");
-require_once("simple_html_dom.php");
 require_once("languageDetect.php");
 
 foreach (define_source() as $source)
@@ -80,6 +80,63 @@ foreach (define_source() as $source)
 	}
 }
 
+function define_source()
+{
+
+	$newsSources = array();
+
+	$source = new stdClass();
+	$source->{'Provider'} = "TheBrothersBrick";
+	$source->{'Url'} = "http://feeds.feedburner.com/TheBrothersBrick";
+	$source->{'Type'} = "News-RSS";
+
+	array_push($newsSources, $source);
+
+	$source = new stdClass();
+	$source->{'Provider'} = "ToysNBricks";
+	$source->{'Url'} = "http://toysnbricks.com/feed/";
+	$source->{'Type'} = "News-RSS";
+
+	array_push($newsSources, $source);
+
+	$source = new stdClass();
+	$source->{'Provider'} = "BrickSet";
+	$source->{'Url'} = "http://brickset.com/feed";
+	$source->{'Type'} = "News-RSS";
+
+	array_push($newsSources, $source);
+
+	$source = new stdClass();
+	$source->{'Provider'} = "Shop.LEGO-US";
+	$source->{'Url'} = "http://shop.lego.com/en-US/";
+	$source->{'Type'} = "Event-Update";
+
+	array_push($newsSources, $source);
+
+	$source = new stdClass();
+	$source->{'Provider'} = "LEGO";
+	$source->{'Url'} = "https://www.youtube.com/feeds/videos.xml?user=".$source->{'Provider'};
+	$source->{'Type'} = "Video-Youtube";
+
+	array_push($newsSources, $source);
+
+	$source = new stdClass();
+	$source->{'Provider'} = "artifexcreation";
+	$source->{'Url'} = "https://www.youtube.com/feeds/videos.xml?user=".$source->{'Provider'};
+	$source->{'Type'} = "Video-Youtube";
+
+	array_push($newsSources, $source);
+
+	$source = new stdClass();
+	$source->{'Provider'} = "brickbuilder23";
+	$source->{'Url'} = "https://www.youtube.com/feeds/videos.xml?user=".$source->{'Provider'};
+	$source->{'Type'} = "Video-Youtube";
+
+	array_push($newsSources, $source);
+
+	return $newsSources;
+}
+
 function add_news_tweet_pool($news)
 {
 	$arrfields = array();
@@ -147,325 +204,4 @@ function add_news_tweet_pool($news)
 		return false;
 	}
 }
-
-
-function define_source()
-{
-
-	$newsSources = array();
-
-	$source = new stdClass();
-	$source->{'Provider'} = "TheBrothersBrick";
-	$source->{'Url'} = "http://feeds.feedburner.com/TheBrothersBrick";
-	$source->{'Type'} = "News-RSS";
-
-	array_push($newsSources, $source);
-
-	$source = new stdClass();
-	$source->{'Provider'} = "ToysNBricks";
-	$source->{'Url'} = "http://toysnbricks.com/feed/";
-	$source->{'Type'} = "News-RSS";
-
-	array_push($newsSources, $source);
-
-	$source = new stdClass();
-	$source->{'Provider'} = "BrickSet";
-	$source->{'Url'} = "http://brickset.com/feed";
-	$source->{'Type'} = "News-RSS";
-
-	array_push($newsSources, $source);
-
-	$source = new stdClass();
-	$source->{'Provider'} = "Shop.LEGO-US";
-	$source->{'Url'} = "http://shop.lego.com/en-US/";
-	$source->{'Type'} = "Event-Update";
-
-	array_push($newsSources, $source);
-
-	$source = new stdClass();
-	$source->{'Provider'} = "LEGO";
-	$source->{'Url'} = "https://www.youtube.com/feeds/videos.xml?user=".$source->{'Provider'};
-	$source->{'Type'} = "Video-Youtube";
-
-	array_push($newsSources, $source);
-
-	$source = new stdClass();
-	$source->{'Provider'} = "artifexcreation";
-	$source->{'Url'} = "https://www.youtube.com/feeds/videos.xml?user=".$source->{'Provider'};
-	$source->{'Type'} = "Video-Youtube";
-
-	array_push($newsSources, $source);
-
-	$source = new stdClass();
-	$source->{'Provider'} = "brickbuilder23";
-	$source->{'Url'} = "https://www.youtube.com/feeds/videos.xml?user=".$source->{'Provider'};
-	$source->{'Type'} = "Video-Youtube";
-
-	array_push($newsSources, $source);
-
-	return $newsSources;
-}
-
-function get_rss_news($provider, $url)
-{
-	$ret = new stdClass();
-	$ret->{'PubDate'} = time();
-	$ret->{'Provider'} = $provider;
-	$ret->{'Url'} = $url;
-	$ret->{'Type'} = "News-RSS";
-
-	$arrNews = array();
-	$xmlDom = new DOMDocument();
-	$xmlDom->load($url);
-
-	$xml = simplexml_import_dom($xmlDom);
-
-	foreach ($xml->channel->item as $item)
-	{
-		$news = new stdClass();
-		$news->{'Provider'} = $ret->{'Provider'};
-		$news->{'Type'} = $ret->{'Type'};
-		$news->{'Title'} = trim((string)$item->title);
-		
-		$news->{'Link'} = (string)$item->children('feedburner', true)->origLink;
-		if (empty($news->{'Link'}))
-		{
-			$news->{'Link'} = (string)$item->link;
-		}
-		
-		$news->{'Hash'} = substr(md5($news->{'Link'}), -12);
-
-		$desc = (string)$item->children('content', true)->encoded;
-		if (empty($desc))
-		{
-			$desc = (string)$item->description;
-		}
-
-		if (preg_match('/src=[\"|\']([^\"|^\']*)[\"|\']/', $desc, $match))
-		{
-			$news->{'PicPath'} = trim($match[1]);
-		}
-		else
-		{
-			$news->{'PicPath'} = null;
-		}
-		//var_dump($news->{'PicPath'} );
-
-		$date = new DateTime($item->pubDate, new DateTimeZone("UTC"));
-		$news->{'PubDate'} = $date->format('U');
-		if ($news->{'PubDate'} < $ret->{'PubDate'})
-		{
-			$ret->{'PubDate'} = $news->{'PubDate'};
-		}
-
-		switch ($ret->{'Provider'})
-		{
-			case 'ToysNBricks':
-				if (preg_match("/Amazon America currently has/", $desc))
-				{
-					$news->{'Publish'} = false;
-					$news->{'Review'} = false;
-				}
-				else
-				{
-					$news->{'Publish'} = true;
-					$news->{'Review'} = false;
-				}
-				break;
-			case 'BrickSet':
-				if (preg_match('/Review:/', $news->{'Title'}))
-				{
-					$news->{'Publish'} = true;
-					$news->{'Review'} = false;
-				}
-				else
-				{
-					$news->{'Publish'} = true;
-					$news->{'Review'} = true;
-				}
-				break;
-			case 'TheBrothersBrick':
-				$news->{'Publish'} = true;
-				$news->{'Review'} = false;
-				break;
-			default:
-				$news->{'Publish'} = false;
-				$news->{'Review'} = false;
-				break;
-		}
-		$arrNews[$news->{'Hash'}] = $news;
-	}
-
-	$ret->{'News'} = $arrNews;
-	
-	return $ret;
-}
-
-function get_youtube_update($provider, $url)
-{
-	if ($provider == "LEGO")
-	{
-		// Prepare the MSFT Langurage Detector
-		try
-		{
-			//OAuth Url.
-			$authUrl = "https://datamarket.accesscontrol.windows.net/v2/OAuth2-13/";
-			//Application Scope Url
-			$scopeUrl = "http://api.microsofttranslator.com";
-			//Application grant type
-			$grantType = "client_credentials";
-
-			//Create the AccessTokenAuthentication object.
-			$authObj      = new AccessTokenAuthentication();
-		    //Get the Access token.
-		    $accessToken  = $authObj->getTokens($grantType, $scopeUrl, MS_TRANSLATOR_CLIENTID, MS_TRANSLATOR_CLIENTSECRET, $authUrl);
-		    //Create the authorization Header string.
-		    $authHeader = "Authorization: Bearer ". $accessToken;
-		    
-		    //Create the Translator Object.
-		    $translatorObj = new HTTPTranslator();
-		}
-		catch (Exception $e)
-		{
-		    echo "Exception: " . $e->getMessage() . PHP_EOL;
-		}	
-	}
-
-	$ret = new stdClass();
-	$ret->{'PubDate'} = time();
-	$ret->{'Provider'} = $provider;
-	$ret->{'Url'} = $url;
-	$ret->{'Type'} = "Video-Youtube";
-
-	$arrNews = array();
-	
-	$xmlDom = new DOMDocument();
-	$xmlDom->load($url);
-
-	$xml = simplexml_import_dom($xmlDom);
-
-	foreach ($xml->entry as $entry)
-	{
-		$media = $entry->children('media', true);
-
-		$item = new stdClass();
-		$item->{'Provider'} = $ret->{'Provider'};
-		$item->{'Type'} = $ret->{'Type'};
-		$item->{'Hash'} = (string)$entry->children('yt', true)->videoId;
-		$item->{'Title'} = (string)$media->group->title;
-		$item->{'Link'} = "https://youtu.be/".$item->{'Hash'};
-
-		$date = new DateTime($entry->published, new DateTimeZone("UTC"));
-		$item->{'PubDate'} = $date->format('U');
-		if ($item->{'PubDate'} < $ret->{'PubDate'})
-		{
-			$ret->{'PubDate'} = $item->{'PubDate'};
-		}
-		//$item->{'updated'} = strtotime($entry->updated);
-		//$item->{'url'} = (string)$media->group->content->attributes()['url'];
-		//$item->{'thumbnail'} = (string)$media->group->thumbnail->attributes()['url'];
-		$item->{'PicPath'} = null;
-		$item->{'Publish'} = true;
-		$item->{'Review'} = false;
-
-		if ($provider == "LEGO")
-		{			
-			$desc = (string)$media->group->description;
-			$detectMethodUrl = "http://api.microsofttranslator.com/V2/Http.svc/Detect?text=".urlencode($item->{'Title'}." ".$desc);
-			$strResponse = $translatorObj->curlRequest($detectMethodUrl, $authHeader);
-			$xmlObj = simplexml_load_string($strResponse);
-			foreach((array)$xmlObj[0] as $val)
-			{
-				$language = $val;
-			}
-			if ($language <> "en")
-			{
-				$item->{'Publish'} = false;
-			}
-			$arrNews[$item->{'Hash'}] = $item;
-
-		}
-		else
-		{
-			$arrNews[$item->{'Hash'}] = $item;
-		}
-	}
-	$ret->{'News'} = $arrNews;
-
-	return $ret;
-}
-
-function get_event_update($provider, $url)
-{
-	$ret = new stdClass();
-	$ret->{'PubDate'} = 0;
-	$ret->{'Provider'} = $provider;
-	$ret->{'Url'} = $url;
-	$ret->{'Type'} = "Event-Update";
-
-	$arrNews = array();
-
-	$htmldom = curl_htmldom($url);
-
-
-	$itemsdom = $htmldom->find('div[id="main-stage"] div[1] div');
-	foreach ($itemsdom as $itemdom)
-	{
-		$picdom = str_get_html($itemdom);
-
-		$news = new stdClass();
-		$news->{'Provider'} = $ret->{'Provider'};
-		$news->{'Type'} = $ret->{'Type'};
-		$news->{'Title'} = $picdom->find('div a img',0)->title;
-		$path = $picdom->find('div a',0)->href;
-		$path = substr($path, 0, strpos($path, ";"));
-		$news->{'Link'} = "http://shop.lego.com".$path;
-		if (empty($news->{'Title'}))
-		{
-			$news->{'Title'} = str_replace("-", " ", basename($path));
-		}
-		$news->{'PicPath'} = $picdom->find('div a img',0)->src;
-		$news->{'Hash'} = substr(md5($news->{'PicPath'}), -12);
-		$news->{'Publish'} = true;
-		$news->{'Review'} = false;
-		$news->{'PubDate'} = time();
-
-		$arrNews[$news->{'Hash'}] = $news;
-	}
-	$ret->{'News'} = $arrNews;
-	
-	return $ret;
-}
-
-
-function curl_htmldom($url)
-{
-	$ch = curl_init(); 
-	$timeout = 5;
-	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-	curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36');
-
-	$curlResponse = curl_exec($ch); 	
-	$curlErrno = curl_errno($ch);
-	if ($curlErrno)
-	{
-		$curlError = curl_error($ch);
-		throw new Exception($curlError);
-	}
-	curl_close($ch);
-
-	$htmldom = str_get_html($curlResponse);
-	if (isset($htmldom))
-	{
-		return $htmldom;
-	}
-	else
-	{
-		return false;
-	}
-}
-
 ?>
