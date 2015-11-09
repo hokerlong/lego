@@ -84,7 +84,7 @@ function price_scan($provider)
 
 				if (!empty($rate) && $rate > 25 && $crawlitem->{"Availability"} <> "Sold Out" && !empty(($dbitem->{'LegoID'})))
 				{
-					$ret = db_query("Twitter_Pool", array("TweetID", "Price"), "Provider='".$provider."' AND ItemID='".$itemID."' AND AddTime > '".gmdate('Y-m-d H:i:s', strtotime('-7 days'))."'");
+					$ret = db_query("Twitter_Pool", array("TweetID", "Price"), "Provider='".$provider."' AND ItemID='".$itemID."' AND AddTime > '".gmdate('Y-m-d H:i:s', strtotime('-7 days'))."' ORDER BY AddTime DESC");
 
 					if (!$ret->{'Status'} && $ret->{'Results'})
 					{
