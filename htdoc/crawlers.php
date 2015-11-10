@@ -1,5 +1,5 @@
 <?php
-#date_default_timezone_set('America/Los_Angeles');
+date_default_timezone_set('America/Los_Angeles');
 
 require_once("simple_html_dom.php");
 ini_set('memory_limit', '256M');
@@ -212,7 +212,7 @@ function crawl_toysrus()
 			if (isset($matches))
 			{
 				$legoID = intval(array_pop(array_pop($matches)));
-				if ($legoID > intval(date('Y')))
+				if ($legoID > intval(gmdate('Y')))
 				{
 					$retItem->{'LegoID'} = $legoID;
 				}
@@ -313,7 +313,7 @@ function crawl_amazon()
 			if (isset($matches))
 			{
 				$legoID = intval(array_pop(array_pop($matches)));
-				if ($legoID > intval(date('Y')))
+				if ($legoID > intval(gmdate('Y')))
 				{
 					$retItem->{'LegoID'} = $legoID;
 				}
@@ -472,7 +472,7 @@ function crawl_walmart()
 			if (isset($matches))
 			{
 				$legoID = intval(array_pop(array_pop($matches)));
-				if ($legoID > intval(date('Y')))
+				if ($legoID > intval(gmdate('Y')))
 				{
 					$retItem->{'LegoID'} = $legoID;
 				}
@@ -497,30 +497,67 @@ function crawl_bn()
 {
 	$page = 1;
 	$perpage = 40; // max per page = 40
+	$ret = new stdClass();
+	$ret->{'Provider'} = "www.barnesandnoble.com";
+	$ret->{'URL'} = "http://www.barnesandnoble.com/b/lego/toys-games/_/N-1p5jZ8qf";
+	$ret->{'ItemCount'} = 0;
+	$ret->{'Items'} = array();
 	for ($i = 0; $i < $page; $i++)
 	{
-		$url = "http://www.barnesandnoble.com/b/lego-systems/_/N-1z0lmfj?No=".($i*$perpage)."&Nrpp=".$perpage;
+		$url = $ret->{'URL'}."?No=".($i*$perpage)."&Nrpp=".$perpage;
 		$htmldom = curl_htmldom($url);
 		$total = $htmldom->find('[@id="searchNotice"]/div/strong[2]', 0)->plaintext;
 		$page = ceil($total/$perpage);
 
-		$items = $htmldom->find('/ul[@id="gridView"]/li[class="clearer"]/ul/li/div[class="product-info"]');
+		$items = $htmldom->find('/ul[@id="gridView"]/li[class="clearer"]/ul/li');
 		foreach ($items as $item)
 		{
-			$price = str_replace("$", "", $item->find('/ul/li/span[class="price"]/a', 0)->plaintext);
-			$href = $item->find('/ul/li/span[class="price"]/a', 0)->href;
+			$retItem = new stdClass();
+
+			$retItem->{'Price'} = str_replace("$", "", $item->find('/div[class="product-info"]/ul/li/span[class="price"]/a', 0)->plaintext);
+			$href = $item->find('/div[class="product-info"]/ul/li/span[class="price"]/a', 0)->href;
 
 			preg_match_all("/\/w\/(.*)\/(\d+);.*\?ean=(\d+)/u", html_entity_decode($href, ENT_NOQUOTES, 'UTF-8'), $matches);
-			$title = str_replace("toys games ", "", str_replace("-", " ", $matches[1][0]));
-			$BNID = $matches[2][0];
-			$EAN = $matches[3][0];
+			$retItem->{'Title'} = html_entity_decode(str_replace("toys games ", "", str_replace("-", " ", $matches[1][0])), ENT_NOQUOTES, 'UTF-8');
+			$retItem->{'BNID'} = $matches[2][0];
+			//$EAN = $matches[3][0];
 
-			preg_match_all("/\d{4,5}/u", html_entity_decode($title, ENT_NOQUOTES, 'UTF-8'), $matches);
-			$legoid = array_pop(array_pop($matches));
+			$retItem->{'Availability'} = "Unknown";
+			/*
+			$availability = $item->find('/div[class="product-image"]/a[class="btn-quick-view"]', 0)->getAttribute('data-modal-url');
 
-			var_dump($legoid, $title, $BNID, $EAN, $price, "<br/>");
+			if (preg_match("/isMarketplace=true/", $availability))
+			{
+				$retItem->{'Availability'} = "Out of Stock";
+			}
+			else
+			{
+				$retItem->{'Availability'} = "Available";
+			}
+			*/
+
+			preg_match_all("/\d{4,8}/u", $retItem->{'Title'}, $matches);
+			if (isset($matches))
+			{
+				$legoID = intval(array_pop(array_pop($matches)));
+				if ($legoID > intval(gmdate('Y')))
+				{
+					$retItem->{'LegoID'} = $legoID;
+				}
+			}
+			else
+			{
+				$retItem->{'LegoID'} = null;
+			}
+
+			if (!in_array($retItem, $ret->{'Items'}) && !empty($retItem->{'BNID'}))
+			{
+				$ret->{'ItemCount'}++;
+				array_push($ret->{'Items'}, $retItem);
+			}
 		}
 	}
+	return $ret;
 }
 
 function get_rss_news($provider, $url)
@@ -767,6 +804,9 @@ function crawl_price($provider)
 		case 'Toysrus':
 			return crawl_toysrus();
 			break;
+		case 'BN':
+			return crawl_bn();
+			break;
 		case 'LegoShop':
 			return crawl_lego();
 			break;
@@ -788,6 +828,9 @@ function get_url_by_itemID($provider, $itemID)
 			break;
 		case 'Toysrus':
 			$url = "http://www.toysrus.com/product/index.jsp?productId=".$itemID;
+			break;
+		case 'BN':
+			$url = "http://www.barnesandnoble.com/w/".$itemID;
 			break;
 		case 'LegoShop':
 			$url = "";
