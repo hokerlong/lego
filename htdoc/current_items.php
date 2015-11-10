@@ -52,6 +52,30 @@ if (!$ret->{'Status'})
 	}
 }
 
+$Target = array();
+$ret = db_query("Target_Item", array("LegoID", "Price", "Availability", "LastUpdateTime", "TargetID AS ItemID"), "LegoID <> '' AND LastUpdateTime > '".gmdate('Y-m-d H:i:s', strtotime('-2 days'))."'");
+if (!$ret->{'Status'})
+{
+	foreach ($ret->{'Results'} as $item)
+	{
+		$idx = $item->{'LegoID'};
+		$item->{'Provider'} = "target.com";
+		$Target["$idx"] = $item;
+	}
+}
+
+$BN = array();
+$ret = db_query("BN_Item", array("LegoID", "Price", "Availability", "LastUpdateTime", "BNID AS ItemID"), "LegoID <> '' AND LastUpdateTime > '".gmdate('Y-m-d H:i:s', strtotime('-2 days'))."'");
+if (!$ret->{'Status'})
+{
+	foreach ($ret->{'Results'} as $item)
+	{
+		$idx = $item->{'LegoID'};
+		$item->{'Provider'} = "bn.com";
+		$BN["$idx"] = $item;
+	}
+}
+
 $jsonitems = array();
 $ret = db_query("Available_LegoID INNER JOIN DB_Set ON Available_LegoID.LegoID = DB_Set.LegoID INNER JOIN DB_Theme ON DB_Set.ThemeID = DB_Theme.ThemeID", array("Available_LegoID.LegoID AS LegoID", "ETheme AS Theme", "ETitle AS Title", "USPrice AS MSRP", "Badge"), "USPrice > 0 ORDER BY Available_LegoID.LegoID*1");
 if (!$ret->{'Status'})
@@ -74,6 +98,8 @@ if (!$ret->{'Status'})
 		$jsonitem->{'toysrus_rate'} = null;
 		$jsonitem->{'walmart_rate'} = null;
 		$jsonitem->{'amazon_rate'} = null;
+		$jsonitem->{'target_rate'} = null;
+		$jsonitem->{'bn_rate'} = null;
 		if (isset($Toysrus["$legoID"]))
 		{
 			if ($Toysrus["$legoID"]->{'Price'} > 0)
@@ -105,6 +131,28 @@ if (!$ret->{'Status'})
 				$jsonitem->{'amazon_price'} = $Amazon["$legoID"]->{'Price'};
 				$jsonitem->{'amazon_availability'} = $Amazon["$legoID"]->{'Availability'};
 				$minrate = min($minrate, $jsonitem->{'amazon_rate'});
+			}
+		}
+		if (isset($Target["$legoID"]))
+		{
+			if ($Target["$legoID"]->{'Price'} > 0)
+			{
+				$jsonitem->{'target_rate'} = floatval(round($Target["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
+				$jsonitem->{'target_url'} = get_url_by_itemID("Target", $Target["$legoID"]->{'ItemID'});
+				$jsonitem->{'target_price'} = $Target["$legoID"]->{'Price'};
+				$jsonitem->{'target_availability'} = $Target["$legoID"]->{'Availability'};
+				$minrate = min($minrate, $jsonitem->{'target_rate'});
+			}
+		}
+		if (isset($BN["$legoID"]))
+		{
+			if ($BN["$legoID"]->{'Price'} > 0)
+			{
+				$jsonitem->{'bn_rate'} = floatval(round($BN["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
+				$jsonitem->{'bn_url'} = get_url_by_itemID("BN", $BN["$legoID"]->{'ItemID'});
+				$jsonitem->{'bn_price'} = $BN["$legoID"]->{'Price'};
+				$jsonitem->{'bn_availability'} = $BN["$legoID"]->{'Availability'};
+				$minrate = min($minrate, $jsonitem->{'bn_rate'});
 			}
 		}
 		$jsonitem->{'min_rate'} = $minrate;
