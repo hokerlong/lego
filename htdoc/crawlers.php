@@ -43,7 +43,7 @@ function getArray($node)
 	return $array; 
 } 
 
-function curl_htmldom($url)
+function curl($url)
 {
 	$ch = curl_init(); 
 	$timeout = 5;
@@ -62,7 +62,12 @@ function curl_htmldom($url)
 	}
 	curl_close($ch);
 
-	$htmldom = str_get_html($curlResponse);
+	return $curlResponse;
+}
+
+function curl_htmldom($url)
+{
+	$htmldom = str_get_html(curl($url));
 	if (isset($htmldom))
 	{
 		return $htmldom;
@@ -72,6 +77,20 @@ function curl_htmldom($url)
 		return false;
 	}
 }
+
+function curl_json($url)
+{
+	$json = json_decode(curl($url));
+	if (isset($json))
+	{
+		return $json;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 
 function crawl_brickset($LegoID, $BK_SetID)
 {
@@ -560,6 +579,79 @@ function crawl_bn()
 	return $ret;
 }
 
+function crawl_target()
+{
+	$page = 1;
+	$perpage = 120; // max per page = 40
+	$ret = new stdClass();
+	$ret->{'Provider'} = "www.target.com";
+	$ret->{'URL'} = "http://tws.target.com/searchservice/item/search_results/v2/by_keyword?callback=getPlpResponse&sort_by=bestselling&zone=PLP&facets=&category=180009&view_type=medium&stateData=%22d_item_type_all%22%3A%22show%22%2C&response_group=Items%2CVariationSummary&isLeaf=false";
+	$ret->{'ItemCount'} = 0;
+	$ret->{'Items'} = array();
+	for ($i = 0; $i < $page; $i++)
+	{
+		$url = $ret->{'URL'}."&page=".($i+1)."&pageCount=".$perpage."&offset=".($i*$perpage);
+		$response = json_decode(substr(str_replace("getPlpResponse(", "", curl($url)), 0, -1));
+
+		$total = intval($response->searchResponse->searchState->Arguments->Argument[10]->value);
+		$page = ceil($total/$perpage);
+
+		$items = $response->searchResponse->items->Item;
+		foreach ($items as $item)
+		{
+			$retItem = new stdClass();
+			$retItem->{'Price'} = str_replace("$", "", $item->priceSummary->offerPrice->amount);
+			$retItem->{'Title'} = $item->title;
+			$retItem->{'TargetID'} = $item->tcin;
+
+			$availability = $item->inventorySummary->availabilityInventoryCode;
+			if ($availability == "0")
+			{
+				$retItem->{'Availability'} = "Available";
+			}
+			elseif ($availability == "6")
+			{
+				$retItem->{'Availability'} = "Out of Stock";
+			}
+			else
+			{
+				$retItem->{'Availability'} = "Unknown";
+			}
+			 
+
+			preg_match_all("/\d{4,8}/u", $retItem->{'Title'}, $matches);
+			if (isset($matches))
+			{
+				$legoID = intval(array_pop(array_pop($matches)));
+				if ($legoID > intval(gmdate('Y')))
+				{
+					$retItem->{'LegoID'} = $legoID;
+				}
+			}
+			else
+			{
+				$retSearch = search_legoid(array("Barcode" => $item->upc));
+
+				if (isset($retSearch->{'MatchID'}))
+				{
+					$retItem->{'LegoID'} = $retSearch->{'MatchID'};
+				}
+				else
+				{
+					$retItem->{'LegoID'} = null;
+				}
+			}
+
+			if (!in_array($retItem, $ret->{'Items'}) && !empty($retItem->{'TargetID'}))
+			{
+				$ret->{'ItemCount'}++;
+				array_push($ret->{'Items'}, $retItem);
+			}
+		}
+	}
+	return $ret;
+}
+
 function get_rss_news($provider, $url)
 {
 	$ret = new stdClass();
@@ -807,6 +899,9 @@ function crawl_price($provider)
 		case 'BN':
 			return crawl_bn();
 			break;
+		case 'Target':
+			return crawl_target();
+			break;
 		case 'LegoShop':
 			return crawl_lego();
 			break;
@@ -831,6 +926,9 @@ function get_url_by_itemID($provider, $itemID)
 			break;
 		case 'BN':
 			$url = "http://www.barnesandnoble.com/w/".$itemID;
+			break;
+		case 'Target':
+			$url = "http://www.target.com/p/-/A-".$itemID;
 			break;
 		case 'LegoShop':
 			$url = "";

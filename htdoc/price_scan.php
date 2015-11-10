@@ -82,7 +82,7 @@ function price_scan($provider)
 					//send_Message(NOTIFICATION_RECIPIENT, "Toysrus_Item ".$dbitem->{'LegoID'}." - ".$dbitem->{'Title'}." updated: ".$strupdate." www.toysrus.com/product/index.jsp?productId=$ToysrusID");
 				}
 
-				if (!empty($rate) && $rate > 25 && $crawlitem->{"Availability"} <> "Sold Out" && !empty(($dbitem->{'LegoID'})))
+				if (!empty($rate) && $rate > 25 && ($crawlitem->{"Availability"} == "Available" || $crawlitem->{"Availability"} == "Shipping Only") && !empty(($dbitem->{'LegoID'})))
 				{
 					$ret = db_query("Twitter_Pool", array("TweetID", "Price"), "Provider='".$provider."' AND ItemID='".$itemID."' AND AddTime > '".gmdate('Y-m-d H:i:s', strtotime('-7 days'))."' ORDER BY AddTime DESC");
 
