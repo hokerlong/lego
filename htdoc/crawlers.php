@@ -292,6 +292,10 @@ function crawl_toysrus()
 			{
 				$retItem->{'Availability'} = "Sold Out";
 			}
+			if ($item->find('/span[class="promo alert"]',0))
+			{
+				$retItem->{'Promotion'} = trim(html_entity_decode($item->find('/span[class="promo alert"]',0)->plaintext, ENT_NOQUOTES, 'UTF-8'));
+			}
 			$ret->{'ItemCount'}++;
 			array_push($ret->{'Items'}, $retItem);
 		}
@@ -574,6 +578,46 @@ function crawl_bn()
 				$ret->{'ItemCount'}++;
 				array_push($ret->{'Items'}, $retItem);
 			}
+		}
+	}
+	return $ret;
+}
+
+function crawl_bn_status($BNID)
+{
+	$ret = new stdClass();
+
+	$ret->{'URL'} = 'http://www.barnesandnoble.com/w/'.$BNID;
+	$htmldom = curl_htmldom($ret->{'URL'});
+
+	if ($htmldom)
+	{
+		$priceDom = $htmldom->find('//*[@id="prodInfoContainer"]/div[itemprop="offers"]/span[itemprop="price"]', 0);
+		$marketDom = $htmldom->find('//*[@id="prodInfoContainer"]/h3', 0);
+
+		if (isset($priceDom))
+		{
+			$ret->{'Price'} = trim($priceDom->plaintext);
+			$ret->{'Availability'} = "Available";
+		}
+		elseif (isset($marketDom))
+		{
+			if ($marketDom->plaintext == "Item is available through our marketplace sellers and in stores.")
+			{
+				$ret->{'Availability'} = "Pickup Only";
+			}
+			elseif ($marketDom->plaintext == "Item is available through our marketplace sellers.")
+			{
+				$ret->{'Availability'} = "Out of Stock";
+			}
+			else
+			{
+				$ret->{'Availability'} = "Unknown";
+			}
+		}
+		else
+		{
+			$ret->{'Availability'} = "Unknown";
 		}
 	}
 	return $ret;

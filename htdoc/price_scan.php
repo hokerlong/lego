@@ -64,6 +64,10 @@ function price_scan($provider)
 
 				}
 			}
+			if ($arrfields['Availability'] == "Unknown")
+			{
+				unset($arrfields['Availability']);
+			}
 			if (!empty($arrfields))
 			{
 				$arrfields['LastUpdateTime'] = gmdate('Y-m-d H:i:s');
