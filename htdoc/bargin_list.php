@@ -15,6 +15,12 @@
           .success(function(response) {
             $scope.items = response.items;
           });
+        
+        $scope.getCNY = function(item){
+        if (item){
+            item.cny = (item.msrp * item.min_rate / 100 * 1.0875 + item.weight /453.6 * 5) * 6.4;
+        }
+    }
 
         $scope.order = function(predicate, reverse) {
           $scope.items = $filter('orderBy')($scope.items, predicate, reverse);
@@ -39,18 +45,20 @@
         <th>Title</th>
         <th><a href="" ng-click="reverse=!reverse;order('msrp', !reverse)">MSRP</a></th>
         <th><a href="" ng-click="reverse=!reverse;order('min_rate', !reverse)">MinRate</a></th>
+        <th>CNY</th>
         <th><a href="" ng-click="reverse=!reverse;order('toysrus_rate', !reverse)">Toysrus</a></th>
         <th><a href="" ng-click="reverse=!reverse;order('walmart_rate', !reverse)">Walmart</a></th>
         <th><a href="" ng-click="reverse=!reverse;order('amazon_rate', !reverse)">Amazon</a></th>
         <th><a href="" ng-click="reverse=!reverse;order('target_rate', !reverse)">Target</a></th>
         <th><a href="" ng-click="reverse=!reverse;order('bn_rate', !reverse)">BN</a></th>
       </tr>
-      <tr ng-repeat="item in items | filter:text_filter">
+      <tr ng-repeat="item in items | filter:text_filter" ng-init="getCNY(item)">
         <td>{{item.legoid}}</td>
         <td>{{item.badge}}</td>
         <td>{{item.theme}} - {{item.title}}</td>
         <td>{{item.msrp}}</td>
         <td>{{item.min_rate}}%</td>
+        <td>{{item.cny | number:2}}</td>
         <td><span ng-if="item.toysrus_rate != null"><span ng-if="item.toysrus_rate <= item.min_rate" color="red"><a href="{{item.toysrus_url}}">${{item.toysrus_price}} ({{item.toysrus_rate}}%)</a></span><span ng-if="item.toysrus_rate != item.min_rate"><a href="{{item.toysrus_url}}">${{item.toysrus_price}} ({{item.toysrus_rate}}%)</a></span></span><span ng-if="item.toysrus_rate == null">N/A</span></td>
         <td><span ng-if="item.walmart_rate != null"><a href="{{item.walmart_url}}">${{item.walmart_price}} ({{item.walmart_rate}}%)</a></span><span ng-if="item.walmart_rate == null">N/A</span></td>
         <td><span ng-if="item.amazon_rate != null"><a href="{{item.amazon_url}}">${{item.amazon_price}} ({{item.amazon_rate}}%)</a></span><span ng-if="item.amazon_rate == null">N/A</span></td>
