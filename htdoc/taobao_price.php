@@ -84,6 +84,7 @@ function get_price($legoid)
 
 		if (preg_match("/抱歉！没有找到/u", html_entity_decode($tips, ENT_NOQUOTES, 'UTF-8')))
 		{
+			db_insert("Taobao_Price", array("LegoID" => $legoid), null, ture);
 			break;
 		}
 		if (isset($itemlist))
