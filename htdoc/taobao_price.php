@@ -78,9 +78,14 @@ function get_price($legoid)
 	    $jsonend = strpos($contents, "g_srp_loadCss();");
 
 	    $json = json_decode(trim(trim(substr($contents, $jsonstart, $jsonend-$jsonstart)), ";"));
-	    $pagecount = $json->mods->pager->data->totalPage;
+	    $pagecount = min($json->mods->pager->data->totalPage, 10);
 		$itemlist = $json->mods->itemlist->data->auctions;
+		$tips = $json->mods->tips->data->html;
 
+		if (preg_match("/抱歉！没有找到/u", html_entity_decode($tips, ENT_NOQUOTES, 'UTF-8')))
+		{
+			break;
+		}
 		if (isset($itemlist))
 		{
 			foreach ($itemlist as $item)
