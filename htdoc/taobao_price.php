@@ -10,7 +10,7 @@ if (isset($argv[1]))
 }
 else
 {
-	$ret = db_query("Taobao_Pending", array("LegoID"), "1=1 LIMIT 10");
+	$ret = db_query("Taobao_Pending", array("LegoID"), "1=1 LIMIT 30");
 	if (!$ret->{'Status'})
 	{
 		foreach ($ret->{'Results'} as $item)
@@ -50,7 +50,7 @@ function get_price($legoid)
 
 	$keywords = array("\d{4}+", "[A-Za-z]{2,3}\d{3}", "代购", "二手", "租赁", "租金", "预定", "图纸", "貼紙", "说明书", "搭建图", "无盒", "微瑕", "瑕疵", "不含", "杀肉", "净场景", "载具", "配件", "零件", "散件", "单出", "国产", "乐高式", "乐高类", "邦宝", "博乐", "鲁班", "开智", "兼容", "DECOOL");
 	$locs = array("海外", "美国", "香港");
-	$blacklistseller = array("八脚喜", "欢乐客亲子早教积木");
+	//$blacklistseller = array("八脚喜", "欢乐客亲子早教积木");
 	$pagecount = 1;
 	$items = array();
 	$totalprice = 0;
@@ -138,6 +138,13 @@ function get_price($legoid)
 						$filter = 1;
 						$reason = "Subsets.";
 					}
+
+					if (!preg_match("/".$legoid."/u", html_entity_decode($iteminfo->{'Title'}, ENT_NOQUOTES, 'UTF-8')))
+					{
+						$filter = 1;
+						$reason = "No LegoID in title.";
+					}
+
 				}
 				
 				$strSold = $item->view_sales;
@@ -146,6 +153,7 @@ function get_price($legoid)
 				$iteminfo->{'Volume'} = intval(array_pop($tmp));
 
 				$iteminfo->{'Seller'} = $item->nick;
+				/*
 				foreach ($blacklistseller as $keyword)
 				{
 					if (preg_match("/".$keyword."/u", html_entity_decode($iteminfo->{'Seller'}, ENT_NOQUOTES, 'UTF-8')))
@@ -155,6 +163,7 @@ function get_price($legoid)
 						break;
 					}
 				}
+				*/
 
 				$iteminfo->{'Location'} = $item->item_loc;
 
@@ -185,6 +194,10 @@ function get_price($legoid)
 	if ($i < $pagecount && $i > 1)
 	{
 		echo "[".date('Y-m-d H:i:s')."] [$legoid] Only $i/$pagecount page(s) crawled, not update to database.\n";
+	}
+	elseif (count($items) < 1)
+	{
+		echo "[".date('Y-m-d H:i:s')."] [$legoid] No list found for this item, not update to database.\n";
 	}
 	else
 	{

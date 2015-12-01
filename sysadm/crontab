@@ -10,5 +10,6 @@
 20,50 * * * *	/usr/bin/php /home/ec2-user/htdoc/price_scan.php BN >> /home/ec2-user/logs/bn_scan.log 2>&1
 25,55 * * * *	/usr/bin/php /home/ec2-user/htdoc/bn_availability.php >> /home/ec2-user/logs/bn_availability.log 2>&1
 #5,20,35,50 0-5,15-23 * * *	/usr/bin/php /home/ec2-user/htdoc/add_friend.php >> /home/ec2-user/logs/add_friend.log 2>&1
+*/5 * * * *	/usr/bin/php /home/ec2-user/htdoc/taobao_price.php >> /home/ec2-user/logs/taobao_price.log 2>&1
 */10 * * * *	/usr/bin/php /home/ec2-user/htdoc/news_update.php >> /home/ec2-user/logs/news_update.log 2>&1
 */3 * * * *	/usr/bin/php /home/ec2-user/htdoc/twitter_publish.php >> /home/ec2-user/logs/twitter_publish.log 2>&1
