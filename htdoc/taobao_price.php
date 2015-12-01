@@ -15,6 +15,7 @@ else
 	{
 		foreach ($ret->{'Results'} as $item)
 		{
+			echo "[".date('Y-m-d H:i:s')."] Crawling ".$item->{'LegoID'}.": ";
 			get_price($item->{'LegoID'});
 		}
 	}	
@@ -62,6 +63,7 @@ function get_price($legoid)
 	for ($i = 1; $i <= $pagecount; $i++)
 	{
 		$url = "https://s.taobao.com/search?q=lego+".$legoid."&commend=all&s=".(($i-1)*40);
+		echo "$i ";
 		$ch = curl_init(); 
 		$timeout = 10; 
 		curl_setopt($ch, CURLOPT_URL, $url);
@@ -191,6 +193,7 @@ function get_price($legoid)
 		}
 	}
 
+	echo "\n";
 	if ($i < $pagecount && $i > 1)
 	{
 		echo "[".date('Y-m-d H:i:s')."] [$legoid] Only $i/$pagecount page(s) crawled, not update to database.\n";
