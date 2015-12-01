@@ -6,5 +6,5 @@ if [[ "" !=  "$PID" ]]; then
   kill -9 $PID
 fi
 
-/usr/bin/php /home/ec2-user/htdoc/taobao_price.php >> /home/ec2-user//logs/taobao_price.log 2>&1;
+/usr/bin/php /home/ec2-user/htdoc/taobao_price.php 2>&1 >> /home/ec2-user/logs/taobao_price.log
 
