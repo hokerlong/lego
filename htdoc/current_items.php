@@ -103,7 +103,7 @@ if (!$ret->{'Status'})
 		$jsonitem->{'bn_rate'} = null;
 		if (isset($Toysrus["$legoID"]))
 		{
-			if ($Toysrus["$legoID"]->{'Price'} > 0)
+			if ($Toysrus["$legoID"]->{'Price'} > 0 && $Toysrus["$legoID"]->{'Availability'} == "Available")
 			{
 				$jsonitem->{'toysrus_rate'} = floatval(round($Toysrus["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
 				$jsonitem->{'toysrus_url'} = get_url_by_itemID("Toysrus", $Toysrus["$legoID"]->{'ItemID'});
@@ -114,7 +114,7 @@ if (!$ret->{'Status'})
 		}
 		if (isset($Walmart["$legoID"]))
 		{
-			if ($Walmart["$legoID"]->{'Price'} > 0)
+			if ($Walmart["$legoID"]->{'Price'} > 0 && $Walmart["$legoID"]->{'Availability'} == "Available")
 			{
 				$jsonitem->{'walmart_rate'} = floatval(round($Walmart["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
 				$jsonitem->{'walmart_url'} = get_url_by_itemID("Walmart", $Walmart["$legoID"]->{'ItemID'});
@@ -125,7 +125,7 @@ if (!$ret->{'Status'})
 		}
 		if (isset($Amazon["$legoID"]))
 		{
-			if ($Amazon["$legoID"]->{'Price'} > 0)
+			if ($Amazon["$legoID"]->{'Price'} > 0 && $Amazon["$legoID"]->{'Availability'} == "Available")
 			{
 				$jsonitem->{'amazon_rate'} = floatval(round($Amazon["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
 				$jsonitem->{'amazon_url'} = get_url_by_itemID("Amazon", $Amazon["$legoID"]->{'ItemID'});
@@ -136,7 +136,7 @@ if (!$ret->{'Status'})
 		}
 		if (isset($Target["$legoID"]))
 		{
-			if ($Target["$legoID"]->{'Price'} > 0)
+			if ($Target["$legoID"]->{'Price'} > 0 && $Target["$legoID"]->{'Availability'} == "Available")
 			{
 				$jsonitem->{'target_rate'} = floatval(round($Target["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
 				$jsonitem->{'target_url'} = get_url_by_itemID("Target", $Target["$legoID"]->{'ItemID'});
@@ -147,7 +147,7 @@ if (!$ret->{'Status'})
 		}
 		if (isset($BN["$legoID"]))
 		{
-			if ($BN["$legoID"]->{'Price'} > 0)
+			if ($BN["$legoID"]->{'Price'} > 0 && $BN["$legoID"]->{'Availability'} == "Available")
 			{
 				$jsonitem->{'bn_rate'} = floatval(round($BN["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
 				$jsonitem->{'bn_url'} = get_url_by_itemID("BN", $BN["$legoID"]->{'ItemID'});
