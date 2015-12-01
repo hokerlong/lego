@@ -2,6 +2,7 @@
 */10 * * * *  crontab /home/ec2-user/git/lego/sysadm/crontab >/dev/null 2>&1
 */10 * * * *  /home/ec2-user/git/lego/sysadm/git_publish.sh >/dev/null 2>&1
 0 * * * *     /home/ec2-user/git/lego/sysadm/legoshop_scan.sh >/dev/null 2>&1
+*/10 * * * *	/home/ec2-user/git/lego/sysadm/taobao_price.sh > /dev/null 2>&1
 0,30 * * * *	/usr/bin/php /home/ec2-user/htdoc/brickset_updater.php >> /home/ec2-user/logs/brickset_updater.log 2>&1
 10 9,15,21 * * *	/usr/bin/php /home/ec2-user/htdoc/price_scan.php Amazon >> /home/ec2-user/logs/amazon_scan.log 2>&1
 5,35 * * * *	/usr/bin/php /home/ec2-user/htdoc/price_scan.php Walmart >> /home/ec2-user/logs/walmart_scan.log 2>&1
@@ -10,6 +11,5 @@
 20,50 * * * *	/usr/bin/php /home/ec2-user/htdoc/price_scan.php BN >> /home/ec2-user/logs/bn_scan.log 2>&1
 25,55 * * * *	/usr/bin/php /home/ec2-user/htdoc/bn_availability.php >> /home/ec2-user/logs/bn_availability.log 2>&1
 #5,20,35,50 0-5,15-23 * * *	/usr/bin/php /home/ec2-user/htdoc/add_friend.php >> /home/ec2-user/logs/add_friend.log 2>&1
-*/10 * * * *	/usr/bin/php /home/ec2-user/htdoc/taobao_price.php >> /home/ec2-user/logs/taobao_price.log 2>&1
 */10 * * * *	/usr/bin/php /home/ec2-user/htdoc/news_update.php >> /home/ec2-user/logs/news_update.log 2>&1
 */3 * * * *	/usr/bin/php /home/ec2-user/htdoc/twitter_publish.php >> /home/ec2-user/logs/twitter_publish.log 2>&1
