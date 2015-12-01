@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PID=`ps ux | grep taobao_price | grep -v grep | awk '{print $2}'`
+PID=`ps ux | grep taobao_price.php | grep -v grep | awk '{print $2}'`
 if [[ "" !=  "$PID" ]]; then
   echo "killing $PID"
   kill -9 $PID
