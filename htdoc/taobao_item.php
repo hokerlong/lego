@@ -80,8 +80,10 @@ function crawl_trasaction($ItemID, $LegoID)
 						break;
 					}
 				}
-
-				$ret = db_insert("Taobao_Transaction", $itemField, null, true);
+				if($itemField["Price"] > 0)
+				{
+					$ret = db_insert("Taobao_Transaction", $itemField, null, true);
+				}
 				//var_dump($ret);
 			}
 			sleep(1);		
