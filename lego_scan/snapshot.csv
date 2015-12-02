@@ -543,7 +543,7 @@
 10574,"Available",14.99,0,"Creative Ice Cream"
 10575,"Retired",0,0,"LEGO® DUPLO® Creative Building Cube"
 10576,"Retired",0,0,"Zoo Care"
-10577,"Dec 14 2015",59.99,47.99,"Big Royal Castle"
+10577,"Dec 13 2015",59.99,47.99,"Big Royal Castle"
 10579,"Retired",0,0,"Clubhouse Café"
 10580,"Available",49.99,0,"LEGO® DUPLO® Deluxe Box of fun"
 10581,"Dec 13 2015",9.99,0,"Forest: Ducks"
@@ -556,7 +556,7 @@
 10589,"Available",14.99,0,"Rally Car"
 10590,"Available",19.99,0,"Airport"
 10591,"Available",14.99,0,"Fire Boat"
-10592,"Available",24.99,0,"Fire Truck"
+10592,"Dec 14 2015",24.99,0,"Fire Truck"
 10593,"Jan 01 2016",49.99,0,"Fire Station"
 10594,"Dec 14 2015",24.99,0,"Sofia the First™ Royal Stable"
 10595,"Dec 14 2015",49.99,0,"Sofia the First™ Royal Castle"
@@ -793,7 +793,16 @@
 41053,"Sold Out",29.99,0,"Cinderella's Dream Carriage"
 41054,"Available",39.99,0,"Rapunzel's Creativity Tower"
 41055,"Dec 13 2015",69.99,0,"Cinderella's Romantic Castle"
-41056,"Dec 14 2015",24.99,0,"Heartlake News Van"
+41056,"Dec 13 2015",24.99,0,"Heartlake News Van"
+array(1) {
+  [0]=>
+  object(stdClass)#32256 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 41057,"Sold Out",39.99,0,"Heartlake Horse Show"
 41058,"Sold Out",109.99,87.99,"Heartlake Shopping Mall"
 41059,"Dec 14 2015",29.99,0,"Jungle Tree Sanctuary"
@@ -825,7 +834,7 @@
 41097,"Available",19.99,0,"Heartlake Hot Air Balloon"
 41098,"Available",9.99,0,"Emma’s Tourist Kiosk"
 41099,"Dec 13 2015",19.99,0,"Heartlake Skate Park"
-41100,"Dec 12 2015",29.99,0,"Heartlake Private Jet"
+41100,"Jan 01 2016",29.99,0,"Heartlake Private Jet"
 41101,"Dec 14 2015",129.99,0,"Heartlake Grand Hotel"
 41102,"Sold Out",29.99,0,"LEGO® Friends Advent Calendar"
 41103,"Dec 14 2015",14.99,11.99,"Pop Star Recording Studio"
@@ -905,13 +914,13 @@
 42021,"Sold Out",19.99,0,"Snowmobile"
 42022,"Sold Out",39.99,0,"Hot Rod"
 42023,"Available",69.99,0,"Construction Crew"
-42024,"Dec 14 2015",79.99,63.99,"Container Truck"
+42024,"Dec 13 2015",79.99,63.99,"Container Truck"
 42025,"Sold Out",139.99,111.99,"Cargo Plane"
 42026,"Sold Out",19.99,0,"Black Champion Racer"
 42027,"Available",19.99,0,"Desert Racer"
 42028,"Sold Out",49.99,0,"Bulldozer"
 42029,"Sold Out",99.99,0,"Customized Pick up Truck"
-42030,"Available",249.99,0,"Remote-Controlled VOLVO L350F Wheel Loader"
+42030,"Out of Stock",249.99,0,"Remote-Controlled VOLVO L350F Wheel Loader"
 42031,"Available",12.99,0,"Cherry Picker"
 42032,"Available",19.99,0,"Compact Tracked Loader"
 42033,"Available",19.99,0,"Record Breaker"
@@ -1347,7 +1356,7 @@
 75043,"Sold Out",59.99,0,"AT-AP™"
 75044,"Dec 14 2015",29.99,0,"Droid Tri-fighter™"
 75045,"Available",39.99,0,"Republic AV-7 Anti-Vehicle Cannon"
-75046,"Dec 14 2015",49.99,0,"Coruscant™ Police Gunship"
+75046,"Dec 13 2015",49.99,0,"Coruscant™ Police Gunship"
 75048,"Sold Out",24.99,0,"The Phantom"
 75049,"Available",29.99,0,"Snowspeeder™"
 75050,"Sold Out",49.99,39.99,"B-Wing™"
@@ -1646,7 +1655,7 @@
 5002780,"Available",24.99,0,"LEGO® Play Book"
 5002792,"Sold Out",19.99,0,"LEGO® Marvel Super Heroes PC DVD Video Game"
 5002888,"Available",39.99,0,"The LEGO® Minifigure: Year by Year"
-5002916,"Sold Out",13.99,0,"THE LEGO® MOVIE™ Unikitty Key Light"
+5002916,"Available",13.99,0,"THE LEGO® MOVIE™ Unikitty Key Light"
 5003022,"Available",29.99,0,"THE LEGO® MOVIE™ Bad Cop Minifigure Alarm Clock"
 5003023,"Available",24.99,0,"THE LEGO® MOVIE™ Bad Cop Minifigure Link Watch"
 5003024,"Sold Out",24.99,12.49,"THE LEGO® MOVIE™ Lucy/Wyldstyle Minifigure Link Watch"
