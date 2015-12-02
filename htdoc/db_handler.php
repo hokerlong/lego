@@ -48,7 +48,7 @@ function db_query($table, $fields, $condition)
 		$item = new stdClass();
 		foreach ($fields as $field)
 		{
-			if (preg_match("/\w+\s+AS\s+(\w+)/i", $field, $match))
+			if (preg_match("/.+\s+AS\s+(\w+)/i", $field, $match))
 			{
 				$field = $match[1];
 			}
