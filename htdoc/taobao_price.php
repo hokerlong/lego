@@ -270,7 +270,7 @@ function get_price($legoid)
 			}
 		}
 		echo "[".date('Y-m-d H:i:s')."] [$legoid] Total:".count($items)."\tValid:".$totalseller."\tAvg:".$avgprice."\tMin:".$min."\tSoldMin:".$soldmin."\tSold:".$totalvol."\n";
-		var_dump($items);
+		//var_dump($items);
 		db_insert("Taobao_Price", array("LegoID" => $legoid, "Price" => $soldmin, "AvgPrice" => $avgprice, "MinPrice" => $min, "Sellers" => $totalseller, "Volume" => $totalvol), null, ture);
 	}
 }

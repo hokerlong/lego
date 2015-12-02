@@ -3,10 +3,16 @@ require_once("db_handler.php");
 
 date_default_timezone_set('America/Los_Angeles');
 
-$LegoID = 630;
-$ItemID = 14299829173;
+if (isset($argv[1]))
+{
+	$ret = db_query("Taobao_Transaction_Pending", array("LegoID", "Nid"), "LegoID=".$argv[1]." LIMIT 30");	
+}
+else
+{
+	$ret = db_query("Taobao_Transaction_Pending", array("LegoID", "Nid"), "1=1 LIMIT 30");
 
-$ret = db_query("Taobao_Transaction_Pending", array("LegoID", "Nid"), "1=1 LIMIT 30");
+}
+
 if (!$ret->{'Status'})
 {
 	foreach ($ret->{'Results'} as $item)
@@ -19,7 +25,7 @@ if (!$ret->{'Status'})
 function crawl_trasaction($ItemID, $LegoID)
 {
 	$flawlist = array("压", "瑕");
-	$invalidlist = array("预定", "补", "联系");
+	$invalidlist = array("预", "补", "联系");
 
 	$url = "https://item.taobao.com/item.htm?id=".$ItemID;
 	$contents = curl($url);
@@ -54,6 +60,8 @@ function crawl_trasaction($ItemID, $LegoID)
 				$itemField["Price"] = floatval($item->price);
 				$itemField["Timestamp"] = gmdate('Y-m-d H:i:s', intval($item->gmtReceivePay/1000));
 				$itemField["SKUInfo"] = str_replace("颜色分类:", "", $item->skuInfo[0]);
+				$itemField["Flaw"] = 0;
+				$itemField["Invalid"] = 0;
 
 				foreach ($flawlist as $keyword)
 				{
