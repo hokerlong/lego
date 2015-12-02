@@ -17,6 +17,7 @@ else
 		{
 			echo "[".date('Y-m-d H:i:s')."] Crawling ".$item->{'LegoID'}.": ";
 			get_price($item->{'LegoID'});
+			sleep(1);
 		}
 	}	
 }
@@ -58,6 +59,7 @@ function get_price($legoid)
 	$totalseller = 0;
 	$min = 0;
 	$soldmin = 0;
+	$totalvol = 0;
 	$threshold = 0.30;
 
 	for ($i = 1; $i <= $pagecount; $i++)
@@ -69,16 +71,18 @@ function get_price($legoid)
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_ENCODING , "gzip");
 		curl_setopt($ch, CURLOPT_COOKIE, 'hng=CN%7Czh-cn%7CCNY;');
+		curl_setopt($ch, CURLOPT_REFERER, 'https://item.taobao.com/item.htm');
+		curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36');
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout); 
 		$contents = curl_exec($ch);
 		curl_close($ch);
 
 		$jsonstart = strpos($contents, "g_page_config = ") + 15;
-	    $jsonend = strpos($contents, "g_srp_loadCss();");
+		$jsonend = strpos($contents, "g_srp_loadCss();");
 
-	    $json = json_decode(trim(trim(substr($contents, $jsonstart, $jsonend-$jsonstart)), ";"));
-	    $pagecount = min($json->mods->pager->data->totalPage, 10);
+		$json = json_decode(trim(trim(substr($contents, $jsonstart, $jsonend-$jsonstart)), ";"));
+		$pagecount = min($json->mods->pager->data->totalPage, 10);
 		$itemlist = $json->mods->itemlist->data->auctions;
 		$tips = $json->mods->tips->data->html;
 
@@ -266,6 +270,7 @@ function get_price($legoid)
 			}
 		}
 		echo "[".date('Y-m-d H:i:s')."] [$legoid] Total:".count($items)."\tValid:".$totalseller."\tAvg:".$avgprice."\tMin:".$min."\tSoldMin:".$soldmin."\tSold:".$totalvol."\n";
+		var_dump($items);
 		db_insert("Taobao_Price", array("LegoID" => $legoid, "Price" => $soldmin, "AvgPrice" => $avgprice, "MinPrice" => $min, "Sellers" => $totalseller, "Volume" => $totalvol), null, ture);
 	}
 }
