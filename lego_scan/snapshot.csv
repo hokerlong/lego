@@ -506,7 +506,7 @@
 10521,"Sold Out",6.99,0,"Baby Calf"
 10522,"Sold Out",9.99,0,"Farm Animals"
 10524,"Available",19.99,0,"Farm Tractor"
-10525,"Dec 04 2015",59.99,0,"Big Farm"
+10525,"Jan 01 2016",59.99,0,"Big Farm"
 10526,"Available",29.99,0,"Peter Pan's Visit"
 10527,"Available",14.99,0,"Ambulance"
 10528,"Available",19.99,0,"School Bus"
@@ -587,7 +587,7 @@
 10667,"Available",14.99,0,"LEGO® Juniors Construction"
 10668,"Sold Out",14.99,0,"The Princess Play Castle"
 10669,"Sold Out",19.99,0,"Turtle Lair"
-10671,"Available",19.99,0,"Fire Emergency"
+10671,"Sold Out",19.99,0,"Fire Emergency"
 10672,"Dec 14 2015",29.99,23.99,"Batman™: Defend the Batcave"
 10673,"Available",29.99,0,"Race Car Rally"
 10674,"Dec 13 2015",29.99,0,"Pony Farm"
@@ -606,7 +606,7 @@
 10693,"Available",19.99,0,"LEGO® Creative Supplement"
 10694,"Available",19.99,0,"LEGO® Creative Supplement Bright"
 10696,"Available",34.99,0,"LEGO® Medium Creative Brick Box"
-10698,"Dec 13 2015",59.99,0,"LEGO® Large Creative Brick Box"
+10698,"Available",59.99,0,"LEGO® Large Creative Brick Box"
 10699,"Available",7.99,0,"Sand Baseplate"
 10700,"Available",7.99,0,"Green Baseplate"
 10701,"Available",14.99,0,"Gray Baseplate"
@@ -653,7 +653,7 @@
 21113,"Dec 14 2015",19.99,0,"The Cave"
 21114,"Dec 14 2015",29.99,0,"The Farm"
 21115,"Dec 14 2015",39.99,0,"The First Night"
-21116,"Jan 01 2016",49.99,0,"Crafting Box"
+21116,"Dec 12 2015",49.99,0,"Crafting Box"
 21117,"Dec 14 2015",69.99,0,"The Ender Dragon"
 21118,"Dec 14 2015",109.99,0,"The Mine"
 21119,"Available",19.99,0,"The Dungeon"
@@ -1032,7 +1032,16 @@
 60065,"Available",6.99,0,"ATV Patrol"
 60066,"Dec 14 2015",9.99,7.99,"Swamp Police Starter Set"
 60067,"Available",39.99,0,"Helicopter Pursuit"
-60068,"Available",69.99,55.99,"Crooks’ Hideout"
+60068,"Dec 14 2015",69.99,55.99,"Crooks’ Hideout"
+array(1) {
+  [0]=>
+  object(stdClass)#32264 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 60069,"Available",89.99,0,"Swamp Police Station"
 60070,"Sold Out",29.99,17.99,"Water Plane Chase"
 60071,"Available",44.99,0,"Hovercraft Arrest"
@@ -1156,7 +1165,7 @@
 70221,"Available",19.99,0,"Flinx’s Ultimate Phoenix"
 70222,"Sold Out",29.99,0,"Tormak’s Shadow Blazer"
 70223,"Sold Out",49.99,0,"Icebite’s Claw Driller"
-70224,"Available",79.99,0,"Tiger’s Mobile Command"
+70224,"Sold Out",79.99,0,"Tiger’s Mobile Command"
 70225,"Dec 14 2015",39.99,23.99,"Bladvic’s Rumble Bear"
 70226,"Dec 14 2015",59.99,35.99,"Mammoth’s Frozen Stronghold"
 70227,"Available",89.99,62.99,"King Crominus’ Rescue"
