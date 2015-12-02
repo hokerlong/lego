@@ -76,8 +76,20 @@ if (!$ret->{'Status'})
 	}
 }
 
+$Taobao = array();
+$ret = db_query("(SELECT * FROM Top_SellerPrice ORDER BY Price, Volume) AS TEMP", array("LegoID", "MIN(Price) AS Low", "AVG(Price) AS Avg", "Nid", "Volume", "SUM(Volume) AS Total"), "1=1 GROUP BY LegoID");
+//var_dump($ret);
+if (!$ret->{'Status'})
+{
+	foreach ($ret->{'Results'} as $item)
+	{
+		$idx = $item->{'LegoID'};
+		$Taobao["$idx"] = $item;
+	}
+}
+
 $jsonitems = array();
-$ret = db_query("Available_LegoID INNER JOIN DB_Set ON Available_LegoID.LegoID = DB_Set.LegoID INNER JOIN DB_Theme ON DB_Set.ThemeID = DB_Theme.ThemeID", array("Available_LegoID.LegoID AS LegoID", "ETheme AS Theme", "ETitle AS Title", "USPrice AS MSRP", "Badge", "Weight"), "USPrice > 0 ORDER BY Available_LegoID.LegoID*1");
+$ret = db_query("Available_LegoID INNER JOIN DB_Set ON Available_LegoID.LegoID = DB_Set.LegoID INNER JOIN DB_Theme ON DB_Set.ThemeID = DB_Theme.ThemeID", array("Available_LegoID.LegoID AS LegoID", "ETheme AS Theme", "ETitle AS Title", "USPrice AS MSRP", "Badge", "Weight", "Availability"), "USPrice > 0 ORDER BY Available_LegoID.LegoID*1");
 if (!$ret->{'Status'})
 {
 	foreach ($ret->{'Results'} as $item)
@@ -95,6 +107,10 @@ if (!$ret->{'Status'})
 		}
 		$jsonitem->{'msrp'} = floatval($item->{'MSRP'});
 
+		if ($item->{'Availability'} == "Available")
+		{
+			$jsonitem->{'lego_price'} = floatval($item->{'MSRP'});
+		}
 		$minrate = 100;
 		$jsonitem->{'toysrus_rate'} = null;
 		$jsonitem->{'walmart_rate'} = null;
@@ -154,6 +170,17 @@ if (!$ret->{'Status'})
 				$jsonitem->{'bn_price'} = $BN["$legoID"]->{'Price'};
 				$jsonitem->{'bn_availability'} = $BN["$legoID"]->{'Availability'};
 				$minrate = min($minrate, $jsonitem->{'bn_rate'});
+			}
+		}
+		if (isset($Taobao["$legoID"]))
+		{
+			if ($Taobao["$legoID"]->{'Low'} > 0)
+			{
+				$jsonitem->{'taobao_price'} = $Taobao["$legoID"]->{'Low'};
+				$jsonitem->{'taobao_avg'} = $Taobao["$legoID"]->{'Avg'};
+				$jsonitem->{'taobao_nid'} = $Taobao["$legoID"]->{'Nid'};
+				$jsonitem->{'taobao_vol'} = $Taobao["$legoID"]->{'Volume'};
+				$jsonitem->{'taobao_total'} = $Taobao["$legoID"]->{'Total'};
 			}
 		}
 		$jsonitem->{'min_rate'} = $minrate;
