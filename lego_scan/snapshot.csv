@@ -1033,15 +1033,6 @@
 60066,"Dec 14 2015",9.99,7.99,"Swamp Police Starter Set"
 60067,"Available",39.99,0,"Helicopter Pursuit"
 60068,"Dec 14 2015",69.99,55.99,"Crooks’ Hideout"
-array(1) {
-  [0]=>
-  object(stdClass)#32264 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 60069,"Available",89.99,0,"Swamp Police Station"
 60070,"Sold Out",29.99,17.99,"Water Plane Chase"
 60071,"Available",44.99,0,"Hovercraft Arrest"
@@ -1052,7 +1043,7 @@ array(1) {
 60076,"Dec 14 2015",89.99,71.99,"Demolition Site"
 60077,"Available",9.99,0,"Space Starter Set"
 60078,"Available",24.99,0,"Utility Shuttle"
-60079,"Dec 07 2015",49.99,0,"Training Jet Transporter"
+60079,"Dec 27 2015",49.99,0,"Training Jet Transporter"
 60080,"Dec 14 2015",119.99,0,"Spaceport"
 60081,"Available",19.99,0,"Pickup Tow Truck"
 60082,"Available",19.99,0,"Dune Buggy Trailer"
@@ -1289,7 +1280,7 @@ array(1) {
 71171,"Out of Stock",99.99,69.99,"LEGO® DIMENSIONS™ PLAYSTATION® 4 Starter Pack"
 71172,"Out of Stock",99.99,69.99,"LEGO® DIMENSIONS™ Xbox One Starter Pack"
 71173,"Out of Stock",99.99,69.99,"LEGO® DIMENSIONS™ Xbox 360 Starter Pack"
-71174,"Available",99.99,69.99,"LEGO® DIMENSIONS™ Wii U™ Starter Pack"
+71174,"Out of Stock",99.99,69.99,"LEGO® DIMENSIONS™ Wii U™ Starter Pack"
 71201,"Out of Stock",29.99,22.49,"LEGO® DIMENSIONS™ Back to the Future™ Level Pack"
 71202,"Available",29.99,22.49,"LEGO® DIMENSIONS™ The Simpsons™ Level Pack"
 71203,"Out of Stock",29.99,22.49,"LEGO® DIMENSIONS™ Portal® 2 Level Pack"
@@ -1371,7 +1362,7 @@ array(1) {
 75060,"Available",199.99,0,"Slave I"
 75072,"Sold Out",9.99,0,"ARC-170 Starfighter™"
 75073,"Sold Out",9.99,0,"Vulture Droid™"
-75074,"Dec 14 2015",9.99,0,"Snowspeeder™"
+75074,"Dec 13 2015",9.99,0,"Snowspeeder™"
 75075,"Available",9.99,0,"AT-AT™"
 75076,"Sold Out",9.99,0,"Republic Gunship™"
 75077,"Sold Out",9.99,0,"Homing Spider Droid™"
@@ -1551,7 +1542,7 @@ array(1) {
 850963,"Available",7.99,0,"LEGO® Friends Tumbler"
 850996,"Dec 19 2015",4.99,0,"LEGO® Star Wars™ Darth Vader Key Chain"
 850997,"Available",4.99,0,"LEGO® Star Wars™ Princess Leia™ Key Chain"
-850998,"Available",4.99,0,"LEGO® Star Wars™ Boba Fett™ Key Chain"
+850998,"Dec 19 2015",4.99,0,"LEGO® Star Wars™ Boba Fett™ Key Chain"
 850999,"Sold Out",4.99,0,"LEGO® Star Wars™ Stormtrooper™ Key Chain"
 851003,"Available",4.99,0,"LEGO® DC Comics™ Super Heroes The Joker Key Chain"
 851005,"Available",4.99,0,"LEGO® DC Comics™ Super Heroes Batgirl Key Chain"
@@ -1561,7 +1552,7 @@ array(1) {
 851325,"Available",14.99,0,"LEGO® Friends Jungle Playmat"
 851336,"Available",7.99,5.59,"LEGO® NINJAGO™ Ninja Fork Weapon"
 851338,"Available",12.99,0,"LEGO® NINJAGO™ Ninja Belt & Throwing Star"
-851339,"Sold Out",4.99,3.49,"LEGO® NINJAGO™ Ninja Bandana"
+851339,"Available",4.99,3.49,"LEGO® NINJAGO™ Ninja Bandana"
 851341,"Available",14.99,0,"LEGO® Elves Playmat"
 851342,"Available",14.99,0,"LEGO® NINJAGO™ Ninja Army Building Set."
 851344,"Available",7.99,0,"LEGO® NINJAGO™ Tumbler"
