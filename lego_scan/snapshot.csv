@@ -477,15 +477,6 @@
 10243,"Dec 13 2015",159.99,0,"Parisian Restaurant"
 10244,"Available",149.99,0,"Fairground Mixer"
 10245,"Available",69.99,0,"Santa's Workshop"
-array(1) {
-  [0]=>
-  object(stdClass)#3116 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 10246,"Available",159.99,0,"Detective’s Office"
 10247,"Available",199.99,0,"Ferris Wheel"
 10248,"Available",99.99,0,"Ferrari F40"
@@ -569,7 +560,7 @@ array(1) {
 10593,"Jan 02 2016",49.99,0,"Fire Station"
 10594,"Dec 27 2015",24.99,0,"Sofia the First™ Royal Stable"
 10595,"Dec 14 2015",49.99,0,"Sofia the First™ Royal Castle"
-10596,"Dec 14 2015",39.99,0,"Disney Princess™ Collection"
+10596,"Jan 02 2016",39.99,0,"Disney Princess™ Collection"
 10597,"Available",24.99,0,"Mickey & Minnie Birthday Parade"
 10599,"Dec 14 2015",39.99,0,"Batman Adventure"
 10600,"Available",24.99,0,"Disney • Pixar Cars™ Classic Race"
@@ -660,13 +651,13 @@ array(1) {
 21109,"Sold Out",34.99,27.98,"Exo Suit"
 21110,"Retired",0,0,"Research Institute"
 21113,"Dec 14 2015",19.99,0,"The Cave"
-21114,"Dec 13 2015",29.99,0,"The Farm"
+21114,"Dec 14 2015",29.99,0,"The Farm"
 21115,"Dec 14 2015",39.99,0,"The First Night"
 21116,"Jan 02 2016",49.99,0,"Crafting Box"
 21117,"Dec 14 2015",69.99,0,"The Ender Dragon"
 21118,"Dec 14 2015",109.99,0,"The Mine"
 21119,"Available",19.99,0,"The Dungeon"
-21120,"Dec 18 2015",34.99,0,"The Snow Hideout"
+21120,"Dec 14 2015",34.99,0,"The Snow Hideout"
 21121,"Dec 14 2015",59.99,0,"The Desert Outpost"
 21122,"Dec 14 2015",79.99,0,"The Nether Fortress"
 21204,"Sold Out",34.99,0,"LEGO® Fusion Town Master"
@@ -803,15 +794,6 @@ array(1) {
 41054,"Available",39.99,0,"Rapunzel's Creativity Tower"
 41055,"Available",69.99,0,"Cinderella's Romantic Castle"
 41056,"Available",24.99,0,"Heartlake News Van"
-array(1) {
-  [0]=>
-  object(stdClass)#3115 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 41057,"Sold Out",39.99,0,"Heartlake Horse Show"
 41058,"Sold Out",109.99,87.99,"Heartlake Shopping Mall"
 41059,"Available",29.99,0,"Jungle Tree Sanctuary"
@@ -825,7 +807,7 @@ array(1) {
 41072,"Dec 14 2015",19.99,15.99,"Naida’s Spa Secret"
 41073,"Dec 14 2015",29.99,0,"Naida's Epic Adventure Ship"
 41074,"Sold Out",29.99,0,"Azari and the Magical Bakery"
-41075,"Dec 13 2015",49.99,0,"The Elves’ Treetop Hideaway"
+41075,"Available",49.99,0,"The Elves’ Treetop Hideaway"
 41076,"Dec 14 2015",14.99,0,"Farran and the Crystal Hollow"
 41077,"Dec 14 2015",29.99,0,"Aira’s Pegasus Sleigh"
 41078,"Dec 14 2015",79.99,0,"Skyra’s Mysterious Sky Castle"
@@ -835,14 +817,14 @@ array(1) {
 41088,"Dec 17 2015",4.99,0,"Puppy Training"
 41089,"Available",4.99,0,"Little Foal"
 41090,"Sold Out",9.99,0,"Olivia’s Garden Pool"
-41091,"Dec 13 2015",14.99,0,"Mia’s Roadster"
+41091,"Available",14.99,0,"Mia’s Roadster"
 41092,"Sold Out",9.99,0,"Stephanie’s Pizzeria"
 41093,"Available",29.99,0,"Heartlake Hair Salon"
 41094,"Available",39.99,0,"Heartlake Lighthouse"
 41095,"Available",69.99,0,"Emma’s House"
 41097,"Available",19.99,0,"Heartlake Hot Air Balloon"
 41098,"Available",9.99,0,"Emma’s Tourist Kiosk"
-41099,"Available",19.99,0,"Heartlake Skate Park"
+41099,"Dec 13 2015",19.99,0,"Heartlake Skate Park"
 41100,"Jan 02 2016",29.99,0,"Heartlake Private Jet"
 41101,"Jan 02 2016",129.99,0,"Heartlake Grand Hotel"
 41102,"Sold Out",29.99,0,"LEGO® Friends Advent Calendar"
@@ -980,7 +962,7 @@ array(1) {
 45500,"Available",179.99,0,"EV3 Intelligent Brick"
 45501,"Available",79.99,0,"EV3 Rechargeable DC Battery"
 45502,"Jan 06 2016",24.99,0,"EV3 Large Servo Motor"
-45503,"Available",19.99,0,"EV3 Medium Servo Motor"
+45503,"Jan 28 2016",19.99,0,"EV3 Medium Servo Motor"
 45504,"Jan 06 2016",29.99,0,"EV3 Ultrasonic Sensor"
 45505,"Available",29.99,0,"EV3 Gyro Sensor"
 45506,"Available",35.99,0,"EV3 Color Sensor"
@@ -1178,7 +1160,7 @@ array(1) {
 70225,"Dec 13 2015",39.99,23.99,"Bladvic’s Rumble Bear"
 70226,"Dec 13 2015",59.99,35.99,"Mammoth’s Frozen Stronghold"
 70227,"Dec 13 2015",89.99,62.99,"King Crominus’ Rescue"
-70228,"Sold Out",39.99,31.99,"Vultrix’s Sky Scavenger"
+70228,"Available",39.99,31.99,"Vultrix’s Sky Scavenger"
 70229,"Sold Out",9.99,0,"Lion Tribe Pack"
 70230,"Sold Out",9.99,0,"Ice Bear Tribe Pack"
 70231,"Sold Out",9.99,0,"Crocodile Tribe Pack"
@@ -1261,7 +1243,7 @@ array(1) {
 70791,"Available",14.99,0,"Skull Warrior"
 70792,"Dec 14 2015",14.99,0,"Skull Slicer"
 70793,"Dec 14 2015",14.99,0,"Skull Basher"
-70794,"Dec 14 2015",14.99,0,"Skull Scorpio"
+70794,"Available",14.99,0,"Skull Scorpio"
 70795,"Available",29.99,0,"Mask Maker vs. Skull Grinder"
 70800,"Sold Out",12.99,0,"Getaway Glider"
 70801,"Available",12.99,6.48,"Melting Room"
@@ -1292,13 +1274,13 @@ array(1) {
 71007,"Retired",0,0,"LEGO® Minifigures, Series 12"
 71008,"Retired",0,0,"LEGO® Minifigures, Series 13"
 71009,"Available",3.99,0,"LEGO® Minifigures, The Simpsons™ Series 2"
-71010,"Sold Out",3.99,0,"LEGO® Minifigures, Series 14: Monsters"
+71010,"Available",3.99,0,"LEGO® Minifigures, Series 14: Monsters"
 71016,"Available",199.99,0,"The Kwik-E-Mart"
 71170,"Out of Stock",99.99,0,"LEGO® DIMENSIONS™ PLAYSTATION® 3 Starter Pack"
 71171,"Out of Stock",99.99,0,"LEGO® DIMENSIONS™ PLAYSTATION® 4 Starter Pack"
 71172,"Out of Stock",99.99,0,"LEGO® DIMENSIONS™ Xbox One Starter Pack"
 71173,"Out of Stock",99.99,0,"LEGO® DIMENSIONS™ Xbox 360 Starter Pack"
-71174,"Out of Stock",99.99,0,"LEGO® DIMENSIONS™ Wii U™ Starter Pack"
+71174,"Available",99.99,0,"LEGO® DIMENSIONS™ Wii U™ Starter Pack"
 71201,"Out of Stock",29.99,0,"LEGO® DIMENSIONS™ Back to the Future™ Level Pack"
 71202,"Available",29.99,0,"LEGO® DIMENSIONS™ The Simpsons™ Level Pack"
 71203,"Out of Stock",29.99,0,"LEGO® DIMENSIONS™ Portal® 2 Level Pack"
@@ -1377,15 +1359,6 @@ array(1) {
 75056,"Retired",0,0,"LEGO® Star Wars™ Advent Calendar"
 75058,"Available",89.99,0,"MTT™"
 75059,"Available",299.99,0,"Sandcrawler™"
-array(1) {
-  [0]=>
-  object(stdClass)#32201 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 75060,"Available",199.99,0,"Slave I"
 75072,"Sold Out",9.99,0,"ARC-170 Starfighter™"
 75073,"Sold Out",9.99,0,"Vulture Droid™"
@@ -1534,7 +1507,7 @@ array(1) {
 850442,"Retired",0,0,"LEGO® NINJAGO™ Lloyd ZX Key Chain"
 850446,"Available",4.99,0,"LEGO® Star Wars™ Darth Maul™ Key Chain"
 850449,"Sold Out",14.99,5.98,"LEGO® Minifigure Accessory Pack"
-850507,"Available",4.99,0,"LEGO® Marvel Super Heroes Spider-Man Key Chain"
+850507,"Dec 27 2015",4.99,0,"LEGO® Marvel Super Heroes Spider-Man Key Chain"
 850595,"Available",9.99,0,"LEGO® Friends Notebook"
 850598,"Sold Out",12.99,2.98,"LEGO® Legends of Chima™ Game Cards Binder"
 850602,"Available",4.99,3.99,"LEGO® Legends of Chima™ Cragger Key Chain"
