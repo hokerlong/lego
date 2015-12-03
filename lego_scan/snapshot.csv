@@ -634,7 +634,7 @@
 21016,"Retired",0,0,"Sungnyemun"
 21017,"Sold Out",129.99,103.99,"Imperial Hotel"
 21018,"Available",49.99,0,"United Nations Headquarters"
-21019,"Jan 01 2016",34.99,0,"The Eiffel Tower"
+21019,"Dec 13 2015",34.99,0,"The Eiffel Tower"
 21020,"Dec 13 2015",49.99,0,"Trevi Fountain"
 21022,"Dec 13 2015",29.99,0,"Lincoln Memorial"
 21023,"Available",39.99,0,"Flatiron Building"
@@ -689,7 +689,7 @@
 31019,"Sold Out",19.99,0,"Forest Animals"
 31020,"Sold Out",17.99,0,"Twinblade Adventures"
 31021,"Sold Out",19.99,0,"Furry Creatures"
-31022,"Sold Out",24.99,19.99,"Turbo Quad"
+31022,"Available",24.99,19.99,"Turbo Quad"
 31023,"Sold Out",29.99,0,"Yellow Racers"
 31024,"Sold Out",29.99,0,"Roaring Power"
 31025,"Sold Out",39.99,0,"Mountain Hut"
@@ -794,15 +794,6 @@
 41054,"Available",39.99,0,"Rapunzel's Creativity Tower"
 41055,"Dec 13 2015",69.99,0,"Cinderella's Romantic Castle"
 41056,"Dec 13 2015",24.99,0,"Heartlake News Van"
-array(1) {
-  [0]=>
-  object(stdClass)#32256 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 41057,"Sold Out",39.99,0,"Heartlake Horse Show"
 41058,"Sold Out",109.99,87.99,"Heartlake Shopping Mall"
 41059,"Dec 14 2015",29.99,0,"Jungle Tree Sanctuary"
@@ -835,7 +826,7 @@ array(1) {
 41098,"Available",9.99,0,"Emma’s Tourist Kiosk"
 41099,"Dec 13 2015",19.99,0,"Heartlake Skate Park"
 41100,"Jan 01 2016",29.99,0,"Heartlake Private Jet"
-41101,"Dec 14 2015",129.99,0,"Heartlake Grand Hotel"
+41101,"Jan 01 2016",129.99,0,"Heartlake Grand Hotel"
 41102,"Sold Out",29.99,0,"LEGO® Friends Advent Calendar"
 41103,"Dec 14 2015",14.99,11.99,"Pop Star Recording Studio"
 41104,"Dec 14 2015",29.99,23.99,"Pop Star Dressing Room"
@@ -920,7 +911,7 @@ array(1) {
 42027,"Available",19.99,0,"Desert Racer"
 42028,"Sold Out",49.99,0,"Bulldozer"
 42029,"Sold Out",99.99,0,"Customized Pick up Truck"
-42030,"Out of Stock",249.99,0,"Remote-Controlled VOLVO L350F Wheel Loader"
+42030,"Available",249.99,0,"Remote-Controlled VOLVO L350F Wheel Loader"
 42031,"Available",12.99,0,"Cherry Picker"
 42032,"Available",19.99,0,"Compact Tracked Loader"
 42033,"Available",19.99,0,"Record Breaker"
@@ -976,7 +967,7 @@ array(1) {
 45505,"Available",29.99,0,"EV3 Gyro Sensor"
 45506,"Available",35.99,0,"EV3 Color Sensor"
 45507,"Available",19.99,0,"EV3 Touch Sensor"
-45508,"Dec 14 2015",29.99,0,"EV3 Infrared Beacon"
+45508,"Dec 13 2015",29.99,0,"EV3 Infrared Beacon"
 45509,"Available",29.99,0,"EV3 Infrared Sensor"
 45514,"Dec 30 2015",12.99,0,"EV3 Cable Pack"
 45517,"Available",29.99,0,"Transformer 10V DC"
@@ -1064,7 +1055,7 @@ array(1) {
 60090,"Dec 14 2015",6.99,0,"Deep Sea Scuba Scooter"
 60091,"Available",9.99,0,"Deep Sea Starter Set"
 60092,"Dec 13 2015",39.99,0,"Deep Sea Submarine"
-60093,"Dec 13 2015",49.99,0,"Deep Sea Helicopter"
+60093,"Dec 14 2015",49.99,0,"Deep Sea Helicopter"
 60095,"Dec 14 2015",119.99,0,"Deep Sea Exploration Vessel"
 60096,"Available",99.99,0,"Deep Sea Operation Base"
 60097,"Available",189.99,0,"City Square"
@@ -1354,7 +1345,16 @@ array(1) {
 75041,"Retired",0,0,"Vulture Droid™"
 75042,"Sold Out",49.99,0,"Droid Gunship™"
 75043,"Sold Out",59.99,0,"AT-AP™"
-75044,"Dec 14 2015",29.99,0,"Droid Tri-fighter™"
+75044,"Dec 13 2015",29.99,0,"Droid Tri-fighter™"
+array(1) {
+  [0]=>
+  object(stdClass)#32260 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 75045,"Available",39.99,0,"Republic AV-7 Anti-Vehicle Cannon"
 75046,"Dec 13 2015",49.99,0,"Coruscant™ Police Gunship"
 75048,"Sold Out",24.99,0,"The Phantom"
