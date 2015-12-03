@@ -20,7 +20,7 @@ if (!$ret->{'Status'})
 		foreach ($ret->{'Results'} as $item)
 		{
 			$bkinfo = crawl_brickset($item->{'LegoID'}, $item->{'BK_Subset'});
-			$blinfo = crawl_bricklink($item->{'LegoID'});
+			$blinfo = crawl_bricklink($item->{'LegoID'}, $item->{'BK_Subset'});
 			foreach (array("Weight", "Length", "Width", "Height") as $prop)
 			{
 				$bkinfo->{$prop} = $blinfo->{$prop};

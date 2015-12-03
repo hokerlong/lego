@@ -198,19 +198,25 @@ function crawl_brickset($LegoID, $BK_SetID)
 	return $ret;
 }
 
-function crawl_bricklink($LegoID)
+function crawl_bricklink($LegoID, $SetID)
 {
 	$ret = new stdClass();
+	if (!isset($SetID) || $SetID == '')
+	{
+		$SetID = "-1";
+	}
+	
+	$ret = new stdClass();
 
-	$ret->{'URL'} = 'http://alpha.bricklink.com/pages/clone/catalogitem.page?S='.$LegoID.'-1';
+	$ret->{'URL'} = 'http://alpha.bricklink.com/pages/clone/catalogitem.page?S='.$LegoID.$SetID;
 	$htmldom = curl_htmldom($ret->{'URL'});
 
 	if ($htmldom)
 	{
 		$weightText = str_replace("g", "", $htmldom->find('span[@id="item-weight-info"]', 0)->plaintext);
-		if (floatval($weightText))
+		if (intval($weightText))
 		{
-			$ret->{"Weight"} = floatval($weightText);
+			$ret->{"Weight"} = intval($weightText);
 		}
 
 
