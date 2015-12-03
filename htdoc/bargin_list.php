@@ -11,6 +11,12 @@
     angular.module('barginList', [])
       .controller('listController', function($scope, $http, $filter) {
 
+        $scope.init = function() {
+            $scope.currency = 6.4;
+            $scope.shippingfee = 2;
+            $scope.taxrate = 8.75;
+        }
+
         $http.get("current_items.php")
           .success(function(response) {
             $scope.items = response.items;
@@ -18,13 +24,13 @@
         
         $scope.getCNY = function(item){
         if (item){
-            item.shipping = item.weight /453.6 * 4 * 6.4;
-            item.cny = item.msrp * item.min_rate / 100 * 1.0875 * 6.4 + item.shipping;
+            //item.shipping = item.weight /453.6 * $scope.text_shipping * 6.4;
+            //item.cny = item.msrp * item.min_rate / 100 * (1 + $scope.text_tax/100) * 6.4 + item.shipping;
             if (item.taobao_price > 0)
             {
               item.taobao_url = "https://item.taobao.com/item.htm?id=" + item.taobao_nid;
-              item.rev = item.taobao_price - item.cny;
-              item.revrate = item.rev / item.cny * 100;
+              //item.rev = item.taobao_price - item.cny;
+              //item.revrate = item.rev / item.cny * 100;
             }
         }
     }
@@ -42,9 +48,9 @@
 
 </head>
 
-<body ng-app="barginList">
-  <div><p>Tax:<input type="number" style="width:30px" ng-model="text_tax">%&nbsp;&nbsp;&nbsp;Shipping:<input type="number" style="width:30px" ng-model="text_shipping">US$/lb</p><p>Filter:<input type="text" ng-model="text_filter"></p></div>
-  <div ng-controller="listController" class="div_items" ng-show="items">
+<body ng-app="barginList" ng-controller="listController" ng-init="init()">
+  <div><p>Tax:<input type="text" style="width:30px" ng-model="taxrate">%&nbsp;&nbsp;&nbsp;Shipping:<input type="text" style="width:30px" ng-model="shippingfee">US$/lb&nbsp;&nbsp;&nbsp;1USD=<input type="text" style="width:30px" ng-model="currency">CNY</p><p>Filter:<input type="text" ng-model="text_filter"></p></div>
+  <div class="div_items" ng-show="items">
     <table class="items">
       <tr>
         <th><a href="" ng-click="reverse=!reverse;order('legoid', !reverse)">LegoID</a></th>
@@ -69,10 +75,10 @@
         <td>{{item.theme}} - {{item.title}}</td>
         <td>{{item.msrp}}</td>
         <td>{{item.min_rate}}%</td>
-        <td>{{item.shipping | number:2}}</td>
-        <td>{{item.cny | number:2}}</td>
-        <td><span ng-if="item.taobao_price != null"><a href="{{item.taobao_url}}">¥{{item.taobao_price}} ({{item.taobao_avg | number:2}}, {{item.taobao_vol}}/{{item.taobao_total}})</a></span></td>
-        <td><span ng-if="item.revrate != null">{{item.rev | number:2}} ({{item.revrate | number:2}}%)</span></td>
+        <td>{{(item.weight / 453.6 * shippingfee * currency) | number:2}}</td>
+        <td>{{(item.msrp * item.min_rate / 100 * (1 + taxrate/100) * currency + item.weight / 453.6 * shippingfee * currency) | number:2}}</td>
+        <td><span ng-if="item.taobao_price != null"><a href="{{item.taobao_url}}">¥{{item.taobao_price}} (Avg:{{item.taobao_avg | number:2}}, Mech:{{item.taobao_sellers}}, Tran:{{item.taobao_vol}})</a></span></td>
+        <td><span ng-if="item.taobao_price != null">{{(item.taobao_price - item.msrp * item.min_rate / 100 * (1 + taxrate/100) * currency - item.weight / 453.6 * shippingfee * currency) | number:2}} ({{((item.taobao_price - item.msrp * item.min_rate / 100 * (1 + taxrate/100) * currency - item.weight / 453.6 * shippingfee * currency)/(item.msrp * item.min_rate / 100 * (1 + taxrate/100) * currency)) * 100 | number:2}}%)</span></td>
         <td><span ng-if="item.lego_price != null">${{item.lego_price | number:2}}</span></td>
         <td><span ng-if="item.toysrus_rate != null"><span ng-if="item.toysrus_rate <= item.min_rate" color="red"><a href="{{item.toysrus_url}}">${{item.toysrus_price}} ({{item.toysrus_rate}}%)</a></span><span ng-if="item.toysrus_rate != item.min_rate"><a href="{{item.toysrus_url}}">${{item.toysrus_price}} ({{item.toysrus_rate}}%)</a></span></span></td>
         <td><span ng-if="item.walmart_rate != null"><a href="{{item.walmart_url}}">${{item.walmart_price}} ({{item.walmart_rate}}%)</a></span></td>

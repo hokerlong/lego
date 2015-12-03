@@ -77,7 +77,9 @@ if (!$ret->{'Status'})
 }
 
 $Taobao = array();
-$ret = db_query("(SELECT * FROM Top_SellerPrice ORDER BY Price, Volume) AS TEMP", array("LegoID", "MIN(Price) AS Low", "AVG(Price) AS Avg", "Nid", "Volume", "SUM(Volume) AS Total"), "1=1 GROUP BY LegoID");
+//$ret = db_query("(SELECT * FROM Top_SellerPrice ORDER BY Price, Volume) AS TEMP", array("LegoID", "MIN(Price) AS Low", "AVG(Price) AS Avg", "Nid", "Volume", "SUM(Volume) AS Total"), "1=1 GROUP BY LegoID");
+$ret = db_query("(SELECT * FROM Taobao_Transaction WHERE Flaw=0 AND Invalid=0 AND Timestamp >  DATE_SUB(NOW(), INTERVAL 15 DAY) ORDER BY Price) AS TEMP", array("LegoID", "MIN(Price) AS Low", "SUM(Amount*Price)/SUM(Amount) AS Avg", "ItemID", "COUNT(DISTINCT SellerID) AS Sellers", "SUM(Amount) AS Volume"), "1=1 GROUP BY LegoID");
+
 //var_dump($ret);
 if (!$ret->{'Status'})
 {
@@ -178,9 +180,9 @@ if (!$ret->{'Status'})
 			{
 				$jsonitem->{'taobao_price'} = $Taobao["$legoID"]->{'Low'};
 				$jsonitem->{'taobao_avg'} = $Taobao["$legoID"]->{'Avg'};
-				$jsonitem->{'taobao_nid'} = $Taobao["$legoID"]->{'Nid'};
+				$jsonitem->{'taobao_nid'} = $Taobao["$legoID"]->{'ItemID'};
 				$jsonitem->{'taobao_vol'} = $Taobao["$legoID"]->{'Volume'};
-				$jsonitem->{'taobao_total'} = $Taobao["$legoID"]->{'Total'};
+				$jsonitem->{'taobao_sellers'} = $Taobao["$legoID"]->{'Sellers'};
 			}
 		}
 		$jsonitem->{'min_rate'} = $minrate;
