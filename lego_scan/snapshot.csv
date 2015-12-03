@@ -476,7 +476,16 @@
 10242,"Available",99.99,0,"MINI Cooper"
 10243,"Dec 13 2015",159.99,0,"Parisian Restaurant"
 10244,"Available",149.99,0,"Fairground Mixer"
-10245,"Dec 13 2015",69.99,0,"Santa's Workshop"
+10245,"Available",69.99,0,"Santa's Workshop"
+array(1) {
+  [0]=>
+  object(stdClass)#3118 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 10246,"Available",159.99,0,"Detective’s Office"
 10247,"Available",199.99,0,"Ferris Wheel"
 10248,"Available",99.99,0,"Ferrari F40"
