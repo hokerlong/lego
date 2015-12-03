@@ -198,6 +198,38 @@ function crawl_brickset($LegoID, $BK_SetID)
 	return $ret;
 }
 
+function crawl_bricklink($LegoID)
+{
+	$ret = new stdClass();
+
+	$ret->{'URL'} = 'http://alpha.bricklink.com/pages/clone/catalogitem.page?S='.$LegoID.'-1';
+	$htmldom = curl_htmldom($ret->{'URL'});
+
+	if ($htmldom)
+	{
+		$weightText = str_replace("g", "", $htmldom->find('span[@id="item-weight-info"]', 0)->plaintext);
+		if (floatval($weightText))
+		{
+			$ret->{"Weight"} = floatval($weightText);
+		}
+
+
+		$dimText = str_replace(" ", "", str_replace("cm", "", $htmldom->find('span[@id="dimSec"]', 0)->plaintext));
+		$arrDimension = explode("x", $dimText, 3);
+		if (isset($arrDimension))
+		{
+			$ret->{"Length"} = floatval($arrDimension[0]);
+			$ret->{"Width"} = floatval($arrDimension[1]);
+			$ret->{"Height"} = floatval($arrDimension[2]);
+		}
+		return $ret;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 function crawl_toysrus()
 {
 	$page = 1;

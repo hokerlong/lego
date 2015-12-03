@@ -14,12 +14,18 @@ if (!$ret->{'Status'})
 		$ThemeDB[$idx] = $theme->{'ThemeID'};
 	}
 
-	$ret = db_query("DB_Set", array("LegoID", "ThemeID", "USPrice", "Year", "Pieces", "Minifigs", "Age", "UPC", "EAN", "USItemSN", "EUItemSN", "BK_Subset"), "LastSync = '0000-00-00 00:00:00' OR LastSync < '".date('Y-m-d H:i:s', strtotime('-7 days'))."' ORDER BY LastSync LIMIT 20");
+	$ret = db_query("DB_Set", array("LegoID", "ThemeID", "USPrice", "Year", "Pieces", "Minifigs", "Age", "Weight", "Length", "Width", "Height", "UPC", "EAN", "USItemSN", "EUItemSN", "BK_Subset"), "LastSync = '0000-00-00 00:00:00' OR LastSync < '".date('Y-m-d H:i:s', strtotime('-7 days'))."' ORDER BY LastSync LIMIT 20");
 	if (!$ret->{'Status'})
 	{
 		foreach ($ret->{'Results'} as $item)
 		{
 			$bkinfo = crawl_brickset($item->{'LegoID'}, $item->{'BK_Subset'});
+			$blinfo = crawl_bricklink($item->{'LegoID'});
+			foreach (array("Weight", "Length", "Width", "Height") as $prop)
+			{
+				$bkinfo->{$prop} = $blinfo->{$prop};
+			}
+
 			if (isset($bkinfo))
 			{
 				$arrfields = array();
@@ -50,7 +56,7 @@ if (!$ret->{'Status'})
 					}
 				}
 				
-				$arrProp = array("USPrice", "Year", "Pieces", "Minifigs", "Age", "UPC", "EAN", "USItemSN", "EUItemSN");
+				$arrProp = array("USPrice", "Year", "Pieces", "Minifigs", "Age", "Weight", "Length", "Width", "Height", "UPC", "EAN", "USItemSN", "EUItemSN");
 				foreach ($arrProp as $prop)
 				{
 					if (!empty($bkinfo->{$prop}) && $bkinfo->{$prop} <> $item->{$prop})
