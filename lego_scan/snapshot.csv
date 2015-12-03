@@ -475,15 +475,6 @@
 10241,"Sold Out",149.99,0,"Maersk Line Triple-E"
 10242,"Available",99.99,0,"MINI Cooper"
 10243,"Dec 13 2015",159.99,0,"Parisian Restaurant"
-array(1) {
-  [0]=>
-  object(stdClass)#32255 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 10244,"Available",149.99,0,"Fairground Mixer"
 10245,"Dec 13 2015",69.99,0,"Santa's Workshop"
 10246,"Available",159.99,0,"Detective’s Office"
@@ -523,7 +514,7 @@ array(1) {
 10531,"Retired",0,0,"Mickey & Friends"
 10532,"Sold Out",24.99,0,"My First Police Set"
 10538,"Sold Out",29.99,0,"Fire and Rescue Team"
-10539,"Dec 14 2015",24.99,19.99,"Beach Racing"
+10539,"Dec 13 2015",24.99,19.99,"Beach Racing"
 10542,"Sold Out",34.99,0,"Sleeping Beauty’s Fairy Tale"
 10543,"Dec 13 2015",19.99,15.99,"Superman™ Rescue"
 10544,"Available",29.99,0,"The Joker Challenge"
@@ -596,8 +587,8 @@ array(1) {
 10667,"Available",14.99,0,"LEGO® Juniors Construction"
 10668,"Sold Out",14.99,0,"The Princess Play Castle"
 10669,"Sold Out",19.99,0,"Turtle Lair"
-10671,"Sold Out",19.99,0,"Fire Emergency"
-10672,"Dec 14 2015",29.99,23.99,"Batman™: Defend the Batcave"
+10671,"Available",19.99,0,"Fire Emergency"
+10672,"Dec 13 2015",29.99,23.99,"Batman™: Defend the Batcave"
 10673,"Available",29.99,0,"Race Car Rally"
 10674,"Dec 13 2015",29.99,0,"Pony Farm"
 10675,"Sold Out",29.99,0,"Police – The Big Escape"
@@ -896,7 +887,7 @@ array(1) {
 41549,"Available",4.99,0,"Gurggle"
 41550,"Available",4.99,0,"Slusho"
 41551,"Available",4.99,0,"Snax"
-41552,"Available",4.99,0,"Berp"
+41552,"Sold Out",4.99,0,"Berp"
 41553,"Available",4.99,0,"Vaka-Waka"
 41999,"Retired",0,0,"4x4 Crawler Exclusive Edition"
 42000,"Retired",0,0,"Racer"
@@ -1212,7 +1203,7 @@ array(1) {
 70730,"Available",29.99,20.99,"Chain Cycle Ambush"
 70731,"Available",39.99,0,"Jay Walker One"
 70732,"Available",99.99,0,"City of Stiix"
-70733,"Available",19.99,0,"Blaster Bike"
+70733,"Dec 13 2015",19.99,0,"Blaster Bike"
 70734,"Available",39.99,0,"Master Wu Dragon"
 70735,"Available",49.99,0,"Ronin R.E.X."
 70736,"Dec 14 2015",69.99,0,"Attack of the Morro Dragon"
@@ -1444,7 +1435,7 @@ array(1) {
 76013,"Sold Out",49.99,0,"Batman™: The Joker Steam Roller"
 76014,"Sold Out",12.99,0,"Spider-Trike vs. Electro"
 76015,"Sold Out",19.99,15.99,"Doc Ock Truck Heist"
-76016,"Dec 14 2015",44.99,35.99,"Spider-Helicopter Rescue"
+76016,"Dec 13 2015",44.99,35.99,"Spider-Helicopter Rescue"
 76017,"Sold Out",19.99,0,"Captain America vs. Hydra"
 76018,"Sold Out",49.99,29.99,"Hulk Lab Smash"
 76019,"Sold Out",19.99,0,"Starblaster Showdown"
@@ -1705,7 +1696,7 @@ array(1) {
 5004854,"Available",18.99,0,"LEGO® Star Wars™ in 100 Scenes"
 5004855,"Available",24.99,0,"LEGO® Iconic Awesome Ideas"
 5004856,"Available",16.99,0,""
-5004868,"Available",14.97,0,"LEGO® Mixels™ Munchos"
+5004868,"Sold Out",14.97,0,"LEGO® Mixels™ Munchos"
 5004869,"Available",14.97,0,"LEGO® Mixels™ Glorp Corp"
 5004870,"Available",14.97,0,"LEGO® Mixels™ Weldos"
 5004890,"Out of Stock",19.99,0,"LEGO® Minifigure Display Case 8 – Red"
