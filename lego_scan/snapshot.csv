@@ -474,7 +474,16 @@
 10240,"Sold Out",199.99,0,"Red Five X-wing Starfighter™"
 10241,"Sold Out",149.99,0,"Maersk Line Triple-E"
 10242,"Available",99.99,0,"MINI Cooper"
-10243,"Available",159.99,0,"Parisian Restaurant"
+10243,"Dec 13 2015",159.99,0,"Parisian Restaurant"
+array(1) {
+  [0]=>
+  object(stdClass)#32255 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 10244,"Available",149.99,0,"Fairground Mixer"
 10245,"Dec 13 2015",69.99,0,"Santa's Workshop"
 10246,"Available",159.99,0,"Detective’s Office"
@@ -506,7 +515,7 @@
 10521,"Sold Out",6.99,0,"Baby Calf"
 10522,"Sold Out",9.99,0,"Farm Animals"
 10524,"Available",19.99,0,"Farm Tractor"
-10525,"Dec 04 2015",59.99,0,"Big Farm"
+10525,"Jan 01 2016",59.99,0,"Big Farm"
 10526,"Available",29.99,0,"Peter Pan's Visit"
 10527,"Available",14.99,0,"Ambulance"
 10528,"Available",19.99,0,"School Bus"
@@ -516,7 +525,7 @@
 10538,"Sold Out",29.99,0,"Fire and Rescue Team"
 10539,"Dec 14 2015",24.99,19.99,"Beach Racing"
 10542,"Sold Out",34.99,0,"Sleeping Beauty’s Fairy Tale"
-10543,"Dec 14 2015",19.99,15.99,"Superman™ Rescue"
+10543,"Dec 13 2015",19.99,15.99,"Superman™ Rescue"
 10544,"Available",29.99,0,"The Joker Challenge"
 10545,"Sold Out",49.99,0,"Batcave Adventure"
 10546,"Sold Out",24.99,0,"My First Shop"
@@ -636,7 +645,7 @@
 21018,"Available",49.99,0,"United Nations Headquarters"
 21019,"Dec 13 2015",34.99,0,"The Eiffel Tower"
 21020,"Dec 13 2015",49.99,0,"Trevi Fountain"
-21022,"Dec 13 2015",29.99,0,"Lincoln Memorial"
+21022,"Dec 14 2015",29.99,0,"Lincoln Memorial"
 21023,"Available",39.99,0,"Flatiron Building"
 21024,"Available",59.99,0,"Louvre"
 21050,"Available",159.99,0,"Studio"
@@ -689,7 +698,7 @@
 31019,"Sold Out",19.99,0,"Forest Animals"
 31020,"Sold Out",17.99,0,"Twinblade Adventures"
 31021,"Sold Out",19.99,0,"Furry Creatures"
-31022,"Available",24.99,19.99,"Turbo Quad"
+31022,"Sold Out",24.99,19.99,"Turbo Quad"
 31023,"Sold Out",29.99,0,"Yellow Racers"
 31024,"Sold Out",29.99,0,"Roaring Power"
 31025,"Sold Out",39.99,0,"Mountain Hut"
@@ -796,7 +805,7 @@
 41056,"Dec 13 2015",24.99,0,"Heartlake News Van"
 41057,"Sold Out",39.99,0,"Heartlake Horse Show"
 41058,"Sold Out",109.99,87.99,"Heartlake Shopping Mall"
-41059,"Dec 14 2015",29.99,0,"Jungle Tree Sanctuary"
+41059,"Dec 13 2015",29.99,0,"Jungle Tree Sanctuary"
 41060,"Available",12.99,0,"Sleeping Beauty’s Royal Bedroom"
 41061,"Available",19.99,0,"Jasmine's Exotic Palace"
 41062,"Jan 01 2016",39.99,0,"Elsa’s Sparkling Ice Castle"
@@ -911,7 +920,7 @@
 42027,"Available",19.99,0,"Desert Racer"
 42028,"Sold Out",49.99,0,"Bulldozer"
 42029,"Sold Out",99.99,0,"Customized Pick up Truck"
-42030,"Available",249.99,0,"Remote-Controlled VOLVO L350F Wheel Loader"
+42030,"Out of Stock",249.99,0,"Remote-Controlled VOLVO L350F Wheel Loader"
 42031,"Available",12.99,0,"Cherry Picker"
 42032,"Available",19.99,0,"Compact Tracked Loader"
 42033,"Available",19.99,0,"Record Breaker"
@@ -1346,15 +1355,6 @@
 75042,"Sold Out",49.99,0,"Droid Gunship™"
 75043,"Sold Out",59.99,0,"AT-AP™"
 75044,"Dec 13 2015",29.99,0,"Droid Tri-fighter™"
-array(1) {
-  [0]=>
-  object(stdClass)#32260 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 75045,"Available",39.99,0,"Republic AV-7 Anti-Vehicle Cannon"
 75046,"Dec 13 2015",49.99,0,"Coruscant™ Police Gunship"
 75048,"Sold Out",24.99,0,"The Phantom"
