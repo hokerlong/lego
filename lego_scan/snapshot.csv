@@ -476,7 +476,16 @@
 10242,"Available",99.99,0,"MINI Cooper"
 10243,"Dec 13 2015",159.99,0,"Parisian Restaurant"
 10244,"Available",149.99,0,"Fairground Mixer"
-10245,"Dec 13 2015",69.99,0,"Santa's Workshop"
+10245,"Available",69.99,0,"Santa's Workshop"
+array(1) {
+  [0]=>
+  object(stdClass)#3116 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 10246,"Available",159.99,0,"Detective’s Office"
 10247,"Available",199.99,0,"Ferris Wheel"
 10248,"Available",99.99,0,"Ferrari F40"
@@ -516,7 +525,7 @@
 10538,"Sold Out",29.99,0,"Fire and Rescue Team"
 10539,"Dec 13 2015",24.99,19.99,"Beach Racing"
 10542,"Sold Out",34.99,0,"Sleeping Beauty’s Fairy Tale"
-10543,"Dec 13 2015",19.99,15.99,"Superman™ Rescue"
+10543,"Available",19.99,15.99,"Superman™ Rescue"
 10544,"Available",29.99,0,"The Joker Challenge"
 10545,"Sold Out",49.99,0,"Batcave Adventure"
 10546,"Sold Out",24.99,0,"My First Shop"
@@ -534,7 +543,7 @@
 10565,"Available",59.99,0,"LEGO® DUPLO® Creative Suitcase"
 10566,"Available",24.99,0,"Creative Picnic"
 10567,"Available",19.99,0,"Toddler Build and Boat Fun"
-10568,"Dec 13 2015",9.99,5.99,"Knight Tournament"
+10568,"Sold Out",9.99,5.99,"Knight Tournament"
 10569,"Sold Out",29.99,0,"Treasure Attack"
 10570,"Available",14.99,0,"LEGO® DUPLO® All-in-One-Gift-Set"
 10571,"Available",29.99,0,"LEGO® DUPLO® All-in-One-Pink-Box-of-Fun"
@@ -543,7 +552,7 @@
 10574,"Available",14.99,0,"Creative Ice Cream"
 10575,"Retired",0,0,"LEGO® DUPLO® Creative Building Cube"
 10576,"Retired",0,0,"Zoo Care"
-10577,"Dec 13 2015",59.99,47.99,"Big Royal Castle"
+10577,"Available",59.99,47.99,"Big Royal Castle"
 10579,"Retired",0,0,"Clubhouse Café"
 10580,"Available",49.99,0,"LEGO® DUPLO® Deluxe Box of fun"
 10581,"Dec 13 2015",9.99,0,"Forest: Ducks"
@@ -635,7 +644,7 @@
 21017,"Sold Out",129.99,103.99,"Imperial Hotel"
 21018,"Available",49.99,0,"United Nations Headquarters"
 21019,"Dec 14 2015",34.99,0,"The Eiffel Tower"
-21020,"Dec 13 2015",49.99,0,"Trevi Fountain"
+21020,"Available",49.99,0,"Trevi Fountain"
 21022,"Dec 14 2015",29.99,0,"Lincoln Memorial"
 21023,"Available",39.99,0,"Flatiron Building"
 21024,"Available",59.99,0,"Louvre"
@@ -651,7 +660,7 @@
 21109,"Sold Out",34.99,27.98,"Exo Suit"
 21110,"Retired",0,0,"Research Institute"
 21113,"Dec 14 2015",19.99,0,"The Cave"
-21114,"Dec 14 2015",29.99,0,"The Farm"
+21114,"Dec 13 2015",29.99,0,"The Farm"
 21115,"Dec 14 2015",39.99,0,"The First Night"
 21116,"Jan 02 2016",49.99,0,"Crafting Box"
 21117,"Dec 14 2015",69.99,0,"The Ender Dragon"
@@ -792,11 +801,20 @@
 41052,"Available",29.99,0,"Ariel's Magical Kiss"
 41053,"Sold Out",29.99,0,"Cinderella's Dream Carriage"
 41054,"Available",39.99,0,"Rapunzel's Creativity Tower"
-41055,"Dec 13 2015",69.99,0,"Cinderella's Romantic Castle"
-41056,"Dec 13 2015",24.99,0,"Heartlake News Van"
+41055,"Available",69.99,0,"Cinderella's Romantic Castle"
+41056,"Available",24.99,0,"Heartlake News Van"
+array(1) {
+  [0]=>
+  object(stdClass)#3115 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 41057,"Sold Out",39.99,0,"Heartlake Horse Show"
 41058,"Sold Out",109.99,87.99,"Heartlake Shopping Mall"
-41059,"Dec 13 2015",29.99,0,"Jungle Tree Sanctuary"
+41059,"Available",29.99,0,"Jungle Tree Sanctuary"
 41060,"Available",12.99,0,"Sleeping Beauty’s Royal Bedroom"
 41061,"Available",19.99,0,"Jasmine's Exotic Palace"
 41062,"Jan 02 2016",39.99,0,"Elsa’s Sparkling Ice Castle"
@@ -905,7 +923,7 @@
 42021,"Sold Out",19.99,0,"Snowmobile"
 42022,"Sold Out",39.99,0,"Hot Rod"
 42023,"Available",69.99,0,"Construction Crew"
-42024,"Dec 13 2015",79.99,63.99,"Container Truck"
+42024,"Available",79.99,63.99,"Container Truck"
 42025,"Sold Out",139.99,111.99,"Cargo Plane"
 42026,"Sold Out",19.99,0,"Black Champion Racer"
 42027,"Available",19.99,0,"Desert Racer"
@@ -1347,7 +1365,7 @@
 75043,"Sold Out",59.99,0,"AT-AP™"
 75044,"Dec 13 2015",29.99,0,"Droid Tri-fighter™"
 75045,"Available",39.99,0,"Republic AV-7 Anti-Vehicle Cannon"
-75046,"Dec 13 2015",49.99,0,"Coruscant™ Police Gunship"
+75046,"Available",49.99,0,"Coruscant™ Police Gunship"
 75048,"Sold Out",24.99,0,"The Phantom"
 75049,"Available",29.99,0,"Snowspeeder™"
 75050,"Sold Out",49.99,39.99,"B-Wing™"
@@ -1358,7 +1376,16 @@
 75055,"Sold Out",129.99,0,"Imperial Star Destroyer™"
 75056,"Retired",0,0,"LEGO® Star Wars™ Advent Calendar"
 75058,"Available",89.99,0,"MTT™"
-75059,"Dec 13 2015",299.99,0,"Sandcrawler™"
+75059,"Available",299.99,0,"Sandcrawler™"
+array(1) {
+  [0]=>
+  object(stdClass)#32201 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 75060,"Available",199.99,0,"Slave I"
 75072,"Sold Out",9.99,0,"ARC-170 Starfighter™"
 75073,"Sold Out",9.99,0,"Vulture Droid™"
