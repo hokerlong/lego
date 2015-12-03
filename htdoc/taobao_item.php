@@ -57,7 +57,12 @@ function crawl_trasaction($ItemID, $LegoID)
 			{
 				$itemField["Buyer"] = $item->buyerNick;
 				$itemField["Amount"] = $item->amount;
-				$itemField["Price"] = floatval($item->price);
+				// if 专属优惠 
+				$price = floatval($item->price);
+				if ($price)
+				{
+					$itemField["Price"] = $price;
+				}
 				$itemField["Timestamp"] = gmdate('Y-m-d H:i:s', intval($item->gmtReceivePay/1000));
 				$itemField["SKUInfo"] = str_replace("颜色分类:", "", $item->skuInfo[0]);
 				$itemField["Flaw"] = 0;
