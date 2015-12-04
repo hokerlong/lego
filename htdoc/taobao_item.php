@@ -5,11 +5,11 @@ date_default_timezone_set('America/Los_Angeles');
 
 if (isset($argv[1]))
 {
-	$ret = db_query("Taobao_Transaction_Pending", array("LegoID", "Nid"), "LegoID=".$argv[1]." LIMIT 30");	
+	$ret = db_query("TB_Pending_LegoIDItemID", array("LegoID", "ItemID"), "LegoID=".$argv[1]." LIMIT 30");	
 }
 else
 {
-	$ret = db_query("Taobao_Transaction_Pending", array("LegoID", "Nid"), "1=1 LIMIT 30");
+	$ret = db_query("TB_Pending_LegoIDItemID", array("LegoID", "ItemID"), "1=1 LIMIT 30");
 
 }
 
@@ -18,7 +18,7 @@ if (!$ret->{'Status'})
 	foreach ($ret->{'Results'} as $item)
 	{
 		//echo "[".date('Y-m-d H:i:s')."] Crawling ".$item->{'Nid'}.".\n";
-		crawl_trasaction($item->{'Nid'}, $item->{'LegoID'});
+		crawl_trasaction($item->{'ItemID'}, $item->{'LegoID'});
 	}
 }
 
