@@ -10,7 +10,7 @@ if (isset($argv[1]))
 }
 else
 {
-	$ret = db_query("TB_Pending_LegoID", array("LegoID"), "1=1 LIMIT 30");
+	$ret = db_query("TB_Pending_LegoID", array("LegoID"), "1=1 LIMIT 20");
 	if (!$ret->{'Status'})
 	{
 		foreach ($ret->{'Results'} as $item)

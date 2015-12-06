@@ -67,6 +67,7 @@ function crawl_trasaction($ItemID, $LegoID)
 				$itemField["SKUInfo"] = str_replace("颜色分类:", "", $item->skuInfo[0]);
 				$itemField["Flaw"] = 0;
 				$itemField["Invalid"] = 0;
+				$itemField["UpdateTime"] = gmdate('Y-m-d H:i:s');
 
 				foreach ($flawlist as $keyword)
 				{
