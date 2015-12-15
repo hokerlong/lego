@@ -610,6 +610,27 @@
 10699,"Available",7.99,0,"Sand Baseplate"
 10700,"Available",7.99,0,"Green Baseplate"
 10701,"Available",14.99,0,"Gray Baseplate"
+10702,"Coming Soon",29.99,0,"LEGO® Creative Building Set"
+10801,"Coming Soon",9.99,0,"Baby Animals"
+10802,"Coming Soon",19.99,0,"Savanna"
+10803,"Coming Soon",29.99,0,"Arctic"
+10804,"Coming Soon",49.99,0,"Jungle"
+10805,"Coming Soon",99.99,0,"Around the World"
+10806,"Coming Soon",14.99,0,"Horses"
+10807,"Coming Soon",19.99,0,"Horse Trailer"
+10808,"Coming Soon",9.99,0,"Little Plane"
+10809,"Coming Soon",14.99,0,"Police Patrol"
+10814,"Coming Soon",19.99,0,"Tow Truck"
+10815,"Coming Soon",9.99,0,"My First Rocket"
+10816,"Coming Soon",19.99,0,"My First Cars and Trucks"
+10817,"Coming Soon",29.99,0,"LEGO® DUPLO® Creative Chest"
+10818,"Coming Soon",19.99,0,"My First Truck"
+10819,"Coming Soon",19.99,0,"My First Garden"
+10824,"Coming Soon",19.99,0,"Miles' Space Adventures"
+10826,"Coming Soon",34.99,0,"Miles' Stellosphere Hangar"
+10829,"Coming Soon",19.99,0,"Mickey's Workshop"
+10830,"Coming Soon",19.99,0,"Minnie's Café"
+10831,"Coming Soon",9.99,0,"My First Caterpillar"
 10937,"Retired",0,0,"Batman™: Arkham Asylum Breakout"
 20200,"Retired",0,0,"LEGO® Master Builder Academy Space Designer"
 20214,"Retired",0,0,"LEGO® Master Builder Academy Adventure Designer"
@@ -639,6 +660,10 @@
 21022,"Dec 21 2015",29.99,0,"Lincoln Memorial"
 21023,"Available",39.99,0,"Flatiron Building"
 21024,"Available",59.99,0,"Louvre"
+21026,"Coming Soon",29.99,0,"Venice"
+21027,"Coming Soon",29.99,0,"Berlin"
+21028,"Coming Soon",59.99,0,"New York City"
+21031,"Coming Soon",39.99,0,"Burj Khalifa"
 21050,"Available",159.99,0,"Studio"
 21101,"Retired",0,0,"Hayabusa"
 21102,"Retired",0,0,"Minecraft"
@@ -714,6 +739,9 @@
 31044,"Available",14.99,0,"Park Animals"
 31045,"Available",14.99,0,"Ocean Explorer"
 31046,"Available",19.99,0,"Fast Car"
+31047,"Coming Soon",19.99,0,"Propeller Plane"
+31048,"Coming Soon",29.99,0,"Lakeside Lodge"
+31050,"Coming Soon",39.99,0,"Corner Deli"
 31313,"Available",349.99,0,"LEGO® MINDSTORMS® EV3"
 40010,"Retired",0,0,"Santa with Sleigh Building Set"
 40053,"Retired",0,0,"Easter Bunny with Basket"
@@ -742,6 +770,7 @@
 40155,"Available",14.99,0,"Piggy Coin Bank"
 40156,"Available",16.99,0,"LEGO® Friends Butterfly Organizer"
 40158,"Available",59.99,49.79,"LEGO® Pirates Chess Set"
+40201,"Coming Soon",9.99,0,"Valentines Cupid Dog"
 41000,"Retired",0,0,"Water Scooter Fun"
 41001,"Retired",0,0,"Mia's Magic Tricks"
 41002,"Retired",0,0,"Emma's Karate Class"
@@ -803,6 +832,7 @@
 41063,"Available",54.99,0,"Ariel’s Undersea Palace"
 41066,"Available",29.99,0,"Anna & Kristoff’s Sleigh Adventure"
 41068,"Available",59.99,0,"Arendelle Castle Celebration"
+41069,"Coming Soon",5.99,0,"Treasure’s Day at the Pool"
 41071,"Sold Out",9.99,0,"Aira's Creative Workshop"
 41072,"Sold Out",19.99,15.99,"Naida’s Spa Secret"
 41073,"Available",29.99,0,"Naida's Epic Adventure Ship"
@@ -835,6 +865,266 @@
 41107,"Jan 21 2016",24.99,0,"Pop Star Limo"
 41108,"Available",39.99,0,"Heartlake Food Market"
 41109,"Jan 21 2016",89.99,0,"Heartlake Airport"
+41110,"Coming Soon",19.99,0,"Birthday Party"
+41111,"Coming Soon",9.99,0,"Party Train"
+41112,"Coming Soon",4.99,0,"Party Cakes"
+41113,"Coming Soon",4.99,0,"Party Gift Shop"
+array(1) {
+  [0]=>
+  object(stdClass)#3009 (2) {
+    ["code"]=>
+    int(226)
+    ["message"]=>
+    string(172) "This request looks like it might be automated. To protect our users from spam and other malicious activity, we can't complete this action right now. Please try again later."
+  }
+}
+41114,"Coming Soon",4.99,0,"Party Styling"
+array(1) {
+  [0]=>
+  object(stdClass)#3000 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3010 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41115,"Coming Soon",9.99,0,"Emma's Creative Workshop"
+array(1) {
+  [0]=>
+  object(stdClass)#3004 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3002 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41116,"Coming Soon",14.99,0,"Olivia's Exploration Car"
+array(1) {
+  [0]=>
+  object(stdClass)#3009 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3006 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41117,"Coming Soon",19.99,0,"Pop Star TV Studio"
+array(1) {
+  [0]=>
+  object(stdClass)#3000 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3010 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41118,"Coming Soon",29.99,0,"Heartlake Supermarket"
+array(1) {
+  [0]=>
+  object(stdClass)#3004 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3002 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41119,"Coming Soon",39.99,0,"Heartlake Cupcake Café"
+array(1) {
+  [0]=>
+  object(stdClass)#3009 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3006 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41120,"Coming Soon",9.99,0,"Adventure Camp Archery"
+array(1) {
+  [0]=>
+  object(stdClass)#3000 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3010 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41121,"Coming Soon",29.99,0,"Adventure Camp Rafting"
+array(1) {
+  [0]=>
+  object(stdClass)#3004 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3002 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41122,"Coming Soon",79.99,0,"Adventure Camp Tree House"
+array(1) {
+  [0]=>
+  object(stdClass)#3009 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3006 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41135,"Coming Soon",49.99,0,"Livi's Pop Star House"
+array(1) {
+  [0]=>
+  object(stdClass)#3000 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3010 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41140,"Coming Soon",9.99,0,"Daisy’s Beauty Salon"
+array(1) {
+  [0]=>
+  object(stdClass)#3004 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3002 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41141,"Coming Soon",9.99,0,"Pumpkin’s Royal Carriage"
+array(1) {
+  [0]=>
+  object(stdClass)#3009 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3006 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41142,"Coming Soon",19.99,0,"Palace Pets Royal Castle"
+array(1) {
+  [0]=>
+  object(stdClass)#3000 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3010 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 41500,"Retired",0,0,"FLAIN"
 41501,"Retired",0,0,"VULK"
 41502,"Retired",0,0,"ZORCH"
@@ -929,6 +1219,82 @@
 42045,"Available",19.99,0,"Hydroplane Racer"
 42046,"Available",19.99,0,"Getaway Racer"
 42047,"Available",19.99,0,"Police Interceptor"
+42048,"Coming Soon",29.99,0,"Race Kart"
+array(1) {
+  [0]=>
+  object(stdClass)#3004 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3002 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+42049,"Coming Soon",49.99,0,"Mine Loader"
+array(1) {
+  [0]=>
+  object(stdClass)#3009 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3006 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+42050,"Coming Soon",79.99,0,"Drag Racer"
+array(1) {
+  [0]=>
+  object(stdClass)#3000 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3010 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+42052,"Coming Soon",139.99,0,"Heavy Lift Helicopter"
+array(1) {
+  [0]=>
+  object(stdClass)#3004 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3002 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 44000,"Retired",0,0,"FURNO XL"
 44001,"Retired",0,0,"PYROX"
 44002,"Retired",0,0,"ROCKA"
@@ -1063,14 +1429,223 @@
 60099,"Sold Out",29.99,0,"LEGO® City Advent Calendar"
 60105,"Available",6.99,0,"Fire ATV"
 60106,"Available",9.99,0,"Fire Starter Set"
+60107,"Coming Soon",24.99,0,"Fire Ladder Truck"
+array(1) {
+  [0]=>
+  object(stdClass)#3009 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3006 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+60108,"Coming Soon",39.99,0,"Fire Response Unit"
+array(1) {
+  [0]=>
+  object(stdClass)#3000 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3010 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+60109,"Coming Soon",79.99,0,"Fire Boat"
+array(1) {
+  [0]=>
+  object(stdClass)#3004 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3002 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+60110,"Coming Soon",99.99,0,"Fire Station"
+array(1) {
+  [0]=>
+  object(stdClass)#3009 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3006 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+60111,"Coming Soon",39.99,0,"Fire Utility Truck"
+array(1) {
+  [0]=>
+  object(stdClass)#3000 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3010 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+60112,"Coming Soon",49.99,0,"Fire Engine"
+array(1) {
+  [0]=>
+  object(stdClass)#3004 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3002 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 60113,"Available",9.99,0,"Rally Car"
 60114,"Available",9.99,0,"Race Boat"
 60115,"Available",19.99,0,"4 x 4 Off Roader"
 60116,"Available",19.99,0,"Ambulance Plane"
+60117,"Coming Soon",19.99,0,"Van & Caravan"
+array(1) {
+  [0]=>
+  object(stdClass)#3009 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3006 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 60118,"Available",19.99,0,"Garbage Truck"
+60119,"Coming Soon",29.99,0,"Ferry"
+array(1) {
+  [0]=>
+  object(stdClass)#3000 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3010 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 60126,"Available",6.99,0,"Tire Escape"
 60127,"Available",9.99,0,"Prison Island Starter Set"
 60128,"Available",24.99,0,"Police Pursuit"
+60129,"Coming Soon",49.99,0,"Police Patrol Boat"
+array(1) {
+  [0]=>
+  object(stdClass)#3004 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3002 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+60130,"Coming Soon",89.99,0,"Prison Island"
+array(1) {
+  [0]=>
+  object(stdClass)#3009 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3006 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+60131,"Coming Soon",29.99,0,"Crooks Island"
+array(1) {
+  [0]=>
+  object(stdClass)#3000 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3010 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 70000,"Retired",0,0,"Razcal’s Glider"
 70001,"Retired",0,0,"Crawley’s Claw Ripper"
 70002,"Retired",0,0,"Lennox' Lion Attack"
@@ -1313,6 +1888,234 @@
 71227,"Available",14.99,0,"LEGO® DIMENSIONS® Krusty Fun Pack"
 71231,"Out of Stock",14.99,0,"LEGO® DIMENSIONS™ Unikitty Fun Pack"
 71232,"Available",14.99,0,"LEGO® DIMENSIONS™ Eris Fun Pack"
+71300,"Coming Soon",9.99,0,"Uxar Creature of Jungle"
+array(1) {
+  [0]=>
+  object(stdClass)#3004 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3002 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71301,"Coming Soon",9.99,0,"Ketar Creature of Stone"
+array(1) {
+  [0]=>
+  object(stdClass)#3009 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3006 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71302,"Coming Soon",9.99,0,"Akida Creature of Water"
+array(1) {
+  [0]=>
+  object(stdClass)#3000 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3010 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71303,"Coming Soon",9.99,0,"Ikir Creature of Fire"
+array(1) {
+  [0]=>
+  object(stdClass)#3004 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3002 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71304,"Coming Soon",9.99,0,"Terak Creature of Earth"
+array(1) {
+  [0]=>
+  object(stdClass)#3009 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3006 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71305,"Coming Soon",14.99,0,"Lewa Uniter of Jungle"
+array(1) {
+  [0]=>
+  object(stdClass)#3000 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3010 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71306,"Coming Soon",14.99,0,"Pohatu Uniter of Stone"
+array(1) {
+  [0]=>
+  object(stdClass)#3004 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3002 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71307,"Coming Soon",14.99,0,"Gali Uniter of Water"
+array(1) {
+  [0]=>
+  object(stdClass)#3009 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3006 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71308,"Coming Soon",19.99,0,"Tahu Uniter of Fire"
+array(1) {
+  [0]=>
+  object(stdClass)#3000 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3010 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71309,"Coming Soon",19.99,0,"Onua Uniter of Earth"
+array(1) {
+  [0]=>
+  object(stdClass)#3004 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3002 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71310,"Coming Soon",19.99,0,"Umarak the Hunter"
+array(1) {
+  [0]=>
+  object(stdClass)#3009 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3006 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71311,"Coming Soon",24.99,0,"Kopaka and Melum - Unity set"
+array(1) {
+  [0]=>
+  object(stdClass)#3000 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3010 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 75000,"Retired",0,0,"Clone Troopers™ vs. Droidekas™"
 75001,"Retired",0,0,"Republic Troopers™ vs Sith™ Troopers"
 75002,"Retired",0,0,"AT-RT™"
@@ -1407,6 +2210,215 @@
 75110,"Available",19.99,0,"Luke Skywalker™"
 75111,"Available",29.99,0,"Darth Vader™"
 75112,"Dec 29 2015",34.99,0,"General Grievous™"
+75113,"Coming Soon",19.99,0,"Rey"
+array(1) {
+  [0]=>
+  object(stdClass)#32310 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#32309 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75114,"Coming Soon",19.99,0,"First Order Stormtrooper™"
+array(1) {
+  [0]=>
+  object(stdClass)#32307 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#32306 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75115,"Coming Soon",24.99,0,"Poe Dameron™"
+array(1) {
+  [0]=>
+  object(stdClass)#32304 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#32305 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75116,"Coming Soon",24.99,0,"Finn"
+array(1) {
+  [0]=>
+  object(stdClass)#32310 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#32309 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75117,"Coming Soon",24.99,0,"Kylo Ren™"
+array(1) {
+  [0]=>
+  object(stdClass)#32307 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#32306 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75118,"Coming Soon",24.99,0,"Captain Phasma™"
+array(1) {
+  [0]=>
+  object(stdClass)#32304 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#32305 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75126,"Coming Soon",9.99,0,"First Order Snowspeeder™"
+array(1) {
+  [0]=>
+  object(stdClass)#32310 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#32309 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75131,"Coming Soon",12.99,0,"Resistance Trooper Battle Pack"
+array(1) {
+  [0]=>
+  object(stdClass)#32307 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#32306 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75132,"Coming Soon",12.99,0,"First Order Battle Pack"
+array(1) {
+  [0]=>
+  object(stdClass)#32304 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#32305 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75139,"Coming Soon",59.99,0,"Battle on Takodana™"
+array(1) {
+  [0]=>
+  object(stdClass)#32310 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#32309 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75140,"Coming Soon",69.99,0,"Resistance Troop Transporter"
+array(1) {
+  [0]=>
+  object(stdClass)#32307 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#32306 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 75827,"Coming Soon",349.99,0,"Firehouse Headquarters"
 75899,"Available",14.99,0,"LaFerrari"
 75900,"Available",14.99,0,"Mummy Museum Mystery"
@@ -1467,6 +2479,44 @@
 76040,"Sold Out",24.99,19.99,"Brainiac Attack"
 76041,"Sold Out",49.99,29.99,"The Hydra Fortress Smash"
 76042,"Available",349.99,0,"The SHIELD Helicarrier"
+76048,"Coming Soon",29.99,0,"Iron Skull Sub Attack"
+array(1) {
+  [0]=>
+  object(stdClass)#32304 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#32305 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+76049,"Coming Soon",59.99,0,"Avenjet Space Mission"
+array(1) {
+  [0]=>
+  object(stdClass)#32310 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#32309 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 79000,"Retired",0,0,"Riddles for the Ring"
 79001,"Retired",0,0,"Escape from Mirkwood™ Spiders"
 79002,"Retired",0,0,"Attack of the Wargs"
