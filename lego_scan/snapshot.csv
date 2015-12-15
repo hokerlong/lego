@@ -479,7 +479,7 @@
 10245,"Available",69.99,0,"Santa's Workshop"
 10246,"Available",159.99,0,"Detective’s Office"
 10247,"Available",199.99,0,"Ferris Wheel"
-10248,"Dec 29 2015",99.99,0,"Ferrari F40"
+10248,"Available",99.99,0,"Ferrari F40"
 10249,"Available",79.99,0,"Winter Toy Shop"
 10251,"Coming Soon",169.99,0,"Brick Bank"
 10500,"Sold Out",29.99,0,"Horse Stable"
@@ -818,7 +818,7 @@
 41046,"Retired",0,0,"Brown Bear's River"
 41050,"Retired",0,0,"Ariel's Amazing Treasures"
 41051,"Retired",0,0,"Merida's Highland Games"
-41052,"Available",29.99,0,"Ariel's Magical Kiss"
+41052,"Sold Out",29.99,0,"Ariel's Magical Kiss"
 41053,"Sold Out",29.99,0,"Cinderella's Dream Carriage"
 41054,"Available",39.99,0,"Rapunzel's Creativity Tower"
 41055,"Available",69.99,0,"Cinderella's Romantic Castle"
@@ -1427,7 +1427,16 @@
 75042,"Sold Out",49.99,0,"Droid Gunship™"
 75043,"Sold Out",59.99,0,"AT-AP™"
 75044,"Sold Out",29.99,0,"Droid Tri-fighter™"
-75045,"Available",39.99,0,"Republic AV-7 Anti-Vehicle Cannon"
+75045,"Sold Out",39.99,0,"Republic AV-7 Anti-Vehicle Cannon"
+array(1) {
+  [0]=>
+  object(stdClass)#32400 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 75046,"Sold Out",49.99,0,"Coruscant™ Police Gunship"
 75048,"Sold Out",24.99,0,"The Phantom"
 75049,"Sold Out",29.99,0,"Snowspeeder™"
