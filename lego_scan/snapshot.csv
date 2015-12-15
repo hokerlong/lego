@@ -1427,10 +1427,19 @@
 75042,"Sold Out",49.99,0,"Droid Gunship™"
 75043,"Sold Out",59.99,0,"AT-AP™"
 75044,"Sold Out",29.99,0,"Droid Tri-fighter™"
-75045,"Sold Out",39.99,0,"Republic AV-7 Anti-Vehicle Cannon"
+75045,"Available",39.99,0,"Republic AV-7 Anti-Vehicle Cannon"
+array(1) {
+  [0]=>
+  object(stdClass)#32399 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 75046,"Sold Out",49.99,0,"Coruscant™ Police Gunship"
 75048,"Sold Out",24.99,0,"The Phantom"
-75049,"Sold Out",29.99,0,"Snowspeeder™"
+75049,"Available",29.99,0,"Snowspeeder™"
 75050,"Sold Out",49.99,39.99,"B-Wing™"
 75051,"Sold Out",59.99,0,"Jedi™ Scout Fighter"
 75052,"Sold Out",69.99,0,"Mos Eisley Cantina™"
