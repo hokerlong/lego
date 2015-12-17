@@ -655,7 +655,7 @@
 21017,"Sold Out",129.99,103.99,"Imperial Hotel"
 21018,"Available",49.99,0,"United Nations Headquarters"
 21019,"Available",34.99,0,"The Eiffel Tower"
-21020,"Dec 29 2015",49.99,0,"Trevi Fountain"
+21020,"Jan 15 2016",49.99,0,"Trevi Fountain"
 21022,"Dec 21 2015",29.99,0,"Lincoln Memorial"
 21023,"Available",39.99,0,"Flatiron Building"
 21024,"Available",59.99,0,"Louvre"
@@ -1175,7 +1175,16 @@
 70132,"Retired",0,0,"Scorm’s Scorpion Stinger"
 70133,"Retired",0,0,"Spinlyn’s Cavern"
 70134,"Retired",0,0,"Lavertus’ Outland Base"
-70135,"Available",39.99,31.98,"Cragger’s Fire Striker"
+70135,"Sold Out",39.99,31.98,"Cragger’s Fire Striker"
+array(1) {
+  [0]=>
+  object(stdClass)#3108 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 70136,"Retired",0,0,"Banana Bash"
 70137,"Retired",0,0,"Bat Strike"
 70138,"Retired",0,0,"Web Dash"
@@ -1320,7 +1329,7 @@
 70804,"Retired",0,0,"Ice Cream Machine"
 70805,"Retired",0,0,"Trash Chomper"
 70806,"Retired",0,0,"Castle Cavalry"
-70807,"Available",34.99,0,"MetalBeard's Duel"
+70807,"Sold Out",34.99,0,"MetalBeard's Duel"
 70808,"Sold Out",49.99,0,"Super Cycle Chase"
 70809,"Retired",0,0,"Lord Business' Evil Lair"
 70810,"Sold Out",249.99,0,"MetalBeard's Sea Cow"
