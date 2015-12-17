@@ -479,7 +479,7 @@
 10245,"Available",69.99,0,"Santa's Workshop"
 10246,"Available",159.99,0,"Detective’s Office"
 10247,"Available",199.99,0,"Ferris Wheel"
-10248,"Available",99.99,0,"Ferrari F40"
+10248,"Dec 29 2015",99.99,0,"Ferrari F40"
 10249,"Available",79.99,0,"Winter Toy Shop"
 10251,"Coming Soon",169.99,0,"Brick Bank"
 10500,"Sold Out",29.99,0,"Horse Stable"
@@ -918,15 +918,6 @@
 41534,"Retired",0,0,"Vampos"
 41535,"Retired",0,0,"Boogly"
 41536,"Available",4.99,0,"Gox"
-array(1) {
-  [0]=>
-  object(stdClass)#3108 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 41537,"Sold Out",4.99,0,"Jinky"
 41538,"Sold Out",4.99,0,"Kamzo"
 41539,"Sold Out",4.99,0,"Krog"
@@ -1092,15 +1083,6 @@ array(1) {
 60066,"Sold Out",9.99,7.99,"Swamp Police Starter Set"
 60067,"Available",39.99,0,"Helicopter Pursuit"
 60068,"Available",69.99,55.99,"Crooks’ Hideout"
-array(1) {
-  [0]=>
-  object(stdClass)#3107 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 60069,"Available",89.99,0,"Swamp Police Station"
 60070,"Sold Out",29.99,17.99,"Water Plane Chase"
 60071,"Available",44.99,0,"Hovercraft Arrest"
@@ -1194,15 +1176,6 @@ array(1) {
 70133,"Retired",0,0,"Spinlyn’s Cavern"
 70134,"Retired",0,0,"Lavertus’ Outland Base"
 70135,"Available",39.99,31.98,"Cragger’s Fire Striker"
-array(1) {
-  [0]=>
-  object(stdClass)#32472 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 70136,"Retired",0,0,"Banana Bash"
 70137,"Retired",0,0,"Bat Strike"
 70138,"Retired",0,0,"Web Dash"
@@ -1371,15 +1344,6 @@ array(1) {
 71009,"Available",3.99,0,"LEGO® Minifigures, The Simpsons™ Series 2"
 71010,"Sold Out",3.99,0,"LEGO® Minifigures, Series 14: Monsters"
 71016,"Jan 03 2016",199.99,0,"The Kwik-E-Mart"
-array(1) {
-  [0]=>
-  object(stdClass)#32471 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 71170,"Available",99.99,74.99,"LEGO® DIMENSIONS™ PLAYSTATION® 3 Starter Pack"
 71171,"Available",99.99,74.99,"LEGO® DIMENSIONS™ PLAYSTATION® 4 Starter Pack"
 71172,"Available",99.99,74.99,"LEGO® DIMENSIONS™ Xbox One Starter Pack"
@@ -1457,7 +1421,7 @@ array(1) {
 75037,"Sold Out",14.99,0,"Battle on Saleucami™"
 75038,"Sold Out",24.99,0,"Jedi™ Interceptor"
 75039,"Retired",0,0,"V-wing Starfighter™"
-75040,"Available",24.99,0,"General Grievous' Wheel Bike™"
+75040,"Sold Out",24.99,0,"General Grievous' Wheel Bike™"
 75041,"Retired",0,0,"Vulture Droid™"
 75042,"Sold Out",49.99,0,"Droid Gunship™"
 75043,"Sold Out",59.99,0,"AT-AP™"
