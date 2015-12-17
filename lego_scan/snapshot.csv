@@ -958,7 +958,7 @@
 42028,"Sold Out",49.99,0,"Bulldozer"
 42029,"Sold Out",99.99,0,"Customized Pick up Truck"
 42030,"Out of Stock",249.99,0,"Remote-Controlled VOLVO L350F Wheel Loader"
-42031,"Available",12.99,0,"Cherry Picker"
+42031,"Dec 18 2015",12.99,0,"Cherry Picker"
 42032,"Available",19.99,0,"Compact Tracked Loader"
 42033,"Available",19.99,0,"Record Breaker"
 42034,"Available",19.99,0,"Quad Bike"
@@ -1344,15 +1344,6 @@
 71009,"Available",3.99,0,"LEGO® Minifigures, The Simpsons™ Series 2"
 71010,"Sold Out",3.99,0,"LEGO® Minifigures, Series 14: Monsters"
 71016,"Available",199.99,0,"The Kwik-E-Mart"
-array(1) {
-  [0]=>
-  object(stdClass)#3087 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 71170,"Available",99.99,74.99,"LEGO® DIMENSIONS™ PLAYSTATION® 3 Starter Pack"
 71171,"Available",99.99,74.99,"LEGO® DIMENSIONS™ PLAYSTATION® 4 Starter Pack"
 71172,"Available",99.99,74.99,"LEGO® DIMENSIONS™ Xbox One Starter Pack"
@@ -1362,11 +1353,11 @@ array(1) {
 71202,"Available",29.99,0,"LEGO® DIMENSIONS™ The Simpsons™ Level Pack"
 71203,"Available",29.99,0,"LEGO® DIMENSIONS™ Portal® 2 Level Pack"
 71204,"Available",29.99,0,"LEGO® DIMENSIONS™ Doctor Who Level Pack"
-71205,"Out of Stock",24.99,0,"LEGO® DIMENSIONS™ Jurassic World™ Team Pack"
-71206,"Out of Stock",24.99,0,"LEGO® DIMENSIONS™ Scooby-Doo™ Team Pack"
+71205,"Available",24.99,0,"LEGO® DIMENSIONS™ Jurassic World™ Team Pack"
+71206,"Available",24.99,0,"LEGO® DIMENSIONS™ Scooby-Doo™ Team Pack"
 71207,"Available",24.99,0,"LEGO® DIMENSIONS® NINJAGO™ Team Pack"
 71209,"Available",14.99,0,"LEGO® DIMENSIONS™ Wonder Woman Fun Pack"
-71210,"Out of Stock",14.99,0,"LEGO® DIMENSIONS™ Cyborg™ Fun Pack"
+71210,"Available",14.99,0,"LEGO® DIMENSIONS™ Cyborg™ Fun Pack"
 71211,"Available",14.99,0,"LEGO® DIMENSIONS™ Bart Fun Pack"
 71212,"Available",14.99,0,"LEGO® DIMENSIONS™ Fun Pack Emmet"
 71213,"Available",14.99,0,"LEGO® DIMENSIONS™ Bad Cop Fun Pack"
@@ -1381,7 +1372,7 @@ array(1) {
 71222,"Available",14.99,0,"LEGO® DIMENSIONS™ Laval Fun Pack"
 71223,"Available",14.99,0,"LEGO® DIMENSIONS™ Cragger Fun Pack"
 71227,"Available",14.99,0,"LEGO® DIMENSIONS® Krusty Fun Pack"
-71231,"Out of Stock",14.99,0,"LEGO® DIMENSIONS™ Unikitty Fun Pack"
+71231,"Available",14.99,0,"LEGO® DIMENSIONS™ Unikitty Fun Pack"
 71232,"Available",14.99,0,"LEGO® DIMENSIONS™ Eris Fun Pack"
 71300,"Coming Soon",9.99,0,"Uxar Creature of Jungle"
 71301,"Coming Soon",9.99,0,"Ketar Creature of Stone"
