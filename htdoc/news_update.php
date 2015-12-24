@@ -68,7 +68,7 @@ foreach (define_source() as $source)
 					$mesg = "News pending on review: ".date('Y-m-d H:i:s', $news->{'PubDate'})."(".$news->{'PubDate'}.")[".$news->{'Hash'}."] ".$news->{'Title'};
 					
 					echo "[".date('Y-m-d H:i:s')."] ".$mesg."\n";
-					send_Message(NOTIFICATION_RECIPIENT, $mesg." http://ec2.lelemeng.com/review.php?id=".$news->{'Hash'});
+					send_Message(NOTIFICATION_RECIPIENT, $mesg." http://www.lelemeng.com/review.php?id=".$news->{'Hash'});
 				}
 			}
 			elseif ($NewsHash["$hash"] == "Y")
