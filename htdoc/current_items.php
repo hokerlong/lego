@@ -121,7 +121,7 @@ if (!$ret->{'Status'})
 		$jsonitem->{'bn_rate'} = null;
 		if (isset($Toysrus["$legoID"]))
 		{
-			if ($Toysrus["$legoID"]->{'Price'} > 0 && $Toysrus["$legoID"]->{'Availability'} == "Available")
+			if ($Toysrus["$legoID"]->{'Price'} > 0 && ($Toysrus["$legoID"]->{'Availability'} == "Available" || $Toysrus["$legoID"]->{'Availability'} == "Shipping Only" ))
 			{
 				$jsonitem->{'toysrus_rate'} = floatval(round($Toysrus["$legoID"]->{'Price'} / $item->{'MSRP'} * 100, 2));
 				$jsonitem->{'toysrus_url'} = get_url_by_itemID("Toysrus", $Toysrus["$legoID"]->{'ItemID'});

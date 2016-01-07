@@ -13,7 +13,7 @@
 
         $scope.init = function() {
             $scope.currency = 6.4;
-            $scope.shippingfee = 2;
+            $scope.shippingfee = 3.5;
             $scope.taxrate = 8.75;
         }
 
@@ -21,16 +21,22 @@
           .success(function(response) {
             $scope.items = response.items;
           });
-        
-        $scope.getCNY = function(item){
+
+        $scope.calc = function(item){
         if (item){
+            //item.shipping = item.weight / 453.6 * $scope.shippingfee * $scope.currency;
+
             //item.shipping = item.weight /453.6 * $scope.text_shipping * 6.4;
             //item.cny = item.msrp * item.min_rate / 100 * (1 + $scope.text_tax/100) * 6.4 + item.shipping;
             if (item.taobao_price > 0)
             {
               item.taobao_url = "https://item.taobao.com/item.htm?id=" + item.taobao_nid;
               //item.rev = item.taobao_price - item.cny;
-              //item.revrate = item.rev / item.cny * 100;
+              item.revrate = (item.taobao_price - item.msrp * item.min_rate / 100 * (1 + $scope.taxrate/100) * $scope.currency - item.weight / 453.6 * $scope.shippingfee * $scope.currency)/(item.msrp * item.min_rate / 100 * (1 + $scope.taxrate/100) * $scope.currency) * 100;
+            }
+            else
+            {
+              item.revrate = 0;
             }
         }
     }
@@ -69,13 +75,13 @@
         <th><a href="" ng-click="reverse=!reverse;order('target_rate', !reverse)">Target</a></th>
         <th><a href="" ng-click="reverse=!reverse;order('bn_rate', !reverse)">BN</a></th>
       </tr>
-      <tr ng-repeat="item in items | filter:text_filter" ng-init="getCNY(item)">
+      <tr ng-repeat="item in items | filter:text_filter" ng-init="calc(item)">
         <td>{{item.legoid}}</td>
         <td>{{item.badge}}</td>
         <td>{{item.theme}} - {{item.title}}</td>
         <td>{{item.msrp}}</td>
         <td>{{item.min_rate}}%</td>
-        <td>{{(item.weight / 453.6 * shippingfee * currency) | number:2}}</td>
+        <td>{{item.shipping}} {{(item.weight / 453.6 * shippingfee * currency) | number:2}}</td>
         <td>{{(item.msrp * item.min_rate / 100 * (1 + taxrate/100) * currency + item.weight / 453.6 * shippingfee * currency) | number:2}}</td>
         <td><span ng-if="item.taobao_price != null"><a href="{{item.taobao_url}}">¥{{item.taobao_price}} (Avg:{{item.taobao_avg | number:2}}, Mech:{{item.taobao_sellers}}, Tran:{{item.taobao_vol}})</a></span></td>
         <td><span ng-if="item.taobao_price != null">{{(item.taobao_price - item.msrp * item.min_rate / 100 * (1 + taxrate/100) * currency - item.weight / 453.6 * shippingfee * currency) | number:2}} ({{((item.taobao_price - item.msrp * item.min_rate / 100 * (1 + taxrate/100) * currency - item.weight / 453.6 * shippingfee * currency)/(item.msrp * item.min_rate / 100 * (1 + taxrate/100) * currency)) * 100 | number:2}}%)</span></td>

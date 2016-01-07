@@ -14,7 +14,15 @@ if (!$ret->{'Status'})
 		$ThemeDB[$idx] = $theme->{'ThemeID'};
 	}
 
-	$ret = db_query("DB_Set", array("LegoID", "ThemeID", "USPrice", "Year", "Pieces", "Minifigs", "Age", "Weight", "Length", "Width", "Height", "UPC", "EAN", "USItemSN", "EUItemSN", "BK_Subset"), "LastSync = '0000-00-00 00:00:00' OR LastSync < '".date('Y-m-d H:i:s', strtotime('-7 days'))."' ORDER BY LastSync LIMIT 20");
+	if (isset($argv[1]))
+	{
+		$ret = db_query("DB_Set", array("LegoID", "ThemeID", "USPrice", "Year", "Pieces", "Minifigs", "Age", "Weight", "Length", "Width", "Height", "UPC", "EAN", "USItemSN", "EUItemSN", "BK_Subset"), "LegoID=".$argv[1]);
+	}
+	else
+	{
+		$ret = db_query("DB_Set", array("LegoID", "ThemeID", "USPrice", "Year", "Pieces", "Minifigs", "Age", "Weight", "Length", "Width", "Height", "UPC", "EAN", "USItemSN", "EUItemSN", "BK_Subset"), "LastSync = '0000-00-00 00:00:00' OR LastSync < '".date('Y-m-d H:i:s', strtotime('-7 days'))."' ORDER BY LastSync LIMIT 20");
+	}
+
 	if (!$ret->{'Status'})
 	{
 		foreach ($ret->{'Results'} as $item)
