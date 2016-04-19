@@ -239,10 +239,10 @@ function crawl_bricklink($LegoID, $SetID)
 function crawl_toysrus()
 {
 	$page = 1;
-	$perpage = 200; 
+	$perpage = 96; 
 	$ret = new stdClass();
 	$ret->{'Provider'} = "toysrus.com";
-	$ret->{'URL'} = "http://www.toysrus.com/family/index.jsp?categoryId=31820206&view=all";
+	$ret->{'URL'} = "http://www.toysrus.com/family/index.jsp?categoryId=31151746&ppg=$perpage";
 	$ret->{'ItemCount'} = 0;
 	$ret->{'Items'} = array();
 	for ($i = 1; $i <= $page; $i++)
