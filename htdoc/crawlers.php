@@ -567,7 +567,7 @@ function crawl_bn()
 	{
 		$url = $ret->{'URL'}."?No=".($i*$perpage)."&Nrpp=".$perpage;
 		$htmldom = curl_htmldom($url);
-		$total = $htmldom->find('[@id="searchNotice"]/div/strong[2]', 0)->plaintext;
+		$total = $htmldom->find('[@id="searchNotice"]/h1/strong[2]', 0)->plaintext;
 		$page = ceil($total/$perpage);
 
 		$items = $htmldom->find('/ul[@id="gridView"]/li[class="clearer"]/ul/li');
