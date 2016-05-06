@@ -88,7 +88,7 @@ function get_price($legoid)
 
 		if (preg_match("/抱歉！没有找到/u", html_entity_decode($tips, ENT_NOQUOTES, 'UTF-8')))
 		{
-			db_insert("Taobao_Price", array("LegoID" => $legoid), null, ture);
+			db_insert("Taobao_Price", array("LegoID" => $legoid, "UpdateTime" => "CURRENT_TIMESTAMP()"), null, ture);
 			break;
 		}
 		if (isset($itemlist))
@@ -211,7 +211,7 @@ function get_price($legoid)
 	elseif (count($items) < 1)
 	{
 		echo "[".date('Y-m-d H:i:s')."] [$legoid] No list found for this item, not update to database.\n";
-		db_insert("Taobao_Price", array("LegoID" => $legoid), null, ture);
+		db_insert("Taobao_Price", array("LegoID" => $legoid, "UpdateTime" => "CURRENT_TIMESTAMP()"), null, ture);
 	}
 	else
 	{
