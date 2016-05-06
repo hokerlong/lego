@@ -211,6 +211,7 @@ function get_price($legoid)
 	elseif (count($items) < 1)
 	{
 		echo "[".date('Y-m-d H:i:s')."] [$legoid] No list found for this item, not update to database.\n";
+		db_insert("Taobao_Price", array("LegoID" => $legoid), null, ture);
 	}
 	else
 	{
