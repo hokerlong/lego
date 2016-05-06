@@ -45,7 +45,9 @@ function crawl_trasaction($ItemID, $LegoID)
 		$nextpage = true;
 		while($nextpage)
 		{
-			$url = "https://detailskip.taobao.com/service/getData/1/p1/item/detail/showBuyerList.htm?title=null&ends=1449401057000&starts=1448796257000&item_id=".$ItemID."&seller_num_id=".$SellerID."&sbn=".$sbn."&modules=showBuyerList&bid_page=".$i++;
+			$t = time();
+			$t1 = $t - 604800;
+			$url = "https://detailskip.taobao.com/service/getData/1/p1/item/detail/showBuyerList.htm?title=null&ends=".$t."000&starts=".$t1."000&item_id=".$ItemID."&seller_num_id=".$SellerID."&sbn=".$sbn."&modules=showBuyerList&bid_page=".$i++;
 			$contents = curl($url);
 			$json = json_decode($contents);
 			$nextpage = $json->data->showBuyerList->hasNext;
