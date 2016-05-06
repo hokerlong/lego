@@ -87,7 +87,14 @@ function db_insert($table, $fields, $condition, $update_while_duplicate)
 	$fieldstr = "";
 	foreach ($fields as $key => $value)
 	{
-		$fieldstr .= $mysqli->real_escape_string($key)."='".$mysqli->real_escape_string($value)."', ";
+		if ($mysqli->real_escape_string($value) == "CURRENT_TIMESTAMP()")
+		{
+			$fieldstr .= $mysqli->real_escape_string($key)."=".$mysqli->real_escape_string($value).", ";
+		}
+		else
+		{
+			$fieldstr .= $mysqli->real_escape_string($key)."='".$mysqli->real_escape_string($value)."', ";
+		}
 	}
 
 	$fieldstr = trim($fieldstr, ", ");
