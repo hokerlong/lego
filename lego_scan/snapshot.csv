@@ -611,6 +611,7 @@
 10700,"Available",7.99,0,"Green Baseplate"
 10701,"Available",14.99,0,"Gray Baseplate"
 10702,"Available",29.99,0,"LEGO® Creative Building Set"
+10705,"Coming Soon",59.99,0,"LEGO® Creative Building Basket"
 10720,"Available",9.99,0,"Police Helicopter Chase"
 10721,"Available",12.99,0,"Iron Man vs. Loki"
 10722,"Available",14.99,0,"Snake Showdown"
@@ -792,6 +793,7 @@
 40155,"Available",14.99,0,"Piggy Coin Bank"
 40156,"Available",16.99,0,"Butterfly Organizer"
 40158,"Available",59.99,49.79,"LEGO® Pirates Chess Set"
+40161,"Coming Soon",39.99,0,"What Am I?"
 40165,"Available",9.99,0,"LEGO® Wedding Favor Set"
 40202,"Sold Out",9.99,0,"LEGO® Easter Chick"
 41000,"Retired",0,0,"Water Scooter Fun"
@@ -973,6 +975,15 @@
 41560,"Sold Out",4.99,3.98,"Jamzy"
 41561,"Sold Out",4.99,3.98,"Tapsy"
 41562,"Sold Out",4.99,3.98,"Trumpsy"
+41563,"Coming Soon",4.99,0,"Splasho"
+41564,"Coming Soon",4.99,0,"Aquad"
+41565,"Coming Soon",4.99,0,"Hydro"
+41566,"Coming Soon",4.99,0,"Sharx"
+41567,"Coming Soon",4.99,0,"Skulzy"
+41568,"Coming Soon",4.99,0,"Lewt"
+41569,"Coming Soon",4.99,0,"Surgeo"
+41570,"Coming Soon",4.99,0,"Skrubz"
+41571,"Coming Soon",4.99,0,"Tuth"
 41999,"Retired",0,0,"4x4 Crawler Exclusive Edition"
 42000,"Retired",0,0,"Racer"
 42001,"Retired",0,0,"Mini Off-Roader"
@@ -1464,6 +1475,11 @@
 71309,"Available",19.99,0,"Onua Uniter of Earth"
 71310,"Available",19.99,0,"Umarak the Hunter"
 71311,"Available",24.99,0,"Kopaka and Melum - Unity set"
+71312,"Coming Soon",14.99,0,"Ekimu the Mask Maker"
+71313,"Coming Soon",14.99,0,"Lava Beast"
+71314,"Coming Soon",14.99,0,"Storm Beast"
+71315,"Coming Soon",14.99,0,"Quake Beast"
+71316,"Coming Soon",24.99,0,"Umarak the Destroyer"
 75000,"Retired",0,0,"Clone Troopers™ vs. Droidekas™"
 75001,"Retired",0,0,"Republic Troopers™ vs Sith™ Troopers"
 75002,"Retired",0,0,"AT-RT™"
@@ -1582,6 +1598,13 @@
 75140,"Available",69.99,0,"Resistance Troop Transporter"
 75141,"Available",19.99,0,"Kanan's Speeder Bike™"
 75142,"Available",29.99,0,"Homing Spider Droid™"
+75145,"Coming Soon",29.99,0,"Eclipse Fighter™"
+75147,"Coming Soon",49.99,0,"StarScavenger™"
+75148,"Coming Soon",59.99,0,"Encounter on Jakku™"
+75149,"Coming Soon",79.99,0,"Resistance X-Wing Fighter™"
+75150,"Coming Soon",89.99,0,"Vader's TIE Advanced vs. A-Wing Starfighter"
+75151,"Coming Soon",109.99,0,"Clone Turbo Tank™"
+75157,"Coming Soon",119.99,0,"Captain Rex's AT-TE™"
 75821,"Available",12.99,0,"Piggy Car Escape"
 75822,"Available",19.99,0,"Piggy Plane Attack"
 75823,"Available",29.99,0,"Bird Island Egg Heist"
@@ -1805,7 +1828,27 @@
 853532,"Available",19.99,0,"LEGO® NINJAGO™ Armor"
 853533,"Available",7.99,0,"LEGO® NINJAGO™ Bandana"
 853534,"Available",5.99,0,"Keychain Airjitzu Jay"
+853538,"Coming Soon",5.99,0,"LEGO® NINJAGO™ Skybound Cole Key Chain"
+array(1) {
+  [0]=>
+  object(stdClass)#3595 (2) {
+    ["code"]=>
+    int(226)
+    ["message"]=>
+    string(172) "This request looks like it might be automated. To protect our users from spam and other malicious activity, we can't complete this action right now. Please try again later."
+  }
+}
 853543,"Available",7.99,0,"Ninjago Party Set"
+853544,"Coming Soon",14.99,0,"LEGO NINJAGO Accessory Set"
+array(1) {
+  [0]=>
+  object(stdClass)#3597 (2) {
+    ["code"]=>
+    int(226)
+    ["message"]=>
+    string(172) "This request looks like it might be automated. To protect our users from spam and other malicious activity, we can't complete this action right now. Please try again later."
+  }
+}
 853547,"Available",5.99,0,"Keychain Emma"
 853548,"Available",5.99,0,"Keychain Andrea"
 853549,"Available",5.99,0,"Keychain Mia"
@@ -1826,6 +1869,98 @@
 853571,"Available",5.99,0,"Keychain Hot Dog Guy"
 853572,"Available",5.99,0,"Keychain Bumble Bee"
 853573,"Available",5.99,0,"LEGO® Yellow Car Bag Charm"
+853575,"Coming Soon",16.99,0,"Minifigure Cake Mold"
+853580,"Coming Soon",16.99,0,"Keychain Rack"
+array(1) {
+  [0]=>
+  object(stdClass)#3602 (2) {
+    ["code"]=>
+    int(226)
+    ["message"]=>
+    string(172) "This request looks like it might be automated. To protect our users from spam and other malicious activity, we can't complete this action right now. Please try again later."
+  }
+}
+853590,"Coming Soon",5.99,0,"LEGO® DC Comics Super Heroes Superman™ Key Chain"
+853591,"Coming Soon",5.99,0,"LEGO® DC Comics Super Heroes Batman™ Key Chain"
+853592,"Coming Soon",5.99,0,"LEGO® Marvel Super Heroes Black Widow Key Chain"
+array(1) {
+  [0]=>
+  object(stdClass)#3592 (2) {
+    ["code"]=>
+    int(226)
+    ["message"]=>
+    string(172) "This request looks like it might be automated. To protect our users from spam and other malicious activity, we can't complete this action right now. Please try again later."
+  }
+}
+853593,"Coming Soon",5.99,0,"LEGO® Marvel Super Heroes Captain America Key Chain"
+array(1) {
+  [0]=>
+  object(stdClass)#3594 (2) {
+    ["code"]=>
+    int(226)
+    ["message"]=>
+    string(172) "This request looks like it might be automated. To protect our users from spam and other malicious activity, we can't complete this action right now. Please try again later."
+  }
+}
+853602,"Coming Soon",5.99,0,"LEGO® Star Wars Finn™ Key Chain"
+array(1) {
+  [0]=>
+  object(stdClass)#3596 (2) {
+    ["code"]=>
+    int(226)
+    ["message"]=>
+    string(172) "This request looks like it might be automated. To protect our users from spam and other malicious activity, we can't complete this action right now. Please try again later."
+  }
+}
+853603,"Coming Soon",5.99,0,"LEGO® Star Wars Rey™ Key Chain"
+853604,"Coming Soon",5.99,0,"LEGO® Star Wars BB-8™ Key Chain"
+array(1) {
+  [0]=>
+  object(stdClass)#3593 (2) {
+    ["code"]=>
+    int(226)
+    ["message"]=>
+    string(172) "This request looks like it might be automated. To protect our users from spam and other malicious activity, we can't complete this action right now. Please try again later."
+  }
+}
+853605,"Coming Soon",5.99,0,"LEGO® Star Wars Poe Dameron™ Key Chain"
+array(1) {
+  [0]=>
+  object(stdClass)#3598 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3591 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+853611,"Coming Soon",16.99,0,"LEGO® Marvel Super Heroes Minifigure Display Frame"
+array(1) {
+  [0]=>
+  object(stdClass)#3604 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3603 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 2000409,"Available",484.99,0,"Window Exploration Bag"
 2000414,"Available",36.99,0,"Starter Kit"
 2000430,"Available",789.99,0,"Identity and Landscape Kit"
@@ -1913,6 +2048,82 @@
 5005060,"Available",29.99,0,"LEGO® Marvel Avengers Nintendo 3DS™ Video Game"
 5005061,"Available",19.99,0,"LEGO SW DROID TALES (DVD)"
 5005095,"Available",19.99,0,"LEGO® DC Comics Super Heroes: Justice League™: Cosmic Clash (DVD)"
+5005107,"Coming Soon",15.99,0,"LEGO Buildable Ruler"
+array(1) {
+  [0]=>
+  object(stdClass)#3593 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3602 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+5005108,"Coming Soon",5.99,0,"LEGO Erasers (Blue & Yellow)"
+array(1) {
+  [0]=>
+  object(stdClass)#3598 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3591 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+5005110,"Coming Soon",9.99,0,"LEGO Brick Pencil Case (Red)"
+array(1) {
+  [0]=>
+  object(stdClass)#3604 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3603 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+5005112,"Coming Soon",5.99,0,"LEGO Pencil Sharpeners"
+array(1) {
+  [0]=>
+  object(stdClass)#3593 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#3602 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 5005113,"Available",29.99,0,"LEGO® NEXO KNIGHTS™ Aaron Minifigure Alarm Clock"
 5005117,"Available",29.99,0,"LEGO® NINJAGO™ Sky Pirates Jay Minifigure Alarm Clock"
 5005118,"Available",29.99,0,"LEGO® NINJAGO™ Sky Pirates Lloyd Minifigure Alarm Clock"
