@@ -1533,7 +1533,16 @@
 75056,"Retired",0,0,"LEGO® Star Wars™ Advent Calendar"
 75058,"Retired",0,0,"MTT™"
 75059,"Jun 13 2016",299.99,0,"Sandcrawler™"
-75060,"Jun 29 2016",199.99,0,"Slave I"
+75060,"Jun 30 2016",199.99,0,"Slave I"
+array(1) {
+  [0]=>
+  object(stdClass)#3639 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 75072,"Retired",0,0,"ARC-170 Starfighter™"
 75073,"Retired",0,0,"Vulture Droid™"
 75074,"Available",9.99,0,"Snowspeeder™"
@@ -1548,7 +1557,7 @@
 75083,"Retired",0,0,"AT-DP™"
 75084,"Retired",0,0,"Wookiee™ Gunship"
 75085,"Available",19.99,0,"Hailfire Droid™"
-75086,"Jun 29 2016",39.99,0,"Battle Droid™ Troop Carrier"
+75086,"Jun 30 2016",39.99,0,"Battle Droid™ Troop Carrier"
 75087,"Jun 13 2016",39.99,0,"Anakin’s Custom Jedi Starfighter™"
 75088,"Available",12.99,0,"Senate Commando Troopers™"
 75089,"Available",12.99,0,"Geonosis Troopers™"
@@ -1685,7 +1694,7 @@
 76048,"Available",29.99,0,"Iron Skull Sub Attack"
 76049,"Available",59.99,0,"Avenjet Space Mission"
 76050,"Available",19.99,0,"Crossbones’ Hazard Heist"
-76051,"Jun 29 2016",79.99,0,"Super Hero Airport Battle"
+76051,"Jun 30 2016",79.99,0,"Super Hero Airport Battle"
 76052,"Available",269.99,0,"Batman™ Classic TV Series – Batcave"
 76053,"Available",19.99,0,"Batman™: Gotham City Cycle Chase"
 76061,"Available",9.99,0,"Mighty Micros: Batman™ vs. Catwoman™"
@@ -1865,7 +1874,7 @@
 2000409,"Available",484.99,0,"Window Exploration Bag"
 2000414,"Available",36.99,0,"Starter Kit"
 2000430,"Available",789.99,0,"Identity and Landscape Kit"
-2000431,"Jun 29 2016",754.99,0,"Connections Kit"
+2000431,"Jun 30 2016",754.99,0,"Connections Kit"
 2852724,"Retired",0,0,"Accelerometer Sensor"
 2852725,"Available",49.99,0,"Infrared Seeker"
 2853216,"Retired",0,0,"Infrared Link Sensor"
