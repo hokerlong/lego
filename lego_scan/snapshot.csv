@@ -1030,7 +1030,16 @@
 42049,"Unknown",49.99,0,"Mine Loader"
 42050,"Unknown",79.99,0,"Drag Racer"
 42052,"Unknown",139.99,0,"Heavy Lift Helicopter"
-42056,"Coming Soon",299.99,0,"Porsche 911 GT3 RS"
+42056,"Unknown",299.99,0,"Porsche 911 GT3 RS"
+array(1) {
+  [0]=>
+  object(stdClass)#3477 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 44000,"Retired",0,0,"FURNO XL"
 44001,"Retired",0,0,"PYROX"
 44002,"Retired",0,0,"ROCKA"
@@ -1384,6 +1393,7 @@
 70787,"Retired",0,0,"Tahu - Master of Fire"
 70788,"Retired",0,0,"Kopaka – Master of Ice"
 70789,"Retired",0,0,"Onua – Master of Earth"
+70790,"Retired",0,0,"Lord of Skull Spiders"
 70791,"Unknown",14.99,0,"Skull Warrior"
 70792,"Unknown",14.99,0,"Skull Slicer"
 70793,"Unknown",14.99,0,"Skull Basher"
@@ -1420,7 +1430,7 @@
 71009,"Retired",0,0,"LEGO® Minifigures, The Simpsons™ Series 2"
 71010,"Retired",0,0,"LEGO® Minifigures, Series 14: Monsters"
 71011,"Retired",0,0,"LEGO® Minifigures Series 15"
-71012,"Unknown",3.99,0,"The Disney Series"
+71012,"Out of Stock",3.99,0,"The Disney Series"
 71016,"Unknown",199.99,0,"The Kwik-E-Mart"
 71170,"Unknown",79.99,0,"LEGO® DIMENSIONS™ PLAYSTATION® 3 Starter Pack"
 71171,"Unknown",89.99,0,"LEGO® DIMENSIONS™ PLAYSTATION® 4 Starter Pack"
@@ -1479,6 +1489,8 @@
 71312,"Unknown",14.99,0,"Ekimu the Mask Maker"
 71313,"Unknown",14.99,0,"Lava Beast"
 71314,"Unknown",14.99,0,"Storm Beast"
+71315,"Unknown",14.99,0,"Quake Beast"
+71316,"Unknown",24.99,0,"Umarak the Destroyer"
 75000,"Retired",0,0,"Clone Troopers™ vs. Droidekas™"
 75001,"Retired",0,0,"Republic Troopers™ vs Sith™ Troopers"
 75002,"Retired",0,0,"AT-RT™"
