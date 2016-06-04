@@ -472,15 +472,6 @@
 10236,"Unknown",249.99,0,"Ewok™ Village"
 10237,"Retired",0,0,"The Tower of Orthanc™"
 10240,"Retired",0,0,"Red Five X-wing Starfighter™"
-array(1) {
-  [0]=>
-  object(stdClass)#3485 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 10241,"Retired",0,0,"Maersk Line Triple-E"
 10242,"Unknown",99.99,0,"MINI Cooper"
 10243,"Unknown",159.99,0,"Parisian Restaurant"
