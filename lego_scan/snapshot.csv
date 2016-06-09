@@ -163,7 +163,6 @@
 5793,"Retired",0,0,"Nurse’s Car"
 5794,"Retired",0,0,"Emergency Helicopter"
 5813,"Retired",0,0,"Lightning McQueen"
-5817,"Retired",0,0,"Agent Mater"
 5818,"Retired",0,0,"Luigi’s Italian Place"
 5819,"Retired",0,0,"Tokyo Racing"
 5828,"Retired",0,0,"Big Bentley"
@@ -603,7 +602,7 @@
 10686,"Unknown",29.99,0,"Family House"
 10687,"Unknown",29.99,0,"Spider-Man™ Hideout"
 10692,"Unknown",16.99,0,"LEGO® Creative Bricks"
-10693,"Coming Soon",19.99,0,"LEGO® Creative Supplement"
+10693,"Unknown",19.99,0,"LEGO® Creative Supplement"
 10694,"Unknown",19.99,0,"LEGO® Creative Supplement Bright"
 10696,"Unknown",34.99,0,"LEGO® Medium Creative Brick Box"
 10698,"Unknown",59.99,0,"LEGO® Large Creative Brick Box"
@@ -860,25 +859,26 @@
 41062,"Unknown",39.99,0,"Elsa’s Sparkling Ice Castle"
 41063,"Unknown",54.99,0,"Ariel’s Undersea Palace"
 41065,"Coming Soon",19.99,0,"Rapunzel's Best Day Ever"
-array(1) {
-  [0]=>
-  object(stdClass)#6309 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#6308 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 41066,"Unknown",29.99,0,"Anna & Kristoff’s Sleigh Adventure"
+41067,"Coming Soon",49.99,0,"Belle's Enchanted Castle"
+array(1) {
+  [0]=>
+  object(stdClass)#31727 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#31726 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 41068,"Unknown",59.99,0,"Arendelle Castle Celebration"
 41069,"Unknown",5.99,0,"Treasure’s Day at the Pool"
 41071,"Retired",0,0,"Aira's Creative Workshop"
@@ -896,12 +896,10 @@ array(1) {
 41089,"Retired",0,0,"Little Foal"
 41090,"Retired",0,0,"Olivia’s Garden Pool"
 41091,"Retired",0,0,"Mia’s Roadster"
-41092,"Retired",0,0,"Stephanie’s Pizzeria"
 41093,"Unknown",29.99,0,"Heartlake Hair Salon"
 41094,"Unknown",39.99,0,"Heartlake Lighthouse"
 41095,"Unknown",69.99,0,"Emma’s House"
 41097,"Unknown",19.99,0,"Heartlake Hot Air Balloon"
-41098,"Retired",0,0,"Emma’s Tourist Kiosk"
 41099,"Unknown",19.99,0,"Heartlake Skate Park"
 41100,"Unknown",29.99,0,"Heartlake Private Jet"
 41101,"Unknown",129.99,0,"Heartlake Grand Hotel"
@@ -1630,18 +1628,18 @@ array(1) {
 75104,"Unknown",119.99,0,"Kylo Ren’s Command Shuttle™"
 75105,"Unknown",149.99,0,"Millennium Falcon™"
 75106,"Unknown",129.99,0,"Imperial Assault Carrier™"
-75107,"Coming Soon",19.99,0,"Jango Fett™"
-75108,"Coming Soon",19.99,0,"Clone Commander Cody™"
-75109,"Coming Soon",24.99,0,"Obi-Wan Kenobi™"
-75110,"Coming Soon",19.99,0,"Luke Skywalker™"
-75111,"Coming Soon",29.99,0,"Darth Vader™"
-75112,"Coming Soon",34.99,0,"General Grievous™"
-75113,"Coming Soon",19.99,0,"Rey"
-75114,"Coming Soon",19.99,0,"First Order Stormtrooper™"
-75115,"Coming Soon",24.99,0,"Poe Dameron™"
-75116,"Coming Soon",24.99,0,"Finn"
-75117,"Coming Soon",24.99,0,"Kylo Ren™"
-75118,"Coming Soon",24.99,0,"Captain Phasma™"
+75107,"Unknown",19.99,0,"Jango Fett™"
+75108,"Unknown",19.99,0,"Clone Commander Cody™"
+75109,"Unknown",24.99,0,"Obi-Wan Kenobi™"
+75110,"Unknown",19.99,0,"Luke Skywalker™"
+75111,"Unknown",29.99,0,"Darth Vader™"
+75112,"Unknown",34.99,0,"General Grievous™"
+75113,"Unknown",19.99,0,"Rey"
+75114,"Unknown",19.99,0,"First Order Stormtrooper™"
+75115,"Unknown",24.99,0,"Poe Dameron™"
+75116,"Unknown",24.99,0,"Finn"
+75117,"Unknown",24.99,0,"Kylo Ren™"
+75118,"Unknown",24.99,0,"Captain Phasma™"
 75125,"Unknown",9.99,0,"Resistance X-Wing Fighter™"
 75126,"Unknown",9.99,0,"First Order Snowspeeder™"
 75127,"Unknown",9.99,0,"The Ghost™"
@@ -1667,6 +1665,25 @@ array(1) {
 75150,"Unknown",89.99,0,"Vader's TIE Advanced vs. A-Wing Starfighter"
 75151,"Unknown",109.99,0,"Clone Turbo Tank™"
 75157,"Unknown",119.99,0,"Captain Rex's AT-TE™"
+75158,"Coming Soon",109.99,0,"Rebel Combat Frigate"
+array(1) {
+  [0]=>
+  object(stdClass)#31724 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#31723 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 75821,"Unknown",12.99,0,"Piggy Car Escape"
 75822,"Unknown",19.99,0,"Piggy Plane Attack"
 75823,"Unknown",29.99,0,"Bird Island Egg Heist"
@@ -1752,15 +1769,72 @@ array(1) {
 76053,"Unknown",19.99,0,"Batman™: Gotham City Cycle Chase"
 76054,"Coming Soon",59.99,0,"Batman™: Scarecrow™ Harvest of Fear"
 76055,"Coming Soon",79.99,0,"Batman™: Killer Croc™ Sewer Smash"
+76056,"Coming Soon",29.99,0,"Batman™: Rescue from Ra's al Ghul™"
+array(1) {
+  [0]=>
+  object(stdClass)#31721 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#31722 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 76057,"Coming Soon",99.99,0,"Spider-Man: Web Warriors Ultimate Bridge Battle"
 76058,"Coming Soon",19.99,0,"Spider-Man: Ghost Rider Team-up"
 76059,"Coming Soon",39.99,0,"Spider-Man: Doc Ock's Tentacle Trap"
+76060,"Coming Soon",29.99,0,"Doctor Strange's Sanctum Sanctorum"
+array(1) {
+  [0]=>
+  object(stdClass)#31727 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#31726 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 76061,"Unknown",9.99,0,"Mighty Micros: Batman™ vs. Catwoman™"
 76062,"Unknown",9.99,0,"Mighty Micros: Robin™ vs. Bane™"
 76063,"Unknown",9.99,0,"Mighty Micros: The Flash™ vs. Captain Cold™"
 76064,"Unknown",9.99,0,"Mighty Micros: Spider-Man vs. Green Goblin"
 76065,"Unknown",9.99,0,"Mighty Micros: Captain America vs. Red Skull"
 76066,"Unknown",9.99,0,"Mighty Micros: Hulk vs. Ultron"
+76067,"Coming Soon",29.99,0,"Tanker Truck Takedown"
+array(1) {
+  [0]=>
+  object(stdClass)#31724 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#31723 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 79000,"Retired",0,0,"Riddles for the Ring"
 79001,"Retired",0,0,"Escape from Mirkwood™ Spiders"
 79002,"Retired",0,0,"Attack of the Wargs"
@@ -1789,7 +1863,6 @@ array(1) {
 79108,"Retired",0,0,"Stagecoach Escape"
 79109,"Retired",0,0,"Colby City Showdown"
 79110,"Retired",0,0,"Silver Mine Shootout"
-79111,"Retired",0,0,"Constitution Train Chase"
 79115,"Retired",0,0,"Turtle Van Takedown"
 79116,"Retired",0,0,"Big Rig Snow Getaway"
 79117,"Retired",0,0,"Turtle Lair Invasion"
@@ -2018,17 +2091,18 @@ array(1) {
 5005060,"Unknown",19.99,0,"LEGO® Marvel Avengers Nintendo 3DS™ Video Game"
 5005061,"Unknown",19.99,0,"LEGO SW DROID TALES (DVD)"
 5005095,"Unknown",19.99,0,"LEGO® DC Comics Super Heroes: Justice League™: Cosmic Clash (DVD)"
-5005107,"Coming Soon",15.99,0,"LEGO Buildable Ruler"
-5005108,"Coming Soon",5.99,0,"LEGO Erasers (Blue & Yellow)"
-5005110,"Coming Soon",9.99,0,"LEGO Brick Pencil Case (Red)"
-5005112,"Coming Soon",5.99,0,"LEGO Pencil Sharpeners"
+5005107,"Unknown",15.99,0,"LEGO Buildable Ruler"
+5005108,"Unknown",5.99,0,"LEGO Erasers (Blue & Yellow)"
+5005110,"Unknown",9.99,0,"LEGO Brick Pencil Case (Red)"
+5005112,"Unknown",5.99,0,"LEGO Pencil Sharpeners"
 5005113,"Unknown",29.99,0,"LEGO® NEXO KNIGHTS™ Aaron Minifigure Alarm Clock"
 5005117,"Unknown",29.99,0,"LEGO® NINJAGO™ Sky Pirates Jay Minifigure Alarm Clock"
 5005118,"Unknown",29.99,0,"LEGO® NINJAGO™ Sky Pirates Lloyd Minifigure Alarm Clock"
 5005145,"Unknown",39.99,0,"LEGO® Stationery Organizer"
+5005146,"Unknown",24.99,0,"9-Pack Gel Pen Set"
 array(1) {
   [0]=>
-  object(stdClass)#6306 (2) {
+  object(stdClass)#31721 (2) {
     ["code"]=>
     int(89)
     ["message"]=>
@@ -2037,7 +2111,45 @@ array(1) {
 }
 array(1) {
   [0]=>
-  object(stdClass)#6305 (2) {
+  object(stdClass)#31722 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+5005147,"Unknown",19.99,0,"9-Pack Marker Set"
+array(1) {
+  [0]=>
+  object(stdClass)#31727 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#31726 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+5005148,"Unknown",12.99,0,"9-Pack Colored Pencil with Toppers Pack"
+array(1) {
+  [0]=>
+  object(stdClass)#31724 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#31723 (2) {
     ["code"]=>
     int(89)
     ["message"]=>
