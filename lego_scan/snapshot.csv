@@ -861,24 +861,6 @@
 41065,"Coming Soon",19.99,0,"Rapunzel's Best Day Ever"
 41066,"Unknown",29.99,0,"Anna & Kristoff’s Sleigh Adventure"
 41067,"Coming Soon",49.99,0,"Belle's Enchanted Castle"
-array(1) {
-  [0]=>
-  object(stdClass)#31727 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#31726 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 41068,"Unknown",59.99,0,"Arendelle Castle Celebration"
 41069,"Unknown",5.99,0,"Treasure’s Day at the Pool"
 41071,"Retired",0,0,"Aira's Creative Workshop"
@@ -1666,24 +1648,6 @@ array(1) {
 75151,"Unknown",109.99,0,"Clone Turbo Tank™"
 75157,"Unknown",119.99,0,"Captain Rex's AT-TE™"
 75158,"Coming Soon",109.99,0,"Rebel Combat Frigate"
-array(1) {
-  [0]=>
-  object(stdClass)#31724 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#31723 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 75821,"Unknown",12.99,0,"Piggy Car Escape"
 75822,"Unknown",19.99,0,"Piggy Plane Attack"
 75823,"Unknown",29.99,0,"Bird Island Egg Heist"
@@ -1770,46 +1734,10 @@ array(1) {
 76054,"Coming Soon",59.99,0,"Batman™: Scarecrow™ Harvest of Fear"
 76055,"Coming Soon",79.99,0,"Batman™: Killer Croc™ Sewer Smash"
 76056,"Coming Soon",29.99,0,"Batman™: Rescue from Ra's al Ghul™"
-array(1) {
-  [0]=>
-  object(stdClass)#31721 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#31722 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 76057,"Coming Soon",99.99,0,"Spider-Man: Web Warriors Ultimate Bridge Battle"
 76058,"Coming Soon",19.99,0,"Spider-Man: Ghost Rider Team-up"
 76059,"Coming Soon",39.99,0,"Spider-Man: Doc Ock's Tentacle Trap"
 76060,"Coming Soon",29.99,0,"Doctor Strange's Sanctum Sanctorum"
-array(1) {
-  [0]=>
-  object(stdClass)#31727 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#31726 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 76061,"Unknown",9.99,0,"Mighty Micros: Batman™ vs. Catwoman™"
 76062,"Unknown",9.99,0,"Mighty Micros: Robin™ vs. Bane™"
 76063,"Unknown",9.99,0,"Mighty Micros: The Flash™ vs. Captain Cold™"
@@ -1817,24 +1745,6 @@ array(1) {
 76065,"Unknown",9.99,0,"Mighty Micros: Captain America vs. Red Skull"
 76066,"Unknown",9.99,0,"Mighty Micros: Hulk vs. Ultron"
 76067,"Coming Soon",29.99,0,"Tanker Truck Takedown"
-array(1) {
-  [0]=>
-  object(stdClass)#31724 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#31723 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 79000,"Retired",0,0,"Riddles for the Ring"
 79001,"Retired",0,0,"Escape from Mirkwood™ Spiders"
 79002,"Retired",0,0,"Attack of the Wargs"
@@ -2100,59 +2010,5 @@ array(1) {
 5005118,"Unknown",29.99,0,"LEGO® NINJAGO™ Sky Pirates Lloyd Minifigure Alarm Clock"
 5005145,"Unknown",39.99,0,"LEGO® Stationery Organizer"
 5005146,"Unknown",24.99,0,"9-Pack Gel Pen Set"
-array(1) {
-  [0]=>
-  object(stdClass)#31721 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#31722 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 5005147,"Unknown",19.99,0,"9-Pack Marker Set"
-array(1) {
-  [0]=>
-  object(stdClass)#31727 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#31726 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 5005148,"Unknown",12.99,0,"9-Pack Colored Pencil with Toppers Pack"
-array(1) {
-  [0]=>
-  object(stdClass)#31724 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#31723 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
