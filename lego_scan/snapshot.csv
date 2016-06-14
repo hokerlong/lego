@@ -1050,15 +1050,6 @@
 42050,"Unknown",79.99,0,"Drag Racer"
 42052,"Unknown",139.99,0,"Heavy Lift Helicopter"
 42056,"Out of Stock",299.99,0,"Porsche 911 GT3 RS"
-array(1) {
-  [0]=>
-  object(stdClass)#5423 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 44000,"Retired",0,0,"FURNO XL"
 44001,"Retired",0,0,"PYROX"
 44002,"Retired",0,0,"ROCKA"
