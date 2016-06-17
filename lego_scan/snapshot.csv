@@ -482,6 +482,25 @@
 10248,"Unknown",99.99,0,"Ferrari F40"
 10249,"Unknown",79.99,0,"Winter Toy Shop"
 10251,"Unknown",169.99,0,"Brick Bank"
+10252,"Coming Soon",99.99,0,"Volkswagen Beetle"
+array(1) {
+  [0]=>
+  object(stdClass)#5592 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#5591 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 10253,"Coming Soon",249.99,0,"Big Ben"
 10500,"Retired",0,0,"Horse Stable"
 10501,"Retired",0,0,"Zoo Friends"
@@ -558,7 +577,7 @@
 10591,"Unknown",14.99,0,"Fire Boat"
 10592,"Unknown",24.99,0,"Fire Truck"
 10593,"Unknown",49.99,0,"Fire Station"
-10594,"Unknown",24.99,19.98,"Sofia the First™ Royal Stable"
+10594,"Out of Stock",24.99,19.98,"Sofia the First™ Royal Stable"
 10595,"Unknown",49.99,0,"Sofia the First™ Royal Castle"
 10596,"Unknown",39.99,0,"Disney Princess™ Collection"
 10597,"Unknown",24.99,0,"Mickey & Minnie Birthday Parade"
@@ -988,12 +1007,12 @@
 41552,"Retired",0,0,"Berp"
 41553,"Retired",0,0,"Vaka-Waka"
 41554,"Unknown",4.99,2.48,"Kuffs"
-41555,"Unknown",4.99,2.48,"Busto"
-41556,"Unknown",4.99,2.48,"Tiketz"
-41557,"Unknown",4.99,2.48,"Camillot"
-41558,"Unknown",4.99,2.48,"Mixadel"
+41555,"Out of Stock",4.99,2.48,"Busto"
+41556,"Out of Stock",4.99,2.48,"Tiketz"
+41557,"Out of Stock",4.99,2.48,"Camillot"
+41558,"Out of Stock",4.99,2.48,"Mixadel"
 41559,"Unknown",4.99,2.48,"Paladum"
-41560,"Unknown",4.99,2.48,"Jamzy"
+41560,"Out of Stock",4.99,2.48,"Jamzy"
 41561,"Unknown",4.99,2.48,"Tapsy"
 41562,"Unknown",4.99,2.48,"Trumpsy"
 41563,"Unknown",4.99,0,"Splasho"
@@ -1309,7 +1328,7 @@
 70230,"Retired",0,0,"Ice Bear Tribe Pack"
 70231,"Retired",0,0,"Crocodile Tribe Pack"
 70232,"Retired",0,0,"Saber-tooth Tiger Tribe Pack"
-70310,"Out of Stock",9.99,7.99,"Knighton Battle Blaster"
+70310,"Unknown",9.99,7.99,"Knighton Battle Blaster"
 70311,"Unknown",9.99,7.99,"Chaos Catapult"
 70312,"Unknown",19.99,0,"Lance’s Mecha Horse"
 70313,"Unknown",19.99,0,"Moltor’s Lava Smasher"
@@ -1972,7 +1991,7 @@
 5004604,"Unknown",24.99,0,"LEGO® Classic Minifigure Link Watch"
 5004605,"Unknown",24.99,0,"LEGO® Star Wars™ Boba Fett Watch"
 5004606,"Unknown",24.99,0,"LEGO® Star Wars™ Darth Maul™ Watch"
-5004607,"Unknown",24.99,0,"LEGO® Star Wars™ Darth Vader™ Watch"
+5004607,"Out of Stock",24.99,0,"LEGO® Star Wars™ Darth Vader™ Watch"
 5004608,"Unknown",24.99,0,"LEGO® Star Wars™ Luke Skywalker™ Watch"
 5004609,"Unknown",24.99,0,"LEGO® Star Wars™ Stormtrooper™ Minifigure Watch"
 5004610,"Unknown",24.99,0,"LEGO® Star Wars™ Yoda™ Watch"
