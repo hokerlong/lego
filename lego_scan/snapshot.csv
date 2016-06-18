@@ -789,7 +789,7 @@
 40091,"Retired",0,0,"Thanksgiving Turkey"
 40092,"Retired",0,0,"Reindeer"
 40093,"Retired",0,0,"Snowman"
-40114,"Unknown",14.99,0,"LEGO® Friends Buildable Jewelry Box"
+40114,"Unknown",14.99,11.98,"LEGO® Friends Buildable Jewelry Box"
 40120,"Retired",0,0,"LEGO® Seasonal Valentine’s Day Dinner"
 40121,"Retired",0,0,"Painting Easter Eggs"
 40124,"Retired",0,0,"Winter Fun"
@@ -989,12 +989,12 @@
 41552,"Retired",0,0,"Berp"
 41553,"Retired",0,0,"Vaka-Waka"
 41554,"Unknown",4.99,2.48,"Kuffs"
-41555,"Out of Stock",4.99,2.48,"Busto"
-41556,"Out of Stock",4.99,2.48,"Tiketz"
-41557,"Out of Stock",4.99,2.48,"Camillot"
-41558,"Out of Stock",4.99,2.48,"Mixadel"
+41555,"Unknown",4.99,2.48,"Busto"
+41556,"Unknown",4.99,2.48,"Tiketz"
+41557,"Unknown",4.99,2.48,"Camillot"
+41558,"Unknown",4.99,2.48,"Mixadel"
 41559,"Unknown",4.99,2.48,"Paladum"
-41560,"Out of Stock",4.99,2.48,"Jamzy"
+41560,"Unknown",4.99,2.48,"Jamzy"
 41561,"Unknown",4.99,2.48,"Tapsy"
 41562,"Unknown",4.99,2.48,"Trumpsy"
 41563,"Unknown",4.99,0,"Splasho"
@@ -1414,7 +1414,7 @@
 70752,"Retired",0,0,"Jungle Trap"
 70753,"Retired",0,0,"Lava Falls"
 70754,"Retired",0,0,"ElectroMech"
-70755,"Unknown",19.99,15.98,"Jungle Raider"
+70755,"Out of Stock",19.99,15.98,"Jungle Raider"
 70756,"Unknown",24.99,19.98,"Dojo Showdown"
 70778,"Retired",0,0,"Protector of Jungle"
 70779,"Retired",0,0,"Protector of Stone"
@@ -1520,7 +1520,7 @@
 71308,"Unknown",19.99,15.98,"Tahu Uniter of Fire"
 71309,"Unknown",19.99,15.98,"Onua Uniter of Earth"
 71310,"Unknown",19.99,15.98,"Umarak the Hunter"
-71311,"Out of Stock",24.99,19.98,"Kopaka and Melum - Unity set"
+71311,"Unknown",24.99,19.98,"Kopaka and Melum - Unity set"
 71312,"Unknown",14.99,0,"Ekimu the Mask Maker"
 71313,"Unknown",14.99,0,"Lava Beast"
 71314,"Unknown",14.99,0,"Storm Beast"
@@ -1790,7 +1790,7 @@
 88002,"Unknown",13.99,0,"LEGO® Power Functions Train Motor"
 88003,"Unknown",13.99,0,"LEGO® Power Functions L-Motor"
 88004,"Unknown",24.99,0,"LEGO® Power Functions Servo Motor"
-850154,"Out of Stock",5.99,0,"LEGO® Red Brick Key Chain"
+850154,"Unknown",5.99,0,"LEGO® Red Brick Key Chain"
 850442,"Retired",0,0,"LEGO® NINJAGO™ Lloyd ZX Key Chain"
 850446,"Unknown",5.99,0,"LEGO® Star Wars™ Darth Maul™ Key Chain"
 850507,"Unknown",5.99,0,"LEGO® Marvel Super Heroes Spider-Man Key Chain"
@@ -1827,7 +1827,7 @@
 851338,"Unknown",12.99,0,"LEGO® NINJAGO™ Ninja Belt & Throwing Star"
 851339,"Unknown",4.99,2.48,"LEGO® NINJAGO™ Ninja Bandana"
 851342,"Unknown",14.99,11.98,"LEGO® NINJAGO™ Ninja Army Building Set."
-851345,"Unknown",14.99,7.48,"LEGO® NINJAGO™ Playmat"
+851345,"Out of Stock",14.99,7.48,"LEGO® NINJAGO™ Playmat"
 851348,"Unknown",14.99,0,"LEGO® NINJAGO™ Wall Stickers"
 851351,"Unknown",5.99,0,"LEGO® NINJAGO™ Ninja Kai Key Chain"
 851352,"Unknown",5.99,0,"LEGO® NINJAGO™ Titanium Ninja Zane Key Chain"
@@ -2013,6 +2013,25 @@
 5005113,"Unknown",29.99,0,"LEGO® NEXO KNIGHTS™ Aaron Minifigure Alarm Clock"
 5005117,"Unknown",29.99,0,"LEGO® NINJAGO™ Sky Pirates Jay Minifigure Alarm Clock"
 5005118,"Unknown",29.99,0,"LEGO® NINJAGO™ Sky Pirates Lloyd Minifigure Alarm Clock"
+5005144,"Unknown",19.99,0,"Journal with White Band"
+array(1) {
+  [0]=>
+  object(stdClass)#5690 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#5689 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 5005145,"Unknown",39.99,0,"LEGO® Stationery Organizer"
 5005146,"Unknown",24.99,0,"9-Pack Gel Pen Set"
 5005147,"Unknown",19.99,0,"9-Pack Marker Set"
