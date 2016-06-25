@@ -1843,7 +1843,7 @@
 852768,"Unknown",7.99,0,"LEGO Ice Brick Tray Red"
 852771,"Unknown",7.99,0,"Minifigure Ice Cube Tray"
 852987,"Unknown",5.99,0,"LEGO® Penguin Key Chain"
-853213,"Out of Stock",7.99,0,"Drink Tumbler"
+853213,"Unknown",7.99,0,"Drink Tumbler"
 853429,"Unknown",5.99,0,"LEGO® DC Comics™ Super Heroes Batman™ Key Chain"
 853430,"Unknown",5.99,0,"LEGO® Super Heroes Superman™ Key Chain"
 853433,"Unknown",5.99,0,"LEGO® DC Comics™ Super Heroes Wonder Woman Key Chain"
@@ -2009,8 +2009,46 @@
 5005110,"Unknown",9.99,0,"LEGO Brick Pencil Case (Red)"
 5005112,"Unknown",5.99,0,"LEGO Pencil Sharpeners"
 5005113,"Unknown",29.99,0,"LEGO® NEXO KNIGHTS™ Aaron Minifigure Alarm Clock"
+5005115,"Unknown",29.99,0,"LEGO® NEXO KNIGHTS™ Clay Minifigure Alarm Clock"
+array(1) {
+  [0]=>
+  object(stdClass)#5862 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#5861 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 5005117,"Unknown",29.99,0,"LEGO® NINJAGO™ Sky Pirates Jay Minifigure Alarm Clock"
 5005118,"Unknown",29.99,0,"LEGO® NINJAGO™ Sky Pirates Lloyd Minifigure Alarm Clock"
+5005121,"Unknown",29.99,0,"LEGO® NINJAGO™ Sky Pirates Kai Minifigure Alarm Clock"
+array(1) {
+  [0]=>
+  object(stdClass)#5859 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#5858 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 5005144,"Unknown",19.99,0,"Journal with White Band"
 5005145,"Unknown",39.99,0,"LEGO® Stationery Organizer"
 5005146,"Unknown",24.99,0,"9-Pack Gel Pen Set"
