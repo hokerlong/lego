@@ -483,7 +483,7 @@
 10249,"Unknown",79.99,0,"Winter Toy Shop"
 10251,"Unknown",169.99,0,"Brick Bank"
 10252,"Coming Soon",99.99,0,"Volkswagen Beetle"
-10253,"Coming Soon",249.99,0,"Big Ben"
+10253,"Unknown",249.99,0,"Big Ben"
 10500,"Retired",0,0,"Horse Stable"
 10501,"Retired",0,0,"Zoo Friends"
 10502,"Retired",0,0,"Zoo Bus"
@@ -989,7 +989,7 @@
 41552,"Retired",0,0,"Berp"
 41553,"Retired",0,0,"Vaka-Waka"
 41554,"Unknown",4.99,2.48,"Kuffs"
-41555,"Out of Stock",4.99,2.48,"Busto"
+41555,"Unknown",4.99,2.48,"Busto"
 41556,"Unknown",4.99,2.48,"Tiketz"
 41557,"Unknown",4.99,2.48,"Camillot"
 41558,"Unknown",4.99,2.48,"Mixadel"
@@ -1659,6 +1659,7 @@
 75825,"Unknown",59.99,0,"Piggy Pirate Ship"
 75826,"Unknown",89.99,0,"King Pig's Castle"
 75827,"Unknown",349.99,0,"Firehouse Headquarters"
+75828,"Unknown",59.99,0,"Ecto-1 & 2"
 75870,"Unknown",14.99,0,"Chevrolet Corvette Z06"
 75871,"Unknown",14.99,0,"Ford Mustang GT"
 75872,"Unknown",14.99,0,"Audi R18 e-tron quattro"
@@ -1737,7 +1738,7 @@
 76053,"Unknown",19.99,0,"Batman™: Gotham City Cycle Chase"
 76054,"Coming Soon",59.99,0,"Batman™: Scarecrow™ Harvest of Fear"
 76055,"Coming Soon",79.99,0,"Batman™: Killer Croc™ Sewer Smash"
-76056,"Coming Soon",29.99,0,"Batman™: Rescue from Ra's al Ghul™"
+76056,"Unknown",29.99,0,"Batman™: Rescue from Ra's al Ghul™"
 76057,"Coming Soon",99.99,0,"Spider-Man: Web Warriors Ultimate Bridge Battle"
 76058,"Coming Soon",19.99,0,"Spider-Man: Ghost Rider Team-up"
 76059,"Coming Soon",39.99,0,"Spider-Man: Doc Ock's Tentacle Trap"
@@ -1825,7 +1826,7 @@
 851338,"Unknown",12.99,0,"LEGO® NINJAGO™ Ninja Belt & Throwing Star"
 851339,"Unknown",4.99,2.48,"LEGO® NINJAGO™ Ninja Bandana"
 851342,"Unknown",14.99,11.98,"LEGO® NINJAGO™ Ninja Army Building Set."
-851345,"Out of Stock",14.99,7.48,"LEGO® NINJAGO™ Playmat"
+851345,"Unknown",14.99,7.48,"LEGO® NINJAGO™ Playmat"
 851348,"Unknown",14.99,0,"LEGO® NINJAGO™ Wall Stickers"
 851351,"Unknown",5.99,0,"LEGO® NINJAGO™ Ninja Kai Key Chain"
 851352,"Unknown",5.99,0,"LEGO® NINJAGO™ Titanium Ninja Zane Key Chain"
@@ -1971,7 +1972,7 @@
 5004604,"Unknown",24.99,0,"LEGO® Classic Minifigure Link Watch"
 5004605,"Unknown",24.99,0,"LEGO® Star Wars™ Boba Fett Watch"
 5004606,"Unknown",24.99,0,"LEGO® Star Wars™ Darth Maul™ Watch"
-5004607,"Out of Stock",24.99,0,"LEGO® Star Wars™ Darth Vader™ Watch"
+5004607,"Unknown",24.99,0,"LEGO® Star Wars™ Darth Vader™ Watch"
 5004608,"Unknown",24.99,0,"LEGO® Star Wars™ Luke Skywalker™ Watch"
 5004609,"Unknown",24.99,0,"LEGO® Star Wars™ Stormtrooper™ Minifigure Watch"
 5004610,"Unknown",24.99,0,"LEGO® Star Wars™ Yoda™ Watch"
@@ -2013,6 +2014,39 @@
 5005117,"Unknown",29.99,0,"LEGO® NINJAGO™ Sky Pirates Jay Minifigure Alarm Clock"
 5005118,"Unknown",29.99,0,"LEGO® NINJAGO™ Sky Pirates Lloyd Minifigure Alarm Clock"
 5005121,"Unknown",29.99,0,"LEGO® NINJAGO™ Sky Pirates Kai Minifigure Alarm Clock"
+5005136,"Unknown",69.99,0,"LEGO® Star Wars™: The Force Awakens PLAYSTATION® 4 Video Game – Deluxe Edition"
+array(1) {
+  [0]=>
+  object(stdClass)#3734 (2) {
+    ["code"]=>
+    int(186)
+    ["message"]=>
+    string(30) "Status is over 140 characters."
+  }
+}
+5005137,"Unknown",49.99,0,"LEGO® Star Wars™: The Force Awakens Xbox 360 Video Game"
+5005138,"Unknown",69.99,0,"LEGO® Star Wars™: The Force Awakens Xbox One Video Game – Deluxe Edition"
+array(1) {
+  [0]=>
+  object(stdClass)#3734 (2) {
+    ["code"]=>
+    int(186)
+    ["message"]=>
+    string(30) "Status is over 140 characters."
+  }
+}
+5005139,"Unknown",69.99,0,"LEGO® Star Wars™: The Force Awakens PLAYSTATION® 4 Video Game"
+array(1) {
+  [0]=>
+  object(stdClass)#3744 (2) {
+    ["code"]=>
+    int(186)
+    ["message"]=>
+    string(30) "Status is over 140 characters."
+  }
+}
+5005140,"Unknown",59.99,0,"LEGO® Star Wars™: The Force Awakens Xbox One Video Game"
+5005141,"Unknown",49.99,0,"LEGO® Star Wars™: The Force Awakens Wii U™ Video Game"
 5005144,"Unknown",19.99,0,"Journal with White Band"
 5005145,"Unknown",39.99,0,"LEGO® Stationery Organizer"
 5005146,"Unknown",24.99,0,"9-Pack Gel Pen Set"
