@@ -673,7 +673,7 @@ function crawl_target()
 	for ($i = 0; $i < $page; $i++)
 	{
 		$url = $ret->{'URL'}."&page=".($i+1)."&pageCount=".$perpage."&offset=".($i*$perpage);
-		$response = json_decode(substr(str_replace("getPlpResponse(", "", curl($url)), 0, -1));
+		$response = json_decode(curl($url));
 
 		$total = intval($response->searchResponse->searchState->Arguments->Argument[10]->value);
 		$page = ceil($total/$perpage);
