@@ -667,7 +667,7 @@ function crawl_target()
 	$perpage = 120; // max per page = 40
 	$ret = new stdClass();
 	$ret->{'Provider'} = "www.target.com";
-	$ret->{'URL'} = "http://tws.target.com/searchservice/item/search_results/v2/by_keyword?callback=getPlpResponse&sort_by=bestselling&zone=PLP&facets=&category=180009&view_type=medium&stateData=%22d_item_type_all%22%3A%22show%22%2C&response_group=Items%2CVariationSummary&isLeaf=false";
+	$ret->{'URL'} = "http://tws.target.com/searchservice/item/search_results/v2/by_keyword?search_term=lego&zone=mobile&alt=json&response_group=Items&category=5xtb0";
 	$ret->{'ItemCount'} = 0;
 	$ret->{'Items'} = array();
 	for ($i = 0; $i < $page; $i++)
