@@ -1516,28 +1516,10 @@
 71240,"Unknown",11.99,0,"Bane™ Fun Pack"
 71241,"Unknown",11.99,0,"Slimer Fun Pack"
 71300,"Unknown",9.99,6.98,"Uxar Creature of Jungle"
-array(1) {
-  [0]=>
-  object(stdClass)#6421 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 71301,"Unknown",9.99,6.98,"Ketar Creature of Stone"
 71302,"Unknown",9.99,6.98,"Akida Creature of Water"
 71303,"Out of Stock",9.99,6.98,"Ikir Creature of Fire"
 71304,"Unknown",9.99,6.98,"Terak Creature of Earth"
-array(1) {
-  [0]=>
-  object(stdClass)#6420 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 71305,"Unknown",14.99,10.48,"Lewa Uniter of Jungle"
 71306,"Unknown",14.99,10.48,"Pohatu Uniter of Stone"
 71307,"Unknown",14.99,10.48,"Gali Uniter of Water"
