@@ -1823,15 +1823,6 @@
 850899,"Unknown",14.99,3.48,"LEGO® Legends of Chima™ Playmat"
 850929,"Unknown",14.99,0,"LEGO® City Playmat"
 850953,"Unknown",5.99,4.99,"Police Car Bag Charm"
-array(1) {
-  [0]=>
-  object(stdClass)#6426 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 850963,"Unknown",7.99,6.39,"LEGO® Friends Tumbler"
 850996,"Unknown",5.99,4.99,"LEGO® Star Wars™ Darth Vader Key Chain"
 850997,"Unknown",5.99,4.99,"LEGO® Star Wars™ Princess Leia™ Key Chain"
