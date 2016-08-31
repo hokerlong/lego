@@ -1515,7 +1515,16 @@
 71239,"Unknown",11.99,0,"Lloyd Fun Pack"
 71240,"Unknown",11.99,0,"Bane™ Fun Pack"
 71241,"Out of Stock",11.99,0,"Slimer Fun Pack"
-71300,"Out of Stock",9.99,6.98,"Uxar Creature of Jungle"
+71300,"Unknown",9.99,6.98,"Uxar Creature of Jungle"
+array(1) {
+  [0]=>
+  object(stdClass)#6421 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 71301,"Unknown",9.99,6.98,"Ketar Creature of Stone"
 71302,"Unknown",9.99,6.98,"Akida Creature of Water"
 71303,"Out of Stock",9.99,6.98,"Ikir Creature of Fire"
