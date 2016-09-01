@@ -1478,7 +1478,16 @@
 71012,"Out of Stock",3.99,0,"The Disney Series"
 71013,"Unknown",3.99,0,"Series 16"
 71016,"Unknown",199.99,0,"The Kwik-E-Mart"
-71040,"Unknown",349.99,0,"The Disney Castle"
+71040,"Out of Stock",349.99,0,"The Disney Castle"
+array(1) {
+  [0]=>
+  object(stdClass)#7547 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 71170,"Unknown",79.99,0,"LEGO® DIMENSIONS™ PLAYSTATION® 3 Starter Pack"
 71171,"Unknown",89.99,0,"LEGO® DIMENSIONS™ PLAYSTATION® 4 Starter Pack"
 71172,"Unknown",89.99,0,"LEGO® DIMENSIONS™ Xbox One Starter Pack"
@@ -1524,7 +1533,16 @@
 71300,"Unknown",9.99,6.98,"Uxar Creature of Jungle"
 71301,"Unknown",9.99,6.98,"Ketar Creature of Stone"
 71302,"Unknown",9.99,6.98,"Akida Creature of Water"
-71303,"Out of Stock",9.99,6.98,"Ikir Creature of Fire"
+71303,"Unknown",9.99,6.98,"Ikir Creature of Fire"
+array(1) {
+  [0]=>
+  object(stdClass)#7546 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 71304,"Unknown",9.99,6.98,"Terak Creature of Earth"
 71305,"Unknown",14.99,10.48,"Lewa Uniter of Jungle"
 71306,"Unknown",14.99,10.48,"Pohatu Uniter of Stone"
