@@ -686,6 +686,44 @@
 21026,"Unknown",29.99,0,"Venice"
 21027,"Unknown",29.99,0,"Berlin"
 21028,"Unknown",59.99,0,"New York City"
+21029,"Unknown",49.99,0,"Buckingham Palace"
+array(1) {
+  [0]=>
+  object(stdClass)#7535 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7534 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+21030,"Unknown",99.99,0,"United States Capitol Building"
+array(1) {
+  [0]=>
+  object(stdClass)#7532 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7531 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 21031,"Unknown",39.99,0,"Burj Khalifa"
 21050,"Unknown",159.99,0,"Studio"
 21101,"Retired",0,0,"Hayabusa"
@@ -712,6 +750,25 @@
 21124,"Unknown",59.99,0,"The End Portal"
 21125,"Unknown",69.99,0,"The Jungle Tree House"
 21126,"Unknown",39.99,0,"The Wither"
+21127,"Unknown",109.99,0,"The Fortress"
+array(1) {
+  [0]=>
+  object(stdClass)#7529 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7530 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 21128,"Unknown",199.99,0,"The Village"
 21204,"Retired",0,0,"LEGO® Fusion Town Master"
 21205,"Retired",0,0,"LEGO® Fusion Battle Towers"
@@ -802,6 +859,25 @@
 40161,"Unknown",39.99,31.99,"What Am I?"
 40165,"Unknown",9.99,7.99,"LEGO® Wedding Favor Set"
 40202,"Unknown",9.99,0,"LEGO® Easter Chick"
+40203,"Unknown",9.99,0,"LEGO® Vampire and Bat"
+array(1) {
+  [0]=>
+  object(stdClass)#7535 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7534 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 41000,"Retired",0,0,"Water Scooter Fun"
 41001,"Retired",0,0,"Mia's Magic Tricks"
 41002,"Retired",0,0,"Emma's Karate Class"
@@ -918,6 +994,25 @@
 41128,"Unknown",19.99,0,"Amusement Park Space Ride"
 41129,"Unknown",29.99,0,"Amusement Park Hot Dog Van"
 41130,"Unknown",99.99,0,"Amusement Park Roller Coaster"
+41131,"Unknown",29.99,0,"LEGO® Friends Advent Calendar"
+array(1) {
+  [0]=>
+  object(stdClass)#7532 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7531 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 41132,"Unknown",29.99,0,"Heartlake Party Shop"
 41133,"Unknown",39.99,0,"Amusement Park Bumper Cars"
 41134,"Unknown",79.99,0,"Heartlake Performance School"
@@ -1219,6 +1314,25 @@
 60130,"Unknown",89.99,0,"Prison Island"
 60131,"Unknown",29.99,23.99,"Crooks Island"
 60132,"Unknown",89.99,0,"Service Station"
+60133,"Unknown",29.99,0,"LEGO® City Advent Calendar"
+array(1) {
+  [0]=>
+  object(stdClass)#7529 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7530 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 60134,"Unknown",39.99,0,"Fun in the park - City People Pack"
 70000,"Retired",0,0,"Razcal’s Glider"
 70001,"Retired",0,0,"Crawley’s Claw Ripper"
@@ -1472,7 +1586,16 @@
 71012,"Out of Stock",3.99,0,"The Disney Series"
 71013,"Unknown",3.99,0,"Series 16"
 71016,"Unknown",199.99,0,"The Kwik-E-Mart"
-71040,"Out of Stock",349.99,0,"The Disney Castle"
+71040,"Unknown",349.99,0,"The Disney Castle"
+array(1) {
+  [0]=>
+  object(stdClass)#7535 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 71170,"Unknown",79.99,0,"LEGO® DIMENSIONS™ PLAYSTATION® 3 Starter Pack"
 71171,"Unknown",89.99,0,"LEGO® DIMENSIONS™ PLAYSTATION® 4 Starter Pack"
 71172,"Unknown",89.99,0,"LEGO® DIMENSIONS™ Xbox One Starter Pack"
@@ -1651,6 +1774,25 @@
 75141,"Unknown",19.99,0,"Kanan's Speeder Bike™"
 75142,"Unknown",29.99,0,"Homing Spider Droid™"
 75145,"Unknown",29.99,0,"Eclipse Fighter™"
+75146,"Unknown",39.99,0,"LEGO® Star Wars™ Advent Calendar"
+array(1) {
+  [0]=>
+  object(stdClass)#7534 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7532 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 75147,"Unknown",49.99,0,"StarScavenger™"
 75148,"Unknown",59.99,0,"Encounter on Jakku™"
 75149,"Unknown",79.99,0,"Resistance X-Wing Fighter™"
@@ -1797,6 +1939,7 @@
 88002,"Unknown",13.99,0,"LEGO® Power Functions Train Motor"
 88003,"Unknown",13.99,0,"LEGO® Power Functions L-Motor"
 88004,"Unknown",24.99,0,"LEGO® Power Functions Servo Motor"
+850150,"Unknown",5.99,4.99,"LEGO® Santa Claus Key Chain"
 850154,"Unknown",5.99,4.99,"LEGO® Red Brick Key Chain"
 850442,"Retired",0,0,"LEGO® NINJAGO™ Lloyd ZX Key Chain"
 850446,"Unknown",5.99,4.99,"LEGO® Star Wars™ Darth Maul™ Key Chain"
@@ -1817,11 +1960,13 @@
 850814,"Unknown",5.99,4.99,"LEGO® Marvel Super Heroes The Hulk™ Key Chain"
 850840,"Unknown",3.99,0,"LEGO® Classic Gift Bag"
 850841,"Unknown",3.99,0,"LEGO® Classic Gift Wrap"
+850850,"Unknown",7.99,1.98,"LEGO® Santa Holiday Bauble"
 850894,"Unknown",5.99,4.99,"THE LEGO® MOVIE™ Emmet Key Chain"
 850895,"Unknown",5.99,4.99,"THE LEGO® MOVIE™ Wyldstyle Key Chain"
 850896,"Unknown",5.99,0,"THE LEGO® MOVIE™ Bad Cop Key Chain"
 850899,"Unknown",14.99,3.48,"LEGO® Legends of Chima™ Playmat"
 850929,"Unknown",14.99,0,"LEGO® City Playmat"
+850949,"Unknown",7.99,1.98,"LEGO® Christmas Snow Hut Ornament"
 850953,"Unknown",5.99,4.99,"Police Car Bag Charm"
 850963,"Unknown",7.99,6.39,"LEGO® Friends Tumbler"
 850996,"Unknown",5.99,4.99,"LEGO® Star Wars™ Darth Vader Key Chain"
@@ -1840,19 +1985,34 @@
 851352,"Unknown",5.99,4.99,"LEGO® NINJAGO™ Titanium Ninja Zane Key Chain"
 851353,"Unknown",4.99,2.48,"LEGO® NINJAGO™ Anacondrai Kapau Key Chain"
 851354,"Unknown",4.99,2.48,"LEGO® NINJAGO™ Wrayth Key Chain"
+851358,"Unknown",7.99,0,"Holiday Bauble White Bricks"
 851362,"Unknown",7.99,6.39,"LEGO® Friends Party Set"
 851367,"Unknown",6.99,5.59,"LEGO® Friends Party Bags"
 851393,"Unknown",5.99,4.99,"Mermaid Key Chain"
+851394,"Unknown",5.99,4.99,"LEGO® Iconic Gingerbread Key Chain"
 851399,"Unknown",16.99,13.59,"Minifigure Carry Case"
 851400,"Unknown",12.99,10.39,"Upscaled Mug – Red"
 851402,"Unknown",14.99,7.49,"Wall Stickers"
 851406,"Unknown",5.99,4.99,"Metalized 2x4 Key Chain"
+851407,"Unknown",4.99,0.98,"LEGO® Holiday Wrapping Paper"
 851417,"Unknown",14.99,3.48,"LEGO® Friends Wall Stickers"
 851578,"Unknown",5.99,4.99,"LEGO® Friends Horse Bag Charm"
 852768,"Unknown",7.99,0,"LEGO Ice Brick Tray Red"
 852771,"Unknown",7.99,0,"Minifigure Ice Cube Tray"
 852987,"Unknown",5.99,4.99,"LEGO® Penguin Key Chain"
-853213,"Unknown",7.99,6.39,"Drink Tumbler"
+853213,"Out of Stock",7.99,6.39,"Drink Tumbler"
+array(1) {
+  [0]=>
+  object(stdClass)#7531 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+853344,"Unknown",7.99,0,"LEGO® Holiday Ornament with Red Bricks"
+853345,"Unknown",7.99,0,"LEGO® Holiday Ornament with Gold Bricks"
+853353,"Unknown",9.99,2.48,"Holiday Scene Magnet"
 853429,"Unknown",5.99,4.99,"LEGO® DC Comics™ Super Heroes Batman™ Key Chain"
 853430,"Unknown",5.99,4.99,"LEGO® Super Heroes Superman™ Key Chain"
 853433,"Unknown",5.99,4.99,"LEGO® DC Comics™ Super Heroes Wonder Woman Key Chain"
@@ -1914,6 +2074,25 @@
 853571,"Unknown",5.99,4.99,"Keychain Hot Dog Guy"
 853572,"Unknown",5.99,4.99,"Keychain Bumble Bee"
 853573,"Unknown",5.99,4.99,"LEGO® Yellow Car Bag Charm"
+853574,"Unknown",7.99,0,"Christmas Ornament Reindeer"
+array(1) {
+  [0]=>
+  object(stdClass)#7529 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7530 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 853575,"Unknown",16.99,13.59,"Minifigure Cake Mold"
 853580,"Unknown",16.99,0,"Keychain Rack"
 853590,"Unknown",5.99,4.99,"LEGO® DC Comics Super Heroes Superman™ Key Chain"
@@ -1924,6 +2103,44 @@
 853603,"Unknown",5.99,4.99,"LEGO® Star Wars Rey™ Key Chain"
 853604,"Unknown",5.99,4.99,"LEGO® Star Wars BB-8™ Key Chain"
 853605,"Unknown",5.99,4.99,"LEGO® Star Wars Poe Dameron™ Key Chain"
+853609,"Unknown",14.99,0,"LEGO® Minecraft™ Skin Pack 1"
+array(1) {
+  [0]=>
+  object(stdClass)#7535 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7534 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+853610,"Unknown",14.99,0,"LEGO® Minecraft™ Skin Pack 2"
+array(1) {
+  [0]=>
+  object(stdClass)#7532 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7531 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 853611,"Unknown",16.99,0,"LEGO® Marvel Super Heroes Minifigure Display Frame"
 2000409,"Unknown",484.99,0,"Window Exploration Bag"
 2000414,"Unknown",36.99,0,"Starter Kit"
@@ -2038,3 +2255,22 @@
 5005148,"Unknown",12.99,0,"9-Pack Colored Pencil with Toppers Pack"
 5005149,"Unknown",18.99,0,"LEGO® Star Wars™ Ultimate Factivity Collection"
 5005160,"Unknown",155.91,0,"LEGO® Stationery Kit"
+5005182,"Unknown",18.99,0,"LEGO NEXO KNIGHTS SEASON 1 DVD"
+array(1) {
+  [0]=>
+  object(stdClass)#7529 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7530 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
