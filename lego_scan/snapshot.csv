@@ -8,7 +8,7 @@
 2236,"Retired",0,0,"Scorpio"
 2255,"Retired",0,0,"Sensei Wu"
 2282,"Retired",0,0,"Rocka XL"
-2304,"Out of Stock",14.99,0,"LEGO® DUPLO® Green Baseplate"
+2304,"Unknown",14.99,0,"LEGO® DUPLO® Green Baseplate"
 2506,"Retired",0,0,"Skull Truck"
 2507,"Retired",0,0,"Fire Temple"
 2520,"Retired",0,0,"Ninjago Battle Arena"
@@ -1488,7 +1488,7 @@
 71202,"Unknown",29.99,0,"LEGO® DIMENSIONS™ The Simpsons™ Level Pack"
 71203,"Unknown",29.99,0,"LEGO® DIMENSIONS™ Portal® 2 Level Pack"
 71204,"Unknown",29.99,0,"LEGO® DIMENSIONS™ Doctor Who Level Pack"
-71205,"Unknown",24.99,0,"LEGO® DIMENSIONS™ Jurassic World™ Team Pack"
+71205,"Unknown",24.99,0,"Jurassic World™ Team Pack"
 71206,"Unknown",24.99,0,"LEGO® DIMENSIONS™ Scooby-Doo™ Team Pack"
 71207,"Unknown",24.99,0,"LEGO® DIMENSIONS® NINJAGO™ Team Pack"
 71209,"Unknown",11.99,0,"LEGO® DIMENSIONS™ Wonder Woman Fun Pack"
@@ -1638,6 +1638,63 @@
 75116,"Unknown",24.99,0,"Finn"
 75117,"Unknown",24.99,0,"Kylo Ren™"
 75118,"Unknown",24.99,0,"Captain Phasma™"
+75119,"Coming Soon",24.99,0,"Sergeant Jyn Erso™"
+array(1) {
+  [0]=>
+  object(stdClass)#7779 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7778 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75120,"Coming Soon",24.99,0,"Imperial Death Trooper™"
+array(1) {
+  [0]=>
+  object(stdClass)#7776 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7775 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75121,"Coming Soon",24.99,0,"K-2SO™"
+array(1) {
+  [0]=>
+  object(stdClass)#7773 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7774 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 75125,"Unknown",9.99,0,"Resistance X-Wing Fighter™"
 75126,"Unknown",9.99,0,"First Order Snowspeeder™"
 75127,"Unknown",9.99,0,"The Ghost™"
@@ -1663,8 +1720,122 @@
 75149,"Unknown",79.99,0,"Resistance X-Wing Fighter™"
 75150,"Unknown",89.99,0,"Vader's TIE Advanced vs. A-Wing Starfighter"
 75151,"Unknown",109.99,0,"Clone Turbo Tank™"
+75152,"Coming Soon",29.99,0,"Imperial Assault Hovertank™"
+array(1) {
+  [0]=>
+  object(stdClass)#7779 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7778 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75153,"Coming Soon",39.99,0,"AT-ST™ Walker"
+array(1) {
+  [0]=>
+  object(stdClass)#7776 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7775 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75154,"Coming Soon",69.99,0,"TIE Striker™"
+array(1) {
+  [0]=>
+  object(stdClass)#7773 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7774 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75155,"Coming Soon",79.99,0,"Rebel U-Wing Fighter™"
+array(1) {
+  [0]=>
+  object(stdClass)#7779 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7778 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+75156,"Coming Soon",89.99,0,"Krennic's Imperial Shuttle"
+array(1) {
+  [0]=>
+  object(stdClass)#7776 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7775 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 75157,"Unknown",119.99,0,"Captain Rex's AT-TE™"
 75158,"Unknown",109.99,0,"Rebel Combat Frigate"
+75159,"Coming Soon",499.99,0,"Confidential SW Direct 2"
+array(1) {
+  [0]=>
+  object(stdClass)#7773 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+array(1) {
+  [0]=>
+  object(stdClass)#7774 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 75821,"Unknown",12.99,0,"Piggy Car Escape"
 75822,"Unknown",19.99,0,"Piggy Plane Attack"
 75823,"Unknown",29.99,0,"Bird Island Egg Heist"
