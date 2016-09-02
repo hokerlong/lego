@@ -1639,62 +1639,8 @@
 75117,"Unknown",24.99,0,"Kylo Ren™"
 75118,"Unknown",24.99,0,"Captain Phasma™"
 75119,"Coming Soon",24.99,0,"Sergeant Jyn Erso™"
-array(1) {
-  [0]=>
-  object(stdClass)#7779 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#7778 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 75120,"Coming Soon",24.99,0,"Imperial Death Trooper™"
-array(1) {
-  [0]=>
-  object(stdClass)#7776 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#7775 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 75121,"Coming Soon",24.99,0,"K-2SO™"
-array(1) {
-  [0]=>
-  object(stdClass)#7773 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#7774 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 75125,"Unknown",9.99,0,"Resistance X-Wing Fighter™"
 75126,"Unknown",9.99,0,"First Order Snowspeeder™"
 75127,"Unknown",9.99,0,"The Ghost™"
@@ -1721,115 +1667,16 @@ array(1) {
 75150,"Unknown",89.99,0,"Vader's TIE Advanced vs. A-Wing Starfighter"
 75151,"Unknown",109.99,0,"Clone Turbo Tank™"
 75152,"Coming Soon",29.99,0,"Imperial Assault Hovertank™"
-array(1) {
-  [0]=>
-  object(stdClass)#7779 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#7778 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 75153,"Coming Soon",39.99,0,"AT-ST™ Walker"
-array(1) {
-  [0]=>
-  object(stdClass)#7776 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#7775 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 75154,"Coming Soon",69.99,0,"TIE Striker™"
-array(1) {
-  [0]=>
-  object(stdClass)#7773 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#7774 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 75155,"Coming Soon",79.99,0,"Rebel U-Wing Fighter™"
-array(1) {
-  [0]=>
-  object(stdClass)#7779 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#7778 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 75156,"Coming Soon",89.99,0,"Krennic's Imperial Shuttle"
-array(1) {
-  [0]=>
-  object(stdClass)#7776 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#7775 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 75157,"Unknown",119.99,0,"Captain Rex's AT-TE™"
 75158,"Unknown",109.99,0,"Rebel Combat Frigate"
 75159,"Coming Soon",499.99,0,"Confidential SW Direct 2"
 array(1) {
   [0]=>
-  object(stdClass)#7773 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#7774 (2) {
+  object(stdClass)#7788 (2) {
     ["code"]=>
     int(89)
     ["message"]=>
