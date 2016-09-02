@@ -1875,15 +1875,6 @@
 852771,"Unknown",7.99,0,"Minifigure Ice Cube Tray"
 852987,"Unknown",5.99,4.99,"LEGO® Penguin Key Chain"
 853213,"Unknown",7.99,6.39,"Drink Tumbler"
-array(1) {
-  [0]=>
-  object(stdClass)#7788 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 853344,"Unknown",7.99,0,"LEGO® Holiday Ornament with Red Bricks"
 853345,"Unknown",7.99,0,"LEGO® Holiday Ornament with Gold Bricks"
 853353,"Unknown",9.99,2.48,"Holiday Scene Magnet"
