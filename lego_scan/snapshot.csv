@@ -1849,7 +1849,16 @@
 851003,"Unknown",5.99,4.99,"LEGO® DC Comics™ Super Heroes The Joker Key Chain"
 851005,"Unknown",5.99,4.99,"LEGO® DC Comics™ Super Heroes Batgirl Key Chain"
 851325,"Unknown",14.99,3.48,"LEGO® Friends Jungle Playmat"
-851336,"Out of Stock",7.99,3.98,"LEGO® NINJAGO™ Ninja Fork Weapon"
+851336,"Unknown",7.99,3.98,"LEGO® NINJAGO™ Ninja Fork Weapon"
+array(1) {
+  [0]=>
+  object(stdClass)#7850 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 851338,"Unknown",12.99,10.39,"LEGO® NINJAGO™ Ninja Belt & Throwing Star"
 851339,"Unknown",4.99,2.48,"LEGO® NINJAGO™ Ninja Bandana"
 851342,"Unknown",14.99,10.48,"LEGO® NINJAGO™ Ninja Army Building Set."
