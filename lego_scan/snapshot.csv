@@ -654,6 +654,7 @@
 10830,"Unknown",19.99,0,"Minnie's Café"
 10831,"Unknown",9.99,0,"My First Caterpillar"
 10937,"Retired",0,0,"Batman™: Arkham Asylum Breakout"
+11998,"Unknown",0,0,"LEGO® Pick A Brick"
 20200,"Retired",0,0,"LEGO® Master Builder Academy Space Designer"
 20214,"Retired",0,0,"LEGO® Master Builder Academy Adventure Designer"
 20215,"Retired",0,0,"LEGO® Master Builder Academy Invention Designer"
@@ -1416,7 +1417,16 @@
 70745,"Retired",0,0,"Anacondrai Crusher"
 70746,"Unknown",29.99,20.98,"Condrai Copter Attack"
 70747,"Out of Stock",29.99,20.98,"Boulder Blaster"
-70748,"Out of Stock",39.99,27.98,"Titanium Dragon"
+70748,"Unknown",39.99,27.98,"Titanium Dragon"
+array(1) {
+  [0]=>
+  object(stdClass)#7927 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 70749,"Unknown",59.99,41.98,"Enter the Serpent"
 70750,"Retired",0,0,"Ninja DB X"
 70751,"Unknown",199.99,0,"Temple of Airjitzu"
@@ -2003,7 +2013,7 @@
 5004572,"Unknown",14.99,7.48,"Masters of Spinjitzu Rebooted – Fall of the Golden Master (DVD)"
 5004600,"Unknown",29.99,0,"LEGO® DC Comics™ Super Heroes Wonder Woman Minifigure Alarm Clock"
 5004601,"Unknown",24.99,0,"LEGO® DC Comics™ Super Heroes Wonder Woman Watch"
-5004602,"Unknown",24.99,0,"LEGO® DC Comics™ Super Heroes Batman™ Minifigure Link Watch"
+5004602,"Out of Stock",24.99,0,"LEGO® DC Comics™ Super Heroes Batman™ Minifigure Link Watch"
 5004603,"Unknown",24.99,0,"LEGO® DC Comics™ Super Heroes Superman™ Minifigure Link Watch"
 5004604,"Unknown",24.99,0,"LEGO® Classic Minifigure Link Watch"
 5004605,"Unknown",24.99,0,"LEGO® Star Wars™ Boba Fett Watch"
@@ -2040,6 +2050,7 @@
 5005057,"Out of Stock",39.99,0,"LEGO® Marvel Avengers XBOX 360 Video Game"
 5005058,"Out of Stock",39.99,0,"LEGO® Marvel Avengers Wii U Video Game"
 5005059,"Unknown",39.99,0,"LEGO® Marvel Avengers PS3 Video Game"
+5005060,"Unknown",19.99,0,"LEGO® Marvel Avengers Nintendo 3DS™ Video Game"
 5005061,"Unknown",19.99,0,"LEGO SW DROID TALES (DVD)"
 5005095,"Unknown",19.99,0,"LEGO® DC Comics Super Heroes: Justice League™: Cosmic Clash (DVD)"
 5005107,"Unknown",15.99,0,"LEGO Buildable Ruler"
