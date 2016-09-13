@@ -1418,15 +1418,6 @@
 70746,"Unknown",29.99,20.98,"Condrai Copter Attack"
 70747,"Out of Stock",29.99,20.98,"Boulder Blaster"
 70748,"Unknown",39.99,27.98,"Titanium Dragon"
-array(1) {
-  [0]=>
-  object(stdClass)#7927 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 70749,"Unknown",59.99,41.98,"Enter the Serpent"
 70750,"Retired",0,0,"Ninja DB X"
 70751,"Unknown",199.99,0,"Temple of Airjitzu"
