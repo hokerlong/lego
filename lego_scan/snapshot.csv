@@ -1529,7 +1529,16 @@
 71306,"Unknown",14.99,10.48,"Pohatu Uniter of Stone"
 71307,"Unknown",14.99,10.48,"Gali Uniter of Water"
 71308,"Unknown",19.99,13.98,"Tahu Uniter of Fire"
-71309,"Unknown",19.99,13.98,"Onua Uniter of Earth"
+71309,"Out of Stock",19.99,13.98,"Onua Uniter of Earth"
+array(1) {
+  [0]=>
+  object(stdClass)#7846 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 71310,"Unknown",19.99,13.98,"Umarak the Hunter"
 71311,"Unknown",24.99,17.48,"Kopaka and Melum - Unity set"
 71312,"Unknown",14.99,0,"Ekimu the Mask Maker"
