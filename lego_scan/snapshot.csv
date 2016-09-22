@@ -560,15 +560,6 @@
 10592,"Unknown",24.99,0,"Fire Truck"
 10593,"Unknown",49.99,0,"Fire Station"
 10594,"Unknown",24.99,17.48,"Sofia the First™ Royal Stable"
-array(1) {
-  [0]=>
-  object(stdClass)#7897 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 10595,"Unknown",49.99,0,"Sofia the First™ Royal Castle"
 10596,"Unknown",39.99,0,"Disney Princess™ Collection"
 10597,"Unknown",24.99,0,"Mickey & Minnie Birthday Parade"
