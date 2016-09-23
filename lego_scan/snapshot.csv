@@ -533,7 +533,16 @@
 10559,"Retired",0,0,"A Fairy Tale"
 10560,"Retired",0,0,"Peekaboo Jungle"
 10561,"Retired",0,0,"Toddler Starter Building Set"
-10565,"Unknown",59.99,41.98,"LEGO® DUPLO® Creative Suitcase"
+10565,"Retired",0,0,"LEGO® DUPLO® Creative Suitcase"
+array(1) {
+  [0]=>
+  object(stdClass)#7855 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 10566,"Retired",0,0,"Creative Picnic"
 10567,"Retired",0,0,"Toddler Build and Boat Fun"
 10569,"Retired",0,0,"Treasure Attack"
@@ -549,7 +558,16 @@
 10580,"Unknown",49.99,0,"LEGO® DUPLO® Deluxe Box of fun"
 10581,"Unknown",9.99,0,"Forest: Ducks"
 10582,"Unknown",19.99,0,"Forest: Animals"
-10583,"Unknown",24.99,12.48,"Forest: Fishing Trip"
+10583,"Retired",0,0,"Forest: Fishing Trip"
+array(1) {
+  [0]=>
+  object(stdClass)#7854 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 10584,"Unknown",59.99,0,"Forest: Park"
 10585,"Retired",0,0,"Mom and Baby"
 10586,"Unknown",14.99,0,"Ice Cream Truck"
@@ -985,7 +1003,16 @@
 41543,"Retired",0,0,"Turg"
 41544,"Retired",0,0,"Tungster"
 41545,"Retired",0,0,"Kramm"
-41546,"Unknown",4.99,2.48,"Forx"
+41546,"Retired",0,0,"Forx"
+array(1) {
+  [0]=>
+  object(stdClass)#7852 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 41547,"Retired",0,0,"Wuzzo"
 41548,"Retired",0,0,"Dribbal"
 41549,"Retired",0,0,"Gurggle"
@@ -993,15 +1020,96 @@
 41551,"Retired",0,0,"Snax"
 41552,"Retired",0,0,"Berp"
 41553,"Retired",0,0,"Vaka-Waka"
-41554,"Unknown",4.99,2.48,"Kuffs"
-41555,"Unknown",4.99,2.48,"Busto"
-41556,"Unknown",4.99,2.48,"Tiketz"
-41557,"Unknown",4.99,2.48,"Camillot"
-41558,"Unknown",4.99,2.48,"Mixadel"
-41559,"Unknown",4.99,2.48,"Paladum"
-41560,"Unknown",4.99,2.48,"Jamzy"
-41561,"Unknown",4.99,2.48,"Tapsy"
-41562,"Unknown",4.99,2.48,"Trumpsy"
+41554,"Retired",0,0,"Kuffs"
+array(1) {
+  [0]=>
+  object(stdClass)#7851 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41555,"Retired",0,0,"Busto"
+array(1) {
+  [0]=>
+  object(stdClass)#7849 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41556,"Retired",0,0,"Tiketz"
+array(1) {
+  [0]=>
+  object(stdClass)#7850 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41557,"Retired",0,0,"Camillot"
+array(1) {
+  [0]=>
+  object(stdClass)#7855 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41558,"Retired",0,0,"Mixadel"
+array(1) {
+  [0]=>
+  object(stdClass)#7854 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41559,"Retired",0,0,"Paladum"
+array(1) {
+  [0]=>
+  object(stdClass)#7852 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41560,"Retired",0,0,"Jamzy"
+array(1) {
+  [0]=>
+  object(stdClass)#7851 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41561,"Retired",0,0,"Tapsy"
+array(1) {
+  [0]=>
+  object(stdClass)#7849 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+41562,"Retired",0,0,"Trumpsy"
+array(1) {
+  [0]=>
+  object(stdClass)#7850 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 41563,"Unknown",4.99,3.99,"Splasho"
 41564,"Unknown",4.99,3.99,"Aquad"
 41565,"Unknown",4.99,3.99,"Hydro"
@@ -1161,9 +1269,27 @@
 60064,"Retired",0,0,"Arctic Supply Plane"
 60065,"Retired",0,0,"ATV Patrol"
 60066,"Retired",0,0,"Swamp Police Starter Set"
-60067,"Unknown",39.99,27.98,"Helicopter Pursuit"
+60067,"Retired",0,0,"Helicopter Pursuit"
+array(1) {
+  [0]=>
+  object(stdClass)#7855 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 60068,"Retired",0,0,"Crooks’ Hideout"
-60069,"Unknown",89.99,62.98,"Swamp Police Station"
+60069,"Retired",0,0,"Swamp Police Station"
+array(1) {
+  [0]=>
+  object(stdClass)#7854 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 60070,"Retired",0,0,"Water Plane Chase"
 60071,"Out of Stock",44.99,31.48,"Hovercraft Arrest"
 60072,"Unknown",9.99,0,"Demolition Starter Set"
@@ -1414,16 +1540,43 @@
 70743,"Unknown",9.99,0,"Airjitzu Morro Flyer"
 70744,"Unknown",9.99,7.99,"Airjitzu Wrayth Flyer"
 70745,"Retired",0,0,"Anacondrai Crusher"
-70746,"Unknown",29.99,20.98,"Condrai Copter Attack"
+70746,"Retired",0,0,"Condrai Copter Attack"
+array(1) {
+  [0]=>
+  object(stdClass)#7852 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 70747,"Out of Stock",29.99,20.98,"Boulder Blaster"
 70748,"Unknown",39.99,27.98,"Titanium Dragon"
-70749,"Unknown",59.99,41.98,"Enter the Serpent"
+70749,"Retired",0,0,"Enter the Serpent"
+array(1) {
+  [0]=>
+  object(stdClass)#7851 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 70750,"Retired",0,0,"Ninja DB X"
 70751,"Unknown",199.99,0,"Temple of Airjitzu"
 70752,"Retired",0,0,"Jungle Trap"
 70753,"Retired",0,0,"Lava Falls"
 70754,"Retired",0,0,"ElectroMech"
-70755,"Unknown",19.99,13.98,"Jungle Raider"
+70755,"Retired",0,0,"Jungle Raider"
+array(1) {
+  [0]=>
+  object(stdClass)#7849 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 70756,"Out of Stock",24.99,19.98,"Dojo Showdown"
 70778,"Retired",0,0,"Protector of Jungle"
 70779,"Retired",0,0,"Protector of Stone"
@@ -1439,10 +1592,37 @@
 70789,"Retired",0,0,"Onua – Master of Earth"
 70790,"Retired",0,0,"Lord of Skull Spiders"
 70791,"Unknown",14.99,10.48,"Skull Warrior"
-70792,"Unknown",14.99,10.48,"Skull Slicer"
-70793,"Unknown",14.99,10.48,"Skull Basher"
+70792,"Retired",0,0,"Skull Slicer"
+array(1) {
+  [0]=>
+  object(stdClass)#7850 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+70793,"Retired",0,0,"Skull Basher"
+array(1) {
+  [0]=>
+  object(stdClass)#7855 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 70794,"Out of Stock",14.99,10.48,"Skull Scorpio"
-70795,"Unknown",29.99,20.98,"Mask Maker vs. Skull Grinder"
+70795,"Retired",0,0,"Mask Maker vs. Skull Grinder"
+array(1) {
+  [0]=>
+  object(stdClass)#7854 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 70800,"Retired",0,0,"Getaway Glider"
 70801,"Retired",0,0,"Melting Room"
 70802,"Retired",0,0,"Bad Cop's Pursuit"
@@ -1525,13 +1705,67 @@
 71302,"Unknown",9.99,6.98,"Akida Creature of Water"
 71303,"Unknown",9.99,6.98,"Ikir Creature of Fire"
 71304,"Unknown",9.99,6.98,"Terak Creature of Earth"
-71305,"Unknown",14.99,10.48,"Lewa Uniter of Jungle"
-71306,"Unknown",14.99,10.48,"Pohatu Uniter of Stone"
-71307,"Unknown",14.99,10.48,"Gali Uniter of Water"
-71308,"Unknown",19.99,13.98,"Tahu Uniter of Fire"
+71305,"Retired",0,0,"Lewa Uniter of Jungle"
+array(1) {
+  [0]=>
+  object(stdClass)#7852 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71306,"Retired",0,0,"Pohatu Uniter of Stone"
+array(1) {
+  [0]=>
+  object(stdClass)#7851 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71307,"Retired",0,0,"Gali Uniter of Water"
+array(1) {
+  [0]=>
+  object(stdClass)#7849 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71308,"Retired",0,0,"Tahu Uniter of Fire"
+array(1) {
+  [0]=>
+  object(stdClass)#7850 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 71309,"Out of Stock",19.99,13.98,"Onua Uniter of Earth"
-71310,"Unknown",19.99,13.98,"Umarak the Hunter"
-71311,"Unknown",24.99,17.48,"Kopaka and Melum - Unity set"
+71310,"Retired",0,0,"Umarak the Hunter"
+array(1) {
+  [0]=>
+  object(stdClass)#7855 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
+71311,"Retired",0,0,"Kopaka and Melum - Unity set"
+array(1) {
+  [0]=>
+  object(stdClass)#7854 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 71312,"Unknown",14.99,0,"Ekimu the Mask Maker"
 71313,"Unknown",14.99,0,"Lava Beast"
 71314,"Unknown",14.99,0,"Storm Beast"
@@ -1917,7 +2151,7 @@
 853534,"Unknown",5.99,4.99,"Keychain Airjitzu Jay"
 853538,"Unknown",5.99,4.99,"LEGO® NINJAGO™ Skybound Cole Key Chain"
 853543,"Unknown",7.99,0,"Ninjago Party Set"
-853544,"Unknown",14.99,0,"LEGO NINJAGO Accessory Set"
+853544,"Unknown",14.99,0,"LEGO® NINJAGO™ Accessory Set"
 853547,"Unknown",5.99,4.99,"LEGO® Friends Emma Key Chain"
 853548,"Unknown",5.99,4.99,"LEGO® Friends Andrea Key Chain"
 853549,"Unknown",5.99,4.99,"LEGO® Friends Mia Key Chain"
@@ -1933,7 +2167,7 @@
 853563,"Unknown",5.99,4.99,"LEGO® Elves Fledge the Baby Dragon Bag Charm"
 853564,"Unknown",14.99,0,"LEGO® Elves Me and My Dragon Display"
 853565,"Unknown",14.99,0,"LEGO® Elves Emily Jones’ Diary Sketch Book"
-853568,"Unknown",5.99,4.99,"Keychain Prison Guard"
+853568,"Unknown",5.99,4.99,"LEGO® City Prison Guard Key Chain"
 853569,"Unknown",12.99,0,"LEGO® Notebook with Studs"
 853571,"Unknown",5.99,4.99,"Keychain Hot Dog Guy"
 853572,"Unknown",5.99,4.99,"Keychain Bumble Bee"
