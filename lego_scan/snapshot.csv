@@ -1425,15 +1425,6 @@
 70754,"Retired",0,0,"ElectroMech"
 70755,"Retired",0,0,"Jungle Raider"
 70756,"Unknown",24.99,19.98,"Dojo Showdown"
-array(1) {
-  [0]=>
-  object(stdClass)#7849 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 70778,"Retired",0,0,"Protector of Jungle"
 70779,"Retired",0,0,"Protector of Stone"
 70780,"Retired",0,0,"Protector of Water"
