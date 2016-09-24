@@ -2015,15 +2015,6 @@
 5004611,"Unknown",24.99,0,"THE LEGO® MOVIE™ Emmet Minifigure Watch"
 5004612,"Unknown",24.99,0,"THE LEGO® MOVIE™ Lucy/Wyldstyle Minifigure Link Watch"
 5004720,"Unknown",29.99,7.48,"LEGO® NINJAGO™: Shadow of Ronin (PS Vita™)"
-array(1) {
-  [0]=>
-  object(stdClass)#7854 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 5004721,"Unknown",29.99,7.48,"LEGO® NINJAGO™: Shadow of Ronin Nintendo 3DS™ Video Game"
 5004849,"Unknown",19.99,9.98,"Legends of CHIMA™: Legend of the Fire CHI Season 2 Part 2 (DVD)"
 5004851,"Unknown",14.99,7.48,"LEGO® Friends: Friends Together Again"
