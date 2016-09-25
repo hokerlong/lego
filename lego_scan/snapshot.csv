@@ -1860,7 +1860,16 @@
 851394,"Unknown",5.99,4.99,"LEGO® Iconic Gingerbread Key Chain"
 851399,"Unknown",16.99,13.59,"LEGO® Iconic Minifigure Carry Case"
 851400,"Unknown",12.99,10.39,"Upscaled Mug – Red"
-851402,"Out of Stock",14.99,7.49,"Wall Stickers"
+851402,"Unknown",14.99,7.49,"Wall Stickers"
+array(1) {
+  [0]=>
+  object(stdClass)#3878 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 851406,"Unknown",5.99,4.99,"Metalized 2x4 Key Chain"
 851407,"Unknown",4.99,0,"LEGO® Holiday Wrapping Paper"
 851578,"Unknown",5.99,4.99,"LEGO® Friends Horse Bag Charm"
