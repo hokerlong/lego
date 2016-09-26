@@ -1878,15 +1878,6 @@
 853440,"Out of Stock",9.99,0,"LEGO® Friends Jewelry Set"
 853443,"Unknown",12.99,0,"LEGO® Friends Name Sign"
 853447,"Out of Stock",16.99,3.98,"LEGO® NINJAGO™ Ninja Sword & Sheath"
-array(1) {
-  [0]=>
-  object(stdClass)#3877 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 853449,"Unknown",5.99,4.99,"LEGO® Star Wars™ Yoda™ Key Chain"
 853451,"Unknown",5.99,4.99,"LEGO® Star Wars™ Chewbacca™ Key Chain"
 853454,"Unknown",5.99,4.99,"LEGO® DC Comics™ Super Heroes Flash Key Chain"
