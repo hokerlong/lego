@@ -1521,119 +1521,11 @@
 71240,"Unknown",11.99,0,"Bane™ Fun Pack"
 71241,"Unknown",11.99,0,"Slimer Fun Pack"
 71242,"Unknown",49.99,0,"Ghostbusters™ Story Pack"
-array(1) {
-  [0]=>
-  object(stdClass)#3874 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#3873 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 71245,"Unknown",29.99,0,"Adventure Time™ Level Pack"
-array(1) {
-  [0]=>
-  object(stdClass)#3871 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#3870 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 71246,"Unknown",24.99,0,"Adventure Time™ Team Pack"
-array(1) {
-  [0]=>
-  object(stdClass)#3868 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#3869 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 71247,"Unknown",24.99,0,"Harry Potter™ Team Pack"
-array(1) {
-  [0]=>
-  object(stdClass)#3874 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#3873 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 71248,"Unknown",29.99,0,"Mission: Impossible™ Level Pack"
-array(1) {
-  [0]=>
-  object(stdClass)#3871 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#3870 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 71251,"Unknown",11.99,0,"A-Team™ Fun Pack"
-array(1) {
-  [0]=>
-  object(stdClass)#3868 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
-array(1) {
-  [0]=>
-  object(stdClass)#3869 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 71300,"Unknown",9.99,6.98,"Uxar Creature of Jungle"
 71301,"Unknown",9.99,6.98,"Ketar Creature of Stone"
 71302,"Unknown",9.99,6.98,"Akida Creature of Water"
