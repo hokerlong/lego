@@ -1853,7 +1853,16 @@
 851005,"Unknown",5.99,4.99,"LEGO® DC Comics™ Super Heroes Batgirl Key Chain"
 851336,"Unknown",7.99,3.98,"LEGO® NINJAGO™ Ninja Fork Weapon"
 851338,"Unknown",12.99,10.39,"LEGO® NINJAGO™ Ninja Belt & Throwing Star"
-851342,"Unknown",14.99,10.48,"LEGO® NINJAGO™ Ninja Army Building Set."
+851342,"Out of Stock",14.99,10.48,"LEGO® NINJAGO™ Ninja Army Building Set."
+array(1) {
+  [0]=>
+  object(stdClass)#3877 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 851348,"Unknown",14.99,7.49,"LEGO® NINJAGO™ Wall Stickers"
 851351,"Unknown",5.99,4.99,"LEGO® NINJAGO™ Ninja Kai Key Chain"
 851352,"Unknown",5.99,4.99,"LEGO® NINJAGO™ Titanium Ninja Zane Key Chain"
