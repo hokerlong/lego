@@ -1679,15 +1679,6 @@
 75157,"Unknown",119.99,0,"Captain Rex's AT-TE™"
 75158,"Unknown",109.99,0,"Rebel Combat Frigate"
 75159,"Unknown",499.99,0,"Death Star™"
-array(1) {
-  [0]=>
-  object(stdClass)#3877 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 75821,"Unknown",12.99,0,"Piggy Car Escape"
 75822,"Unknown",19.99,0,"Piggy Plane Attack"
 75823,"Unknown",29.99,0,"Bird Island Egg Heist"
