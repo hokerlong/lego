@@ -484,15 +484,6 @@
 10252,"Unknown",99.99,0,"Volkswagen Beetle"
 10253,"Unknown",249.99,0,"Big Ben"
 10254,"Unknown",99.99,0,"Winter Holiday Train"
-array(1) {
-  [0]=>
-  object(stdClass)#3877 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 10500,"Retired",0,0,"Horse Stable"
 10501,"Retired",0,0,"Zoo Friends"
 10502,"Retired",0,0,"Zoo Bus"
@@ -1545,15 +1536,6 @@ array(1) {
 71307,"Retired",0,0,"Gali Uniter of Water"
 71308,"Retired",0,0,"Tahu Uniter of Fire"
 71309,"Unknown",19.99,13.98,"Onua Uniter of Earth"
-array(1) {
-  [0]=>
-  object(stdClass)#3876 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 71310,"Retired",0,0,"Umarak the Hunter"
 71311,"Retired",0,0,"Kopaka and Melum - Unity set"
 71312,"Unknown",14.99,0,"Ekimu the Mask Maker"
