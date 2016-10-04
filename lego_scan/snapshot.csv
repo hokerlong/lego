@@ -1488,7 +1488,16 @@
 71012,"Unknown",3.99,0,"The Disney Series"
 71013,"Unknown",3.99,0,"Series 16"
 71016,"Unknown",199.99,0,"The Kwik-E-Mart"
-71040,"Out of Stock",349.99,0,"The Disney Castle"
+71040,"Unknown",349.99,0,"The Disney Castle"
+array(1) {
+  [0]=>
+  object(stdClass)#7597 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 71170,"Unknown",79.99,0,"LEGO® DIMENSIONS™ PLAYSTATION® 3 Starter Pack"
 71171,"Unknown",89.99,0,"LEGO® DIMENSIONS™ PLAYSTATION® 4 Starter Pack"
 71172,"Unknown",89.99,0,"LEGO® DIMENSIONS™ Xbox One Starter Pack"
