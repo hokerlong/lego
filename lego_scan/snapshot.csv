@@ -1007,7 +1007,16 @@
 41564,"Unknown",4.99,3.99,"Aquad"
 41565,"Unknown",4.99,3.99,"Hydro"
 41566,"Unknown",4.99,3.99,"Sharx"
-41567,"Out of Stock",4.99,3.99,"Skulzy"
+41567,"Unknown",4.99,3.99,"Skulzy"
+array(1) {
+  [0]=>
+  object(stdClass)#7552 (2) {
+    ["code"]=>
+    int(89)
+    ["message"]=>
+    string(25) "Invalid or expired token."
+  }
+}
 41568,"Out of Stock",4.99,3.99,"Lewt"
 41569,"Unknown",4.99,3.99,"Surgeo"
 41570,"Unknown",4.99,3.99,"Skrubz"
