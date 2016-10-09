@@ -1010,15 +1010,6 @@
 41566,"Unknown",4.99,3.99,"Sharx"
 41567,"Unknown",4.99,3.99,"Skulzy"
 41568,"Unknown",4.99,3.99,"Lewt"
-array(1) {
-  [0]=>
-  object(stdClass)#7558 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 41569,"Unknown",4.99,3.99,"Surgeo"
 41570,"Unknown",4.99,3.99,"Skrubz"
 41571,"Unknown",4.99,3.99,"Tuth"
@@ -1186,15 +1177,6 @@ array(1) {
 60069,"Retired",0,0,"Swamp Police Station"
 60070,"Retired",0,0,"Water Plane Chase"
 60071,"Unknown",44.99,31.48,"Hovercraft Arrest"
-array(1) {
-  [0]=>
-  object(stdClass)#7557 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 60072,"Unknown",9.99,0,"Demolition Starter Set"
 60073,"Unknown",24.99,0,"Service Truck"
 60074,"Unknown",39.99,0,"Bulldozer"
