@@ -1234,7 +1234,7 @@
 60130,"Unknown",89.99,0,"Prison Island"
 60131,"Unknown",29.99,23.99,"Crooks Island"
 60132,"Unknown",89.99,0,"Service Station"
-60133,"Out of Stock",29.99,0,"LEGO® City Advent Calendar"
+60133,"Unknown",29.99,0,"LEGO® City Advent Calendar"
 60134,"Unknown",39.99,0,"Fun in the park - City People Pack"
 70000,"Retired",0,0,"Razcal’s Glider"
 70001,"Retired",0,0,"Crawley’s Claw Ripper"
@@ -1489,15 +1489,6 @@
 71013,"Unknown",3.99,0,"Series 16"
 71016,"Unknown",199.99,0,"The Kwik-E-Mart"
 71040,"Unknown",349.99,0,"The Disney Castle"
-array(1) {
-  [0]=>
-  object(stdClass)#3720 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 71170,"Unknown",79.99,0,"LEGO® DIMENSIONS™ PLAYSTATION® 3 Starter Pack"
 71171,"Unknown",89.99,0,"LEGO® DIMENSIONS™ PLAYSTATION® 4 Starter Pack"
 71172,"Unknown",89.99,0,"LEGO® DIMENSIONS™ Xbox One Starter Pack"
