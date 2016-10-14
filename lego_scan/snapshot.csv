@@ -1013,15 +1013,6 @@
 41569,"Unknown",4.99,3.99,"Surgeo"
 41570,"Unknown",4.99,3.99,"Skrubz"
 41571,"Unknown",4.99,3.99,"Tuth"
-array(1) {
-  [0]=>
-  object(stdClass)#3720 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 41572,"Unknown",4.99,0,"Gobbol"
 41573,"Unknown",4.99,0,"Sweepz"
 41574,"Unknown",4.99,0,"Compax"
