@@ -667,31 +667,31 @@ function crawl_target()
 	$perpage = 120; // max per page = 40
 	$ret = new stdClass();
 	$ret->{'Provider'} = "www.target.com";
-	$ret->{'URL'} = "http://tws.target.com/searchservice/item/search_results/v2/by_keyword?search_term=lego&zone=mobile&alt=json&response_group=Items&category=5xtb0";
+	$ret->{'URL'} = "http://redsky.target.com/v1/plp/search?category=5xtb0&sort_by=Featured&faceted_value=56h5n";
 	$ret->{'ItemCount'} = 0;
 	$ret->{'Items'} = array();
 	for ($i = 0; $i < $page; $i++)
 	{
-		$url = $ret->{'URL'}."&page=".($i+1)."&pageCount=".$perpage."&offset=".($i*$perpage);
+		$url = $ret->{'URL'}."&count=".$perpage."&offset=".($i*$perpage);
 		$response = json_decode(curl($url));
 
-		$total = intval($response->searchResponse->searchState->Arguments->Argument[10]->value);
+		$total = intval($response->search_response->metaData[1]->value);
 		$page = ceil($total/$perpage);
 
-		$items = $response->searchResponse->items->Item;
+		$items = $response->search_response->items->Item;
 		foreach ($items as $item)
 		{
 			$retItem = new stdClass();
-			$retItem->{'Price'} = str_replace("$", "", $item->priceSummary->offerPrice->amount);
+			$retItem->{'Price'} = str_replace("$", "", $item->offer_price->price);
 			$retItem->{'Title'} = $item->title;
 			$retItem->{'TargetID'} = $item->tcin;
 
-			$availability = $item->inventorySummary->availabilityInventoryCode;
-			if ($availability == "0")
+			$availability = $item->availability_status;
+			if ($availability == "IN_STOCK")
 			{
 				$retItem->{'Availability'} = "Available";
 			}
-			elseif ($availability == "6")
+			elseif ($availability == "OUT_OF_STOCK")
 			{
 				$retItem->{'Availability'} = "Out of Stock";
 			}
