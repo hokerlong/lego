@@ -476,15 +476,6 @@
 10243,"Unknown",159.99,0,"Parisian Restaurant"
 10244,"Unknown",149.99,0,"Fairground Mixer"
 10245,"Out of Stock",69.99,0,"Santa's Workshop"
-array(1) {
-  [0]=>
-  object(stdClass)#3712 (2) {
-    ["code"]=>
-    int(89)
-    ["message"]=>
-    string(25) "Invalid or expired token."
-  }
-}
 10246,"Unknown",159.99,0,"Detective’s Office"
 10247,"Unknown",199.99,0,"Ferris Wheel"
 10248,"Unknown",99.99,0,"Ferrari F40"
