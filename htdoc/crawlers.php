@@ -424,7 +424,7 @@ function crawl_lego()
 				$retItem->{'LegoID'} = $LegoID;
 				$retItem->{'Title'} = html_entity_decode($item->find('/h4/a[title]', 0)->plaintext, ENT_NOQUOTES, 'UTF-8');
 				$retItem->{'Badge'} = html_entity_decode($item->find('/ul[@id="product-badges"]/li', 0)->plaintext, ENT_NOQUOTES, 'UTF-8');
-				$retItem->{'URL'} = $item->find('/h4/a[title]', 0)->href;
+				$retItem->{'URL'} = str_replace("en-us", "en-US", $item->find('/h4/a[title]', 0)->href);
 				$strAvailability = trim(html_entity_decode($item->find('/ul/li[class^="availability"]/em', 0)->plaintext, ENT_NOQUOTES, 'UTF-8'));
 				if ($strAvailability == "Retired product")
 				{
