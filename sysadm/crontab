@@ -1,5 +1,7 @@
 #crontab is overriding by /home/ec2-user/git/lego/sysadm/crontab every 10 mins.
 */10 * * * *  crontab /home/ec2-user/git/lego/sysadm/crontab >/dev/null 2>&1
+0 1 * * 7     sudo yum update -y >> /home/ec2-user/logs/yum_update.log 2>&1
+30 16 * * * * /usr/bin/python /home/ec2-user/spdb_app_signin.py >> /home/ec2-user/logs/spdb_app_signin.log 2>&1 
 */10 * * * *  /home/ec2-user/git/lego/sysadm/git_publish.sh >/dev/null 2>&1
 0 * * * *     /home/ec2-user/git/lego/sysadm/legoshop_scan.sh >/dev/null 2>&1
 */20 * * * *	/home/ec2-user/git/lego/sysadm/taobao_price.sh > /dev/null 2>&1
