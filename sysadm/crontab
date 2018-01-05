@@ -2,7 +2,7 @@
 */10 * * * *  crontab /home/ec2-user/git/lego/sysadm/crontab >/dev/null 2>&1
 0 1 * * 7     sudo yum update -y >> /home/ec2-user/logs/yum_update.log 2>&1
 */5 * * * *  /home/ec2-user/get_nest_temp.py >> /home/ec2-user/logs/nest_temp.log 2>&1
-*/5 * * * *  /home/ec2-user/get_location.py >> /home/ec2-user/logs/icloud_location.log 2>&1
+#*/5 * * * *  /home/ec2-user/get_location.py >> /home/ec2-user/logs/icloud_location.log 2>&1
 
 */10 * * * *  /home/ec2-user/git/lego/sysadm/git_publish.sh >/dev/null 2>&1
 #5,35 * * * *	/usr/bin/php /home/ec2-user/htdoc/price_scan.php Walmart >> /home/ec2-user/logs/walmart_scan.log 2>&1
